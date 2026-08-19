@@ -28,13 +28,14 @@ export const SessionImpactBanner: React.FC<SessionImpactBannerProps> = ({
   );
 
   return (
-    <div className="bg-[#fcfbee] border border-[#dcd6a8] rounded-xs px-3 sm:px-4 py-2.5 mb-4 sm:mb-6 flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[#443b18] text-center sm:text-left">
-      <div>
-        {dict.sessionBanner.timeOnPage} <strong className="text-gray-900 font-bold">{formatElapsedTime(sessionSeconds)}</strong>
+    <div className="bg-[#f4f7fa] border border-[#dce3ea] rounded-xs px-3 py-1.5 mb-3 sm:mb-4 flex flex-wrap items-center justify-between gap-1.5 text-[11px] text-gray-600">
+      <div className="flex items-center gap-1">
+        <span>{dict.sessionBanner.timeOnPage}</span>
+        <strong className="text-[#14324f] font-semibold">{formatElapsedTime(sessionSeconds)}</strong>
       </div>
-      <div>
-        {dict.sessionBanner.spendDuringVisit}{' '}
-        <strong className="text-black font-black tabular-numbers text-xs sm:text-sm">
+      <div className="flex items-center gap-1.5">
+        <span>{dict.sessionBanner.spendDuringVisit}</span>
+        <strong className="text-[#14324f] font-bold tabular-numbers">
           {formatCurrencyValue(sessionSpendCurrency, activeCurrency)}
         </strong>
       </div>

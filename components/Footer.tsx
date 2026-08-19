@@ -7,7 +7,7 @@ import { CurrencyCode } from '@/types/spend';
 import { Locale, SUPPORTED_LOCALES } from '@/types/i18n';
 import { CURRENCIES, CATEGORIES } from '@/data/spendData';
 import { getDictionary, getLocalizedPath, getLocalizedSpendItems } from '@/utils/i18n';
-import { Globe, Database, ExternalLink, Code2, Sparkles } from 'lucide-react';
+import { Globe } from 'lucide-react';
 
 interface FooterProps {
   locale?: Locale;
@@ -35,42 +35,26 @@ export const Footer: React.FC<FooterProps> = ({
 
   const getHref = (path: string) => (locale === 'en' ? path : `/${locale}${path}`);
 
-  // Featured high-interest counters
-  const featuredIds = [
-    'cristiano-ronaldo-annual-earnings-wealth',
-    'lionel-messi-annual-earnings-wealth',
-    'lamine-yamal-annual-earnings-wealth',
-    'top-10-football-clubs-transfer-spending',
-    'ai-datacenters-chatgpt-spending',
-    'weight-loss-drugs-ozempic-spending',
-    'global-illicit-drug-trade',
-    'spain-equality-ministry-budget',
-    'cost-raising-child-18-years',
-  ];
-
-  const featuredItems = items.filter((it) => featuredIds.includes(it.id)).slice(0, 8);
-
   return (
-    <footer className="mt-8 sm:mt-14 border-t-2 border-[#1c4b78] bg-[#e4ebf2] py-8 px-3 sm:px-6 text-xs text-[#445566]">
-      <div className="max-w-5xl mx-auto space-y-8">
-        {/* Top 4-Column Navigation & Data Directory Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-[11px] leading-relaxed">
+    <footer className="mt-auto border-t border-[#c8d6e5] bg-[#e8f0f8] py-6 px-4 sm:px-6 text-xs text-[#445566] w-full">
+      <div className="max-w-4xl mx-auto space-y-6">
+        {/* Clean 2-Column Navigation Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-[11px] leading-relaxed">
           {/* Column 1: Categories */}
           <div>
-            <div className="font-bold text-[#14324f] text-xs uppercase tracking-wider mb-2.5 flex items-center gap-1.5 border-b border-[#cbd5e1] pb-1">
-              <Globe className="w-3.5 h-3.5 text-[#1c4b78]" />
-              <span>{dict.footer.categoriesTitle || 'Categories'}</span>
+            <div className="font-bold text-[#14324f] text-xs uppercase tracking-wider mb-2 border-b border-[#cbd5e1] pb-1">
+              {dict.footer.categoriesTitle || 'CATEGORÍAS DE GASTO'}
             </div>
-            <ul className="space-y-1.5 text-gray-700">
+            <ul className="space-y-1 text-gray-700">
               {CATEGORIES.filter((c) => c.id !== 'all').map((cat) => {
                 const catContent = dict.categories[cat.id] || { name: cat.name };
                 return (
                   <li key={cat.id}>
                     <Link
                       href={getHref(`/?cat=${cat.id}`)}
-                      className="hover:text-[#1c4b78] hover:underline flex items-center gap-1"
+                      className="hover:text-[#1c4b78] hover:underline"
                     >
-                      <span className="text-[#1c4b78]">•</span>
+                      <span className="text-[#6688aa] mr-1.5">•</span>
                       <span>{catContent.name}</span>
                     </Link>
                   </li>
@@ -81,110 +65,49 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 2: Popular Trending Counters */}
           <div>
-            <div className="font-bold text-[#14324f] text-xs uppercase tracking-wider mb-2.5 flex items-center gap-1.5 border-b border-[#cbd5e1] pb-1">
-              <Sparkles className="w-3.5 h-3.5 text-[#eab308]" />
-              <span>{dict.footer.trendingTitle || 'Popular Metrics'}</span>
+            <div className="font-bold text-[#14324f] text-xs uppercase tracking-wider mb-2 border-b border-[#cbd5e1] pb-1">
+              {dict.footer.trendingTitle || 'CONTADORES POPULARES'}
             </div>
-            <ul className="space-y-1.5 text-gray-700">
-              {featuredItems.map((item) => (
+            <ul className="space-y-1 text-gray-700">
+              {items.slice(0, 5).map((item) => (
                 <li key={item.id} className="truncate">
                   <Link
                     href={getHref(`/stat/${item.id}`)}
                     className="hover:text-[#1c4b78] hover:underline"
                     title={item.title}
                   >
-                    <span className="text-[#1c4b78] mr-1">•</span>
+                    <span className="text-[#6688aa] mr-1.5">•</span>
                     {item.title}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
 
-          {/* Column 3: Data Institutions & Sources */}
-          <div>
-            <div className="font-bold text-[#14324f] text-xs uppercase tracking-wider mb-2.5 flex items-center gap-1.5 border-b border-[#cbd5e1] pb-1">
-              <Database className="w-3.5 h-3.5 text-[#059669]" />
-              <span>{dict.footer.sourcesTitle || 'Data Sources'}</span>
-            </div>
-            <ul className="space-y-1.5 text-gray-700">
-              <li>
-                <span className="font-semibold text-gray-800">UNODC / UN:</span> World Drug Report
-              </li>
-              <li>
-                <span className="font-semibold text-gray-800">SIPRI:</span> Military Expenditure
-              </li>
-              <li>
-                <span className="font-semibold text-gray-800">WHO:</span> Global Health Observatory
-              </li>
-              <li>
-                <span className="font-semibold text-gray-800">FIFA TMS & Deloitte:</span> Football Money
-              </li>
-              <li>
-                <span className="font-semibold text-gray-800">Forbes & Bloomberg:</span> Wealth Indexes
-              </li>
-              <li>
-                <span className="font-semibold text-gray-800">INE & Eurostat:</span> Public Budgets
-              </li>
-              <li>
-                <span className="font-semibold text-gray-800">UNESCO & INTERPOL:</span> Works of Art
-              </li>
-              <li>
-                <span className="font-semibold text-gray-800">IEA & OPEC:</span> Energy & Crude Oil
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Platform & Webmaster Tools */}
-          <div>
-            <div className="font-bold text-[#14324f] text-xs uppercase tracking-wider mb-2.5 flex items-center gap-1.5 border-b border-[#cbd5e1] pb-1">
-              <Code2 className="w-3.5 h-3.5 text-[#8b5cf6]" />
-              <span>{dict.footer.toolsTitle || 'Tools & Resources'}</span>
-            </div>
-            <ul className="space-y-1.5 text-gray-700">
-              <li>
-                <span className="text-gray-500 flex items-center gap-1 font-semibold cursor-not-allowed select-none">
-                  <span>•</span>
-                  <span>{dict.header.compareNav}</span>
-                  <span className="text-[9px] font-bold text-amber-700 bg-amber-100 px-1 py-0.2 rounded-xs uppercase">
-                    {dict.header.soonBadge || 'Soon'}
-                  </span>
-                </span>
-              </li>
-              <li>
-                <Link
-                  href={getHref('/stat/cristiano-ronaldo-annual-earnings-wealth')}
-                  className="hover:text-[#1c4b78] hover:underline flex items-center gap-1"
-                >
-                  <span className="text-[#1c4b78]">•</span>
-                  <span>{dict.footer.toolsEmbedWidgets || 'Embeddable Live Widgets'}</span>
-                </Link>
-              </li>
-              <li>
-                <span className="text-[#1c4b78] mr-1">•</span>
-                <span>{dict.footer.toolsEngine || '60 FPS Dynamic Engine'}</span>
-              </li>
-              <li>
-                <span className="text-[#1c4b78] mr-1">•</span>
-                <span>{dict.footer.toolsMultiCurrency || 'Multi-Currency Converter (11 Currencies)'}</span>
-              </li>
-              <li>
-                <span className="text-[#1c4b78] mr-1">•</span>
-                <span>{dict.footer.toolsHreflang || 'Hreflang SEO Architecture'}</span>
-              </li>
-            </ul>
+        {/* Methodology Callout */}
+        <div className="bg-[#f0f5fa] border border-[#cbd6e2] rounded-xs px-3.5 py-2 text-xs">
+          <div className="text-gray-700 leading-snug">
+            <span className="font-bold text-[#14324f] mr-1">{dict.footer.methodologyTitle}:</span>
+            <span className="text-gray-600">{dict.footer.methodologyBody}</span>
           </div>
         </div>
 
-        {/* Footer Bottom Bar with Copyright & Quick Selectors */}
-        <div className="pt-3 border-t border-[#cbd5e1] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#667788] text-center sm:text-left">
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2">
-            <span className="font-bold text-[#14324f] flex items-center gap-1">
-              <Globe className="w-3.5 h-3.5 text-[#1c4b78]" />
-              WorldSpend.org
-            </span>
+        {/* Footer Bottom Bar with Copyright & Selectors */}
+        <div className="pt-3 border-t border-[#cbd5e1] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#667788]">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <Link
+              href={getHref('/')}
+              className="flex items-center gap-1.5 group cursor-pointer no-underline shrink-0"
+              title="WorldSpend.org"
+            >
+              <Globe className="w-4 h-4 text-[#1c4b78] group-hover:text-[#14324f] transition-colors shrink-0" />
+              <span className="text-sm font-black tracking-tight text-[#14324f] group-hover:text-[#1c4b78] transition-colors">
+                WORLDSPEND
+              </span>
+            </Link>
             <span className="hidden sm:inline text-gray-400">•</span>
-            <span>© {new Date().getFullYear()} {dict.footer.copyrightNotice || 'WorldSpend Global Financial Analytics'}</span>
+            <span>© {new Date().getFullYear()} {dict.footer.copyrightNotice || 'WorldSpend Análisis Financiero Global'}</span>
           </div>
 
           {/* Footer Selectors */}
@@ -195,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({
                 value={currencyCode}
                 aria-label={dict.header.selectCurrency}
                 onChange={(e) => setCurrencyCode(e.target.value as CurrencyCode)}
-                className="text-[11px] sm:text-xs font-bold bg-white text-gray-800 border border-[#a0b0c0] rounded-xs px-2 py-1 focus:outline-none cursor-pointer shadow-2xs"
+                className="text-[11px] font-bold bg-[#ffffff] text-[#14324f] border border-[#b0c0d0] rounded-xs px-2 py-0.5 focus:outline-none cursor-pointer shadow-2xs"
               >
                 {Object.values(CURRENCIES).map((c) => (
                   <option key={c.code} value={c.code}>
@@ -210,7 +133,7 @@ export const Footer: React.FC<FooterProps> = ({
               value={locale}
               aria-label={dict.header.selectLanguage}
               onChange={(e) => handleLanguageChange(e.target.value as Locale)}
-              className="text-[11px] sm:text-xs font-bold bg-white text-gray-800 border border-[#a0b0c0] rounded-xs px-2 py-1 focus:outline-none cursor-pointer shadow-2xs"
+              className="text-[11px] font-bold bg-[#ffffff] text-[#14324f] border border-[#b0c0d0] rounded-xs px-2 py-0.5 focus:outline-none cursor-pointer shadow-2xs"
             >
               {Object.values(SUPPORTED_LOCALES).map((loc) => (
                 <option key={loc.code} value={loc.code}>
@@ -224,4 +147,3 @@ export const Footer: React.FC<FooterProps> = ({
     </footer>
   );
 };
-

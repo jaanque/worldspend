@@ -20,17 +20,25 @@
     padding: 0;
   }
 
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #edf1f5;
+  }
+
   html {
     color-scheme: light;
-    background-color: #edf1f5;
     color: #222222;
     font-family: Arial, Helvetica, "Trebuchet MS", sans-serif;
   }
 
   body {
-    background-color: #edf1f5;
     color: #222222;
     min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -114,6 +122,6 @@
 }
 
 .accordion-inner {
-  overflow: hidden;
+  min-height: 0;
 }
 

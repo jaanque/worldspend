@@ -8,7 +8,7 @@ export interface CurrencyConfig {
   decimals: number;
 }
 
-export type TimeframeMode = 'year' | 'today' | 'session' | 'second';
+export type TimeframeMode = 'year' | 'today' | 'session' | 'second' | 'custom';
 
 export type CategoryId =
   | 'all'
@@ -49,6 +49,10 @@ export interface SpendItem {
   description: string;
   sourceName: string;
   sourceUrl?: string;
+  sources?: {
+    name: string;
+    url: string;
+  }[];
   sourceYear: number;
   breakdown?: {
     label: string;
@@ -59,6 +63,8 @@ export interface SpendItem {
     year: number;
     spendUSD: number;
   }[];
+  countryCode?: string; // e.g. 'ES', 'US', 'GLOBAL', etc.
+  countryName?: string; // e.g. 'España', 'Estados Unidos', 'Mundial'
   curiosities?: string[];
   impactFact?: string;
   tags: string[];

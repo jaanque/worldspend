@@ -61,144 +61,194 @@ export const CounterCard: React.FC<CounterCardProps> = ({
   return (
     <div
       onClick={handleCardClick}
-      className="bg-white border border-[#c8d1db] rounded-xs px-3 sm:px-3.5 py-2.5 sm:py-3 flex flex-col justify-between relative shadow-xs hover:border-[#245280] hover:bg-[#fafbfc] transition-all cursor-pointer group"
+      className={`bg-white border border-[#c8d1db] rounded-xs p-3.5 sm:p-4 flex flex-col justify-between relative shadow-2xs hover:border-[#1c4b78] hover:bg-[#fafbfc] transition-all cursor-pointer group ${
+        showEmbedBox || showTooltip ? 'z-40' : 'hover:z-30'
+      }`}
     >
-      {/* Top line: Title + Info & Embed options & Rate */}
-      <div className="flex items-start justify-between gap-2 mb-1.5">
-        <div className="flex items-center gap-1.5 flex-1 min-w-0">
-          <span className="text-xs font-bold text-[#14324f] leading-snug group-hover:text-[#1c4b78] group-hover:underline">
-            {item.title}
-          </span>
-
-          <div
-            className="flex items-center gap-1 shrink-0"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Info icon with hover tooltip */}
-            <div
-              className="relative inline-flex items-center"
-              onMouseEnter={() => setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
-            >
-              <button
-                type="button"
-                aria-label="View description"
-                onClick={(e) => e.stopPropagation()}
-                className="p-0.5 text-[#557799] hover:text-[#14324f] cursor-help"
-              >
-                <Info className="w-3.5 h-3.5" />
-              </button>
-
-              {showTooltip && !showEmbedBox && (
-                <div className="absolute left-0 bottom-full mb-1.5 z-50 w-60 sm:w-64 p-2 bg-[#1a2e42] text-white text-[11px] leading-snug rounded-xs shadow-md pointer-events-none border border-[#0d1a26]">
-                  <div className="font-bold text-white mb-0.5">{item.subtitle}</div>
-                  {item.description && item.description !== item.subtitle && (
-                    <div className="text-gray-200 text-[10px]">{item.description}</div>
-                  )}
-                  <div className="text-blue-200 text-[10px] mt-1 border-t border-[#314a63] pt-1">
-                    {dict.card.officialSourcePrefix} {item.sourceName} ({item.sourceYear})
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Real Embed Option Button */}
-            <div className="relative inline-flex items-center">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowEmbedBox((prev) => !prev);
-                }}
-                title="Embed this live counter widget on your site"
-                className={`p-0.5 transition-colors cursor-pointer ${
-                  showEmbedBox ? 'text-[#14324f] bg-blue-50 rounded-xs' : 'text-[#557799] hover:text-[#14324f]'
-                }`}
-              >
-                <Code className="w-3.5 h-3.5" />
-              </button>
-
-              {/* Real Embed Box (Responsive positioning) */}
-              {showEmbedBox && (
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  className="absolute left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 bottom-full mb-1.5 z-50 w-[280px] sm:w-80 p-2.5 bg-[#ffffff] text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] cursor-default"
-                >
-                  <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
-                    <span className="font-bold text-[#14324f] text-xs">
-                      {dict.card.embedTitle}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setShowEmbedBox(false);
-                      }}
-                      className="text-gray-400 hover:text-gray-700 cursor-pointer"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  <p className="text-[10px] text-gray-600 mb-1.5">
-                    {dict.card.embedInstruction}
-                  </p>
-
-                  <textarea
-                    readOnly
-                    value={embedCode}
-                    onClick={(e) => (e.target as HTMLTextAreaElement).select()}
-                    rows={3}
-                    className="w-full bg-[#f4f7fa] border border-[#a0b0c0] font-mono text-[10px] p-1.5 rounded-xs resize-none focus:outline-none mb-2 select-all leading-tight cursor-text"
-                  />
-
-                  <div className="flex items-center justify-between gap-2">
-                    <a
-                      href={`${embedPrefix}/embed/${item.id}?currency=${activeCurrency.code}&timeframe=${timeframe}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[10px] text-[#1c4b78] hover:underline flex items-center gap-1 font-bold truncate"
-                    >
-                      <ExternalLink className="w-3 h-3 shrink-0" />
-                      <span>{dict.card.testWidgetPage}</span>
-                    </a>
-
-                    <button
-                      type="button"
-                      onClick={handleCopy}
-                      className={`px-2.5 py-1 text-xs font-bold rounded-xs cursor-pointer flex items-center gap-1 transition-colors shrink-0 ${
-                        copied
-                          ? 'bg-[#007700] text-white'
-                          : 'bg-[#1c4b78] text-white hover:bg-[#143759]'
-                      }`}
-                    >
-                      {copied ? (
-                        <>
-                          <Check className="w-3 h-3" />
-                          <span>{dict.card.copied}</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3 h-3" />
-                          <span>{dict.card.copyHtml}</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <span className="text-[11px] font-bold text-[#007700] tabular-numbers shrink-0 pt-0.5">
-          +{formatRatePerSecond(ratePerSecond, activeCurrency)}{dict.card.perSecondBadge}
-        </span>
+      {/* Block 1: Full Title Header */}
+      <div className="mb-2">
+        <h3 className="text-xs sm:text-sm font-bold text-[#14324f] leading-snug group-hover:text-[#1c4b78] group-hover:underline">
+          {item.title}
+        </h3>
       </div>
 
-      {/* Main Direct Ticking Number (Responsive scaling) */}
-      <div className="text-xl sm:text-2xl font-black text-black tabular-numbers select-all py-0.5 leading-tight">
-        {formatCurrencyValue(currentSpend, activeCurrency, activeCurrency.code === 'BTC')}
+      {/* Block 2: Main Direct Ticking Number + Tight Rate Tag (Left) & Action Buttons (Far Right) */}
+      <div className="flex items-center justify-between gap-2 pt-1 flex-wrap">
+        {/* Main Number Ticker & Rate Badge side-by-side with tight gap */}
+        <div className="flex items-center gap-1.5 min-w-0">
+          <div className="text-xl sm:text-2xl font-black text-[#112d4a] tabular-numbers select-all tracking-tight leading-none">
+            {formatCurrencyValue(currentSpend, activeCurrency, activeCurrency.code === 'BTC')}
+          </div>
+
+          {/* Rate Per Second Badge placed closely next to the counter */}
+          <span className="text-[11px] sm:text-xs font-bold text-[#007700] bg-[#edf8ee] border border-[#c3e6c6] px-1.5 py-0.5 rounded-xs tabular-numbers shrink-0">
+            +{formatRatePerSecond(ratePerSecond, activeCurrency)}{dict.card.perSecondBadge}
+          </span>
+        </div>
+
+        {/* Action Buttons (Info & Embed) Aligned Far Right */}
+        <div
+          className="flex items-center gap-1.5 shrink-0 ml-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Info Button */}
+          <div className="relative inline-flex items-center">
+            <button
+              type="button"
+              aria-label="Información de la estadística"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowTooltip((prev) => !prev);
+                if (showEmbedBox) setShowEmbedBox(false);
+              }}
+              className={`p-1.5 rounded-full border transition-colors cursor-pointer ${
+                showTooltip
+                  ? 'bg-[#14324f] text-white border-[#14324f]'
+                  : 'bg-[#edf3f8] text-[#1c4b78] border-[#c8d6e5] hover:bg-[#dce6f0]'
+              }`}
+              title={item.title}
+            >
+              <Info className="w-3.5 h-3.5" />
+            </button>
+
+            {showTooltip && (
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="absolute right-0 bottom-full mb-2 z-50 w-64 sm:w-72 p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] cursor-default text-left"
+              >
+                <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
+                  <span className="font-bold text-[#14324f] text-xs">
+                    {item.title}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowTooltip(false);
+                    }}
+                    className="text-gray-400 hover:text-gray-700 cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                <p className="text-[10px] text-gray-600 mb-2 leading-snug">
+                  {item.description || item.subtitle}
+                </p>
+
+                {item.sources && item.sources.length > 0 && (
+                  <div className="pt-1.5 border-t border-gray-200 text-[10px]">
+                    <ul className="space-y-1">
+                      {item.sources.map((src, idx) => (
+                        <li key={idx}>
+                          <a
+                            href={src.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#1c4b78] hover:underline font-bold flex items-center gap-1 leading-tight"
+                          >
+                            <ExternalLink className="w-3 h-3 shrink-0 text-[#1c4b78]" />
+                            <span>{src.name}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Embed Button */}
+          <div className="relative inline-flex items-center">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowEmbedBox((prev) => !prev);
+                if (showTooltip) setShowTooltip(false);
+              }}
+              title="Insertar widget"
+              className={`p-1.5 rounded-full border transition-colors cursor-pointer ${
+                showEmbedBox
+                  ? 'bg-[#14324f] text-white border-[#14324f]'
+                  : 'bg-[#edf3f8] text-[#1c4b78] border-[#c8d6e5] hover:bg-[#dce6f0]'
+              }`}
+            >
+              <Code className="w-3.5 h-3.5" />
+            </button>
+
+            {/* Embed Box Modal */}
+            {showEmbedBox && (
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="absolute right-0 bottom-full mb-2 z-50 w-[280px] sm:w-80 p-2.5 bg-white text-gray-800 text-[11px] rounded-xs shadow-2xl border-2 border-[#1c4b78] cursor-default text-left"
+              >
+                <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
+                  <span className="font-bold text-[#14324f] text-xs">
+                    {dict.card.embedTitle}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowEmbedBox(false);
+                    }}
+                    className="text-gray-400 hover:text-gray-700 cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                <p className="text-[10px] text-gray-600 mb-1.5">
+                  {dict.card.embedInstruction}
+                </p>
+
+                <textarea
+                  readOnly
+                  value={embedCode}
+                  onClick={(e) => (e.target as HTMLTextAreaElement).select()}
+                  rows={3}
+                  className="w-full bg-[#f4f7fa] border border-[#a0b0c0] font-mono text-[10px] p-1.5 rounded-xs resize-none focus:outline-none mb-2 select-all leading-tight cursor-text"
+                />
+
+                <div className="flex items-center justify-between gap-2">
+                  <a
+                    href={`${embedPrefix}/embed/${item.id}?currency=${activeCurrency.code}&timeframe=${timeframe}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] text-[#1c4b78] hover:underline flex items-center gap-1 font-bold truncate"
+                  >
+                    <ExternalLink className="w-3 h-3 shrink-0" />
+                    <span>{dict.card.testWidgetPage}</span>
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={handleCopy}
+                    className={`px-2.5 py-1 text-xs font-bold rounded-xs cursor-pointer flex items-center gap-1 transition-colors shrink-0 ${
+                      copied
+                        ? 'bg-[#007700] text-white'
+                        : 'bg-[#1c4b78] text-white hover:bg-[#143759]'
+                    }`}
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-3 h-3" />
+                        <span>{dict.card.copied}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3" />
+                        <span>{dict.card.copyHtml}</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -105,24 +105,15 @@ export function formatCurrencyValue(
     })}`;
   }
 
-  // If value is less than 10 and greater than 0, or showDecimals is true, show cents to ensure live movement
-  const isSmallValue = value > 0 && value < 10;
-  const shouldShowCents = showDecimals || isSmallValue;
+  // Determine decimal precision based on magnitude so every counter rolls continuously without stalling
+  const decimals = showDecimals || value < 100000 || value >= 1000000 ? 2 : 0;
 
-  if (shouldShowCents) {
-    const formattedWithDecimals = value.toLocaleString('en-US', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-    return `${currency.symbol}${formattedWithDecimals}`;
-  }
-
-  const formattedNumber = Math.floor(value).toLocaleString('en-US', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
+  const formatted = value.toLocaleString('en-US', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
   });
 
-  return `${currency.symbol}${formattedNumber}`;
+  return `${currency.symbol}${formatted}`;
 }
 
 export function formatCompactCurrency(value: number, currency: CurrencyConfig): string {

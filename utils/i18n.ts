@@ -39,6 +39,7 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
       subtitle: locItem.subtitle || item.subtitle,
       description: locItem.description || item.description,
       sourceName: locItem.sourceName || item.sourceName,
+      sources: locItem.sources || item.sources,
     };
   });
 }
@@ -67,73 +68,55 @@ export function getLocalizedCategories(locale: Locale = 'en'): CategoryInfo[] {
  * - "Global [category] expenditure 2026"
  * - "Real-time [category] cost statistics"
  */
-export function generateDetailSEO(item: SpendItem, locale: Locale = 'en') {
+export function generateDetailSEO(item: SpendItem, locale: Locale) {
   const topic = item.title;
-  const desc = item.description || item.subtitle;
+  const desc = item.subtitle || item.description;
 
-  switch (locale) {
-    case 'es':
-      return {
-        title: `Estadísticas del ${topic} en Tiempo Real 2026 | WorldSpend`,
-        description: `En 2026, ${desc} Consulta las estadísticas de gasto macroeconómico en tiempo real con datos de ${item.sourceName}.`,
-        keywords: [
-          topic,
-          `Gasto ${topic} 2026`,
-          `Estadísticas en tiempo real`,
-          `Presupuesto y cifras oficiales`,
-          `WorldSpend estadísticas`,
-        ],
-      };
+  const fullDescription = `${desc}. Live 60 FPS macroeconomic statistics tracking verified with official data from ${item.sourceName} (${item.sourceYear}).`;
 
-    case 'fr':
-      return {
-        title: `Statistiques des ${topic} en Temps Réel 2026 | WorldSpend`,
-        description: `En 2026, ${desc} Suivi macroéconomique en direct selon les données de ${item.sourceName}.`,
-        keywords: [
-          topic,
-          `Dépenses ${topic} 2026`,
-          `Statistiques en direct`,
-          `Données officielles`,
-        ],
-      };
+  let title = `Real-Time ${topic} Statistics 2026 | WorldSpend`;
+  if (locale === 'es') title = `Estadísticas en Tiempo Real de ${topic} 2026 | WorldSpend`;
+  if (locale === 'fr') title = `Statistiques en Direct de ${topic} 2026 | WorldSpend`;
+  if (locale === 'de') title = `Echtzeit-Statistiken für ${topic} 2026 | WorldSpend`;
+  if (locale === 'pt') title = `Estatísticas de ${topic} em Tempo Real 2026 | WorldSpend`;
 
-    case 'de':
-      return {
-        title: `Echtzeit-Statistiken für ${topic} 2026 | WorldSpend`,
-        description: `Im Jahr 2026: ${desc} Echtzeit-Verfolgung nach offiziellen Daten der ${item.sourceName}.`,
-        keywords: [
-          topic,
-          `Ausgaben ${topic} 2026`,
-          `Echtzeit-Statistiken`,
-          `Offizielle Daten`,
-        ],
-      };
+  const canonicalPath = locale === 'en' ? `/stat/${item.id}` : `/${locale}/stat/${item.id}`;
+  const baseUrl = 'https://worldspend.org';
 
-    case 'pt':
-      return {
-        title: `Estatísticas de ${topic} em Tempo Real 2026 | WorldSpend`,
-        description: `Em 2026, ${desc} Acompanhamento macroeconômico em tempo real com dados da ${item.sourceName}.`,
-        keywords: [
-          topic,
-          `Gastos com ${topic} 2026`,
-          `Estatísticas em tempo real`,
-          `Dados oficiais`,
-        ],
-      };
-
-    case 'en':
-    default:
-      return {
-        title: `Real-Time ${topic} Statistics 2026 | WorldSpend`,
-        description: `In 2026: ${desc} Real-time macroeconomic statistics tracker monitoring live expenditure with verified data from ${item.sourceName}.`,
-        keywords: [
-          topic,
-          `${topic} expenditure 2026`,
-          `Real-time cost statistics`,
-          `Live financial tracking clock`,
-        ],
-      };
-  }
+  return {
+    title,
+    description: fullDescription,
+    keywords: [
+      topic,
+      `${topic} 2026`,
+      'Real-time spending statistics',
+      'Macroeconomic live counter',
+      item.sourceName,
+      ...item.tags,
+    ],
+    openGraph: {
+      title,
+      description: fullDescription,
+      url: `${baseUrl}${canonicalPath}`,
+      siteName: 'WorldSpend.org',
+      locale: locale === 'es' ? 'es_ES' : locale === 'fr' ? 'fr_FR' : locale === 'de' ? 'de_DE' : locale === 'pt' ? 'pt_PT' : 'en_US',
+      type: 'article',
+      images: [
+        {
+          url: `${baseUrl}/api/og?title=${encodeURIComponent(topic)}&sub=${encodeURIComponent(item.subtitle)}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: fullDescription,
+      images: [`${baseUrl}/api/og?title=${encodeURIComponent(topic)}&sub=${encodeURIComponent(item.subtitle)}`],
+    },
+  };
 }
 
 /**

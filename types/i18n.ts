@@ -22,6 +22,10 @@ export interface LocalizedSpendItemContent {
   subtitle: string;
   description: string;
   sourceName: string;
+  sources?: {
+    name: string;
+    url: string;
+  }[];
 }
 
 export interface LocalizedCategoryContent {
@@ -49,6 +53,7 @@ export interface Translations {
       today: string;
       session: string;
       second: string;
+      custom?: string;
     };
     selectCurrency: string;
     selectLanguage: string;
@@ -120,9 +125,24 @@ export interface Translations {
     ofWorldEconomy: string;
     historicalChartTitle: string;
     historicalChartSubtitle: string;
+    historicalSeriesInfo?: string;
+    projectedLabel?: string;
+    historicalLabel?: string;
+    chartFooterNote?: string;
     statisticalOverview: string;
     officialSource: string;
     continuousUpdate: string;
+    relatedCountersTitle?: string;
+    relatedCountersSubtitle?: string;
+    shareButton?: string;
+    shareCopied?: string;
+    downloadCsv?: string;
+    embedWidget?: string;
+    embedCopied?: string;
+    showChart?: string;
+    hideChart?: string;
+    shareX?: string;
+    shareWhatsApp?: string;
   };
   footer: {
     methodologyTitle: string;
