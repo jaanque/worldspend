@@ -140,13 +140,13 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
             <ul className="space-y-1.5 text-gray-700">
               <li>
-                <Link
-                  href={getHref('/compare')}
-                  className="hover:text-[#1c4b78] hover:underline flex items-center gap-1 font-bold text-[#1c4b78]"
-                >
+                <span className="text-gray-500 flex items-center gap-1 font-semibold cursor-not-allowed select-none">
                   <span>•</span>
-                  <span>{dict.comparePage?.title || 'Multi-Counter Comparison'} (10 Max)</span>
-                </Link>
+                  <span>{dict.header.compareNav}</span>
+                  <span className="text-[9px] font-bold text-amber-700 bg-amber-100 px-1 py-0.2 rounded-xs uppercase">
+                    {dict.header.soonBadge || 'Soon'}
+                  </span>
+                </span>
               </li>
               <li>
                 <Link
@@ -154,20 +154,20 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-[#1c4b78] hover:underline flex items-center gap-1"
                 >
                   <span className="text-[#1c4b78]">•</span>
-                  <span>Embeddable Live Widgets</span>
+                  <span>{dict.footer.toolsEmbedWidgets || 'Embeddable Live Widgets'}</span>
                 </Link>
               </li>
               <li>
                 <span className="text-[#1c4b78] mr-1">•</span>
-                <span>60 FPS Dynamic Engine</span>
+                <span>{dict.footer.toolsEngine || '60 FPS Dynamic Engine'}</span>
               </li>
               <li>
                 <span className="text-[#1c4b78] mr-1">•</span>
-                <span>Multi-Currency Converter (11 Currencies)</span>
+                <span>{dict.footer.toolsMultiCurrency || 'Multi-Currency Converter (11 Currencies)'}</span>
               </li>
               <li>
                 <span className="text-[#1c4b78] mr-1">•</span>
-                <span>Hreflang SEO Architecture</span>
+                <span>{dict.footer.toolsHreflang || 'Hreflang SEO Architecture'}</span>
               </li>
             </ul>
           </div>
@@ -181,7 +181,7 @@ export const Footer: React.FC<FooterProps> = ({
               WorldSpend.org
             </span>
             <span className="hidden sm:inline text-gray-400">•</span>
-            <span>© {new Date().getFullYear()} WorldSpend Global Financial Analytics</span>
+            <span>© {new Date().getFullYear()} {dict.footer.copyrightNotice || 'WorldSpend Global Financial Analytics'}</span>
           </div>
 
           {/* Footer Selectors */}

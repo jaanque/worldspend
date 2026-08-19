@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, useSearchParams } from 'next/navigation';
 import { CURRENCIES } from '@/data/spendData';
 import { CurrencyCode, TimeframeMode } from '@/types/spend';
 import { Locale } from '@/types/i18n';
@@ -17,6 +17,7 @@ import {
 import { getLocalizedSpendItems, getLocalizedCategories, getDictionary } from '@/utils/i18n';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 import { SpendTrendChart } from '@/components/SpendTrendChart';
 import { ArrowLeft, ShieldCheck, Globe } from 'lucide-react';
 import { GLOBAL_ANNUAL_SPEND_USD } from '@/hooks/useWorldSpendEngine';
@@ -33,6 +34,19 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
   const dict = getDictionary(locale);
   const items = getLocalizedSpendItems(locale);
   const categories = getLocalizedCategories(locale);
+
+  const searchParams = useSearchParams();
+  const fromSource = searchParams?.get('from');
+  const returnIds = searchParams?.get('ids');
+
+  const isFromCompare = fromSource === 'compare';
+  const compareBase = locale === 'en' ? '/compare' : `/${locale}/compare`;
+  const backHref = isFromCompare
+    ? `${compareBase}${returnIds ? `?ids=${returnIds}` : ''}`
+    : (locale === 'en' ? '/' : `/${locale}`);
+  const backLabel = isFromCompare
+    ? (dict.detailPage.backToCompare || 'Volver a la comparativa')
+    : dict.detailPage.backLink;
 
   const item = useMemo(() => {
     return items.find((s) => s.id === id);
@@ -96,8 +110,6 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
     second: dict.heroTicker.secondLabel,
   };
 
-  const backHref = locale === 'en' ? '/' : `/${locale}`;
-
   return (
     <div className="min-h-screen bg-[#edf1f5] text-[#222222] flex flex-col justify-between font-sans">
       <div>
@@ -119,7 +131,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
               className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1c4b78] hover:underline"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>{dict.detailPage.backLink}</span>
+              <span>{backLabel}</span>
             </Link>
           </div>
 
@@ -188,6 +200,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
               activeCurrency={activeCurrency}
               title={dict.detailPage.historicalChartTitle}
               subtitle={dict.detailPage.historicalChartSubtitle}
+              locale={locale}
             />
           )}
 
@@ -220,6 +233,9 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
         currencyCode={currencyCode}
         setCurrencyCode={setCurrencyCode}
       />
+
+      {/* Floating Back to Top Button */}
+      <BackToTop locale={locale} />
     </div>
   );
 };

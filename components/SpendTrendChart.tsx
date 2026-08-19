@@ -10,6 +10,7 @@ interface SpendTrendChartProps {
   activeCurrency: CurrencyConfig;
   title: string;
   subtitle: string;
+  locale?: string;
 }
 
 export const SpendTrendChart: React.FC<SpendTrendChartProps> = ({
@@ -17,12 +18,37 @@ export const SpendTrendChart: React.FC<SpendTrendChartProps> = ({
   activeCurrency,
   title,
   subtitle,
+  locale = 'en',
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   if (!data || data.length < 2) {
     return null;
   }
+
+  // Label dictionary
+  const isProj = (year: number) => {
+    if (year !== 2026) {
+      return locale === 'es'
+        ? '(Histórico)'
+        : locale === 'fr'
+        ? '(Historique)'
+        : locale === 'de'
+        ? '(Historisch)'
+        : locale === 'pt'
+        ? '(Histórico)'
+        : '(Historical)';
+    }
+    return locale === 'es'
+      ? '(Proyectado)'
+      : locale === 'fr'
+      ? '(Projeté)'
+      : locale === 'de'
+      ? '(Prognose)'
+      : locale === 'pt'
+      ? '(Projetado)'
+      : '(Projected)';
+  };
 
   // Chart dimensions
   const width = 640;
@@ -85,7 +111,7 @@ export const SpendTrendChart: React.FC<SpendTrendChartProps> = ({
         {activePoint && (
           <div className="bg-[#f0f4f8] border border-[#c8d1db] rounded-xs px-2.5 py-1 text-right shrink-0">
             <span className="text-[10px] text-gray-500 font-medium block">
-              {activePoint.year} {activePoint.year === 2026 ? '(Projected)' : '(Historical)'}
+              {activePoint.year} {isProj(activePoint.year)}
             </span>
             <span className="text-xs font-black text-[#14324f] tabular-numbers">
               {formatCompactCurrency(activePoint.spendUSD * activeCurrency.rateToUSD, activeCurrency)}

@@ -62,19 +62,17 @@ export const Header: React.FC<HeaderProps> = ({
               </span>
             </Link>
 
-            {/* Navigation item: Compare */}
-            <Link
-              href={compareHref}
-              className={`inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold px-2 py-1 rounded-xs transition-colors cursor-pointer border ${
-                isCompareActive
-                  ? 'bg-white text-[#16385c] border-white shadow-2xs'
-                  : 'bg-[#112d4a]/80 text-blue-100 border-[#0f2842] hover:bg-white/10 hover:text-white'
-              }`}
-              title={dict.header.compareNav}
+            {/* Navigation item: Compare (Soon) */}
+            <div
+              className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-xs bg-[#112d4a]/60 text-blue-200/80 border border-[#0f2842] cursor-not-allowed select-none opacity-80"
+              title={dict.header.compareNavTitle || dict.header.compareNav}
             >
               <Scale className="w-3.5 h-3.5" />
               <span>{dict.header.compareNav}</span>
-            </Link>
+              <span className="text-[9px] font-black bg-amber-400/20 text-amber-300 border border-amber-400/30 px-1 py-0.2 rounded-xs uppercase tracking-tighter ml-0.5">
+                {dict.header.soonBadge || 'Soon'}
+              </span>
+            </div>
           </div>
 
           {/* Currency & Language Selectors on Mobile (visible only on small screens) */}

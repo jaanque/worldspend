@@ -11,6 +11,7 @@ import { SessionImpactBanner } from '@/components/SessionImpactBanner';
 import { FiltersAndTabs } from '@/components/FiltersAndTabs';
 import { CounterCard } from '@/components/CounterCard';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 import { ChevronDown, ChevronRight, ChevronsUpDown } from 'lucide-react';
 
 interface HomeViewProps {
@@ -158,7 +159,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
               {/* Collapse/Expand All Toolbar */}
               <div className="flex items-center justify-between pb-1 border-b border-[#cbd5e1] text-xs">
                 <span className="text-gray-500 font-bold">
-                  {dict.searchAndFilter.showingCounters(spendItems.length)} ({groupedCategories.length} {locale === 'es' ? 'categorías' : 'categories'})
+                  {dict.searchAndFilter.showingCounters(spendItems.length)} ({dict.searchAndFilter.categoriesCount ? dict.searchAndFilter.categoriesCount(groupedCategories.length) : `${groupedCategories.length} categories`})
                 </span>
                 <button
                   type="button"
@@ -266,6 +267,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
         currencyCode={currencyCode}
         setCurrencyCode={setCurrencyCode}
       />
+
+      {/* Floating Back to Top Button */}
+      <BackToTop locale={locale} />
     </div>
   );
 };

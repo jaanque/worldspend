@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { isValidLocale, getLocalizedSpendItems, generateDetailSEO } from '@/utils/i18n';
 import { CounterDetailView } from '@/components/CounterDetailView';
@@ -48,5 +48,9 @@ export default function LocalizedStatPage({ params }: LocalizedStatPageProps) {
     return notFound();
   }
 
-  return <CounterDetailView id={resolvedParams.id} locale={resolvedParams.locale as Locale} />;
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#edf1f5]" />}>
+      <CounterDetailView id={resolvedParams.id} locale={resolvedParams.locale as Locale} />
+    </Suspense>
+  );
 }

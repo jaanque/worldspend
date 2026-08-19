@@ -40,6 +40,9 @@ export interface Translations {
   header: {
     tagline: string;
     compareNav: string;
+    compareNavTitle: string;
+    soonBadge: string;
+    backToTop?: string;
     homeNav?: string;
     timeframes: {
       year: string;
@@ -89,6 +92,7 @@ export interface Translations {
     searchPlaceholder: string;
     showingCounters: (count: number) => string;
     indicatorsCount: (count: number) => string;
+    categoriesCount?: (count: number) => string;
     noResultsFound: (query: string) => string;
     viewAllButton: string;
     collapseAll?: string;
@@ -105,6 +109,7 @@ export interface Translations {
   };
   detailPage: {
     backLink: string;
+    backToCompare?: string;
     statisticalIndicator: string;
     annualBaseline: string;
     annualizedExp: string;
@@ -126,6 +131,11 @@ export interface Translations {
     trendingTitle?: string;
     sourcesTitle?: string;
     toolsTitle?: string;
+    toolsEmbedWidgets?: string;
+    toolsEngine?: string;
+    toolsMultiCurrency?: string;
+    toolsHreflang?: string;
+    copyrightNotice?: string;
     disclaimerTitle?: string;
     disclaimerText?: string;
     citationText?: string;

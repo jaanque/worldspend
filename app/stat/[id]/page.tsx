@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { CounterDetailView } from '@/components/CounterDetailView';
 import { getLocalizedSpendItems, generateDetailSEO } from '@/utils/i18n';
@@ -37,5 +37,9 @@ export async function generateMetadata({ params }: StatPageProps): Promise<Metad
 
 export default function StatPage({ params }: StatPageProps) {
   const resolvedParams = use(params);
-  return <CounterDetailView id={resolvedParams.id} locale="en" />;
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#edf1f5]" />}>
+      <CounterDetailView id={resolvedParams.id} locale="en" />
+    </Suspense>
+  );
 }

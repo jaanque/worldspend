@@ -22,8 +22,11 @@ export const esTranslations: Translations = {
     ],
   },
   header: {
-    tagline: '— Estadísticas Mundiales de Gasto en Tiempo Real',
+    tagline: 'Estadísticas del Gasto Mundial en Tiempo Real',
     compareNav: 'Comparar',
+    compareNavTitle: 'Comparador Multi-Contador (Próximamente)',
+    soonBadge: 'Próximamente',
+    backToTop: 'Volver arriba',
     homeNav: 'Inicio',
     timeframes: {
       year: 'Año 2026',
@@ -32,7 +35,7 @@ export const esTranslations: Translations = {
       second: 'Por Segundo',
     },
     selectCurrency: 'Seleccionar divisa',
-    selectLanguage: 'Seleccionar idioma',
+    selectLanguage: 'Idioma',
   },
   comparePage: {
     badge: 'Análisis Comparativo en Vivo',
@@ -70,13 +73,14 @@ export const esTranslations: Translations = {
     spendDuringVisit: 'Dinero gastado en el mundo durante tu visita:',
   },
   searchAndFilter: {
-    searchPlaceholder: 'Buscar estadísticas (ej: ministerio igualdad, criar hijo, pensiones, comida, boda...)',
-    showingCounters: (count: number) => `Mostrando: ${count} contadores`,
+    searchPlaceholder: 'Filtrar más de 147 contadores, fuentes o temas (ej. deuda, defensa, tiktok, gasolina, sueldo)...',
+    showingCounters: (count: number) => `Mostrando ${count} contadores en vivo`,
     indicatorsCount: (count: number) => `${count} indicadores`,
-    noResultsFound: (query: string) => `No se encontraron indicadores estadísticos para “${query}”.`,
+    categoriesCount: (count: number) => `${count} categorías`,
+    noResultsFound: (query: string) => `No se encontraron contadores estadísticos para "${query}"`,
     viewAllButton: 'Ver todos los indicadores',
-    collapseAll: 'Contraer todas las categorías',
-    expandAll: 'Desplegar todas las categorías',
+    collapseAll: 'Plegar todo',
+    expandAll: 'Desplegar todo',
   },
   card: {
     perSecondBadge: '/s',
@@ -89,6 +93,7 @@ export const esTranslations: Translations = {
   },
   detailPage: {
     backLink: 'Volver a todas las estadísticas en vivo',
+    backToCompare: 'Volver a la comparativa',
     statisticalIndicator: 'INDICADOR ESTADÍSTICO',
     annualBaseline: 'Gasto Anual Base',
     annualizedExp: 'Gasto anualizado consolidado',
@@ -103,18 +108,23 @@ export const esTranslations: Translations = {
     continuousUpdate: 'Actualización continua a 60 FPS',
   },
   footer: {
-    methodologyTitle: 'METODOLOGÍA ESTADÍSTICA Y FUENTES OFICIALES',
+    methodologyTitle: 'Metodología e Integridad de Datos',
     methodologyBody:
-      'WorldSpend calcula indicadores macroeconómicos y flujos financieros globales en tiempo real continuo a partir de datos oficiales de las Naciones Unidas (UNODC/FAO), la OMS, SIPRI, Eurostat, el INE, presupuestos generales del Estado, Deloitte y la UEFA.',
-    copyrightTagline: 'WorldSpend.org — Estadísticas Globales y Contabilidad Financiera en Tiempo Real',
+      'WorldSpend agrega informes de gasto público de instituciones intergubernamentales, estatales y académicas verificadas (incluyendo la ONU, Banco Mundial, OMS, SIPRI, Eurostat, INE y Tesoro de EE.UU.). Un algoritmo de interpolación lineal a 60 FPS proyecta el flujo financiero en tiempo real a partir de las bases anuales consolidadas.',
+    copyrightTagline: 'Estadísticas Financieras Globales Verificadas en Tiempo Real e Indicadores Macroeconómicos',
     categoriesTitle: 'Categorías de Gasto',
-    trendingTitle: 'Indicadores Populares y Destacados',
-    sourcesTitle: 'Instituciones de Datos Oficiales',
-    toolsTitle: 'Herramientas y Recursos Web',
-    disclaimerTitle: 'Aviso Legal y Citación',
+    trendingTitle: 'Contadores en Tiempo Real Populares',
+    sourcesTitle: 'Fuentes Oficiales de Datos',
+    toolsTitle: 'Herramientas y Arquitectura',
+    toolsEmbedWidgets: 'Widgets Insertables en Vivo',
+    toolsEngine: 'Motor Dinámico a 60 FPS',
+    toolsMultiCurrency: 'Conversor Multidivisa (11 Monedas)',
+    toolsHreflang: 'SEO Multilingüe Hreflang',
+    copyrightNotice: 'WorldSpend Análisis Financiero Global',
+    disclaimerTitle: 'Aviso Legal y de Divulgación',
     disclaimerText:
-      'Los ritmos de gasto en tiempo real son estimaciones matemáticas continuas calculadas a partir de balances anuales auditados y registros oficiales públicos. Los datos se actualizan a 60 FPS con fines divulgativos y periodísticos.',
-    citationText: 'Cómo citar: WorldSpend Analytics. (2026). Indicadores de Gasto Global en Tiempo Real. Obtenido de https://worldspend.org',
+      'Las cifras de gasto en tiempo real mostradas en WorldSpend.org son aproximaciones algorítmicas continuas basadas en estadísticas y balances oficiales anuales. Los datos se actualizan continuamente con fines educativos, divulgativos y de análisis comparativo.',
+    citationText: 'Cómo citar: WorldSpend Analytics. (2026). Indicadores Mundiales de Gasto en Tiempo Real. Disponible en https://worldspend.org',
   },
   categories: {
     all: {

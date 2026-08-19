@@ -1,14 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { SpendItem, CurrencyCode, TimeframeMode } from '@/types/spend';
+import { SpendItem } from '@/types/spend';
 import { Locale } from '@/types/i18n';
-import { CURRENCIES } from '@/data/spendData';
+import { useWorldSpendEngine } from '@/hooks/useWorldSpendEngine';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { getDictionary, getLocalizedSpendItems, getLocalizedCategories } from '@/utils/i18n';
+import { getDictionary } from '@/utils/i18n';
 import {
   formatCurrencyValue,
   formatRatePerSecond,
@@ -20,8 +20,9 @@ import {
   X,
   Share2,
   Check,
-  Flame,
   Search,
+  ExternalLink,
+  Sparkles,
 } from 'lucide-react';
 
 interface MultiCompareViewProps {
@@ -30,204 +31,128 @@ interface MultiCompareViewProps {
 
 const MAX_SELECTION = 10;
 
-const DEFAULT_PRESETS = [
-  {
-    id: 'top-global',
-    nameKey: 'presetTopGlobal',
-    defaultName: 'Top Global Flows',
-    ids: [
-      'united-states-national-public-debt',
-      'global-military-spend',
-      'global-healthcare-expenditure',
-      'global-social-media-advertising-spend',
-      'tiktok-advertising-and-in-app-spending',
-    ],
-  },
-  {
-    id: 'sovereign-debts',
-    nameKey: 'presetSovereignDebts',
-    defaultName: 'Sovereign Debts',
-    ids: [
-      'united-states-national-public-debt',
-      'china-national-government-debt',
-      'japan-national-public-debt',
-      'united-kingdom-national-public-debt',
-      'france-national-public-debt',
-      'spain-national-public-debt',
-      'germany-national-public-debt',
-    ],
-  },
-  {
-    id: 'tech-media',
-    nameKey: 'presetTechAndMedia',
-    defaultName: 'Tech & Social Media',
-    ids: [
-      'global-social-media-advertising-spend',
-      'instagram-advertising-and-creator-spending',
-      'tiktok-advertising-and-in-app-spending',
-      'global-influencer-marketing-creator-spending',
-      'digital-advertising',
-      'artificial-intelligence-investment',
-    ],
-  },
-  {
-    id: 'lifestyle',
-    nameKey: 'presetLifestyle',
-    defaultName: 'Lifestyle & Consumer',
-    ids: [
-      'germany-household-food-spending',
-      'germany-household-vacation-travel-spending',
-      'spain-gasoline-fuel-consumption-spending',
-      'brazil-online-bets-gambling-spending',
-      'fast-food-industry',
-      'germany-household-christmas-gifts-spending',
-    ],
-  },
+// Popular suggestions for 1-click addition when empty
+const POPULAR_SUGGESTIONS = [
+  'united-states-national-public-debt',
+  'spain-national-public-debt',
+  'global-military-spend',
+  'global-social-media-advertising-spend',
+  'tiktok-advertising-and-in-app-spending',
+  'spain-gasoline-fuel-consumption-spending',
+  'spain-total-public-expenditure',
+  'artificial-intelligence-investment',
 ];
 
 export const MultiCompareView: React.FC<MultiCompareViewProps> = ({ locale = 'en' }) => {
   const dict = getDictionary(locale);
   const searchParams = useSearchParams();
 
-  const allItems = useMemo(() => getLocalizedSpendItems(locale), [locale]);
-  const allCategories = useMemo(() => getLocalizedCategories(locale), [locale]);
+  const {
+    currencyCode,
+    setCurrencyCode,
+    activeCurrency,
+    timeframe,
+    setTimeframe,
+    getItemCurrentSpend,
+    getItemRatePerSecond,
+    spendItems,
+  } = useWorldSpendEngine(locale);
 
-  const [currencyCode, setCurrencyCode] = useState<CurrencyCode>('USD');
-  const [timeframe, setTimeframe] = useState<TimeframeMode>('year');
-  const [sessionStartTime] = useState<number>(() => Date.now());
-  const [elapsedSeconds, setElapsedSeconds] = useState<number>(0);
-  const [copiedLink, setCopiedLink] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [isSelectorOpen, setIsSelectorOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  // Initialize selected IDs from URL query params or defaults
+  // By default, NO counter is added unless specified in URL query
   const [selectedIds, setSelectedIds] = useState<string[]>(() => {
     const urlIds = searchParams?.get('ids');
     if (urlIds) {
-      const parsed = urlIds.split(',').filter((id) => allItems.some((item) => item.id === id));
+      const parsed = urlIds.split(',').filter((id) => spendItems.some((item) => item.id === id));
       if (parsed.length > 0) return parsed.slice(0, MAX_SELECTION);
     }
-    return DEFAULT_PRESETS[0].ids;
+    return []; // Empty by default
   });
 
-  // Sync selected IDs to URL
+  // Sync with URL query parameters
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href);
-      url.searchParams.set('ids', selectedIds.join(','));
+      if (selectedIds.length > 0) {
+        url.searchParams.set('ids', selectedIds.join(','));
+      } else {
+        url.searchParams.delete('ids');
+      }
       window.history.replaceState({}, '', url.toString());
     }
   }, [selectedIds]);
 
-  // 60 FPS Timer
-  const animFrameRef = useRef<number | null>(null);
-  useEffect(() => {
-    const updateTick = () => {
-      const now = Date.now();
-      const elapsed = (now - sessionStartTime) / 1000;
-      setElapsedSeconds(elapsed);
-      animFrameRef.current = requestAnimationFrame(updateTick);
-    };
-
-    animFrameRef.current = requestAnimationFrame(updateTick);
-    return () => {
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    };
-  }, [sessionStartTime]);
-
-  const activeCurrency = CURRENCIES[currencyCode] || CURRENCIES.USD;
-  const SECONDS_PER_YEAR = 31536000;
-
-  // Fraction of year elapsed for 'today' and 'year'
-  const now = new Date();
-  const startOfYear = new Date(now.getFullYear(), 0, 1).getTime();
-  const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  const yearFractionElapsed = (now.getTime() - startOfYear) / (365.25 * 24 * 3600 * 1000);
-  const dayFractionElapsed = (now.getTime() - startOfDay) / (24 * 3600 * 1000);
-
-  const getItemCurrentSpend = (annualUSD: number): number => {
-    const annualConverted = annualUSD * activeCurrency.rateToUSD;
-    const ratePerSec = annualConverted / SECONDS_PER_YEAR;
-
-    switch (timeframe) {
-      case 'year':
-        return annualConverted * yearFractionElapsed + ratePerSec * elapsedSeconds;
-      case 'today':
-        return annualConverted * (dayFractionElapsed / 365.25) + ratePerSec * elapsedSeconds;
-      case 'session':
-        return ratePerSec * elapsedSeconds;
-      case 'second':
-        return ratePerSec;
-      default:
-        return annualConverted;
-    }
-  };
-
-  const getItemRatePerSecond = (annualUSD: number): number => {
-    return (annualUSD * activeCurrency.rateToUSD) / SECONDS_PER_YEAR;
-  };
-
   // Selected spend items list
   const selectedItems = useMemo(() => {
     return selectedIds
-      .map((id) => allItems.find((item) => item.id === id))
+      .map((id) => spendItems.find((item) => item.id === id))
       .filter((item): item is SpendItem => Boolean(item));
-  }, [selectedIds, allItems]);
+  }, [selectedIds, spendItems]);
 
-  // Ranked by annual spend
+  // Sorted items by annual spend
   const rankedItems = useMemo(() => {
     return [...selectedItems].sort((a, b) => b.annualSpendUSD - a.annualSpendUSD);
   }, [selectedItems]);
 
-  const topItem = rankedItems[0];
-  const totalCombinedAnnualUSD = useMemo(() => {
-    return selectedItems.reduce((acc, item) => acc + item.annualSpendUSD, 0);
-  }, [selectedItems]);
+  const topAnnual = rankedItems[0]?.annualSpendUSD || 1;
 
-  // Filter available items for addition
-  const availableItems = useMemo(() => {
-    return allItems.filter((item) => {
-      const matchesSearch =
-        searchQuery === '' ||
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.tags?.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+  // Filter available items for search
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return spendItems.filter((it) => !selectedIds.includes(it.id)).slice(0, 10);
+    }
+    const q = searchQuery.toLowerCase().trim();
+    return spendItems
+      .filter(
+        (it) =>
+          !selectedIds.includes(it.id) &&
+          (it.title.toLowerCase().includes(q) ||
+            it.subtitle.toLowerCase().includes(q) ||
+            it.tags?.some((t) => t.toLowerCase().includes(q)))
+      )
+      .slice(0, 10);
+  }, [spendItems, selectedIds, searchQuery]);
 
-      const matchesCat = selectedCategory === 'all' || item.categoryId === selectedCategory;
-      return matchesSearch && matchesCat;
-    });
-  }, [allItems, searchQuery, selectedCategory]);
-
-  const toggleItemSelection = (id: string) => {
-    if (selectedIds.includes(id)) {
-      setSelectedIds((prev) => prev.filter((i) => i !== id));
-    } else {
-      if (selectedIds.length >= MAX_SELECTION) {
-        alert(dict.comparePage?.maxLimitWarning || `Max ${MAX_SELECTION} counters`);
-        return;
-      }
+  const addCounter = (id: string) => {
+    if (selectedIds.length >= MAX_SELECTION) {
+      alert(`Máximo ${MAX_SELECTION} contadores simultáneos.`);
+      return;
+    }
+    if (!selectedIds.includes(id)) {
       setSelectedIds((prev) => [...prev, id]);
     }
+    setSearchQuery('');
+    setDropdownOpen(false);
   };
 
-  const removeItem = (id: string) => {
+  const removeCounter = (id: string) => {
     setSelectedIds((prev) => prev.filter((i) => i !== id));
   };
 
   const handleShare = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(window.location.href);
-      setCopiedLink(true);
-      setTimeout(() => setCopiedLink(false), 2500);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     }
   };
 
   const homeHref = locale === 'en' ? '/' : `/${locale}`;
-  const t = dict.comparePage;
+
+  const timeframeLabel =
+    timeframe === 'year'
+      ? 'Acumulado 2026'
+      : timeframe === 'today'
+      ? 'Hoy (desde 00:00)'
+      : timeframe === 'session'
+      ? 'Durante tu visita'
+      : 'Por segundo';
 
   return (
-    <div className="min-h-screen bg-[#f4f6f8] text-[#222222] font-sans antialiased flex flex-col justify-between selection:bg-[#245280] selection:text-white">
+    <div className="min-h-screen bg-[#edf1f5] text-[#222222] flex flex-col justify-between font-sans antialiased">
       {/* Universal Top Header */}
       <Header
         timeframe={timeframe}
@@ -237,348 +162,267 @@ export const MultiCompareView: React.FC<MultiCompareViewProps> = ({ locale = 'en
         locale={locale}
       />
 
-      <main className="flex-grow max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 w-full">
-        {/* Breadcrumb & Navigation */}
-        <div className="flex items-center justify-between gap-2 mb-3 text-xs">
+      <main className="flex-grow max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-6 w-full space-y-4">
+        {/* Simple Top Navigation & Action Bar */}
+        <div className="flex items-center justify-between gap-2 text-xs">
           <Link
             href={homeHref}
-            className="text-[#245280] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
+            className="text-[#245280] font-bold hover:underline inline-flex items-center gap-1"
           >
-            ← {t?.backToHome || 'Back to All Counters'}
+            ← Volver a todos los contadores
           </Link>
-          <div className="flex items-center gap-2">
+
+          {selectedIds.length > 0 && (
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white border border-gray-300 rounded text-xs font-bold text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-colors shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-1 px-2.5 py-1 bg-white border border-[#c8d1db] text-[#14324f] rounded-xs font-bold hover:bg-gray-50 transition-colors shadow-2xs cursor-pointer"
             >
-              {copiedLink ? (
+              {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="text-emerald-700">{t?.copiedLink || 'Copied!'}</span>
+                  <span className="text-emerald-700">¡Enlace copiado!</span>
                 </>
               ) : (
                 <>
                   <Share2 className="w-3.5 h-3.5 text-[#245280]" />
-                  <span>{t?.shareComparison || 'Share Comparison'}</span>
+                  <span>Compartir comparativa</span>
                 </>
               )}
             </button>
-          </div>
+          )}
         </div>
 
-        {/* Page Hero Box (Worldometers aesthetic) */}
-        <div className="bg-white border border-gray-300 rounded-sm p-4 sm:p-5 shadow-2xs mb-4">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-gray-200 pb-3 mb-3">
+        {/* Clean Header & Step-by-Step Add Box */}
+        <div className="bg-white border border-[#c8d1db] rounded-xs p-4 sm:p-5 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-200 pb-3 mb-3">
             <div>
-              <div className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#245280] bg-blue-50 px-2 py-0.5 rounded border border-blue-200 mb-1">
-                <Scale className="w-3 h-3 text-[#245280]" />
-                {t?.badge || 'Live Comparison'}
+              <div className="flex items-center gap-1.5 text-xs font-black text-[#245280] uppercase tracking-wider mb-0.5">
+                <Scale className="w-4 h-4 text-[#245280]" />
+                <span>Comparador en Vivo</span>
               </div>
-              <h1 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">
-                {t?.title || 'Multi-Counter Comparison Matrix'}
+              <h1 className="text-lg sm:text-xl font-black text-[#14324f]">
+                Comparar Contadores
               </h1>
-              <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
-                {t?.subtitle || 'Select up to 10 real-time indicators to benchmark live velocities.'}
+              <p className="text-xs text-gray-600 mt-0.5">
+                Selecciona hasta <strong>10 contadores</strong> para comparar en paralelo su volumen y velocidad de gasto a 60 FPS.
               </p>
             </div>
 
-            {/* Selection Counter Badge */}
             <div className="flex items-center gap-2 shrink-0">
-              <span
-                className={`text-xs font-black px-3 py-1.5 rounded-sm border ${
-                  selectedIds.length >= MAX_SELECTION
-                    ? 'bg-amber-50 text-amber-800 border-amber-300'
-                    : 'bg-[#f8fafc] text-gray-800 border-gray-300'
-                }`}
-              >
-                {t?.selectionLimit(selectedIds.length, MAX_SELECTION) ||
-                  `${selectedIds.length} / ${MAX_SELECTION} selected`}
+              <span className="text-xs font-black text-gray-700 bg-gray-100 border border-gray-300 px-2.5 py-1 rounded-xs">
+                {selectedIds.length} / {MAX_SELECTION} añadidos
               </span>
               {selectedIds.length > 0 && (
                 <button
                   onClick={() => setSelectedIds([])}
-                  className="text-xs text-red-600 hover:text-red-800 font-bold underline cursor-pointer"
+                  className="text-xs font-bold text-red-600 hover:text-red-800 underline cursor-pointer px-1"
                 >
-                  {t?.clearAll || 'Clear'}
+                  Vaciar tabla
                 </button>
               )}
             </div>
           </div>
 
-          {/* Preset Buttons */}
-          <div className="flex flex-wrap items-center gap-1.5 text-xs">
-            <span className="font-bold text-gray-500 mr-1">{t?.selectPresets || 'Presets:'}</span>
-            {DEFAULT_PRESETS.map((preset) => {
-              const isActive =
-                preset.ids.length === selectedIds.length &&
-                preset.ids.every((id) => selectedIds.includes(id));
-              const label =
-                (t && (t as Record<string, any>)[preset.nameKey]) || preset.defaultName;
-
-              return (
-                <button
-                  key={preset.id}
-                  onClick={() => setSelectedIds(preset.ids)}
-                  className={`px-2.5 py-1 rounded-sm text-xs font-bold transition-colors cursor-pointer border ${
-                    isActive
-                      ? 'bg-[#245280] text-white border-[#16385c] shadow-2xs'
-                      : 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-gray-100'
-                  }`}
-                >
-                  {label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Selected Chips Bar & Add Button */}
-        <div className="bg-white border border-gray-300 rounded-sm p-3 shadow-2xs mb-4">
-          <div className="flex items-center justify-between gap-2 mb-2">
-            <span className="text-xs font-bold text-gray-700 uppercase tracking-wide">
-              Selected Indicators ({selectedIds.length}/{MAX_SELECTION}):
-            </span>
-            <button
-              onClick={() => setIsSelectorOpen((prev) => !prev)}
-              className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#245280] text-white text-xs font-bold rounded-sm hover:bg-[#16385c] transition-colors cursor-pointer shadow-2xs"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              {isSelectorOpen ? 'Close Selector' : 'Add / Change Counters'}
-            </button>
-          </div>
-
-          {/* Chips list */}
-          <div className="flex flex-wrap gap-1.5">
-            {selectedItems.map((item) => (
-              <span
-                key={item.id}
-                className="inline-flex items-center gap-1.5 px-2 py-1 rounded-xs bg-[#f1f5f9] text-gray-800 border border-gray-300 text-xs font-semibold"
-              >
-                <span
-                  className="w-2 h-2 rounded-full shrink-0"
-                  style={{ backgroundColor: item.accentColor }}
+          {/* Simple Direct Search & Add Input with Clear Instructions */}
+          <div className="space-y-2">
+            <label className="block text-xs font-bold text-[#14324f]">
+              Paso 1: Busca y añade los contadores que quieras comparar
+            </label>
+            <div className="relative">
+              <div className="relative">
+                <Search className="w-4 h-4 text-[#245280] absolute left-3 top-3" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onFocus={() => setDropdownOpen(true)}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setDropdownOpen(true);
+                  }}
+                  placeholder={
+                    selectedIds.length >= MAX_SELECTION
+                      ? `Límite alcanzado (${MAX_SELECTION}/${MAX_SELECTION}). Elimina alguno para añadir otro.`
+                      : '+ Escribe aquí el nombre de cualquier contador para añadirlo (ej. tiktok, deuda españa, militar, gasolina...)'
+                  }
+                  disabled={selectedIds.length >= MAX_SELECTION}
+                  className="w-full pl-9 pr-3 py-2.5 text-xs bg-[#f8fafc] border-2 border-[#245280] rounded-xs font-medium focus:outline-none focus:bg-white focus:ring-1 focus:ring-[#245280] disabled:opacity-50"
                 />
-                <span className="truncate max-w-[200px] sm:max-w-[280px]">{item.title}</span>
-                <button
-                  onClick={() => removeItem(item.id)}
-                  className="text-gray-400 hover:text-red-600 transition-colors ml-0.5 cursor-pointer"
-                  title="Remove"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-            {selectedItems.length === 0 && (
-              <p className="text-xs text-gray-500 italic py-1">
-                {t?.emptyStateDescription || 'No counters selected. Click Add above.'}
-              </p>
-            )}
-          </div>
-
-          {/* Expandable Selector Drawer */}
-          {isSelectorOpen && (
-            <div className="mt-3 pt-3 border-t border-gray-200">
-              {/* Search & Category Filter */}
-              <div className="flex flex-col sm:flex-row gap-2 mb-3">
-                <div className="relative flex-1">
-                  <Search className="w-4 h-4 text-gray-400 absolute left-2.5 top-2.5" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder={t?.addCounterPlaceholder || 'Search and add indicator...'}
-                    className="w-full pl-8 pr-3 py-1.5 text-xs bg-gray-50 border border-gray-300 rounded-sm focus:outline-none focus:border-[#245280] focus:bg-white"
-                  />
-                </div>
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="text-xs bg-gray-50 border border-gray-300 rounded-sm px-2.5 py-1.5 focus:outline-none focus:border-[#245280] cursor-pointer"
-                >
-                  <option value="all">All Categories ({allItems.length})</option>
-                  {allCategories.map((cat) => (
-                    <option key={cat.id} value={cat.id}>
-                      {cat.name}
-                    </option>
-                  ))}
-                </select>
               </div>
 
-              {/* Counter Selection Grid */}
-              <div className="max-h-64 overflow-y-auto border border-gray-200 rounded-sm divide-y divide-gray-100 bg-gray-50/50">
-                {availableItems.slice(0, 40).map((item) => {
-                  const isSelected = selectedIds.includes(item.id);
-                  return (
-                    <div
-                      key={item.id}
-                      onClick={() => toggleItemSelection(item.id)}
-                      className={`flex items-center justify-between p-2 text-xs transition-colors cursor-pointer ${
-                        isSelected ? 'bg-blue-50/80 font-bold' : 'hover:bg-white'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2 truncate pr-2">
-                        <input
-                          type="checkbox"
-                          checked={isSelected}
-                          onChange={() => {}} // handled by parent onClick
-                          className="rounded text-[#245280] focus:ring-0 cursor-pointer"
-                        />
-                        <span
-                          className="w-2 h-2 rounded-full shrink-0"
-                          style={{ backgroundColor: item.accentColor }}
-                        />
-                        <span className="truncate text-gray-800">{item.title}</span>
-                      </div>
-                      <span className="text-[11px] text-gray-500 font-mono shrink-0">
-                        {formatCompactCurrency(item.annualSpendUSD, activeCurrency)}/yr
-                      </span>
+              {/* Dropdown Suggestions */}
+              {dropdownOpen && selectedIds.length < MAX_SELECTION && (
+                <>
+                  <div
+                    className="fixed inset-0 z-20"
+                    onClick={() => setDropdownOpen(false)}
+                  />
+                  <div className="absolute left-0 right-0 top-full mt-1 bg-white border-2 border-[#245280] rounded-xs shadow-xl z-30 max-h-72 overflow-y-auto divide-y divide-gray-100">
+                    <div className="px-3 py-1.5 bg-gray-100 text-[11px] font-bold text-gray-600">
+                      Haz clic en un contador para añadirlo a la tabla:
                     </div>
+                    {searchResults.map((item) => (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => addCounter(item.id)}
+                        className="w-full text-left px-3 py-2 text-xs hover:bg-blue-50 flex items-center justify-between gap-2 transition-colors cursor-pointer"
+                      >
+                        <div className="truncate flex items-center gap-2">
+                          <Plus className="w-3.5 h-3.5 text-[#245280] shrink-0" />
+                          <div className="truncate">
+                            <span className="font-bold text-[#14324f] block truncate">
+                              {item.title}
+                            </span>
+                            <span className="text-[11px] text-gray-500 truncate block">
+                              {item.subtitle}
+                            </span>
+                          </div>
+                        </div>
+                        <span className="text-[11px] font-mono font-bold text-gray-700 shrink-0 bg-gray-100 px-2 py-0.5 rounded">
+                          +{formatCompactCurrency(item.annualSpendUSD, activeCurrency)}/año
+                        </span>
+                      </button>
+                    ))}
+                    {searchResults.length === 0 && (
+                      <div className="p-4 text-xs text-gray-500 text-center">
+                        No se encontraron más contadores con esa búsqueda.
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Quick 1-Click Suggestions under search input */}
+            <div className="pt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
+              <span className="font-bold text-gray-600 flex items-center gap-1">
+                <Sparkles className="w-3 h-3 text-amber-500" />
+                Sugerencias rápidas:
+              </span>
+              {POPULAR_SUGGESTIONS.filter((id) => !selectedIds.includes(id))
+                .slice(0, 5)
+                .map((id) => {
+                  const item = spendItems.find((it) => it.id === id);
+                  if (!item) return null;
+                  return (
+                    <button
+                      key={id}
+                      onClick={() => addCounter(id)}
+                      disabled={selectedIds.length >= MAX_SELECTION}
+                      className="px-2 py-0.5 bg-gray-100 hover:bg-blue-50 text-[#14324f] hover:text-[#245280] border border-gray-300 rounded-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-50"
+                    >
+                      <Plus className="w-2.5 h-2.5 text-[#245280]" />
+                      <span>{item.title}</span>
+                    </button>
                   );
                 })}
-              </div>
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Live Comparison Dashboard */}
+        {/* The Live Comparison Table (or Clean Instructional Empty State) */}
         {rankedItems.length > 0 ? (
-          <div className="space-y-4">
-            {/* Live Visual Benchmark Cards */}
-            <div className="bg-white border border-gray-300 rounded-sm p-4 shadow-2xs">
-              <div className="flex items-center justify-between border-b border-gray-200 pb-2 mb-3">
-                <h2 className="text-sm sm:text-base font-black text-gray-900 flex items-center gap-1.5">
-                  <Flame className="w-4 h-4 text-amber-500" />
-                  {t?.liveComparisonTitle || 'Simultaneous 60 FPS Real-Time Benchmark'}
-                </h2>
-                <span className="text-[11px] font-bold text-gray-500">
-                  {timeframe === 'year' && 'Year-to-date (2026)'}
-                  {timeframe === 'today' && 'Today (since 00:00 GMT)'}
-                  {timeframe === 'session' && 'During your visit'}
-                  {timeframe === 'second' && 'Per single second'}
-                </span>
-              </div>
-
-              {/* Progress & Speed Bars for each selected item */}
-              <div className="space-y-3.5">
-                {rankedItems.map((item, index) => {
-                  const currentVal = getItemCurrentSpend(item.annualSpendUSD);
-                  const ratePerSec = getItemRatePerSecond(item.annualSpendUSD);
-                  const topVal = topItem ? getItemCurrentSpend(topItem.annualSpendUSD) : 1;
-                  const relativePct = topVal > 0 ? Math.max((currentVal / topVal) * 100, 1.5) : 0;
-                  const shareOfTotal =
-                    totalCombinedAnnualUSD > 0
-                      ? (item.annualSpendUSD / totalCombinedAnnualUSD) * 100
-                      : 0;
-
-                  return (
-                    <div key={item.id} className="group">
-                      {/* Row Info */}
-                      <div className="flex items-center justify-between text-xs mb-1">
-                        <div className="flex items-center gap-1.5 truncate max-w-[65%] sm:max-w-[75%]">
-                          <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-700 font-bold text-[10px] flex items-center justify-center shrink-0 border border-gray-300">
-                            #{index + 1}
-                          </span>
-                          <Link
-                            href={locale === 'en' ? `/stat/${item.id}` : `/${locale}/stat/${item.id}`}
-                            className="font-bold text-gray-900 hover:text-[#245280] hover:underline truncate"
-                          >
-                            {item.title}
-                          </Link>
-                        </div>
-                        <div className="text-right font-mono font-black text-gray-900 text-xs sm:text-sm">
-                          {formatCurrencyValue(currentVal, activeCurrency)}
-                        </div>
-                      </div>
-
-                      {/* Bar Visualization */}
-                      <div className="h-3.5 w-full bg-gray-100 rounded-xs overflow-hidden border border-gray-200 relative">
-                        <div
-                          className="h-full rounded-xs transition-all duration-300"
-                          style={{
-                            width: `${relativePct}%`,
-                            backgroundColor: item.accentColor || '#245280',
-                          }}
-                        />
-                      </div>
-
-                      {/* Sub-row: Rate per second and % share */}
-                      <div className="flex items-center justify-between text-[11px] text-gray-500 mt-0.5 font-mono">
-                        <span>
-                          Rate: <strong className="text-gray-800">{formatRatePerSecond(ratePerSec, activeCurrency)}</strong>
-                        </span>
-                        <span>{shareOfTotal.toFixed(1)}% of selected total</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+          <div className="bg-white border border-[#c8d1db] rounded-xs shadow-xs overflow-hidden">
+            <div className="bg-gradient-to-r from-[#245280] to-[#16385c] text-white px-3 sm:px-4 py-2.5 flex items-center justify-between text-xs font-bold">
+              <span>TABLA COMPARATIVA EN VIVO (60 FPS)</span>
+              <span className="text-blue-100 text-[11px]">{timeframeLabel}</span>
             </div>
 
-            {/* Detailed Comparison Table (Worldometers clean grid) */}
-            <div className="bg-white border border-gray-300 rounded-sm shadow-2xs overflow-hidden">
-              <div className="bg-[#16385c] text-white px-3 py-2 text-xs font-black uppercase tracking-wider flex items-center justify-between">
-                <span>Comparative Summary Table</span>
-                <span>{rankedItems.length} Indicators</span>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="bg-gray-100 border-b border-gray-300 text-[11px] font-bold text-gray-700 uppercase">
-                      <th className="py-2 px-3">#</th>
-                      <th className="py-2 px-3">Indicator</th>
-                      <th className="py-2 px-3 text-right">Annual Baseline</th>
-                      <th className="py-2 px-3 text-right">Current Spend</th>
-                      <th className="py-2 px-3 text-right">Rate / Sec</th>
-                      <th className="py-2 px-3 text-right">Share</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200 font-mono">
-                    {rankedItems.map((item, idx) => {
-                      const currentVal = getItemCurrentSpend(item.annualSpendUSD);
-                      const ratePerSec = getItemRatePerSecond(item.annualSpendUSD);
-                      const share =
-                        totalCombinedAnnualUSD > 0
-                          ? (item.annualSpendUSD / totalCombinedAnnualUSD) * 100
-                          : 0;
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-gray-100 border-b border-gray-300 text-[11px] font-bold text-gray-700 uppercase">
+                    <th className="py-2.5 px-3 w-8 text-center">#</th>
+                    <th className="py-2.5 px-3">Contador / Indicador</th>
+                    <th className="py-2.5 px-3 text-right">Gasto en Tiempo Real</th>
+                    <th className="py-2.5 px-3 text-right hidden sm:table-cell">Velocidad / Seg</th>
+                    <th className="py-2.5 px-3 text-right hidden md:table-cell">Gasto Anual</th>
+                    <th className="py-2.5 px-3 w-10 text-center">Quitar</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 text-xs font-mono">
+                  {rankedItems.map((item, idx) => {
+                    const currentSpend = getItemCurrentSpend(item.annualSpendUSD);
+                    const ratePerSec = getItemRatePerSecond(item.annualSpendUSD);
+                    const relativePercent = topAnnual > 0 ? (item.annualSpendUSD / topAnnual) * 100 : 0;
+                    const queryParams = `from=compare${selectedIds.length > 0 ? `&ids=${selectedIds.join(',')}` : ''}`;
+                    const detailHref = locale === 'en'
+                      ? `/stat/${item.id}?${queryParams}`
+                      : `/${locale}/stat/${item.id}?${queryParams}`;
 
-                      return (
-                        <tr key={item.id} className="hover:bg-blue-50/50 transition-colors">
-                          <td className="py-2 px-3 text-gray-500 font-bold">{idx + 1}</td>
-                          <td className="py-2 px-3 font-sans font-bold text-gray-900">
-                            <Link
-                              href={locale === 'en' ? `/stat/${item.id}` : `/${locale}/stat/${item.id}`}
-                              className="hover:text-[#245280] hover:underline"
-                            >
-                              {item.title}
-                            </Link>
-                          </td>
-                          <td className="py-2 px-3 text-right font-bold text-gray-700">
-                            {formatCompactCurrency(item.annualSpendUSD, activeCurrency)}
-                          </td>
-                          <td className="py-2 px-3 text-right font-black text-gray-900">
-                            {formatCurrencyValue(currentVal, activeCurrency)}
-                          </td>
-                          <td className="py-2 px-3 text-right text-emerald-700 font-bold">
-                            {formatRatePerSecond(ratePerSec, activeCurrency)}
-                          </td>
-                          <td className="py-2 px-3 text-right text-gray-600">{share.toFixed(1)}%</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                    return (
+                      <tr
+                        key={item.id}
+                        className="hover:bg-blue-50/40 transition-colors group"
+                      >
+                        {/* Position Ranking */}
+                        <td className="py-3 px-3 text-center font-bold text-gray-500">
+                          #{idx + 1}
+                        </td>
+
+                        {/* Title & Proportional Bar */}
+                        <td className="py-3 px-3 font-sans">
+                          <Link
+                            href={detailHref}
+                            className="font-bold text-[#14324f] hover:text-[#1c4b78] hover:underline flex items-center gap-1"
+                          >
+                            <span>{item.title}</span>
+                            <ExternalLink className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </Link>
+                          {/* Relative proportion bar */}
+                          <div className="w-full max-w-[200px] h-1.5 bg-gray-200 rounded-full overflow-hidden mt-1.5">
+                            <div
+                              className="h-full rounded-full transition-all duration-300"
+                              style={{
+                                width: `${Math.max(relativePercent, 2)}%`,
+                                backgroundColor: item.accentColor || '#245280',
+                              }}
+                            />
+                          </div>
+                        </td>
+
+                        {/* Live 60 FPS Big Ticking Number */}
+                        <td className="py-3 px-3 text-right font-black text-sm sm:text-base text-[#112233] tabular-nums">
+                          {formatCurrencyValue(currentSpend, activeCurrency)}
+                        </td>
+
+                        {/* Rate per Second */}
+                        <td className="py-3 px-3 text-right font-bold text-emerald-700 tabular-nums hidden sm:table-cell">
+                          {formatRatePerSecond(ratePerSec, activeCurrency)}
+                        </td>
+
+                        {/* Annual Base */}
+                        <td className="py-3 px-3 text-right text-gray-600 font-bold hidden md:table-cell">
+                          {formatCompactCurrency(item.annualSpendUSD, activeCurrency)}
+                        </td>
+
+                        {/* Remove Action Button */}
+                        <td className="py-3 px-3 text-center">
+                          <button
+                            type="button"
+                            onClick={() => removeCounter(item.id)}
+                            className="text-gray-400 hover:text-red-600 p-1 rounded transition-colors cursor-pointer"
+                            title="Eliminar de la comparativa"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
         ) : (
-          <div className="bg-white border border-gray-300 rounded-sm p-8 text-center text-gray-500 shadow-2xs">
-            <Scale className="w-10 h-10 text-gray-400 mx-auto mb-2" />
-            <h3 className="text-base font-bold text-gray-800">
-              {t?.emptyStateTitle || 'No Counters Selected'}
-            </h3>
-            <p className="text-xs mt-1 max-w-md mx-auto">
-              {t?.emptyStateDescription ||
-                'Select counters using the button above to view live real-time benchmark flows.'}
+          /* Clear, simple instructional empty state */
+          <div className="bg-white border-2 border-dashed border-[#c8d1db] rounded-xs p-8 text-center text-gray-600 shadow-xs">
+            <Scale className="w-10 h-10 text-[#245280] mx-auto mb-2 opacity-80" />
+            <h2 className="text-base font-black text-[#14324f]">
+              Tu tabla comparativa está vacía
+            </h2>
+            <p className="text-xs text-gray-600 mt-1 max-w-md mx-auto">
+              Escribe en el buscador de arriba o haz clic en cualquiera de las sugerencias para añadir contadores y verlos correr en tiempo real.
             </p>
           </div>
         )}
