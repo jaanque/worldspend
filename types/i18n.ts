@@ -89,6 +89,7 @@ export interface Translations {
     spendDuringVisit: string;
   };
   searchAndFilter: {
+    filterSectionTitle?: string;
     searchPlaceholder: string;
     showingCounters: (count: number) => string;
     indicatorsCount: (count: number) => string;

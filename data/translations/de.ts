@@ -72,6 +72,7 @@ export const deTranslations: Translations = {
     spendDuringVisit: 'Während Ihres Besuchs weltweit ausgegebenes Geld:',
   },
   searchAndFilter: {
+    filterSectionTitle: 'Suche & Kategoriefilter',
     searchPlaceholder: 'Über 147 Live-Zähler, Institutionen oder Themen filtern (z.B. Schulden, Verteidigung, TikTok, Benzin, Gehalt)...',
     showingCounters: (count: number) => `${count} Live-Indikatoren angezeigt`,
     indicatorsCount: (count: number) => `${count} Indikatoren`,

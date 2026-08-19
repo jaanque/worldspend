@@ -72,6 +72,7 @@ export const ptTranslations: Translations = {
     spendDuringVisit: 'Dinheiro gasto globalmente durante sua visita:',
   },
   searchAndFilter: {
+    filterSectionTitle: 'Pesquisa e Filtros por Categoria',
     searchPlaceholder: 'Filtrar mais de 147 contadores, fontes ou tópicos (ex. dívida, defesa, tiktok, gasolina, salário)...',
     showingCounters: (count: number) => `Exibindo ${count} contadores ao vivo`,
     indicatorsCount: (count: number) => `${count} indicadores`,

@@ -72,6 +72,7 @@ export const frTranslations: Translations = {
     spendDuringVisit: 'Argent dépensé dans le monde pendant votre visite :',
   },
   searchAndFilter: {
+    filterSectionTitle: 'Recherche et Filtres par Catégorie',
     searchPlaceholder: 'Filtrer plus de 147 compteurs, institutions ou thèmes (ex. dette, défense, tiktok, essence, salaire)...',
     showingCounters: (count: number) => `Affichage de ${count} indicateurs en direct`,
     indicatorsCount: (count: number) => `${count} indicateurs`,

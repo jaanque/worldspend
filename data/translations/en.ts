@@ -72,6 +72,7 @@ export const enTranslations: Translations = {
     spendDuringVisit: 'Money spent globally during your visit:',
   },
   searchAndFilter: {
+    filterSectionTitle: 'Search & Category Filters',
     searchPlaceholder: 'Filter 147+ live counters, institutions, keywords (e.g. debt, defense, tiktok, oil, wages)...',
     showingCounters: (count: number) => `Showing ${count} live indicators`,
     indicatorsCount: (count: number) => `${count} indicators`,
