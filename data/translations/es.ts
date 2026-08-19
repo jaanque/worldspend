@@ -1,0 +1,1212 @@
+import { Translations } from '@/types/i18n';
+
+export const esTranslations: Translations = {
+  seo: {
+    title: 'WorldSpend.org — Gasto Global en Tiempo Real y Estadísticas de Gasto en Vivo',
+    description:
+      'Panel oficial de estadísticas que monitoriza el gasto global en tiempo real, estadísticas de gasto en vivo, reloj del gasto mundial y rastreador financiero global.',
+    mainKeyword: 'Gasto global en tiempo real',
+    secondaryKeywords: [
+      'Estadísticas de gasto en vivo',
+      'Rastreador financiero global',
+      'Reloj del gasto mundial',
+    ],
+    keywords: [
+      'Gasto global en tiempo real',
+      'Estadísticas de gasto en vivo',
+      'Rastreador financiero global',
+      'Reloj del gasto mundial',
+      'gasto mundial',
+      'estadísticas macroeconómicas',
+      'finanzas globales en directo',
+    ],
+  },
+  header: {
+    tagline: '— Estadísticas Mundiales de Gasto en Tiempo Real',
+    compareNav: 'Comparar',
+    homeNav: 'Inicio',
+    timeframes: {
+      year: 'Año 2026',
+      today: 'Hoy',
+      session: 'Tu Visita',
+      second: 'Por Segundo',
+    },
+    selectCurrency: 'Seleccionar divisa',
+    selectLanguage: 'Seleccionar idioma',
+  },
+  comparePage: {
+    badge: 'Análisis Comparativo en Vivo',
+    title: 'Comparador de Contadores y Matriz de Flujos',
+    subtitle: 'Selecciona hasta un máximo de 10 indicadores en tiempo real para contrastar velocidades de gasto, proporciones y volumen monetario.',
+    selectionLimit: (current: number, max: number) => `${current} / ${max} seleccionados`,
+    addCounterPlaceholder: 'Buscar y añadir un indicador...',
+    clearAll: 'Limpiar Todo',
+    selectPresets: 'Duelos Predefinidos:',
+    presetTopGlobal: 'Flujos Mundiales Top',
+    presetSovereignDebts: 'Deudas Soberanas',
+    presetTechAndMedia: 'Tecnología y Redes',
+    presetLifestyle: 'Consumo y Estilo de Vida',
+    liveComparisonTitle: 'Carrera Financiera Simultánea a 60 FPS',
+    rankingHeader: 'Posición y Velocidad',
+    ratePerSecHeader: 'Flujo por Segundo',
+    annualTotalHeader: 'Gasto Anual Base',
+    shareOfTotalHeader: '% de la Comparativa',
+    maxLimitWarning: 'Puedes comparar un máximo de 10 contadores simultáneamente.',
+    emptyStateTitle: 'Ningún Contador Seleccionado',
+    emptyStateDescription: 'Usa el buscador superior o selecciona un duelo rápido para comenzar a comparar en tiempo real.',
+    backToHome: 'Volver a Todos los Contadores',
+    shareComparison: 'Compartir Comparativa',
+    copiedLink: '¡Enlace copiado al portapapeles!',
+  },
+  heroTicker: {
+    yearLabel: 'Gasto Mundial Total en 2026 (Acumulado Anual)',
+    todayLabel: 'Gasto Mundial Total Hoy (desde 00:00 GMT)',
+    sessionLabel: (seconds: number) => `Gasto Mundial Total durante tus ${Math.floor(seconds)}s de visita`,
+    secondLabel: 'Gasto Mundial Total por Segundo',
+    perSecondSuffix: 'por segundo',
+  },
+  sessionBanner: {
+    timeOnPage: 'Tiempo transcurrido en la página:',
+    spendDuringVisit: 'Dinero gastado en el mundo durante tu visita:',
+  },
+  searchAndFilter: {
+    searchPlaceholder: 'Buscar estadísticas (ej: ministerio igualdad, criar hijo, pensiones, comida, boda...)',
+    showingCounters: (count: number) => `Mostrando: ${count} contadores`,
+    indicatorsCount: (count: number) => `${count} indicadores`,
+    noResultsFound: (query: string) => `No se encontraron indicadores estadísticos para “${query}”.`,
+    viewAllButton: 'Ver todos los indicadores',
+    collapseAll: 'Contraer todas las categorías',
+    expandAll: 'Desplegar todas las categorías',
+  },
+  card: {
+    perSecondBadge: '/s',
+    officialSourcePrefix: 'Fuente Oficial:',
+    embedTitle: 'Código de Incrustación en Vivo',
+    embedInstruction: 'Incrusta este contador en vivo en cualquier sitio web o blog:',
+    testWidgetPage: 'Probar página de widget',
+    copyHtml: 'Copiar HTML',
+    copied: '¡Copiado!',
+  },
+  detailPage: {
+    backLink: 'Volver a todas las estadísticas en vivo',
+    statisticalIndicator: 'INDICADOR ESTADÍSTICO',
+    annualBaseline: 'Gasto Anual Base',
+    annualizedExp: 'Gasto anualizado consolidado',
+    ratePerMinute: 'Gasto por Minuto',
+    rateOfFlow: 'Velocidad de flujo de capital',
+    shareOfGdp: 'Proporción del PIB Mundial',
+    ofWorldEconomy: 'De la economía global',
+    historicalChartTitle: 'Trayectoria Histórica del Gasto (2000 – 2026)',
+    historicalChartSubtitle: 'Gasto anual consolidado a lo largo de las series estadísticas históricas',
+    statisticalOverview: 'Resumen Estadístico:',
+    officialSource: 'Fuente Oficial:',
+    continuousUpdate: 'Actualización continua a 60 FPS',
+  },
+  footer: {
+    methodologyTitle: 'METODOLOGÍA ESTADÍSTICA Y FUENTES OFICIALES',
+    methodologyBody:
+      'WorldSpend calcula indicadores macroeconómicos y flujos financieros globales en tiempo real continuo a partir de datos oficiales de las Naciones Unidas (UNODC/FAO), la OMS, SIPRI, Eurostat, el INE, presupuestos generales del Estado, Deloitte y la UEFA.',
+    copyrightTagline: 'WorldSpend.org — Estadísticas Globales y Contabilidad Financiera en Tiempo Real',
+    categoriesTitle: 'Categorías de Gasto',
+    trendingTitle: 'Indicadores Populares y Destacados',
+    sourcesTitle: 'Instituciones de Datos Oficiales',
+    toolsTitle: 'Herramientas y Recursos Web',
+    disclaimerTitle: 'Aviso Legal y Citación',
+    disclaimerText:
+      'Los ritmos de gasto en tiempo real son estimaciones matemáticas continuas calculadas a partir de balances anuales auditados y registros oficiales públicos. Los datos se actualizan a 60 FPS con fines divulgativos y periodísticos.',
+    citationText: 'Cómo citar: WorldSpend Analytics. (2026). Indicadores de Gasto Global en Tiempo Real. Obtenido de https://worldspend.org',
+  },
+  categories: {
+    all: {
+      name: 'Todos los Gastos',
+      description: 'Panorama financiero global completo en tiempo real',
+    },
+    government: {
+      name: 'Gobierno y Presupuestos Públicos',
+      description: 'Ministerios públicos, pensiones, subsidios y administración del Estado',
+    },
+    society: {
+      name: 'Familia, Sociedad y Estilo de Vida',
+      description: 'Crianza de hijos, bodas, productos para bebés y eventos vitales',
+    },
+    food: {
+      name: 'Alimentación y Cesta de la Compra',
+      description: 'Gasto mensual en comida, alimentación familiar y supermercados',
+    },
+    luxury: {
+      name: 'Medios, Eventos y Estilismo',
+      description: 'Megaproducciones de streaming, estilismo público y entretenimiento',
+    },
+    health: {
+      name: 'Sanidad y Salud Pública',
+      description: 'Sistemas sanitarios mundiales, productos farmacéuticos y tratamientos',
+    },
+    illicit: {
+      name: 'Sustancias Ilegales y Mercado Negro',
+      description: 'Tráfico internacional de estupefacientes y contrabando',
+    },
+    science: {
+      name: 'Investigación Científica y Espacio',
+      description: 'Inversión en I+D global y exploración espacial',
+    },
+    advertising: {
+      name: 'Publicidad y Marketing',
+      description: 'Anuncios digitales, medios tradicionales y patrocinios',
+    },
+    military: {
+      name: 'Gasto Militar y Defensa',
+      description: 'Presupuestos de defensa mundiales y armamento',
+    },
+    tech: {
+      name: 'Tecnología, IA y Cómputo',
+      description: 'Centros de datos de IA e infraestructura en la nube',
+    },
+    energy: {
+      name: 'Energía, Petróleo y Electricidad',
+      description: 'Generación eléctrica mundial, consumo de crudo y redes de energía',
+    },
+    sports: {
+      name: 'Deportes, Fútbol y Competiciones',
+      description: 'Mercado de fichajes de fútbol, masas salariales de clubes y grandes torneos',
+    },
+    gambling: {
+      name: 'Juegos de Azar y Loterías',
+      description: 'Casinos físicos, apuestas deportivas y loterías de estado',
+    },
+    corruption: {
+      name: 'Corrupción y Paraísos Fiscales',
+      description: 'Evasión fiscal corporativa y cuentas offshore',
+    },
+  },
+  items: {
+    'spain-equality-ministry-budget': {
+      title: 'Presupuesto del Ministerio de Igualdad de España',
+      subtitle: 'Presupuesto general anual asignado a políticas de igualdad y prevención de violencia de género',
+      description:
+        'Dotación presupuestaria oficial consolidada en los Presupuestos Generales del Estado (PGE) para el Ministerio de Igualdad, incluyendo programas de conciliación, sensibilización y protección integral.',
+      sourceName: 'Presupuestos Generales del Estado (PGE) & Ministerio de Hacienda',
+    },
+    'cost-raising-child-18-years': {
+      title: 'Coste de Criar a un Hijo hasta los 18 Años',
+      subtitle: 'Coste medio acumulado en alimentación, educación, vivienda, sanidad y crianza',
+      description:
+        'Inversión económica requerida para mantener a un hijo desde su nacimiento hasta alcanzar la mayoría de edad (18 años), con una media de 320.000 € por hijo en España y la Unión Europea.',
+      sourceName: 'Save the Children & Encuesta de Presupuestos Familiares (INE)',
+    },
+    'spain-pensions-expenditure': {
+      title: 'Gasto en Pensiones en España',
+      subtitle: 'Nómina mensual consolidada de pensiones contributivas de jubilación, viudedad e incapacidad',
+      description:
+        'Gasto total del sistema público de la Seguridad Social española destinado a abonar las más de 10 millones de pensiones contributivas, representando aproximadamente el 12,5% del PIB nacional.',
+      sourceName: 'Seguridad Social de España & Ministerio de Inclusión',
+    },
+    'monthly-food-grocery-spending': {
+      title: 'Gasto en Comida y Alimentación al Mes',
+      subtitle: 'Presupuesto destinado a cesta de la compra, supermercados y alimentación doméstica',
+      description:
+        'Gasto consolidado de los hogares en productos alimenticios, frescos y supermercados. El gasto medio por hogar ronda los 450 € a 550 € mensuales en España.',
+      sourceName: 'FAO & Instituto Nacional de Estadística (INE)',
+    },
+    'wedding-industry-average-cost': {
+      title: 'Gasto Medio en una Boda',
+      subtitle: 'Coste global del banquete, vestido, fotografía, viaje de novios y celebración nupcial',
+      description:
+        'Gasto acumulado de las celebraciones matrimoniales en el mundo. En España, el coste medio por enlace nupcial se sitúa en 22.500 € para una media de 120 invitados.',
+      sourceName: 'The Knot Global Wedding Report & Bodas.net',
+    },
+    'baby-diapers-annual-spending': {
+      title: 'Gasto en Pañales para Bebés al Mes',
+      subtitle: 'Consumo recurrente de pañales desechables y toallitas húmedas durante los primeros años',
+      description:
+        'Volumen global de compra de pañales infantiles. Un bebé utiliza entre 5.000 y 6.000 pañales en sus primeros 30 meses, con un gasto medio de 50 € a 70 € al mes por familia.',
+      sourceName: 'Euromonitor International & Organización de Consumidores (OCU)',
+    },
+    'spain-social-welfare-benefits': {
+      title: 'Gasto de España en Ayudas y Protección Social',
+      subtitle: 'Prestaciones por desempleo, Ingreso Mínimo Vital, dependencia y subsidios públicos',
+      description:
+        'Gasto público conjunto del Estado español en prestaciones asistenciales, cobertura por desempleo, subsidios a familias vulnerables y Sistema para la Autonomía y Atención a la Dependencia.',
+      sourceName: 'Servicio Público de Empleo Estatal (SEPE), Ministerio de Derechos Sociales & Eurostat',
+    },
+    'la-velada-production-cost': {
+      title: 'Coste de Producción de La Velada del Año (Ibai)',
+      subtitle: 'Presupuesto de producción técnica, alquiler de estadios, artistas y seguridad del evento',
+      description:
+        'Coste total de organización del mayor evento de streaming en habla hispana (Santiago Bernabéu / Metropolitano), incluyendo cachets musicales, infraestructura audiovisual y logística.',
+      sourceName: 'KOI Productions, Twitch & Forbes Spain Media Analysis',
+    },
+    'individual-monthly-food-cost': {
+      title: 'Gasto de una Persona en Comida al Mes',
+      subtitle: 'Coste individual medio en supermercado y restauración mensual por habitante',
+      description:
+        'Gasto promedio individual de una persona adulta en alimentación doméstica y restauración, estimado en 220 € a 310 € mensuales por persona en España.',
+      sourceName: 'INE Encuesta de Presupuestos Familiares & Eurostat',
+    },
+    'government-styling-makeup-spending': {
+      title: 'Gasto en Maquillaje y Estilismo de Altos Cargos Públicos',
+      subtitle: 'Presupuesto de contratación pública de estilismo, peluquería e imagen para comparecencias',
+      description:
+        'Importe de los contratos públicos licitados para servicios de peluquería, maquillaje y asesoría de imagen en actos institucionales y entrevistas oficiales de miembros del Gobierno.',
+      sourceName: 'Plataforma de Contratación del Sector Público & Portal de Transparencia',
+    },
+    'spain-total-annual-public-spending': {
+      title: 'Gasto Público Total del Estado Español al Año',
+      subtitle: 'Presupuesto consolidado de la Administración Central, Comunidades Autónomas y Ayuntamientos',
+      description:
+        'Gasto público conjunto de todas las administraciones públicas de España (Administración General del Estado, 17 CC.AA., Seguridad Social y corporaciones locales). En 2024-2026 supera los 645.000 millones de euros anuales.',
+      sourceName: 'Ministerio de Hacienda & Banco de España',
+    },
+    'spain-social-expenditure-total': {
+      title: 'Gasto Social Total en España',
+      subtitle: 'Presupuesto agregado en pensiones, sanidad pública, educación y servicios sociales',
+      description:
+        'Gasto total del Estado español destinado a políticas del Estado de Bienestar: sistema nacional de salud, educación pública, pensiones y servicios sociales, representando más del 56% del presupuesto público total.',
+      sourceName: 'Eurostat & Estadística de Gasto Social de España',
+    },
+    'spain-public-spending-gdp-percentage': {
+      title: 'Gasto Público de España respecto al PIB (44,6%)',
+      subtitle: 'Porcentaje del Producto Interior Bruto canalizado a través del sector público',
+      description:
+        'El gasto de las administraciones públicas españolas representa exactamente el 44,6% del Producto Interior Bruto (PIB) nacional, situándose en la media de la Unión Europea y la Eurozona.',
+      sourceName: 'Banco de España, INE & Comisión Europea (AMECO)',
+    },
+    'global-public-expenditure-total': {
+      title: 'Gasto Público Mundial Total',
+      subtitle: 'Presupuesto fiscal consolidado de todos los gobiernos y estados soberanos del planeta',
+      description:
+        'Volumen financiero total administrado anualmente por los gobiernos soberanos del mundo en servicios públicos, infraestructuras, defensa, sanidad, educación y deuda pública (~32% del PIB global).',
+      sourceName: 'Fondo Monetario Internacional (FMI) & Banco Mundial',
+    },
+    'usa-individual-monthly-cost-of-living': {
+      title: 'Gasto Medio Mensual de una Persona en EE.UU.',
+      subtitle: 'Coste medio de vida mensual de una persona soltera en EE.UU. (alquiler, comida, seguro médico y transporte)',
+      description:
+        'El gasto medio para vivir en EE.UU. ronda entre los $3.200 y $4.200 mensuales para una persona soltera ($38.000 a $50.000 anuales), distribuidos principalmente en vivienda (alquiler medio de $1.400-$1.900), seguro médico privado, coche y alimentación.',
+      sourceName: 'U.S. Bureau of Labor Statistics (BLS) & MIT Living Wage Calculator',
+    },
+    'usa-supermarket-grocery-spending': {
+      title: 'Gasto en Supermercado en Estados Unidos al Mes',
+      subtitle: 'Presupuesto medio mensual en alimentación y productos de primera necesidad en EE.UU.',
+      description:
+        'Una persona en EE.UU. gasta en promedio entre $420 y $580 al mes en la cesta del supermercado para cocinar en casa. Los precios varían significativamente según el estado (California y Nueva York siendo los más caros).',
+      sourceName: 'USDA Economic Research Service & U.S. Census Bureau',
+    },
+    'usa-federal-minimum-wage-annual': {
+      title: 'Sueldo Mínimo en Estados Unidos Mensual y Anual',
+      subtitle: 'Salario mínimo federal ($7,25/h = $1.256/mes) vs. medias estatales ($15-$17/h = $2.600-$2.950/mes)',
+      description:
+        'El salario mínimo federal en EE.UU. está fijado por ley en $7,25 por hora ($1.256 brutos mensuales a 40h semanales = $15.080 al año). No obstante, más de 30 estados han legislado salarios mínimos superiores que oscilan entre $15 y $17,50 por hora.',
+      sourceName: 'U.S. Department of Labor (DOL) & Economic Policy Institute',
+    },
+    'cost-of-living-spain-vs-usa': {
+      title: 'Costo de Vida: España vs. Estados Unidos',
+      subtitle: 'El costo de vida global en EE.UU. es entre un 65% y un 85% más alto que en España',
+      description:
+        'Vivir en Estados Unidos es considerablemente más caro que en España: la vivienda en alquiler es un 110% superior en EE.UU., la atención sanitaria y seguros son hasta un 400% más caros, y la cesta de la compra cuesta entre un 40% y un 70% más en suelo estadounidense.',
+      sourceName: 'OECD Better Life Index, Numbeo Cost of Living & Eurostat',
+    },
+    'july-fourth-fireworks-spending': {
+      title: 'Gasto Anual en Fuegos Artificiales y 4 de Julio',
+      subtitle: 'Consumo mundial y estadounidense en espectáculos pirotécnicos y fuegos artificiales recreativos',
+      description:
+        'Gasto global en la industria pirotécnica. Solo en Estados Unidos durante las celebraciones del 4 de Julio (Día de la Independencia) los consumidores y ayuntamientos gastan más de 1.500 millones de dólares en fuegos artificiales.',
+      sourceName: 'American Pyrotechnics Association (APA) & U.S. CPSC',
+    },
+    'uk-asylum-seekers-support-spending': {
+      title: 'Gasto en Solicitantes de Asilo e Inmigración en Reino Unido',
+      subtitle: 'Presupuesto anual del Home Office en alojamiento hotelero, tramitación y manutención de asilo',
+      description:
+        'Gasto total del gobierno británico (Home Office) dedicado a la tramitación de expedientes de asilo, provisión de alojamiento temporal en hoteles y centros asistenciales, y ayudas económicas de manutención.',
+      sourceName: 'UK Home Office & National Audit Office (NAO)',
+    },
+    'us-snap-food-stamps-spending': {
+      title: 'Presupuesto del Programa SNAP (Cupones de Alimentos en EE.UU.)',
+      subtitle: 'Financiación federal del programa de asistencia nutricional suplementaria para más de 41 millones de beneficiarios',
+      description:
+        'Gasto federal del Departamento de Agricultura de EE.UU. (USDA) en el programa SNAP (Supplemental Nutrition Assistance Program), que proporciona transferencias económicas directas para la compra de alimentos a familias de bajos ingresos.',
+      sourceName: 'USDA Food and Nutrition Service (FNS) & Congressional Budget Office (CBO)',
+    },
+    'gta-6-development-marketing-budget': {
+      title: 'Presupuesto de Desarrollo y Marketing de GTA 6',
+      subtitle: 'Coste histórico acumulado de producción, tecnología de motor gráfico y campaña de lanzamiento mundial',
+      description:
+        'Presupuesto total estimado para Grand Theft Auto VI (Rockstar Games / Take-Two Interactive), considerado el producto de entretenimiento más caro de la historia humana, combinando más de 10 años de desarrollo, captura de movimiento y publicidad global.',
+      sourceName: 'Take-Two Interactive SEC Filings & Industry Financial Analyst Reports',
+    },
+    'global-cancer-research-spending': {
+      title: 'Gasto Mundial en Investigación del Cáncer al Año',
+      subtitle: 'Financiación en oncología, ensayos clínicos, inmunoterapia y desarrollo de fármacos antitumorales',
+      description:
+        'Inversión global combinada de agencias públicas (como el NCI estadounidense y programas Horizonte Europa), fundaciones benéficas y la industria farmacéutica en investigación biomédica y ensayos clínicos contra el cáncer.',
+      sourceName: 'National Cancer Institute (NCI), World Health Organization (IARC) & Cancer Research UK',
+    },
+    'uk-welfare-benefits-total-spending': {
+      title: 'Gasto Total en Prestaciones y Ayudas Sociales en Reino Unido',
+      subtitle: 'Nómina fiscal anual en pensiones de estado, Universal Credit, discapacidad y subsidios de vivienda',
+      description:
+        'Gasto anual total administrado por el Departamento de Trabajo y Pensiones (DWP) del Reino Unido para financiar las pensiones públicas de jubilación, el Universal Credit y las prestaciones por discapacidad y dependencia.',
+      sourceName: 'UK Department for Work and Pensions (DWP) & Office for Budget Responsibility (OBR)',
+    },
+    'global-space-exploration-spending': {
+      title: 'Gasto Mundial en Exploración Espacial y Misiones',
+      subtitle: 'Presupuestos combinados de agencias espaciales (NASA, ESA, CNSA, ISRO) y vuelos espaciales privados',
+      description:
+        'Presupuesto global anual dedicado a programas espaciales: misiones a la Luna y Marte (Artemis), telescopios espaciales (James Webb), estaciones orbitales y lanzamientos comerciales (SpaceX, Blue Origin).',
+      sourceName: 'Euroconsult Space Economy Report & NASA Annual Budget',
+    },
+    'mega-sporting-events-organization-cost': {
+      title: 'Coste de Organización de Megaeventos Deportivos (Mundial y JJ.OO.)',
+      subtitle: 'Gasto promedio de organización, construcción de estadios, infraestructuras y seguridad en macrocompeticiones',
+      description:
+        'Gasto promedio anualizado en la preparación y organización de las mayores competiciones deportivas del planeta (Copa Mundial de la FIFA, Juegos Olímpicos de Verano e Invierno, Super Bowl y UEFA Champions League).',
+      sourceName: 'Comité Olímpico Internacional (COI) & Informes Financieros de la FIFA',
+    },
+    'global-military-defence-spending': {
+      title: 'Gasto Militar y de Defensa Mundial',
+      subtitle: 'Presupuestos combinados de defensa, compras armamentísticas, tropas e investigación bélica de todos los países',
+      description:
+        'Gasto militar global anual de las fuerzas armadas de todos los países soberanos. Liderado por Estados Unidos, China, Rusia, India y los estados miembros de la OTAN en armamento y tropas.',
+      sourceName: 'Stockholm International Peace Research Institute (SIPRI)',
+    },
+    'global-ai-artificial-intelligence-spending': {
+      title: 'Gasto Mundial en Inteligencia Artificial (IA)',
+      subtitle: 'Inversión anual en centros de datos, chips semiconductores (GPUs), modelos LLM y software empresarial de IA',
+      description:
+        'Inversión global de corporaciones tecnológicas e industrias en infraestructura de inteligencia artificial generativa, hardware de cómputo avanzado, chips aceleradores y despliegue de modelos de IA.',
+      sourceName: 'International Data Corporation (IDC Worldwide AI Tracker) & Gartner',
+    },
+    'global-healthcare-total': {
+      title: 'Gasto Sanitario Mundial Total',
+      subtitle: 'Gasto agregado en hospitales, tratamientos, fármacos y sistemas sanitarios de todo el planeta',
+      description:
+        'Gasto total del planeta en atención médica y servicios de salud pública y privada, incluyendo infraestructuras hospitalarias, investigación médica, medicamentos recetados y aseguradoras (~10% del PIB mundial).',
+      sourceName: 'Organización Mundial de la Salud (OMS / WHO) & Banco Mundial',
+    },
+    'global-nuclear-weapons-spending': {
+      title: 'Gasto Mundial en Armamento Nuclear',
+      subtitle: 'Presupuesto de mantenimiento, modernización y desarrollo de arsenales atómicos en las 9 potencias nucleares',
+      description:
+        'Gasto anual consolidado de los 9 países con capacidad nuclear (Estados Unidos, China, Rusia, Reino Unido, Francia, India, Pakistán, Israel y Corea del Norte) en mantener y modernizar ojivas y misiles balísticos.',
+      sourceName: 'Campaña Internacional para la Abolición de las Armas Nucleares (ICAN) & SIPRI',
+    },
+    'global-advertising-marketing-spending': {
+      title: 'Gasto Mundial en Publicidad y Marketing',
+      subtitle: 'Inversión global de empresas en publicidad digital, redes sociales, televisión y medios exteriores',
+      description:
+        'Gasto global en medios publicitarios, incluyendo Google Ads, Meta, televisión, prensa, radio y publicidad exterior, rozando el billón de dólares anuales a nivel mundial.',
+      sourceName: 'WARC Global Ad Spend Outlook & GroupM',
+    },
+    'global-economic-cost-of-war': {
+      title: 'Impacto Económico Mundial de las Guerras y Conflictos',
+      subtitle: 'Coste global agregado de destrucción, refugiados, pérdidas de PIB y gasto armamentístico en guerras activas',
+      description:
+        'Impacto económico global de la violencia armada y las guerras en el planeta. Incluye la destrucción de infraestructuras, gasto bélico directo, pérdidas de productividad y ayuda humanitaria a refugiados según el Institute for Economics and Peace (~13% del PIB mundial).',
+      sourceName: 'Institute for Economics and Peace (IEP Global Peace Index) & World Bank',
+    },
+    'global-electricity-power-spending': {
+      title: 'Gasto Mundial en Electricidad y Generación Eléctrica',
+      subtitle: 'Facturación global del consumo eléctrico en hogares, fábricas, centros de datos e infraestructuras',
+      description:
+        'Gasto total del planeta en consumo de energía eléctrica generada por fuentes renovables, nuclear, gas y carbón, impulsado fuertemente por la electrificación del transporte y centros de datos de IA.',
+      sourceName: 'Agencia Internacional de la Energía (AIE / IEA) & BloombergNEF',
+    },
+    'global-crude-oil-spending-annual': {
+      title: 'Gasto Mundial Anual en Petróleo Crudo',
+      subtitle: 'Consumo diario de más de 102 millones de barriles de crudo para transporte, petroquímica e industria',
+      description:
+        'Valor económico total del petróleo crudo consumido anualmente en el mundo (~102 millones de barriles por día a un precio promedio de $78-$85 por barril) refinado para gasolinas, diésel, queroseno de aviación y plásticos.',
+      sourceName: 'International Energy Agency (IEA) & OPEC Annual Statistical Bulletin',
+    },
+    'global-christmas-holiday-spending': {
+      title: 'Gasto Mundial en Navidad y Campaña Navideña',
+      subtitle: 'Consumo en regalos, juguetes, alimentación festiva, decoraciones y viajes durante la temporada de fin de año',
+      description:
+        'Gasto de los consumidores en todo el planeta durante la campaña de Navidad y fiestas de fin de año (Black Friday, Nochebuena, Reyes y Año Nuevo), concentrado principalmente en compras minoristas, juguetes, gastronomía festiva y viajes familiares.',
+      sourceName: 'National Retail Federation (NRF) & Global Retail Analytics',
+    },
+    'annual-cost-of-owning-a-dog': {
+      title: 'Coste Anual de Tener un Perro y Cuidado Canino',
+      subtitle: 'Gasto medio anual de 1.400 € a 2.400 $ por perro en alimentación, veterinario, vacunas y seguro',
+      description:
+        'Inversión anual media de una familia en el cuidado de un perro doméstico (estimada entre 1.400 € y 2.400 $ al año por mascota), sumando pienso de calidad, visitas veterinarias, desparasitación, peluquería y vacunas obligatorias.',
+      sourceName: 'American Pet Products Association (APPA) & FEDIAF',
+    },
+    'annual-cost-of-owning-a-cat': {
+      title: 'Coste Anual de Tener un Gato y Cuidado Felino',
+      subtitle: 'Gasto medio anual de 950 € a 1.600 $ por gato en arena, nutrición, prevención veterinaria y accesorios',
+      description:
+        'Gasto promedio anual para mantener un gato en el hogar (entre 950 € y 1.600 $ por gato al año), incluyendo alimentación húmeda y seca, arena higiénica, revisiones veterinarias periódicas y rascadores.',
+      sourceName: 'American Pet Products Association (APPA) & PDSA Animal Wellbeing',
+    },
+    'annual-cost-of-owning-a-horse': {
+      title: 'Coste Anual de Mantener un Caballo e Industria Hípica',
+      subtitle: 'Coste anual de 4.500 € a 12.000 $ por caballo en pupilaje, herraje, forraje y cuidados ecuestres',
+      description:
+        'Gasto promedio anual para el mantenimiento de un caballo de recreo o deportivo, que oscila entre 4.500 € y 12.000 $ anuales en concepto de estabulación en hípica, forraje, herradores profesionales y chequeos veterinarios.',
+      sourceName: 'British Equestrian Trade Association (BETA) & American Horse Council',
+    },
+    'uk-state-pension-annual-cost': {
+      title: 'Gasto Anual en Pensiones de Estado del Reino Unido',
+      subtitle: 'Nómina fiscal del Estado británico abonada a más de 12,6 millones de jubilados en UK',
+      description:
+        'Gasto anual directo del gobierno británico en el pago de la pensión estatal básica y nueva State Pension para más de 12,6 millones de personas jubiladas en el Reino Unido (~£125 billion).',
+      sourceName: 'UK Department for Work and Pensions (DWP) & OBR',
+    },
+    'annual-cost-of-amazon-prime': {
+      title: 'Facturación Global por Suscripciones de Amazon Prime',
+      subtitle: 'Ingresos mundiales generados por más de 200 millones de suscriptores al servicio Prime ($139/año o 49,90€/año)',
+      description:
+        'Gasto anual de los consumidores en el servicio de suscripción Amazon Prime a nivel mundial, que cuenta con más de 200 millones de miembros activos suscritos a entregas gratuitas y Prime Video.',
+      sourceName: 'Amazon.com, Inc. SEC Form 10-K & CIRP',
+    },
+    'annual-cost-of-owning-a-pool': {
+      title: 'Coste Anual de Mantenimiento de una Piscina',
+      subtitle: 'Gasto de 3.000 $ a 5.000 $ anuales por piscina en cloro, químicos, filtración, agua y electricidad',
+      description:
+        'Gasto anual recurrente de los propietarios de piscinas residenciales para su mantenimiento higiénico y operativo (entre 3.000 $ y 5.000 $ al año por piscina), incluyendo productos químicos, electricidad y agua.',
+      sourceName: 'Pool & Hot Tub Alliance (PHTA) & HomeAdvisor',
+    },
+    'global-video-games-purchases-spending': {
+      title: 'Gasto Mundial en Compra de Videojuegos',
+      subtitle: 'Venta global de juegos de consola, PC, móviles, microtransacciones y suscripciones gaming',
+      description:
+        'Gasto total de los consumidores en la compra de títulos de videojuegos, compras dentro de la aplicación (in-game items), suscripciones (PlayStation Plus, Xbox Game Pass) y descargas digitales para PC, consolas y smartphones.',
+      sourceName: 'Newzoo Global Games Market Report & ESA',
+    },
+    'global-coffee-purchases-spending': {
+      title: 'Gasto Mundial en Compra y Consumo de Café',
+      subtitle: 'Consumo diario de más de 2.250 millones de tazas de café en cafeterías y supermercados',
+      description:
+        'Gasto global de los consumidores en café tostado, café molido, cápsulas en supermercados y bebidas servidas en cafeterías y cadenas de café especializadas en todo el planeta.',
+      sourceName: 'Organización Internacional del Café (OIC / ICO) & Statista',
+    },
+    'global-bottled-water-purchases-spending': {
+      title: 'Gasto Mundial en Compra de Agua Embotellada',
+      subtitle: 'Consumo anual de más de 390.000 millones de litros de agua mineral y purificada envasada',
+      description:
+        'Gasto comercial global en botellas y garrafas de agua mineral natural, agua purificada y agua con gas, superando los 390.000 millones de litros anuales adquiridos por particulares y empresas.',
+      sourceName: 'International Bottled Water Association (IBWA) & UNU-INWEH',
+    },
+    'global-illicit-arms-trafficking-spending': {
+      title: 'Gasto en Compra y Tráfico de Armas Ilegales',
+      subtitle: 'Mercado negro global de armas cortas, fusiles de asalto y municiones ilícitas',
+      description:
+        'Estimación del valor del tráfico clandestino y comercio ilegal de armas de fuego y municiones en el mercado negro internacional según la Oficina de las Naciones Unidas contra la Droga y el Delito (UNODC) y el Small Arms Survey.',
+      sourceName: 'UN Office on Drugs and Crime (UNODC) & Small Arms Survey',
+    },
+    'global-cryptocurrency-purchases-spending': {
+      title: 'Gasto y Adquisición Global de Criptomonedas',
+      subtitle: 'Flujo neto anual de dinero fiat inyectado por particulares e instituciones en Bitcoin, Ethereum y activos digitales',
+      description:
+        'Volumen estimado de capital fiduciario nuevo invertido anualmente por inversores minoristas e institucionales para comprar Bitcoin, Ethereum, stablecoins y criptoactivos a través de exchanges regulados y pasarelas de pago.',
+      sourceName: 'Chainalysis Global Crypto Adoption Index & CoinGecko',
+    },
+    'ai-datacenters-chatgpt-spending': {
+      title: 'Gasto en Centros de Datos de IA y ChatGPT',
+      subtitle: 'Inversión récord en clústeres de servidores GPU, refrigeración líquida y energía para modelos de IA como ChatGPT',
+      description:
+        'Gasto de capital (CapEx) global de hiperescaladores (Microsoft Azure, AWS, Google Cloud, Meta y OpenAI) dedicado exclusivamente a la construcción y equipamiento de centros de datos para entrenamiento e inferencia de Inteligencia Artificial como ChatGPT.',
+      sourceName: 'Dell’Oro Group Data Center CapEx & Synergy Research',
+    },
+    'weight-loss-drugs-ozempic-spending': {
+      title: 'Gasto en Medicamentos para Perder Peso (Ozempic y GLP-1)',
+      subtitle: 'Consumo mundial en fármacos inyectables GLP-1 contra la obesidad y diabetes (Ozempic, Wegovy, Mounjaro)',
+      description:
+        'Gasto anual global de pacientes, aseguradoras médicas y sistemas sanitarios en la compra de tratamientos agonistas del receptor GLP-1 para la pérdida de peso y control glucémico (Ozempic, Wegovy de Novo Nordisk y Mounjaro, Zepbound de Eli Lilly).',
+      sourceName: 'IQVIA Global Medicine Spending & Novo Nordisk / Eli Lilly Reports',
+    },
+    'top-10-football-clubs-transfer-spending': {
+      title: 'Gasto en Fichajes de los 10 Clubes de Fútbol Top del Mundo',
+      subtitle: 'Inversión anual combinada en traspasos de jugadores de Real Madrid, Manchester City, Chelsea, PSG, Arsenal y gigantes europeos',
+      description:
+        'Gasto agregado anual en fichajes de futbolistas ejecutado por los 10 clubes más ricos del planeta (Real Madrid, Man City, Chelsea, PSG, Bayern Múnich, Arsenal, Manchester United, Barcelona, Liverpool y Tottenham) en las ventanas de transferencias de verano e invierno.',
+      sourceName: 'Transfermarkt & FIFA TMS (Transfer Matching System)',
+    },
+    'top-10-football-clubs-total-payroll-spending': {
+      title: 'Masa Salarial y Sueldos de los 10 Clubes de Fútbol Top',
+      subtitle: 'Nómina anual de salarios a futbolistas estrella y cuerpos técnicos de la élite del fútbol mundial',
+      description:
+        'Gasto total en masa salarial y retribuciones de plantilla deportiva de los 10 clubes de fútbol con mayores ingresos del mundo, según el informe anual de finanzas de clubes de la UEFA y la Deloitte Football Money League.',
+      sourceName: 'Deloitte Football Money League & UEFA Club Licensing Benchmark',
+    },
+    'global-football-transfers-spending': {
+      title: 'Gasto Mundial Total en Fichajes de Fútbol',
+      subtitle: 'Volumen financiero total de traspasos internacionales y nacionales registrados en todas las ligas FIFA',
+      description:
+        'Monto total de dinero pagado en traspasos de jugadores profesionales de fútbol a nivel planetario en todas las confederaciones (UEFA, CONMEBOL, Premier League, LaLiga, Serie A, Saudi Pro League, etc.) según el informe oficial de la FIFA.',
+      sourceName: 'FIFA Global Transfer Report & TMS',
+    },
+    'global-illicit-drug-trade': {
+      title: 'Gasto Mundial en Sustancias Ilícitas y Narcotráfico',
+      subtitle: 'Mercado clandestino global de cocaína, opiáceos, cannabis y drogas sintéticas',
+      description:
+        'Valor estimado del mercado ilegal mundial de estupefacientes y sustancias psicotrópicas ilícitas según el Informe Mundial sobre las Drogas de la Oficina de las Naciones Unidas contra la Droga y el Delito (UNODC).',
+      sourceName: 'Oficina de la ONU contra la Droga y el Delito (UNODC)',
+    },
+    'illicit-stolen-art-antiquities-trafficking': {
+      title: 'Tráfico Ilícito de Obras de Arte y Bienes Culturales',
+      subtitle: 'Mercado negro internacional de arte robado, expolio arqueológico y falsificaciones históricas',
+      description:
+        'Volumen financiero clandestino generado anualmente por el saqueo de yacimientos arqueológicos, robo en museos y comercio ilícito de obras maestras y bienes culturales según la UNESCO e INTERPOL.',
+      sourceName: 'UNESCO & Unidad de Obras de Arte de INTERPOL',
+    },
+    'global-counterfeit-pirated-goods-trade': {
+      title: 'Gasto Mundial en Productos Falsificados y Piratería',
+      subtitle: 'Comercio global de ropa, calzado, electrónica de imitación y medicamentos falsos',
+      description:
+        'Valor del comercio transfronterizo de bienes falsificados y pirateados (moda de lujo falsa, componentes electrónicos falsificados, cosméticos y medicamentos adulterados) según la OCDE y la EUIPO (~2,5% del comercio mundial).',
+      sourceName: 'OCDE & Oficina de Propiedad Intelectual de la Unión Europea (EUIPO)',
+    },
+    'global-cybercrime-ransomware-damages': {
+      title: 'Pérdidas Mundiales por Cibercrimen y Ransomware',
+      subtitle: 'Coste global del robo de datos, extorsión digital, ciberfraude y rescates informáticos',
+      description:
+        'Coste económico anual infligido por ataques cibernéticos, grupos de ransomware, robo de propiedad intelectual y fraude digital corporativo en todo el mundo según Cybersecurity Ventures y el FBI IC3.',
+      sourceName: 'Cybersecurity Ventures & FBI Internet Crime Complaint Center (IC3)',
+    },
+    'cristiano-ronaldo-annual-earnings-wealth': {
+      title: 'Ingresos Anuales y Fortuna de Cristiano Ronaldo (CR7)',
+      subtitle: 'Sueldo en Al-Nassr, derechos de imagen y contratos publicitarios mundiales (Nike, Binance, marcas propias)',
+      description:
+        'Ingresos anuales totales de Cristiano Ronaldo, combinando su salario astronómico en el club saudí Al-Nassr (~200 M$) y más de 60 M$ en patrocinios comerciales globales (Nike, marcas de hoteles y fragancias CR7). Su patrimonio neto total estimado supera los 750 millones de dólares.',
+      sourceName: 'Forbes The World’s Highest-Paid Athletes & Bloomberg Billionaires Index',
+    },
+    'lionel-messi-annual-earnings-wealth': {
+      title: 'Ingresos Anuales y Fortuna de Lionel Messi',
+      subtitle: 'Salario en Inter Miami, participación en suscripciones de Apple TV MLS y contratos con Adidas y marcas globales',
+      description:
+        'Ganancias anuales globales de Lionel Messi que suman su ficha deportiva en el Inter Miami de la MLS, regalías por suscripciones de Apple TV MLS Season Pass y contratos multimillonarios de patrocinio con Adidas, Lay’s y socios comerciales. Su patrimonio neto total estimado ronda los 650 millones de dólares.',
+      sourceName: 'Forbes & Sportico Highest-Paid Athletes',
+    },
+    'lamine-yamal-annual-earnings-wealth': {
+      title: 'Ingresos Anuales y Salario de Lamine Yamal',
+      subtitle: 'Nómina profesional en el FC Barcelona, primas deportivas y contrato exclusivo multianual con Adidas',
+      description:
+        'Ingresos anuales estimados del joven astro del fútbol mundial Lamine Yamal (FC Barcelona y Selección Española), sumando su contrato deportivo profesional renovado, primas por títulos y su contrato publicitario a largo plazo como imagen global de Adidas.',
+      sourceName: 'Capology Salary Database, Transfermarkt & Forbes Sports',
+    },
+    'china-military-defense-spending': {
+      title: 'Gasto Militar y Presupuesto de Defensa de China',
+      subtitle: 'Presupuesto oficial y estimado de las Fuerzas Armadas (EPL), modernización naval y arsenal estratégico',
+      description:
+        'Gasto anual militar total de la República Popular China para el Ejército Popular de Liberación (EPL), desarrollo de portaviones, cazas furtivos y disuasión nuclear según el SIPRI y el Ministerio de Finanzas de China.',
+      sourceName: 'SIPRI & Ministerio de Finanzas de China',
+    },
+    'china-education-spending': {
+      title: 'Gasto Público de China en Educación',
+      subtitle: 'Financiación nacional de colegios públicos, universidades de élite e investigación académica',
+      description:
+        'Inversión fiscal y pública consolidada del gobierno central y gobiernos locales de China destinada al sistema educativo obligatorio, institutos técnicos y red universitaria (>4% del PIB).',
+      sourceName: 'Ministerio de Educación de China & Oficina Nacional de Estadística (NBS)',
+    },
+    'china-research-development-spending': {
+      title: 'Gasto de China en Investigación y Desarrollo (I+D)',
+      subtitle: 'Inversión récord en semiconductores, robótica, inteligencia artificial, energía verde y ciencia espacial',
+      description:
+        'Gasto nacional bruto anual en I+D (GERD) de China sumando financiación estatal e inversión corporativa en tecnología punta y ciencia aplicada según la Oficina Nacional de Estadísticas y la OCDE.',
+      sourceName: 'Oficina Nacional de Estadística de China (NBS) & OCDE',
+    },
+    'china-healthcare-spending': {
+      title: 'Gasto de China en Sanidad y Salud Pública',
+      subtitle: 'Presupuesto sanitario nacional, seguros médicos estatales y construcción de hospitales',
+      description:
+        'Gasto total en salud pública, cobertura médica universal, infraestructura hospitalaria y farmacopea en China según la Comisión Nacional de Salud (NHC) y la Organización Mundial de la Salud (OMS).',
+      sourceName: 'Comisión Nacional de Salud de China (NHC) & OMS (WHO)',
+    },
+    'china-foreign-aid-belt-road-spending': {
+      title: 'Gasto de China en Ayuda Exterior y Franja y la Ruta',
+      subtitle: 'Financiación de infraestructuras globales, préstamos para desarrollo y cooperación bilateral (Belt and Road)',
+      description:
+        'Volumen anual de subvenciones, préstamos concesionales de desarrollo y proyectos de cooperación internacional ejecutados por la Agencia China CIDCA en África, Asia y Latinoamérica.',
+      sourceName: 'AidData (William & Mary) & CIDCA China',
+    },
+    'china-lobbying-united-states-spending': {
+      title: 'Gasto de China en Lobbying e Influencia en EE.UU.',
+      subtitle: 'Fondos registrados en la Ley FARA por empresas estatales, medios y firmas de relaciones públicas chinas en Washington',
+      description:
+        'Gastos totales declarados anualmente ante el Departamento de Justicia de EE.UU. bajo la Ley FARA por parte de entidades chinas para relaciones públicas, asesoría política y medios de comunicación.',
+      sourceName: 'OpenSecrets.org Foreign Lobby Watch & Departamento de Justicia de EE.UU. (FARA)',
+    },
+    'france-aid-support-ukraine-spending': {
+      title: 'Gasto y Ayuda Militar de Francia para Ucrania',
+      subtitle: 'Cañones CAESAR, misiles SCALP, blindados ligeros, ayuda humanitaria y aportaciones al fondo de la UE',
+      description:
+        'Aportación económica y militar anual de Francia para Ucrania que incluye armamento de defensa, formación de brigadas militares y paquetes de ayuda humanitaria según el Instituto Kiel y el Ministerio de las Fuerzas Armadas de Francia.',
+      sourceName: 'Kiel Institute Ukraine Support Tracker & Ministerio de las Fuerzas Armadas de Francia',
+    },
+    'paris-2024-olympic-games-spending': {
+      title: 'Gasto y Coste Total de los Juegos Olímpicos de París 2024',
+      subtitle: 'Presupuesto de infraestructuras (SOLIDEO), comité organizador (COJO), seguridad y adecuación urbana',
+      description:
+        'Coste total consolidado de los Juegos Olímpicos y Paralímpicos de París 2024 (Villa Olímpica, Centro Acuático y despliegue operativo) auditado por el Tribunal de Cuentas de Francia.',
+      sourceName: 'Tribunal de Cuentas de Francia (Cour des Comptes) & COJO París 2024',
+    },
+    'france-covid-19-pandemic-spending': {
+      title: 'Gasto de Francia en la Crisis del COVID-19 («Cueste lo que cueste»)',
+      subtitle: 'Financiación del escudo social y económico: ERTEs franceses, fondos de solidaridad y refuerzo hospitalario',
+      description:
+        'Gasto público y medidas extraordinarias de choque movilizadas por Francia durante la pandemia (ayudas a autónomos, compras de material sanitario y plan de reactivación) según el Tribunal de Cuentas y Bercy.',
+      sourceName: 'Cour des Comptes & Ministerio de Economía y Finanzas de Francia (Bercy)',
+    },
+    'france-cleaning-seine-river-spending': {
+      title: 'Gasto en Limpiar y Descontaminar el Río Sena (Plan Baignade)',
+      subtitle: 'Megaobra hidráulica: megadepósito de tormentas de Austerlitz de 50.000 m³, saneamiento y red de colectores',
+      description:
+        'Inversión pública total de Francia para hacer el Sena apto para el baño en los Juegos Olímpicos y para la ciudadanía parisina, liderada por el megadepósito subterráneo de Austerlitz y la modernización de depuradoras.',
+      sourceName: 'Prefectura de Île-de-France & Ayuntamiento de París (Plan Baignade)',
+    },
+    'france-youth-budget-spending': {
+      title: 'Presupuesto del Estado Francés para la Juventud',
+      subtitle: 'Financiación del Contrato de Compromiso Joven (CEJ), Pass Culture, becas CNOUS y ayudas al empleo juvenil',
+      description:
+        'Créditos presupuestarios del Estado francés destinados a políticas de emancipación juvenil, ayudas al alquiler y bono cultural para jóvenes de 18 años.',
+      sourceName: 'Ministerio de Educación Nacional y Juventud de Francia & PGE',
+    },
+    'france-immigration-asylum-budget-spending': {
+      title: 'Presupuesto del Estado Francés para Inmigración y Asilo',
+      subtitle: 'Créditos de la Misión Inmigración y Asilo: subsidio ADA, centros de acogida CADA, oficina OFII y asistencia médica AME',
+      description:
+        'Gasto público anual de Francia destinado a la acogida de solicitantes de asilo, integración cívica y cobertura sanitaria de urgencia.',
+      sourceName: 'Ministerio del Interior de Francia & Presupuestos Generales del Estado',
+    },
+    'france-household-christmas-spending': {
+      title: 'Gasto de los Hogares Franceses en Navidad',
+      subtitle: 'Presupuesto familiar anual en regalos, cenas navideñas, decoración y desplazamientos festivos',
+      description:
+        'Gasto conjunto de las familias francesas durante las fiestas navideñas (media de ~549 € por hogar) según el barómetro anual Cofidis/CSA y el INSEE.',
+      sourceName: 'Barómetro de Navidad Cofidis / CSA & INSEE',
+    },
+    'france-household-clothing-fashion-spending': {
+      title: 'Gasto de los Franceses en Ropa y Moda',
+      subtitle: 'Presupuesto anual de los hogares en prendas de vestir, calzado, marroquinería y complementos',
+      description:
+        'Consumo total anual de las familias francesas en moda y calzado (~1.380 €/hogar/año) según las cuentas nacionales del INSEE y el Institut Français de la Mode (IFM).',
+      sourceName: 'INSEE & Institut Français de la Mode (IFM)',
+    },
+    'france-household-food-spending': {
+      title: 'Gasto de los Hogares Franceses en Alimentación y Cesta de la Compra',
+      subtitle: 'Presupuesto de consumo en alimentos frescos, supermercados, panaderías y productos básicos',
+      description:
+        'Gasto alimentario en el hogar de los 29,5 millones de familias francesas (~395 €/mes por hogar, ~17% del presupuesto familiar) analizado por el INSEE y FranceAgriMer.',
+      sourceName: 'INSEE (Cuentas Nacionales) & FranceAgriMer',
+    },
+    'germany-buergergeld-spending': {
+      title: 'Gasto de Alemania en el Ingreso Ciudadano (Bürgergeld)',
+      subtitle: 'Presupuesto federal en renta mínima vital, subsidios de vivienda y calefacción (KdU) y oficinas Jobcenter',
+      description:
+        'Gasto federal consolidado de Alemania en la renta básica para desempleados y demandantes de empleo según el Ministerio Federal de Trabajo y Asuntos Sociales (BMAS).',
+      sourceName: 'Ministerio de Trabajo y Asuntos Sociales de Alemania (BMAS) & BA',
+    },
+    'germany-military-defense-spending': {
+      title: 'Gasto Militar y Presupuesto de Defensa de Alemania',
+      subtitle: 'Presupuesto ordinario de Defensa (Einzelplan 14) y fondo especial de 100.000 M€ para la Bundeswehr (~2% del PIB)',
+      description:
+        'Gasto militar consolidado de la República Federal de Alemania bajo criterios OTAN para modernización de blindados, cazas y rearme según el SIPRI y el Ministerio de Defensa alemán.',
+      sourceName: 'SIPRI & Ministerio Federal de Defensa de Alemania (BMVg)',
+    },
+    'germany-foreign-development-aid-spending': {
+      title: 'Gasto de Alemania en Ayuda Oficial al Desarrollo (AOD / BMZ)',
+      subtitle: 'Cooperación internacional al desarrollo y ayuda humanitaria (2º mayor donante mundial)',
+      description:
+        'Aportación pública neta de Alemania para proyectos de salud, clima e infraestructuras en países en vías de desarrollo según el CAD de la OCDE y el ministerio BMZ.',
+      sourceName: 'Comité de Ayuda al Desarrollo de la OCDE (CAD) & BMZ Alemania',
+    },
+    'germany-state-pension-spending': {
+      title: 'Gasto de Alemania en Pensiones Públicas (Gesetzliche Rente)',
+      subtitle: 'Desembolso total de pensiones a 21 millones de jubilados más de 112.000 M€ en aportaciones del Estado',
+      description:
+        'Gasto anual en pensiones contributivas de jubilación gestionado por Deutsche Rentenversicherung para más de 21 millones de pensionistas alemanes.',
+      sourceName: 'Deutsche Rentenversicherung Bund & BMAS Alemania',
+    },
+    'germany-education-spending': {
+      title: 'Gasto Público de Alemania en Educación y Universidades',
+      subtitle: 'Presupuesto consolidado del Estado Federal, los 16 Länder y municipios en colegios y centros superiores',
+      description:
+        'Inversión pública global en escuelas infantiles, colegios de primaria y secundaria, formación dual y universidades según el informe Bildungsfinanzbericht de Destatis.',
+      sourceName: 'Oficina Federal de Estadística de Alemania (Destatis)',
+    },
+    'germany-refugees-asylum-spending': {
+      title: 'Gasto de Alemania en Refugiados y Solicitantes de Asilo',
+      subtitle: 'Partidas consolidadas del Gobierno Federal y los 16 Länder: alojamiento, cursos de integración y ayuda en origen',
+      description:
+        'Gasto total presupuestario de Alemania destinado a la acogida, cursos oficiales de idioma, integración sociolaboral y ayuda a países de origen según el Ministerio de Finanzas (BMF).',
+      sourceName: 'Ministerio Federal de Finanzas de Alemania (BMF) & BAMF',
+    },
+    'germany-total-social-budget-spending': {
+      title: 'Gasto Total de Alemania en Protección Social (Sozialbudget)',
+      subtitle: 'Presupuesto social de todos los sistemas: sanidad, pensiones, dependencia y desempleo (~30,5% del PIB)',
+      description:
+        'Gasto consolidado anual en prestaciones sociales de todas las ramas de la seguridad social alemana según el Sozialbudget del ministerio BMAS.',
+      sourceName: 'Ministerio de Trabajo y Asuntos Sociales de Alemania (BMAS)',
+    },
+    'germany-household-vacation-travel-spending': {
+      title: 'Gasto de los Alemanes en Vacaciones y Viajes',
+      subtitle: 'Presupuesto anual en viajes de ocio, paquetes turísticos, vuelos y hoteles (~65 millones de viajes)',
+      description:
+        'Gasto turístico total de la población alemana en vacaciones dentro y fuera del país (~1.200 € por persona/viaje) analizado por la Asociación Alemana de Viajes (DRV) y FUR.',
+      sourceName: 'Asociación Alemana de Viajes (DRV) & FUR Reiseanalyse',
+    },
+    'germany-household-food-spending': {
+      title: 'Gasto de los Hogares Alemanes en Alimentación y Cesta de la Compra',
+      subtitle: 'Consumo mensual y anual de 41 millones de hogares en comida y bebida (~415 €/mes por hogar)',
+      description:
+        'Gasto de los hogares en Alemania en alimentos, bebidas no alcohólicas y compras de supermercado analizado por Destatis.',
+      sourceName: 'Oficina Federal de Estadística de Alemania (Destatis)',
+    },
+    'germany-silvester-fireworks-spending': {
+      title: 'Gasto de los Alemanes en Petardos y Fuegos Artificiales de Nochevieja',
+      subtitle: 'Ventas de pirotecnia y cohetes durante los 3 días de venta autorizada previos a Año Nuevo',
+      description:
+        'Facturación del sector pirotécnico en Alemania en la campaña de fin de año (Silvester) según la Asociación de la Industria Pirotécnica (VPI).',
+      sourceName: 'Asociación de la Industria Pirotécnica de Alemania (VPI)',
+    },
+    'germany-household-christmas-gifts-spending': {
+      title: 'Gasto de los Alemanes en Regalos de Navidad',
+      subtitle: 'Presupuesto de los consumidores en juguetes, electrónica, libros y regalos navideños (~500 € por persona)',
+      description:
+        'Gasto total en compras de regalos navideños durante la campaña de fin de año en Alemania según la Federación Alemana de Comercio (HDE) y GfK.',
+      sourceName: 'Federación Alemana de Comercio (HDE) & GfK',
+    },
+    'germany-household-rent-housing-spending': {
+      title: 'Gasto de los Alemanes en Alquiler y Vivienda',
+      subtitle: 'Coste del alquiler neto, calefacción y gastos comunitarios de 41 millones de hogares (~28% del presupuesto)',
+      description:
+        'Gasto global en alquileres y mantenimiento del hogar en Alemania calculado por el censo de vivienda de Destatis.',
+      sourceName: 'Oficina Federal de Estadística de Alemania (Destatis - Mikrozensus)',
+    },
+    'germany-household-clothing-fashion-spending': {
+      title: 'Gasto de los Alemanes en Ropa, Calzado y Moda',
+      subtitle: 'Presupuesto anual de los hogares en prendas textiles y zapatos (~1.600 €/hogar/año)',
+      description:
+        'Gasto total del consumidor alemán en moda femenina, masculina e infantil y calzado según la patronal BTE y Destatis.',
+      sourceName: 'BTE Handelsverband Textil Schuhe & Destatis',
+    },
+    'germany-engagement-ring-spending': {
+      title: 'Gasto de los Alemanes en Anillos de Compromiso',
+      subtitle: 'Mercado nacional de anillos de pedida y diamantes (~380.000 pedidas de mano, Ø ~680 € por anillo)',
+      description:
+        'Gasto anual estimado en anillos de compromiso y joyería nupcial en Alemania según la Asociación Federal de Joyeros (BVJ).',
+      sourceName: 'Asociación Federal de Joyeros y Relojeros de Alemania (BVJ)',
+    },
+    'germany-car-vehicle-purchase-spending': {
+      title: 'Gasto de los Alemanes en la Compra de Coches (Nuevos y de Ocasión)',
+      subtitle: 'Volumen total de transacciones de turismos (~2,8M coches nuevos + ~6,0M coches usados)',
+      description:
+        'Gasto global de particulares y empresas en la compra de turismos en Alemania (precio medio nuevo >44.000 €) según el informe DAT y la KBA.',
+      sourceName: 'Deutsche Automobil Treuhand (DAT) & Kraftfahrt-Bundesamt (KBA)',
+    },
+    'germany-halloween-spending': {
+      title: 'Gasto de los Alemanes en Halloween',
+      subtitle: 'Facturación en disfraces, decoración terrorífica, maquillaje y dulces de «Truco o Trato»',
+      description:
+        'Gasto de los consumidores alemanes en disfraces, calabazas y golosinas para la festividad de Halloween según la patronal del comercio HDE.',
+      sourceName: 'Federación Alemana de Comercio (HDE - Encuesta de Halloween)',
+    },
+    'brazil-bolsa-familia-spending': {
+      title: 'Gasto de Brasil en el Programa Bolsa Família',
+      subtitle: 'Transferencia monetaria directa a más de 20,8 millones de familias en situación de vulnerabilidad',
+      description:
+        'Presupuesto anual ejecutado por el Gobierno Federal de Brasil para el programa social Bolsa Família según el Ministerio de Desarrollo Social (MDS) y el Portal de la Transparencia.',
+      sourceName: 'Ministerio de Desarrollo y Asistencia Social (MDS) & Portal de la Transparencia',
+    },
+    'brazil-sus-public-healthcare-spending': {
+      title: 'Gasto de Brasil en el Sistema Único de Salud (SUS)',
+      subtitle: 'Presupuesto sanitario federal: red hospitalaria pública, vacunación nacional, atención primaria y urgencias SAMU',
+      description:
+        'Recursos sanitarios consolidados destinados a la red universal del SUS que da cobertura a más de 190 millones de brasileños según el Ministerio de Salud.',
+      sourceName: 'Ministerio de Salud de Brasil & Tesoro Nacional (Siops)',
+    },
+    'brazil-judiciary-system-spending': {
+      title: 'Gasto de Brasil en el Poder Judicial (Poder Judiciário)',
+      subtitle: 'Coste de los tribunales superiores (STF, STJ), justicia federal y tribunales estatales (~1,3% del PIB)',
+      description:
+        'Gasto global anual del Poder Judicial de Brasil en nóminas de magistrados, juzgados y tecnología según el informe «Justiça em Números» del CNJ.',
+      sourceName: 'Consejo Nacional de Justicia de Brasil (CNJ)',
+    },
+    'brazil-inss-pension-spending': {
+      title: 'Gasto de Brasil en Pensiones Públicas y Jubilaciones (INSS)',
+      subtitle: 'Prestaciones de jubilación pagadas por el INSS (RGPS) y régimen de los funcionarios públicos (RPPS)',
+      description:
+        'Desembolso total de pensiones contributivas de jubilación, incapacidad y viudedad en Brasil según el Ministerio de la Seguridad Social y el Tesoro Nacional.',
+      sourceName: 'Ministerio de la Seguridad Social & Secretaría del Tesoro Nacional de Brasil',
+    },
+    'brazil-politicians-congress-spending': {
+      title: 'Gasto Anual de Brasil en Políticos y Congreso Nacional',
+      subtitle: 'Presupuesto de la Cámara de Diputados, Senado Federal, Fondo Electoral, dietas y asesores',
+      description:
+        'Coste anual consolidado del poder legislativo y el sistema político brasileño (Cámara, Senado, fondo público electoral y asambleas estatales).',
+      sourceName: 'Congreso Nacional de Brasil, Portal de la Transparencia & TSE',
+    },
+    'brazil-former-presidents-benefits-spending': {
+      title: 'Gasto de Brasil en Beneficios y Seguridad de Expresidentes',
+      subtitle: 'Seguridad personal del GSI, 6 asesores contratados, 2 vehículos oficiales con chófer y combustible (Ley 7.474/1986)',
+      description:
+        'Gastos abonados por la Presidencia de la República para sufragar los derechos vitalicios de los expresidentes de Brasil regulados por ley federal.',
+      sourceName: 'Presidencia de la República de Brasil & Portal de la Transparencia',
+    },
+    'brazil-tax-exemptions-subsidies-spending': {
+      title: 'Gasto Tributario de Brasil en Exenciones Fiscales y Subsidios',
+      subtitle: 'Renuncia de ingresos públicos en desgravaciones, Simples Nacional, Zona Franca de Manaos y subsidios (~5% del PIB)',
+      description:
+        'Volumen de impuestos no recaudados por el Estado brasileño debido a incentivos fiscales sectoriales y exenciones según la Receita Federal.',
+      sourceName: 'Receita Federal do Brasil (Informe DGT)',
+    },
+    'brazil-military-daughters-pension-spending': {
+      title: 'Gasto de Brasil en Pensiones Vitalicias para Hijas de Militares',
+      subtitle: 'Pensiones vitalicias pagadas a más de 100.000 herederas e hijas solteras de miembros fallecidos de las FF.AA.',
+      description:
+        'Gasto público en pensiones hereditarias vitalicias abonadas por el Tesoro Nacional a hijas de oficiales militares de las Fuerzas Armadas auditado por el TCU.',
+      sourceName: 'Tribunal de Cuentas de la Unión (TCU) & Ministerio de Defensa de Brasil',
+    },
+    'brazil-online-bets-gambling-spending': {
+      title: 'Gasto de los Brasileños en Apuestas Deportivas Online y Casinos (Bets)',
+      subtitle: 'Volumen transferido a plataformas de apuestas y casinos virtuales vía PIX (~R$ 20.000 M al mes)',
+      description:
+        'Volumen de dinero transferido por apostadores brasileños vía PIX a casas de apuestas de cuota fija y casinos online según el Banco Central de Brasil y Anbima.',
+      sourceName: 'Banco Central do Brasil (BCB) & Anbima',
+    },
+    'brazil-tourists-spending-united-states': {
+      title: 'Gasto de los Turistas Brasileños en Estados Unidos',
+      subtitle: 'Presupuesto en compras, hoteles, parques temáticos de Disney y vuelos en Miami y Orlando',
+      description:
+        'Gasto anual de más de 1,6 millones de turistas brasileños que viajan a EE.UU. registrado por la Oficina Nacional de Turismo de EE.UU. (NTTO) y el Banco Central de Brasil.',
+      sourceName: 'US National Travel & Tourism Office (NTTO) & BCB',
+    },
+    'brazil-household-cost-of-living-spending': {
+      title: 'Coste de la Vida y Consumo de los Hogares en Brasil',
+      subtitle: 'Gasto corriente de 75 millones de familias en vivienda, alimentación, transporte y sanidad (~R$ 6.500/mes)',
+      description:
+        'Gasto de consumo final de las familias en la economía brasileña analizado por la Encuesta de Presupuestos Familiares (POF) del IBGE.',
+      sourceName: 'Instituto Brasileño de Geografía y Estadística (IBGE - POF)',
+    },
+    'spain-national-public-debt': {
+      title: 'Deuda Pública Total de España',
+      subtitle: 'Saldo acumulado del Estado, CC.AA. y Seguridad Social bajo Protocolo de Déficit Excesivo (~107% del PIB)',
+      description:
+        'Deuda nominal bruta en circulación emitida por las Administraciones Públicas españolas según el Banco de España y Eurostat.',
+      sourceName: 'Banco de España (PDE) & Eurostat',
+    },
+    'united-states-national-public-debt': {
+      title: 'Deuda Nacional Pública de Estados Unidos (US Debt Clock)',
+      subtitle: 'Volumen total de deuda federal bruta en circulación emitida en bonos del Tesoro estadounidense',
+      description:
+        'Deuda soberana viva acumulada por el gobierno federal de los Estados Unidos registrada al milímetro por el Departamento del Tesoro de EE.UU.',
+      sourceName: 'Departamento del Tesoro de EE.UU. (Fiscal Service)',
+    },
+    'fc-barcelona-total-debt': {
+      title: 'Deuda Total y Financiación del FC Barcelona',
+      subtitle: 'Pasivo bancario ordinario y financiación de bonos del Espai Barça (Goldman Sachs & JP Morgan)',
+      description:
+        'Deuda económica consolidada del FC Barcelona que suma compromisos a corto y largo plazo y la remodelación del Spotify Camp Nou auditada en su Memoria.',
+      sourceName: 'FC Barcelona Memoria Anual Económica & LaLiga',
+    },
+    'real-madrid-total-debt-financing': {
+      title: 'Deuda y Financiación del Real Madrid CF (Estadio Bernabéu)',
+      subtitle: 'Créditos a tipo fijo para las obras del Santiago Bernabéu (deuda neta operativa saneada)',
+      description:
+        'Préstamos bancarios a largo plazo suscritos por el Real Madrid para la remodelación del estadio, amortizados con cuotas anuales fijas cubiertas por ingresos récord.',
+      sourceName: 'Real Madrid CF Memoria Anual & Cuentas Oficiales',
+    },
+    'colombia-external-foreign-debt': {
+      title: 'Deuda Externa Total de Colombia',
+      subtitle: 'Saldo consolidado de la deuda externa pública y privada del país (~50% del PIB colombiano)',
+      description:
+        'Saldo de la deuda externa contratada por el gobierno y el sector privado de Colombia según el Banco de la República.',
+      sourceName: 'Banco de la República de Colombia & Ministerio de Hacienda',
+    },
+    'united-kingdom-national-public-debt': {
+      title: 'Deuda Pública Nacional del Reino Unido (UK Debt Clock)',
+      subtitle: 'Deuda neta del sector público británico emitida en bonos del Estado (Gilts) (~99,5% del PIB)',
+      description:
+        'Saldo de deuda soberana acumulada por el gobierno británico y sus administraciones según la Oficina Nacional de Estadísticas (ONS).',
+      sourceName: 'Office for National Statistics (ONS) & HM Treasury',
+    },
+    'china-national-government-debt': {
+      title: 'Deuda Pública Soberana de China',
+      subtitle: 'Bonos del gobierno central y deuda de vehículos financieros locales (LGFV) (~83% del PIB)',
+      description:
+        'Deuda pública consolidada de la República Popular China que agrupa los bonos soberanos y pasivos de gobiernos locales según el FMI.',
+      sourceName: 'Ministerio de Finanzas de China & FMI',
+    },
+    'canada-national-public-debt': {
+      title: 'Deuda Pública Nacional de Canadá',
+      subtitle: 'Pasivo consolidado del gobierno federal y las 10 provincias canadienses (~71% del PIB)',
+      description:
+        'Deuda neta total de Canadá combinando bonos federales y endeudamiento provincial según Finance Canada y Statistics Canada.',
+      sourceName: 'Department of Finance Canada & Statistics Canada',
+    },
+    'united-states-debt-relief-programs': {
+      title: 'Programas de Alivio y Liquidación de Deuda en EE.UU.',
+      subtitle: 'Volumen anual de deuda renegociada y consolidada de tarjetas de crédito y préstamos',
+      description:
+        'Volumen de deuda de consumidores estadounidenses gestionado en programas regulados de alivio y reestructuración (CFPB).',
+      sourceName: 'Consumer Financial Protection Bureau (CFPB) & AFCC',
+    },
+    'japan-national-public-debt': {
+      title: 'Deuda Pública Nacional de Japón',
+      subtitle: 'Pasivo soberano total en bonos del gobierno japonés (JGB) (~260% del PIB de Japón)',
+      description:
+        'Volumen total de bonos emitidos por el Gobierno de Japón registrado por el Ministerio de Finanzas y el Banco de Japón.',
+      sourceName: 'Ministry of Finance of Japan & Bank of Japan',
+    },
+    'germany-national-public-debt': {
+      title: 'Deuda Pública Total de Alemania (Staatsverschuldung)',
+      subtitle: 'Saldo consolidado de la Federación, los 16 Estados federados y municipios (~64% del PIB)',
+      description:
+        'Deuda pública total de Alemania (Bundesanleihen y Länder) registrada por Destatis y el Bundesbank.',
+      sourceName: 'Destatis & Deutsche Bundesbank',
+    },
+    'france-national-public-debt': {
+      title: 'Deuda Pública Total de Francia (Dette Publique)',
+      subtitle: 'Deuda en sentido de Maastricht del Estado, seguridad social y administraciones locales (~111% del PIB)',
+      description:
+        'Deuda soberana viva de la República Francesa (bonos OATs) auditada por el INSEE y la Banque de France.',
+      sourceName: 'INSEE & Banque de France (Dette Maastricht)',
+    },
+    'italy-national-public-debt': {
+      title: 'Deuda Pública Nacional de Italia (Debito Pubblico)',
+      subtitle: 'Saldo de deuda pública de la República Italiana emitida en títulos BTP y BOT (~138% del PIB)',
+      description:
+        'Deuda bruta de las Administraciones Públicas italianas registrada por la Banca d’Italia y el Istat.',
+      sourceName: 'Banca d’Italia & Istat',
+    },
+    'brazil-national-public-debt': {
+      title: 'Deuda Pública Federal Total de Brasil',
+      subtitle: 'Stock de la deuda pública federal interna y externa en títulos del Tesoro (~78% del PIB)',
+      description:
+        'Volumen de la deuda pública federal del Estado brasileño auditado por el Tesouro Nacional y el Banco Central.',
+      sourceName: 'Secretaria do Tesouro Nacional & Banco Central do Brasil',
+    },
+    'india-national-public-debt': {
+      title: 'Deuda Pública Nacional de la India',
+      subtitle: 'Deuda combinada del gobierno central y los 28 estados de la Unión India (~82% del PIB)',
+      description:
+        'Deuda soberana bruta de la India en bonos públicos y préstamos registrada por el Reserve Bank of India.',
+      sourceName: 'Reserve Bank of India (RBI) & Ministerio de Finanzas',
+    },
+    'mexico-national-public-debt': {
+      title: 'Deuda Pública Total de México (SHRFSP)',
+      subtitle: 'Saldo Histórico de los Requerimientos Financieros del Sector Público (~49% del PIB mexicano)',
+      description:
+        'Deuda ampliada del Estado mexicano en Cetes, Bonos M y deuda externa reportada por la SHCP.',
+      sourceName: 'Secretaría de Hacienda y Crédito Público (SHCP) & Banxico',
+    },
+    'argentina-national-public-debt': {
+      title: 'Deuda Pública Bruta de Argentina',
+      subtitle: 'Stock total de pasivos de la Administración Central en pesos y dólares (~88% del PIB)',
+      description:
+        'Deuda soberana argentina en títulos públicos y préstamos del FMI auditada por la Secretaría de Finanzas.',
+      sourceName: 'Secretaría de Finanzas (Ministerio de Economía de Argentina)',
+    },
+    'australia-national-public-debt': {
+      title: 'Deuda Pública Nacional de Australia (Commonwealth Debt)',
+      subtitle: 'Deuda bruta federal australiana emitida en bonos soberanos AGS (~54% del PIB)',
+      description:
+        'Volumen total de bonos soberanos australianos emitidos por la AOFM y el Banco de la Reserva de Australia.',
+      sourceName: 'Australian Office of Financial Management (AOFM) & RBA',
+    },
+    'south-korea-national-public-debt': {
+      title: 'Deuda Pública Nacional de Corea del Sur (D1 Debt)',
+      subtitle: 'Deuda soberana del gobierno central y local en bonos del tesoro KTB (~51% del PIB)',
+      description:
+        'Pasivo financiero total de Corea del Sur registrado por el Ministerio de Economía y Finanzas (MOEF).',
+      sourceName: 'Ministry of Economy and Finance (MOEF) & Bank of Korea',
+    },
+    'saudi-arabia-national-public-debt': {
+      title: 'Deuda Pública de Arabia Saudita',
+      subtitle: 'Saldo de deuda soberana en bonos islámicos (Sukuk) e instrumentos internacionales (~26% del PIB)',
+      description:
+        'Deuda pública soberana del Reino de Arabia Saudita gestionada por el Centro Nacional de Gestión de Deuda.',
+      sourceName: 'National Debt Management Center (NDMC) & MinFin Saudí',
+    },
+    'switzerland-national-public-debt': {
+      title: 'Deuda Pública de la Confederación Suiza y Cantones',
+      subtitle: 'Deuda soberana bajo la regla constitucional del Freno a la Deuda (~38% del PIB suizo)',
+      description:
+        'Deuda pública consolidada de Suiza (Confederación y 26 cantones) registrada por la Administración Federal de Finanzas.',
+      sourceName: 'Administración Federal de Finanzas de Suiza (AFF) & BNS',
+    },
+    'netherlands-national-public-debt': {
+      title: 'Deuda Pública de los Países Bajos (Holanda)',
+      subtitle: 'Deuda soberana del Estado neerlandés en bonos DSL (~44% del PIB de los Países Bajos)',
+      description:
+        'Deuda pública de los Países Bajos emitida por la DSTA según la oficina de estadística CBS.',
+      sourceName: 'Centraal Bureau voor de Statistiek (CBS) & DSTA',
+    },
+    'russia-national-public-debt': {
+      title: 'Deuda Pública Soberana de la Federación Rusa',
+      subtitle: 'Saldo de deuda interna y externa en bonos federales OFZ (~15% del PIB ruso)',
+      description:
+        'Deuda soberana de la Federación Rusa registrada por el Ministerio de Finanzas (Minfin).',
+      sourceName: 'Ministerio de Finanzas de Rusia (Minfin) & Banco de Rusia',
+    },
+    'turkey-national-public-debt': {
+      title: 'Deuda Pública del Gobierno Central de Turquía',
+      subtitle: 'Saldo consolidado de la deuda pública interna y externa en liras y divisas (~28% del PIB)',
+      description:
+        'Deuda pública bruta total de Turquía publicada por el Ministerio del Tesoro y Finanzas.',
+      sourceName: 'Ministerio del Tesoro y Finanzas de la República de Turquía',
+    },
+    'south-africa-national-public-debt': {
+      title: 'Deuda Pública Nacional de Sudáfrica',
+      subtitle: 'Deuda bruta del gobierno nacional en bonos soberanos sudafricanos (~74% del PIB)',
+      description:
+        'Deuda soberana acumulada de Sudáfrica registrada por el National Treasury y el SARB.',
+      sourceName: 'National Treasury of South Africa & SARB',
+    },
+    'global-social-media-advertising-spend': {
+      title: 'Gasto Mundial en Publicidad en Redes Sociales',
+      subtitle: 'Inversión total de marcas en anuncios en Instagram, TikTok, Facebook, YouTube y X (~$7.925/s)',
+      description:
+        'Inversión publicitaria digital global en plataformas de redes sociales (anuncios en feed, historias y reels) según eMarketer y Zenith.',
+      sourceName: 'eMarketer (Insider Intelligence) & Zenith Optimedia',
+    },
+    'tiktok-advertising-and-in-app-spending': {
+      title: 'Gasto Total en TikTok (Publicidad, Monedas y Compras)',
+      subtitle: 'Facturación anual de TikTok por anuncios de marcas, compra de monedas y TikTok Shop (~$1.062/s)',
+      description:
+        'Gasto total generado en el ecosistema de TikTok (ByteDance) sumando publicidad, regalos virtuales en directos y compras online según Sensor Tower.',
+      sourceName: 'ByteDance Financial Reports, Sensor Tower & eMarketer',
+    },
+    'instagram-advertising-and-creator-spending': {
+      title: 'Gasto Publicitario y de Comercio en Instagram',
+      subtitle: 'Facturación publicitaria en Reels, Feed, Stories y monetización de creadores (~$2.251/s, >50% de Meta Ads)',
+      description:
+        'Inversión publicitaria global de marcas en Instagram (Meta Platforms) auditada en los informes oficiales de Meta ante la SEC.',
+      sourceName: 'Meta Platforms (SEC Form 10-K) & eMarketer',
+    },
+    'global-influencer-marketing-creator-spending': {
+      title: 'Gasto Global en Marketing de Influencers y Creadores',
+      subtitle: 'Presupuesto de marcas en patrocinios, contratos con creadores de contenido y campañas de UGC',
+      description:
+        'Inversión de marcas comerciales en acuerdos publicitarios con creadores en Instagram, TikTok y YouTube según Goldman Sachs.',
+      sourceName: 'Goldman Sachs (Creator Economy Report) & Influencer Marketing Hub',
+    },
+    'spain-gasoline-fuel-consumption-spending': {
+      title: 'Gasto en Gasolina y Carburantes en España',
+      subtitle: 'Consumo anual de gasolina 95/98 y gasóleo en las más de 12.000 gasolineras de España',
+      description:
+        'Gasto de conductores particulares y transportistas en carburantes de automoción en España según CORES y el MITECO.',
+      sourceName: 'CORES & Ministerio para la Transición Ecológica (MITECO)',
+    },
+    'spain-total-public-expenditure': {
+      title: 'Gasto Público Total del Reino de España',
+      subtitle: 'Gasto consolidado de Estado, CC.AA., Ayuntamientos y Seguridad Social (~46,5% del PIB)',
+      description:
+        'Gasto público liquidado de todas las Administraciones Públicas españolas según la IGAE y Eurostat.',
+      sourceName: 'Intervención General de la Administración del Estado (IGAE) & Eurostat',
+    },
+    'spain-healthcare-sanidad-spending': {
+      title: 'Gasto Sanitario Global de España (Sanidad Pública y Privada)',
+      subtitle: 'Presupuesto sanitario del SNS (17 CC.AA.) y gasto privado en salud (~7,5% del PIB)',
+      description:
+        'Gasto sanitario en hospitales, centros de salud, farmacia y seguros privados según la Estadística de Gasto Sanitario Público (EGSP).',
+      sourceName: 'Ministerio de Sanidad (EGSP) & INE',
+    },
+    'spain-defense-military-spending-nato': {
+      title: 'Gasto en Defensa y Militar de España (Criterio OTAN)',
+      subtitle: 'Presupuesto militar consolidado del Ministerio de Defensa según la metodología oficial de la OTAN (~1,30% del PIB)',
+      description:
+        'Gasto de defensa de España consolidando presupuesto ordinario, Programas Especiales (PEAs) y pensiones militares.',
+      sourceName: 'OTAN (NATO Defence Expenditures) & SIPRI',
+    },
+    'spain-education-spending': {
+      title: 'Gasto en Educación en España (Pública y Privada)',
+      subtitle: 'Presupuesto educativo de las 17 CC.AA. y el Ministerio en colegios, institutos y universidades (~4,4% del PIB)',
+      description:
+        'Gasto educativo global en España en todas las etapas formativas según el Ministerio de Educación y el INE.',
+      sourceName: 'Ministerio de Educación, FP y Deportes & INE',
+    },
+    'spain-irpf-income-tax-revenue': {
+      title: 'Recaudación del IRPF en España (Campaña de la Renta)',
+      subtitle: 'Total recaudado por la Agencia Tributaria (AEAT) en retenciones de nóminas y declaraciones del IRPF',
+      description:
+        'Recaudación tributaria anual del IRPF de los más de 22 millones de contribuyentes según la Agencia Tributaria.',
+      sourceName: 'Agencia Estatal de Administración Tributaria (AEAT)',
+    },
+    'real-madrid-transfers-signings-spending': {
+      title: 'Gasto en Fichajes y Traspasos del Real Madrid CF',
+      subtitle: 'Inversión anual media en traspasos de futbolistas para el primer equipo (Mbappé, Bellingham, Vinícius)',
+      description:
+        'Inversión anual en primas de fichaje y amortizaciones de futbolistas del Real Madrid CF según su Memoria Económica y Transfermarkt.',
+      sourceName: 'Real Madrid CF Memoria Anual & Transfermarkt',
+    },
+    'spain-mortgage-closing-costs-spending': {
+      title: 'Gastos de Hipoteca y Formalización en España',
+      subtitle: 'Gastos anuales de tasación, notaría, registro y gestoría de las más de 450.000 nuevas hipotecas firmadas al año',
+      description:
+        'Costes abonados en la formalización de préstamos hipotecarios y reclamaciones judiciales de cláusulas según el Banco de España y el INE.',
+      sourceName: 'Banco de España (BdE), INE & Notariado',
+    },
+    'spain-home-buying-transaction-costs-spending': {
+      title: 'Gastos e Impuestos en la Compra de Vivienda en España',
+      subtitle: 'Impuestos (ITP/IVA, AJD), notaría y registro en las más de 600.000 compraventas anuales (~10-12% del precio)',
+      description:
+        'Gasto total en impuestos y aranceles legales al comprar vivienda en España según el Consejo General del Notariado y Registradores.',
+      sourceName: 'Consejo General del Notariado & Registradores de España',
+    },
+    'spain-tax-deductible-expenses-irpf': {
+      title: 'Gastos Deducibles y Desgravaciones del IRPF en España',
+      subtitle: 'Total de deducciones fiscales de autónomos, planes de pensiones, vivienda habitual y tramos autonómicos',
+      description:
+        'Gastos deducibles de actividades económicas y desgravaciones del IRPF según las estadísticas oficiales de la Agencia Tributaria.',
+      sourceName: 'Agencia Estatal de Administración Tributaria (AEAT)',
+    },
+    'vinted-second-hand-fashion-spending': {
+      title: 'Gasto y Ventas en Vinted (Moda y Artículos de Segunda Mano)',
+      subtitle: 'Volumen bruto de transacciones (GMV) de ropa de segunda mano, calzado y accesorios entre usuarios',
+      description:
+        'Volumen de compraventa y consumo de moda circular en Vinted en España y Europa según sus informes financieros.',
+      sourceName: 'Vinted Financial Reports & Cross-Border Commerce Europe',
+    },
+    'spain-household-cost-of-living-spending': {
+      title: 'Coste de Vida y Consumo de los Hogares en España',
+      subtitle: 'Gasto anual de los 19,2 millones de familias españolas en vivienda, energía, alimentación, transporte y ocio (~32.600 €/hogar)',
+      description:
+        'Gasto total en consumo y coste de la vida sufragado por las familias residentes en España según la Encuesta de Presupuestos Familiares (EPF) del INE.',
+      sourceName: 'Instituto Nacional de Estadística (INE - Encuesta de Presupuestos Familiares)',
+    },
+    'spain-total-wages-salaries-spending': {
+      title: 'Masa Salarial Total y Sueldos en España',
+      subtitle: 'Remuneración bruta anual de los más de 21,3 millones de trabajadores asalariados en España (Sueldo medio ~26.948 €/año)',
+      description:
+        'Remuneración total de asalariados pagada por empresas e instituciones públicas en España registrada en la Contabilidad Nacional del INE.',
+      sourceName: 'INE (Contabilidad Nacional Trimestral & Estructura Salarial)',
+    },
+    'spain-minimum-wage-smi-spending': {
+      title: 'Masa Salarial del Salario Mínimo Interprofesional (SMI) en España',
+      subtitle: 'Coste salarial agregado de los más de 2,5 millones de trabajadores perceptores del SMI (1.134 €/mes en 14 pagas = 15.876 €/año)',
+      description:
+        'Masa salarial total percibida por los trabajadores con sueldo regulado bajo el Salario Mínimo Interprofesional fijado por el Ministerio de Trabajo.',
+      sourceName: 'Ministerio de Trabajo y Economía Social & INE',
+    },
+    'spain-household-rent-spending': {
+      title: 'Gasto Total en Alquiler de Vivienda en España',
+      subtitle: 'Gasto anual de los más de 3,4 millones de hogares inquilinos en rentas de arrendamiento de vivienda habitual',
+      description:
+        'Volumen total pagado por las familias en alquiler de vivienda residencial habitual en España según el Banco de España y el MIVAU.',
+      sourceName: 'Banco de España & Ministerio de Vivienda (MIVAU)',
+    },
+    'us-federal-discretionary-spending': {
+      title: 'Gasto Discrecional Federal de Estados Unidos',
+      subtitle: 'Presupuesto anual aprobado por el Congreso de EE.UU. para Defensa, Educación, Transporte y Ciencia (~$55.490/s)',
+      description:
+        'Presupuesto federal discrecional de EE.UU. aprobado por el Congreso según la Oficina de Presupuesto del Congreso (CBO).',
+      sourceName: 'Congressional Budget Office (CBO) & US Treasury',
+    },
+    'us-federal-mandatory-spending-entitlements': {
+      title: 'Gasto Obligatorio Federal de EE.UU. (Seguridad Social y Medicare)',
+      subtitle: 'Desembolsos fijados por ley en Social Security, Medicare, Medicaid e intereses de deuda (~$131.595/s)',
+      description:
+        'Gasto federal obligatorio y prestaciones sociales en Estados Unidos financiado por impuestos de nómina según la CBO.',
+      sourceName: 'Congressional Budget Office (CBO) & US Treasury',
+    },
+    'united-states-credit-card-consumer-spending': {
+      title: 'Gasto Total en Tarjetas de Crédito en Estados Unidos',
+      subtitle: 'Volumen anual de compras y cargos con tarjeta de crédito de consumidores en EE.UU. (Visa, Mastercard, Amex)',
+      description:
+        'Volumen bruto anual de compras con tarjetas de crédito de los estadounidenses según la Reserva Federal (Fed G.19) y Nilson.',
+      sourceName: 'Federal Reserve Board (Consumer Credit G.19) & Nilson Report',
+    },
+  },
+};

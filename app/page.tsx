@@ -1,3 +1,5 @@
-export default function Home() {
-  return <div>worldspend</div>;
+import { HomeView } from '@/components/HomeView';
+
+export default function HomePage() {
+  return <HomeView locale="en" />;
 }
