@@ -26,6 +26,9 @@ export const Footer: React.FC<FooterProps> = ({
   const items = getLocalizedSpendItems(locale);
 
   const handleLanguageChange = (newLocale: Locale) => {
+    if (typeof document !== 'undefined') {
+      document.cookie = `worldspend_locale=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    }
     const targetPath = getLocalizedPath(newLocale, pathname);
     router.push(targetPath);
   };
