@@ -25,6 +25,7 @@ export type CategoryId =
   | 'corruption'
   | 'society'
   | 'government'
+  | 'country-gdp'
   | 'sports';
 
 export interface CategoryInfo {

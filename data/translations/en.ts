@@ -197,12 +197,94 @@ export const enTranslations: Translations = {
       name: 'Gambling & Lotteries',
       description: 'Physical casinos, online sports betting, and national state lotteries',
     },
+    'country-gdp': {
+      name: 'GDP by Countries',
+      description: 'Gross Domestic Product (nominal GDP) of countries in real time',
+    },
     corruption: {
       name: 'Corruption & Tax Havens',
       description: 'Corporate tax avoidance, offshore accounts, and public sector bribery',
     },
   },
   items: {
+    'spain-cost-raising-child': {
+      title: 'Cost of Raising a Child in Spain (Ages 0–18)',
+      subtitle: 'Between €115,000 and €180,000 total basic average; about €8,194 per year per child',
+      description:
+        'There is no single global figure, as the cost varies greatly by country. In Spain, raising a child to age 18 costs between €115,000 and €180,000 on average (mean: €147,500), equivalent to about €8,194 per year per child (~$8,932 USD). This cost includes food, clothing, education, healthcare, leisure, and transport, excluding housing and university tuition.',
+      sourceName: 'Educo — How Much Does It Cost to Raise a Child in Spain?',
+      sources: [
+        {
+          name: 'Educo — How Much Does It Cost to Raise a Child in Spain?',
+          url: 'https://www.educo.org/blog/cuanto-cuesta-criar-a-un-hijo-o-hija-en-espana',
+        },
+      ],
+    },
+    'global-online-food-delivery-market': {
+      title: 'Global Online Food Delivery & Takeaway Spending',
+      subtitle: 'People spend over $320 billion per year on digital food delivery platforms worldwide',
+      description:
+        'Globally, people spend over $320 billion per year on food delivery and takeaway through digital platforms such as Uber Eats, Just Eat, Deliveroo, DoorDash, and Glovo. This market has grown exponentially since the 2020 pandemic, driven by the rise of mobile commerce, urban consumption habits, and the global expansion of dark kitchens.',
+      sourceName: 'Fortune Business Insights — Online Food Delivery Market',
+      sources: [
+        {
+          name: 'Fortune Business Insights — Online Food Delivery Market Size & Growth Report',
+          url: 'https://www.fortunebusinessinsights.com/online-food-delivery-market-110672',
+        },
+      ],
+    },
+    'global-cinema-box-office-revenue': {
+      title: 'Global Cinema Box Office Revenue',
+      subtitle: 'Global annual cinema box office revenue stands at around €29.6 billion (~$32.264B USD)',
+      description:
+        'Global annual cinema box office revenue stands at approximately €29.6 billion (~$32.264 billion USD), driven mainly by the growth of the Asian market. Asia leads the post-pandemic recovery of the global cinema sector, while North American and European markets remain fundamental pillars of the theatrical exhibition business.',
+      sourceName: 'Spain Audiovisual Hub / European Audiovisual Observatory',
+      sources: [
+        {
+          name: 'Spain Audiovisual Hub — European Audiovisual Observatory: Asia Drives Global Box Office Growth',
+          url: 'https://spainaudiovisualhub.digital.gob.es/es/actualidad/observatorio-audiovisual-europeo--asia-impulsa-el-crecimiento-de',
+        },
+      ],
+    },
+    'superbowl-advertising-revenue': {
+      title: 'Brand Advertising Spending at the Super Bowl',
+      subtitle: 'Brands paid over $414 million to advertise during the Super Bowl for the second consecutive year',
+      description:
+        'Companies spent over $414 million to place their ads during the Super Bowl, surpassing $400 million for the second consecutive year. A 30-second spot during the game can cost up to $8 million, making the Super Bowl the most expensive advertising showcase on the planet. Brands from automotive, food, tech, and entertainment sectors compete to reach over 100 million simultaneous viewers.',
+      sourceName: 'Palco23 / Mundo Deportivo — Super Bowl Advertising Spend',
+      sources: [
+        {
+          name: 'Palco23 / Mundo Deportivo — Super Bowl Surpasses $400M in Ad Spend for Second Year',
+          url: 'https://palco23.mundodeportivo.com/media/la-super-bowl-supera-los-400-millones-de-dolares-de-ingresos-publicitarios-por-segundo-ano',
+        },
+      ],
+    },
+    'fifa-world-cup-2026-cost': {
+      title: 'FIFA World Cup 2026 Organization Cost',
+      subtitle: 'Total FIFA expenditure to organize and operate the first-ever 48-team World Cup',
+      description:
+        'The cost of organizing and operating the FIFA 2026 World Cup amounted to approximately $2.4 billion for FIFA itself. The tournament was held in 16 cities across the United States, Canada, and Mexico with 48 national teams participating for the first time in history, making it the most expensive event in the history of world football.',
+      sourceName: 'BBC Mundo — FIFA World Cup 2026',
+      sources: [
+        {
+          name: 'BBC Mundo — The organization cost of FIFA World Cup 2026',
+          url: 'https://www.bbc.com/mundo/articles/cy8d7p71p7po',
+        },
+      ],
+    },
+    'fifa-world-cup-global-advertising-investment': {
+      title: 'Brand Advertising Spend for FIFA World Cup 2026',
+      subtitle: 'Companies spent ~$10.5B per edition to advertise during the World Cup (4-year cycle → ~$2.625B/year)',
+      description:
+        'The FIFA World Cup does not take place every year, but every four years. The total advertising cost that brands and companies assumed to advertise during the 2026 World Cup amounts to approximately $10.5 billion per edition (~$2.625 billion annualized). Brands paid this money to occupy space on television, streaming platforms, stadiums, and social media during the world's most-watched tournament.',
+      sourceName: 'AdLatina — Brand Advertising Cost for FIFA World Cup 2026',
+      sources: [
+        {
+          name: 'AdLatina — Global Advertising Investment Estimated for the 2026 World Cup is Around $10.5 Billion',
+          url: 'https://www.adlatina.com/publicidad/la-inversin-publicitaria-global-estimada-para-el-mundial-2026-ronda-los-10.500-millones-de-dlares',
+        },
+      ],
+    },
     'spain-equality-ministry-budget': {
       title: 'Spain Ministry of Equality Annual Budget',
       subtitle: 'Annual public budget allocated to equality policies and gender violence prevention programs',
@@ -263,11 +345,218 @@ export const enTranslations: Translations = {
       sourceName: 'State Public Employment Service (SEPE), Ministry of Social Rights & Eurostat',
     },
     'la-velada-production-cost': {
-      title: 'Production Budget of La Velada del Año (Ibai)',
+      title: 'Production Budget of La Velada del Año VI (Ibai)',
       subtitle: 'Technical production, stadium rental, musical performances, and security budget for the event',
       description:
-        'Total production cost of the world’s largest live streaming event organized by Ibai Llanos (Bernabéu / Metropolitano stadiums), including international artist fees and audiovisual logistics.',
+        'Total production cost of the world's largest live streaming event organized by Ibai Llanos (Bernabéu / Metropolitano stadiums), including international artist fees and audiovisual logistics.',
       sourceName: 'KOI Productions, Twitch & Forbes Spain Media Analysis',
+    },
+    'netflix-annual-revenue': {
+      title: 'Netflix Annual Revenue',
+      subtitle: 'Global annual revenue of $45.2 billion USD (~€38.8B) from paid memberships',
+      description:
+        'Netflix generates approximately $45.2 billion USD (~€38.8 billion) per year. The vast majority of this revenue stems from paid memberships, as ad-supported revenue remains a small fraction according to Xataka.',
+      sourceName: 'Xataka — Netflix Content Production & Revenue Analysis',
+      sources: [
+        {
+          name: 'Xataka — Netflix Spends $17B on Content & Generates $45.2B Revenue',
+          url: 'https://www.xataka.com/streaming/netflix-gasta-17-000-millones-producir-contenido-a-youtube-se-hacen-gratis-eso-youtube-esta-ganando-partida',
+        },
+      ],
+    },
+    'amazon-prime-subscription-revenue': {
+      title: 'Amazon Prime Subscription Revenue',
+      subtitle: 'Global annual subscription revenue of $49.62 billion USD across Prime, Video, and Music',
+      description:
+        'Amazon does not publicly break down exact revenue for Prime Video alone, as the service is bundled into Amazon Prime. However, the company's total subscription services segment (including Prime, music, books, and digital video) generated $49.62 billion USD worldwide according to Marketplace Pulse.',
+      sourceName: 'Marketplace Pulse & Amazon SEC Filings',
+      sources: [
+        {
+          name: 'Marketplace Pulse — Amazon Subscription Services Sales',
+          url: 'https://www.marketplacepulse.com/stats/amazon-subscription-services-sales',
+        },
+        {
+          name: 'Amazon Prime — Official Website',
+          url: 'https://www.amazon.es/prime',
+        },
+      ],
+    },
+    'disney-dtc-streaming-revenue': {
+      title: 'Disney Streaming (DTC) Revenue',
+      subtitle: 'Annual revenue estimated between $22B and $25B USD across Disney+, Hulu, and ESPN+ ($23.5B USD average)',
+      description:
+        'The Walt Disney Company generates approximately $22 billion to $25 billion USD per year ($23.5 billion USD average) through its Direct-to-Consumer (DTC) segment, which encompasses streaming subscriptions for Disney+, Hulu, and ESPN+, as well as digital ad sales according to The Motley Fool.',
+      sourceName: 'The Motley Fool — Disney Streaming Profit Analysis',
+      sources: [
+        {
+          name: 'The Motley Fool — How High Can Disney Streaming Profit Go?',
+          url: 'https://www.fool.com/investing/2026/03/29/how-high-can-disney-streaming-profit-go/',
+        },
+      ],
+    },
+    'warner-bros-discovery-max-revenue': {
+      title: 'Warner Bros. Discovery (HBO/Max) Revenue',
+      subtitle: 'Annual streaming DTC segment revenue estimated between $10B and $11B USD ($10.5B USD average)',
+      description:
+        'Warner Bros. Discovery (owner of HBO/Max) generates approximately $10 billion to $11 billion USD per year ($10.5 billion USD average) in its global streaming (DTC) segment, with the vast majority coming from user subscription fees according to Señal News.',
+      sourceName: 'Señal News — Warner Bros. Discovery Financial & Streaming Report',
+      sources: [
+        {
+          name: 'Señal News — Warner Bros. Discovery Ends 2025 Under Pressure Despite Streaming Gains',
+          url: 'https://senalnews.com/en/data/warner-bros-discovery-ends-2025-under-pressure-despite-streaming-gains',
+        },
+      ],
+    },
+    'twitch-annual-revenue': {
+      title: 'Twitch Annual Revenue',
+      subtitle: 'Estimated annual global revenue between $1.8B and $1.9B USD ($1.85B USD average)',
+      description:
+        'Twitch generates approximately $1.8 billion to $1.9 billion USD per year ($1.85 billion USD average) through channel subscriptions, bits/donations, and live stream ad sales according to Business of Apps.',
+      sourceName: 'Business of Apps — Twitch Revenue & Usage Statistics',
+      sources: [
+        {
+          name: 'Business of Apps — Twitch Statistics (Revenue & Subscriptions)',
+          url: 'https://www.businessofapps.com/data/twitch-statistics/',
+        },
+      ],
+    },
+    'global-cocaine-opioids-spending': {
+      title: 'Global Cocaine & Opioids Market',
+      subtitle: 'Estimated annual retail sales of $245 billion USD worldwide',
+      description:
+        'The combined global illicit market for cocaine and opioids generates between $220 billion and $270 billion annually at the retail level ($245 billion average), representing a critical segment of illicit financial flows mapped by the United Nations Office on Drugs and Crime (UNODC).',
+      sourceName: 'UNODC & International Drug Market Analysis',
+      sources: [
+        {
+          name: 'UNODC — Report on Illicit Financial Flows Related to Drug Trafficking',
+          url: 'https://www.unodc.org/unodc/frontpage/2023/December/illicit-financial-flows-related-to-cross-border-drug-trafficking-are-comparable-to-the-value-of-exports-of-licit-markets--unodc-report-shows.html',
+        },
+      ],
+    },
+    'global-illicit-firearms-spending': {
+      title: 'Illicit Firearms Trafficking',
+      subtitle: 'Estimated economic volume of $1 billion USD annually worldwide',
+      description:
+        'According to the United Nations Office on Drugs and Crime (UNODC), illicit firearms trafficking generates approximately $1 billion annually, arming opposing factions in conflicts across Africa, the Middle East, Latin America, and Asia.',
+      sourceName: 'United Nations Office on Drugs and Crime (UNODC)',
+      sources: [
+        {
+          name: 'UNODC — Illicit Firearms Trade and Trafficking Report',
+          url: 'https://www.unodc.org/',
+        },
+      ],
+    },
+    'global-cybercrime-losses': {
+      title: 'Global Cybercrime Losses',
+      subtitle: 'Projected global economic cost of cybercrime reaching $10.8 trillion annually',
+      description:
+        'Global losses caused by cybercrime reach $10.8 trillion worldwide in 2026, covering data theft, digital extortion, online fraud, and operational disruption for companies and governments.',
+      sourceName: 'Cybersecurity Ventures — 500 Ransomware & Cybercrime Statistics for 2026',
+      sources: [
+        {
+          name: 'Cybersecurity Ventures — Official 2026 Cybercrime Report',
+          url: 'https://cybersecurityventures.com/500-ransomware-statistics-for-2026/',
+        },
+      ],
+    },
+    'global-ransomware-damages': {
+      title: 'Global Ransomware Damages',
+      subtitle: 'Global economic cost of data hijacking and digital extortion exceeding $74B per year',
+      description:
+        'Specific damages caused by ransomware attacks exceed $74 billion annually worldwide in 2026, including ransom payments, downtime costs, and forensic remediation.',
+      sourceName: 'Cybersecurity Ventures — 500 Ransomware Statistics for 2026',
+      sources: [
+        {
+          name: 'Cybersecurity Ventures — 500 Ransomware Statistics for 2026',
+          url: 'https://cybersecurityventures.com/500-ransomware-statistics-for-2026/',
+        },
+      ],
+    },
+    'global-money-laundering-total': {
+      title: 'Global Money Laundering',
+      subtitle: 'Estimated volume between $1.5 trillion and $2.85 trillion annually ($2.17 Trillion USD average)',
+      description:
+        'It is estimated that between €715 billion and €2 trillion ($1.5 to $2.85 trillion USD) are laundered worldwide each year, equivalent to approximately 2% to 5% of global Gross Domestic Product (GDP) according to European Council data.',
+      sourceName: 'Council of the European Union — Anti-money laundering',
+      sources: [
+        {
+          name: 'European Council — Infographic on Anti-Money Laundering',
+          url: 'https://www.consilium.europa.eu/es/infographics/anti-money-laundering/',
+        },
+      ],
+    },
+    'global-black-market-economy': {
+      title: 'Global Black Market & Illicit Economy',
+      subtitle: 'Estimated average economic volume between $7 trillion and $15 trillion annually ($11.5 Trillion USD)',
+      description:
+        'The global black market and illicit economy generate between 8% and 15% of global Gross Domestic Product (GDP), according to IMF estimates and research on organized crime. This represents an average estimate of $11.5 trillion annually.',
+      sourceName: 'El País & International Monetary Fund (IMF)',
+      sources: [
+        {
+          name: 'El País — The colossal size of the global black market and illicit economy (IMF)',
+          url: 'https://elpais.com/economia/2019/09/21/actualidad/1569062038_189861.html',
+        },
+      ],
+    },
+    'global-military-aircraft-market': {
+      title: 'Global Military Aircraft Market',
+      subtitle: 'Valued at $67 billion USD annually ($52.8 billion USD for combat fighter jets)',
+      description:
+        'The global military aircraft market reaches an annual valuation of over $67 billion USD, with fighter jets representing $52.8 billion USD of the market according to Fortune Business Insights.',
+      sourceName: 'Fortune Business Insights — Military Aircraft Market Report',
+      sources: [
+        {
+          name: 'Fortune Business Insights — Military Aircraft Market Size & Analysis',
+          url: 'https://www.fortunebusinessinsights.com/es/military-aircraft-market-102771',
+        },
+      ],
+    },
+    'eu-defense-spending-total': {
+      title: 'European Union Defense Expenditure',
+      subtitle: 'Consolidated military budget of EU Member States estimated at €454 billion in 2026',
+      description:
+        'In 2025, defense spending by European Union Member States increased for the eleventh consecutive year, reaching €418 billion. In 2026, it is projected to hit a record €454 billion (~$494.86 billion USD) according to official Council of the European Union data.',
+      sourceName: 'Council of the European Union — EU Defence in numbers',
+      sources: [
+        {
+          name: 'European Council — EU Defence in numbers (Key Figures)',
+          url: 'https://www.consilium.europa.eu/es/policies/defence-numbers/',
+        },
+      ],
+    },
+    'global-nuclear-weapons-spending': {
+      title: 'Global Nuclear Weapons Expenditure',
+      subtitle: 'All-time record of $118.8 billion USD annually (~$3,768 USD per second)',
+      description:
+        'Global expenditure on the maintenance, development, and modernization of nuclear arsenals reached an all-time record of $118.8 billion USD (approximately $3,768 per second) recorded by the International Campaign to Abolish Nuclear Weapons (ICAN).',
+      sourceName: 'ICAN & JusPax — Global Nuclear Weapons Spending',
+      sources: [
+        {
+          name: 'ICAN — Global Nuclear Weapons Spending and Modernization Report',
+          url: 'https://www.juspax-es.org/l/premeditado-gasto-mundial-en-armas-nucleares-en-2025/',
+        },
+      ],
+    },
+    'global-military-spending': {
+      title: 'Global Military Expenditure',
+      subtitle: 'Global arms budget and defense spending across all nations per year',
+      description:
+        'Global military and arms expenditure reaches an all-time record of $2.887 trillion ($2,887 billion USD) driven by geopolitical tensions and defense investments according to SIPRI data reported by Deutsche Welle (DW).',
+      sourceName: 'Deutsche Welle (DW) — New record: arms spending rises worldwide',
+    },
+    'global-narcotics-spending': {
+      title: 'Global Narcotics Expenditure',
+      subtitle: 'Estimated annual economic volume of the illicit global drug trade',
+      description:
+        'Estimated global expenditure on narcotics and illicit substances reaching $750 billion annually, representing one of the largest sectors of the underground economy according to studies on global criminal activities.',
+      sourceName: 'Ethic — How much does criminal activity weigh in the global economy?',
+    },
+    'spain-individual-monthly-food-cost': {
+      title: 'Monthly Food Spending per Person in Spain',
+      subtitle: 'Average estimated monthly budget of €250 for groceries and food per inhabitant',
+      description:
+        'Average expenditure on food and groceries for a resident in Spain, estimated at €250 per month (€3,000 annually) according to CaixaBank cost of living reports.',
+      sourceName: 'CaixaBank — Cost of Living in Spain Guide',
     },
     'individual-monthly-food-cost': {
       title: 'Individual Monthly Food & Dining Expenditure',
@@ -416,13 +705,6 @@ export const enTranslations: Translations = {
         'Total worldwide expenditure across public and private health sectors, including hospital facilities, medical research, pharmaceutical supply chains, and health insurance systems (~10% of World GDP).',
       sourceName: 'World Health Organization (WHO) & World Bank',
     },
-    'global-nuclear-weapons-spending': {
-      title: 'Global Spending on Nuclear Weapons',
-      subtitle: 'Annual maintenance, modernization, and operational budgets for atomic arsenals across the 9 nuclear states',
-      description:
-        'Total annual budget expended by the 9 nuclear-armed nations (US, China, Russia, UK, France, India, Pakistan, Israel, and North Korea) to maintain and modernize nuclear warheads and delivery systems.',
-      sourceName: 'International Campaign to Abolish Nuclear Weapons (ICAN) & SIPRI',
-    },
     'global-advertising-marketing-spending': {
       title: 'Global Advertising & Marketing Expenditure',
       subtitle: 'Annual global advertising spend across digital platforms, television, search engines, and social media',
@@ -540,7 +822,7 @@ export const enTranslations: Translations = {
       subtitle: 'Record hyperscaler CapEx in GPU server clusters, liquid cooling systems, and power grid substations',
       description:
         'Global capital expenditure by hyperscalers (Microsoft, AWS, Google Cloud, Meta, OpenAI) dedicated to building and equipping compute datacenters powering generative AI models like ChatGPT.',
-      sourceName: 'Dell’Oro Group Data Center CapEx & Synergy Research',
+      sourceName: 'Dell'Oro Group Data Center CapEx & Synergy Research',
     },
     'weight-loss-drugs-ozempic-spending': {
       title: 'Global Spending on Weight-Loss Drugs (Ozempic & GLP-1)',
@@ -550,7 +832,7 @@ export const enTranslations: Translations = {
       sourceName: 'IQVIA Global Medicine Spending & Novo Nordisk / Eli Lilly Reports',
     },
     'top-10-football-clubs-transfer-spending': {
-      title: 'Transfer Spending by the World’s Top 10 Richest Football Clubs',
+      title: 'Transfer Spending by the World's Top 10 Richest Football Clubs',
       subtitle: 'Combined annual transfer fees spent by Real Madrid, Manchester City, Chelsea, PSG, Arsenal and European giants',
       description:
         'Aggregate annual player transfer expenditure executed by the 10 highest-revenue football clubs in the world across summer and winter transfer windows.',
@@ -621,16 +903,16 @@ export const enTranslations: Translations = {
     },
     'china-military-defense-spending': {
       title: 'China Military & Defense Spending',
-      subtitle: 'Official and estimated annual budget for the People’s Liberation Army (PLA), naval expansion, and strategic forces',
+      subtitle: 'Official and estimated annual budget for the People's Liberation Army (PLA), naval expansion, and strategic forces',
       description:
-        'Annual consolidated defense expenditure by the People’s Republic of China covering armed forces personnel, stealth fighter procurement, aircraft carrier carrier battle groups, and strategic nuclear modernization according to SIPRI and the Ministry of Finance.',
+        'Annual consolidated defense expenditure by the People's Republic of China covering armed forces personnel, stealth fighter procurement, aircraft carrier carrier battle groups, and strategic nuclear modernization according to SIPRI and the Ministry of Finance.',
       sourceName: 'SIPRI (Stockholm International Peace Research Institute) & Ministry of Finance of China',
     },
     'china-education-spending': {
       title: 'China Public Spending on Education',
       subtitle: 'National budget for primary, secondary, vocational, and elite university higher education',
       description:
-        'Total government and municipal budgetary expenditure allocated to China’s national education system (exceeding 4% of GDP) according to the Ministry of Education and National Bureau of Statistics.',
+        'Total government and municipal budgetary expenditure allocated to China's national education system (exceeding 4% of GDP) according to the Ministry of Education and National Bureau of Statistics.',
       sourceName: 'Ministry of Education of China & National Bureau of Statistics (NBS)',
     },
     'china-research-development-spending': {
@@ -687,11 +969,11 @@ export const enTranslations: Translations = {
       subtitle: 'Historic sanitation project: Austerlitz 50,000 m³ retention basin, wastewater modernization, and river cleanup',
       description:
         'Total public capital invested by the French State, City of Paris, and Water Agency to clean the Seine for Olympic open-water events and public swimming, centered on the massive Austerlitz underground storm basin.',
-      sourceName: 'Préfecture d’Île-de-France & City of Paris (Plan Baignade)',
+      sourceName: 'Préfecture d'Île-de-France & City of Paris (Plan Baignade)',
     },
     'france-youth-budget-spending': {
       title: 'French State Budget for Youth Programs & Policies',
-      subtitle: 'Funding for Contrat d’Engagement Jeune (CEJ), Pass Culture, university student grants, and youth employment subsidies',
+      subtitle: 'Funding for Contrat d'Engagement Jeune (CEJ), Pass Culture, university student grants, and youth employment subsidies',
       description:
         'Consolidated public budget allocated by the French Republic to youth welfare, culture passes for 18-year-olds, higher education grants, and youth apprenticeship subsidies.',
       sourceName: 'French Ministry of National Education & Budget Law (PLF)',
@@ -700,7 +982,7 @@ export const enTranslations: Translations = {
       title: 'French State Budget for Immigration, Asylum & Integration',
       subtitle: 'Official allocation for asylum seeker allowance (ADA), accommodation centers (CADA), OFII, and state medical aid (AME)',
       description:
-        'Annual public budget committed under France’s national mission for asylum seekers, reception infrastructure, integration programs, and emergency healthcare assistance.',
+        'Annual public budget committed under France's national mission for asylum seekers, reception infrastructure, integration programs, and emergency healthcare assistance.',
       sourceName: 'French Ministry of the Interior & Annual Budget Law',
     },
     'france-household-christmas-spending': {
@@ -714,18 +996,18 @@ export const enTranslations: Translations = {
       title: 'Clothing & Fashion Spending by French Households',
       subtitle: 'Annual expenditure on ready-to-wear apparel, footwear, leather goods, and fashion accessories',
       description:
-        'Total annual consumer spending by French households on women’s, men’s, and children’s clothing and footwear according to INSEE national accounts and Institut Français de la Mode (IFM).',
+        'Total annual consumer spending by French households on women's, men's, and children's clothing and footwear according to INSEE national accounts and Institut Français de la Mode (IFM).',
       sourceName: 'INSEE & Institut Français de la Mode (IFM)',
     },
     'france-household-food-spending': {
       title: 'Food & Grocery Spending by French Households',
       subtitle: 'Total domestic grocery consumption: fresh produce, supermarket shopping, bakeries, and food staples',
       description:
-        'Total annual grocery and food at-home expenditure by France’s 29.5 million households (~395 €/month per household, ~17% of average budget) calculated by INSEE and FranceAgriMer.',
+        'Total annual grocery and food at-home expenditure by France's 29.5 million households (~395 €/month per household, ~17% of average budget) calculated by INSEE and FranceAgriMer.',
       sourceName: 'INSEE (National Accounts) & FranceAgriMer',
     },
     'germany-buergergeld-spending': {
-      title: 'Germany Spending on Citizen’s Income (Bürgergeld)',
+      title: 'Germany Spending on Citizen's Income (Bürgergeld)',
       subtitle: 'Federal budget expenditure on basic income, accommodation & heating allowances (KdU), and Jobcenter operations',
       description:
         'Total federal budgetary outlay allocated to basic security for jobseekers (standard citizen allowance, rent, heating, and administrative costs) reported by the Federal Ministry of Labour and Social Affairs (BMAS).',
@@ -740,7 +1022,7 @@ export const enTranslations: Translations = {
     },
     'germany-foreign-development-aid-spending': {
       title: 'Germany Spending on Official Development Assistance (ODA / BMZ)',
-      subtitle: 'International development cooperation, humanitarian aid, and poverty reduction (World’s 2nd largest donor)',
+      subtitle: 'International development cooperation, humanitarian aid, and poverty reduction (World's 2nd largest donor)',
       description:
         'Official Development Assistance (ODA) mobilized by Germany across developing economies for healthcare, infrastructure, education, and climate resilience monitored by OECD DAC and BMZ.',
       sourceName: 'OECD Development Assistance Committee & BMZ Germany',
@@ -784,12 +1066,12 @@ export const enTranslations: Translations = {
       title: 'Germany Spending on Food, Groceries & Non-Alcoholic Drinks',
       subtitle: 'Monthly and annual household grocery consumption (~€415/month per household, ~15% of private consumption)',
       description:
-        'Total grocery and beverage retail consumption spending across Germany’s 41 million households calculated by the Federal Statistical Office (Destatis).',
+        'Total grocery and beverage retail consumption spending across Germany's 41 million households calculated by the Federal Statistical Office (Destatis).',
       sourceName: 'Federal Statistical Office of Germany (Destatis)',
     },
     'germany-silvester-fireworks-spending': {
-      title: 'Germany Spending on New Year’s Eve Fireworks (Silvester)',
-      subtitle: 'Total pyrotechnics retail sales during the official 3-day window before New Year’s Eve',
+      title: 'Germany Spending on New Year's Eve Fireworks (Silvester)',
+      subtitle: 'Total pyrotechnics retail sales during the official 3-day window before New Year's Eve',
       description:
         'Total sales revenue of fireworks, rockets, and bangers sold to German consumers during the year-end celebration window reported by the Pyrotechnic Industry Association (VPI).',
       sourceName: 'Association of the Pyrotechnic Industry (VPI Germany)',
@@ -854,7 +1136,7 @@ export const enTranslations: Translations = {
       title: 'Brazil Spending on the Judiciary System (Poder Judiciário)',
       subtitle: 'Total operational cost of federal, state, labor, electoral, and supreme courts (~1.3% of GDP)',
       description:
-        'Total annual expenditure of Brazil’s judicial branch covering magistrate compensation, staff payroll, courts infrastructure, and technology audited in the CNJ’s official «Justiça em Números» report.',
+        'Total annual expenditure of Brazil's judicial branch covering magistrate compensation, staff payroll, courts infrastructure, and technology audited in the CNJ's official «Justiça em Números» report.',
       sourceName: 'National Council of Justice (CNJ - Justiça em Números)',
     },
     'brazil-inss-pension-spending': {
@@ -931,7 +1213,7 @@ export const enTranslations: Translations = {
       title: 'FC Barcelona Total Debt & Espai Barça Financing',
       subtitle: 'Ordinary net debt obligations and structured stadium bond financing (Goldman Sachs & JP Morgan)',
       description:
-        'Consolidated financial liabilities of FC Barcelona including bank debt, player amortizations, and the Spotify Camp Nou reconstruction bonds audited in the club’s Annual Economic Report.',
+        'Consolidated financial liabilities of FC Barcelona including bank debt, player amortizations, and the Spotify Camp Nou reconstruction bonds audited in the club's Annual Economic Report.',
       sourceName: 'FC Barcelona Annual Economic Report & LaLiga',
     },
     'real-madrid-total-debt-financing': {
@@ -945,7 +1227,7 @@ export const enTranslations: Translations = {
       title: 'Colombia Total External Foreign Debt',
       subtitle: 'Consolidated outstanding balance of public and private external foreign debt (~50% of Colombian GDP)',
       description:
-        'Total foreign currency obligations owed to international creditors by Colombia’s public sector and private corporations tracked by the Banco de la República.',
+        'Total foreign currency obligations owed to international creditors by Colombia's public sector and private corporations tracked by the Banco de la República.',
       sourceName: 'Banco de la República de Colombia & Ministry of Finance',
     },
     'united-kingdom-national-public-debt': {
@@ -959,7 +1241,7 @@ export const enTranslations: Translations = {
       title: 'China Sovereign & Local Government National Debt',
       subtitle: 'Central government bonds and local government financing vehicles (LGFVs) (~83% of Chinese GDP)',
       description:
-        'Consolidated public debt of the People’s Republic of China including official sovereign bonds and off-budget local liabilities according to the IMF and Ministry of Finance.',
+        'Consolidated public debt of the People's Republic of China including official sovereign bonds and off-budget local liabilities according to the IMF and Ministry of Finance.',
       sourceName: 'Ministry of Finance of China & IMF Global Debt Database',
     },
     'canada-national-public-debt': {
@@ -1001,8 +1283,8 @@ export const enTranslations: Translations = {
       title: 'Italy National Public Debt (Debito Pubblico)',
       subtitle: 'Gross sovereign public liabilities in Italian government bonds (BTP & BOT) (~138% of GDP)',
       description:
-        'Consolidated gross debt of Italian public administrations reported by Banca d’Italia and Istat.',
-      sourceName: 'Banca d’Italia & Istat',
+        'Consolidated gross debt of Italian public administrations reported by Banca d'Italia and Istat.',
+      sourceName: 'Banca d'Italia & Istat',
     },
     'brazil-national-public-debt': {
       title: 'Brazil Federal National Public Debt (Dívida Pública Federal)',
@@ -1106,7 +1388,7 @@ export const enTranslations: Translations = {
       title: 'Global Spending on Instagram Advertising & Commerce',
       subtitle: 'Revenue generated from Reels ads, Stories, Feed placements, and creator commerce (~$2,251/s, >50% of Meta Ads)',
       description:
-        'Total global advertiser expenditure on Instagram (Meta Platforms) including sponsored posts, video placements, and creator monetization audited in Meta’s SEC filings.',
+        'Total global advertiser expenditure on Instagram (Meta Platforms) including sponsored posts, video placements, and creator monetization audited in Meta's SEC filings.',
       sourceName: 'Meta Platforms (SEC Form 10-K) & eMarketer',
     },
     'global-influencer-marketing-creator-spending': {

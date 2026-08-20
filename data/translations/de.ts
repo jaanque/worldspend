@@ -151,9 +151,61 @@ export const deTranslations: Translations = {
     energy: { name: 'Energie, Öl & Strom', description: 'Globale Stromerzeugung und Rohölverbrauch' },
     sports: { name: 'Sport, Fußball & Turniere', description: 'Spielertransfers, Gehaltskosten der Spitzenclubs und Großturniere' },
     gambling: { name: 'Glücksspiel & Lotterien', description: 'Casinos, Sportwetten und Lotterien' },
+    'country-gdp': {
+      name: 'BIP nach Ländern',
+      description: 'Bruttoinlandsprodukt (nominales BIP) der Länder in Echtzeit',
+    },
     corruption: { name: 'Korruption & Steueroasen', description: 'Steuerhinterziehung und Bestechungsgelder' },
   },
   items: {
+    'spain-cost-raising-child': {
+      title: 'Kosten für die Kindererziehung in Spanien (0–18 Jahre)',
+      subtitle: 'Zwischen 115.000 € und 180.000 € Gesamtkosten im Durchschnitt; ca. 8.194 € pro Jahr und Kind',
+      description:
+        'Es gibt keine einheitliche globale Zahl, da die Kosten je nach Land stark variieren. In Spanien kostet die Kindererziehung bis zum 18. Lebensjahr zwischen 115.000 und 180.000 Euro im Durchschnitt (Mittelwert: 147.500 €), was etwa 8.194 € pro Jahr und Kind entspricht (~8.932 USD). Diese Kosten umfassen Essen, Kleidung, Bildung, Gesundheit, Freizeit und Transport, ohne Wohnen und Studium.',
+      sourceName: 'Educo — Wie viel kostet es, ein Kind in Spanien aufzuziehen?',
+      sources: [{ name: 'Educo — Wie viel kostet es, ein Kind in Spanien aufzuziehen?', url: 'https://www.educo.org/blog/cuanto-cuesta-criar-a-un-hijo-o-hija-en-espana' }],
+    },
+    'global-online-food-delivery-market': {
+      title: 'Weltweite Ausgaben für Online-Essenslieferung',
+      subtitle: 'Menschen geben weltweit jährlich über 320 Milliarden Dollar auf digitalen Lieferplattformen aus',
+      description:
+        'Weltweit geben Menschen jährlich mehr als 320 Milliarden Dollar für Essenslieferung und Take-away über digitale Plattformen wie Uber Eats, Just Eat, Deliveroo, DoorDash oder Glovo aus. Dieser Markt ist seit der Pandemie 2020 exponentiell gewachsen, angetrieben durch den Boom des mobilen Handels und die globale Expansion von Dark Kitchens.',
+      sourceName: 'Fortune Business Insights — Online-Lebensmittelliefermarkt',
+      sources: [{ name: 'Fortune Business Insights — Bericht über den Online-Lebensmittelliefermarkt', url: 'https://www.fortunebusinessinsights.com/online-food-delivery-market-110672' }],
+    },
+    'global-cinema-box-office-revenue': {
+      title: 'Weltweite Kinokasseneinnahmen (Box Office)',
+      subtitle: 'Der jährliche weltweite Box Office beläuft sich auf rund 29,6 Milliarden Euro (~32,264 Mrd. USD)',
+      description:
+        'Die jährlichen weltweiten Kinokasseneinnahmen belaufen sich auf etwa 29,6 Milliarden Euro (~32,264 Milliarden Dollar), hauptsächlich getrieben durch das Wachstum des asiatischen Marktes. Asien führt die Post-Pandemie-Erholung des globalen Kinobusiness an, während der nordamerikanische und europäische Markt weiterhin tragende Säulen bleiben.',
+      sourceName: 'Spain Audiovisual Hub / Europäisches Audiovisuelles Observatorium',
+      sources: [{ name: 'Spain Audiovisual Hub — Asien treibt das weltweite Box-Office-Wachstum an', url: 'https://spainaudiovisualhub.digital.gob.es/es/actualidad/observatorio-audiovisual-europeo--asia-impulsa-el-crecimiento-de' }],
+    },
+    'superbowl-advertising-revenue': {
+      title: 'Werbeausgaben der Marken beim Super Bowl',
+      subtitle: 'Marken zahlten über 414 Millionen Dollar für Werbung beim Super Bowl – zweites Jahr in Folge',
+      description:
+        'Unternehmen gaben mehr als 414 Millionen Dollar aus, um ihre Werbung während des Super Bowls zu schalten, und übertrafen damit zum zweiten Mal in Folge die 400-Millionen-Dollar-Marke. Ein 30-Sekunden-Spot kann bis zu 8 Millionen Dollar kosten und macht den Super Bowl zur teuersten Werbebühne der Welt.',
+      sourceName: 'Palco23 / Mundo Deportivo — Super Bowl Werbeausgaben',
+      sources: [{ name: 'Palco23 — Super Bowl übertrifft 400 Millionen Dollar Werbeausgaben', url: 'https://palco23.mundodeportivo.com/media/la-super-bowl-supera-los-400-millones-de-dolares-de-ingresos-publicitarios-por-segundo-ano' }],
+    },
+    'fifa-world-cup-2026-cost': {
+      title: 'Organisationskosten der FIFA Fußball-WM 2026',
+      subtitle: 'Gesamtausgaben der FIFA zur Organisation der ersten WM mit 48 Teams',
+      description:
+        'Die Kosten für Organisation und Durchführung der FIFA WM 2026 beliefen sich auf rund 2,4 Milliarden Dollar für die FIFA selbst. Das Turnier fand in 16 Städten der USA, Kanadas und Mexikos statt, mit 48 Nationalmannschaften – erstmals in der Geschichte des Weltfußballs.',
+      sourceName: 'BBC Mundo — FIFA WM 2026',
+      sources: [{ name: 'BBC Mundo — Die Organisationskosten der FIFA WM 2026', url: 'https://www.bbc.com/mundo/articles/cy8d7p71p7po' }],
+    },
+    'fifa-world-cup-global-advertising-investment': {
+      title: 'Werbeausgaben der Marken für die FIFA WM 2026',
+      subtitle: 'Unternehmen gaben ~10,5 Mrd. $ pro Ausgabe für Werbung aus (4-Jahres-Zyklus → ~2,625 Mrd. $/Jahr)',
+      description:
+        'Die FIFA Fußball-WM findet nicht jedes Jahr, sondern alle vier Jahre statt. Die gesamten Werbekosten der Marken für die WM 2026 belaufen sich auf rund 10,5 Milliarden Dollar pro Ausgabe (~2,625 Milliarden annualisiert). Die Marken zahlten dafür Plätze im Fernsehen, auf Streaming-Plattformen, in Stadien und in sozialen Netzwerken.',
+      sourceName: 'AdLatina — Werbekosten der Marken für die FIFA WM 2026',
+      sources: [{ name: 'AdLatina — Geschätzte globale Werbeinvestitionen für die WM 2026 belaufen sich auf rund 10,5 Milliarden Dollar', url: 'https://www.adlatina.com/publicidad/la-inversin-publicitaria-global-estimada-para-el-mundial-2026-ronda-los-10.500-millones-de-dlares' }],
+    },
     'spain-equality-ministry-budget': {
       title: 'Haushalt des Gleichstellungsministeriums Spaniens',
       subtitle: 'Jährliches Budget für Gleichstellungspolitik und Gewaltprävention',
@@ -207,10 +259,25 @@ export const deTranslations: Translations = {
       sourceName: 'SEPE, Sozialministerium & Eurostat',
     },
     'la-velada-production-cost': {
-      title: 'Produktionskosten von La Velada del Año (Ibai)',
-      subtitle: 'Budget für Technik, Stadionmiete, Live-Künstler und Eventsicherheit',
-      description: 'Gesamtkosten des weltweit größten spanischsprachigen Live-Streaming-Events von Ibai Llanos.',
-      sourceName: 'KOI Productions & Forbes Spain Media',
+      title: 'Produktionsbudget von La Velada del Año VI (Ibai)',
+      subtitle: 'Gesamtbudget von 10 Millionen Euro für Stadionmiete, Künstler und technische Produktion',
+      description:
+        'Gesamtkosten für die Organisation des größten Live-Streaming-Events in spanischer Sprache (Santiago Bernabéu / Metropolitano), geschätzt auf 10 Millionen Euro (~10,9 Mio. USD).',
+      sourceName: 'Diario ABC, Diario AS & Onda Cero',
+      sources: [
+        {
+          name: 'Diario ABC — La Velada del Año: Was Ibai Llanos ausgibt und verdient',
+          url: 'https://www.abc.es/gente/velada-ano-dinero-cuesta-gana-ibai-llanos-20260722013407-nt.html',
+        },
+        {
+          name: 'Diario AS (MeriStation) — Der schwindelerregende Betrag, den Ibai die Organisation kostet',
+          url: 'https://as.com/meristation/streamers/la-mareante-cifra-economica-que-le-cuesta-a-ibai-organizar-la-velada-del-ano-f202607-n/',
+        },
+        {
+          name: 'Onda Cero — Produktionskosten von La Velada del Año von Ibai',
+          url: 'https://www.ondacero.es/noticias/sociedad/ganado-dinero-ibai-velada-ano-5-esto-dicen-calculos_2025072868876ffef4ec026a96bddf38.html',
+        },
+      ],
     },
     'individual-monthly-food-cost': {
       title: 'Lebensmittelausgaben einer Person pro Monat',
@@ -277,6 +344,20 @@ export const deTranslations: Translations = {
       subtitle: 'Weltweiter und US-Konsum für pyrotechnische Shows und Feiern',
       description: 'Weltweite Ausgaben für Pyrotechnik. Allein am 4. Juli geben die Amerikaner über 1,5 Milliarden Dollar für Feuerwerk aus.',
       sourceName: 'American Pyrotechnics Association (APA)',
+    },
+    'global-military-spending': {
+      title: 'Weltweite Militärausgaben',
+      subtitle: 'Globales Rüstungsbudget und Verteidigungsausgaben aller Nationen pro Jahr',
+      description:
+        'Die weltweiten Rüstungs- und Militärausgaben erreichen mit 2,887 Billionen US-Dollar (2.887 Milliarden USD) einen historischen Höchststand laut SIPRI-Daten und Deutsche Welle (DW).',
+      sourceName: 'Deutsche Welle (DW) — Neuer Rekord: Rüstungsausgaben steigen weltweit',
+    },
+    'global-narcotics-spending': {
+      title: 'Weltweite Ausgaben für Rauschgift',
+      subtitle: 'Geschätztes jährliches Wirtschaftsvolumen des illegalen Drogenhandels',
+      description:
+        'Die geschätzten weltweiten Ausgaben für Rauschgift belaufen sich auf 750 Milliarden US-Dollar jährlich und gehören zu den größten Bereichen der Schattenwirtschaft.',
+      sourceName: 'Ethic — Wie schwer wiegt die Kriminalität in der Weltwirtschaft?',
     },
     'uk-asylum-seekers-support-spending': {
       title: 'Ausgaben für Asylsuchende in Großbritannien',
@@ -444,7 +525,7 @@ export const deTranslations: Translations = {
       title: 'Ausgaben für KI-Rechenzentren und ChatGPT',
       subtitle: 'Rekord-Investitionen in GPU-Server-Cluster, Flüssigkeitskühlung und Recheninfrastruktur',
       description: 'Weltweite Investitionsausgaben (CapEx) der Cloud-Giganten (Microsoft, AWS, Google, Meta, OpenAI) für KI-Rechenzentren.',
-      sourceName: 'Dell’Oro Group & Synergy Research',
+      sourceName: "Dell'Oro Group & Synergy Research",
     },
     'weight-loss-drugs-ozempic-spending': {
       title: 'Ausgaben für Abnehmmedikamente (Ozempic & GLP-1)',
@@ -561,7 +642,7 @@ export const deTranslations: Translations = {
       sourceName: 'Cour des Comptes & COJO Paris 2024',
     },
     'france-covid-19-pandemic-spending': {
-      title: 'Ausgaben Frankreichs für die COVID-19-Pandemie („Koste es, was es wolle“)',
+      title: 'Ausgaben Frankreichs für die COVID-19-Pandemie („Koste es, was es wolle")',
       subtitle: 'Finanzierung von Kurzarbeit, Solidaritätsfonds für Unternehmen und Ausbau des Gesundheitswesens',
       description: 'Vom französischen Staat bereitgestellte Pandemie-Krisengelder und Rettungspakete laut Rechnungshof und Wirtschaftsministerium (Bercy).',
       sourceName: 'Cour des Comptes & Französisches Wirtschaftsministerium (Bercy)',
@@ -855,8 +936,8 @@ export const deTranslations: Translations = {
     'italy-national-public-debt': {
       title: 'Nationale Staatsverschuldung Italiens (Debito Pubblico)',
       subtitle: 'Gesamtverbindlichkeiten in italienischen Staatsanleihen (BTP & BOT) (~138 % des BIP)',
-      description: 'Schulden der italienischen öffentlichen Verwaltungen laut Banca d’Italia und Istat.',
-      sourceName: 'Banca d’Italia & Istat',
+      description: "Schulden der italienischen öffentlichen Verwaltungen laut Banca d'Italia und Istat.",
+      sourceName: "Banca d'Italia & Istat",
     },
     'brazil-national-public-debt': {
       title: 'Gesamte Bundesschulden Brasiliens (Dívida Pública Federal)',

@@ -1,6 +1,7 @@
 import { Locale, Translations, SUPPORTED_LOCALES } from '@/types/i18n';
 import { SpendItem, CategoryInfo } from '@/types/spend';
 import { SPEND_ITEMS, CATEGORIES } from '@/data/spendData';
+import { COUNTRIES_GDP_DATA } from '@/data/countriesGdpData';
 import { enTranslations } from '@/data/translations/en';
 import { esTranslations } from '@/data/translations/es';
 import { frTranslations } from '@/data/translations/fr';
@@ -31,15 +32,120 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
 
   return SPEND_ITEMS.map((item) => {
     const locItem = dict.items[item.id];
-    if (!locItem) return item;
+    
+    // Dynamic localization for country GDP counters
+    if (item.categoryId === 'country-gdp') {
+      const countryData = COUNTRIES_GDP_DATA.find((c) => c.id === item.id);
+      if (countryData) {
+        let countryName = countryData.nameEs;
+        let gdpPrefix = 'PIB de';
+        let subtitleText = `Producto Interior Bruto nominal oficial de ${countryName} en tiempo real`;
+        let descText = `El Producto Interior Bruto (PIB nominal) de ${countryName} alcanza los $${countryData.gdpMillionsUSD.toLocaleString('es-ES', { minimumFractionDigits: 2 })} millones de dólares estadounidenses (${countryData.year}), basándose en cifras consolidadas del Banco Mundial y DatosMacro.`;
+
+        let sourcesList = item.sources;
+
+        if (locale === 'en') {
+          countryName = countryData.nameEn;
+          gdpPrefix = 'GDP of';
+          subtitleText = `Official nominal Gross Domestic Product of ${countryName} in real time`;
+          descText = `The nominal Gross Domestic Product (GDP) of ${countryName} reaches $${countryData.gdpMillionsUSD.toLocaleString('en-US', { minimumFractionDigits: 2 })} million USD (${countryData.year}), based on World Bank and DatosMacro data.`;
+          sourcesList = countryData.sources.map(s => ({
+            name: s.name.replace('Banco Mundial', 'World Bank').replace('PIB', 'GDP'),
+            url: s.url
+          }));
+        } else if (locale === 'fr') {
+          countryName = countryData.nameFr;
+          gdpPrefix = 'PIB de';
+          subtitleText = `Produit Intérieur Brut nominal officiel de ${countryName} en temps réel`;
+          descText = `Le Produit Intérieur Brut (PIB nominal) de ${countryName} atteint $${countryData.gdpMillionsUSD.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} millions de dollars US (${countryData.year}), selon la Banque Mondiale et DatosMacro.`;
+          sourcesList = countryData.sources.map(s => ({
+            name: s.name.replace('Banco Mundial', 'Banque Mondiale').replace('PIB', 'PIB'),
+            url: s.url
+          }));
+        } else if (locale === 'de') {
+          countryName = countryData.nameDe;
+          gdpPrefix = 'BIP von';
+          subtitleText = `Offizielles nominales Bruttoinlandsprodukt von ${countryName} in Echtzeit`;
+          descText = `Das nominale Bruttoinlandsprodukt (BIP) von ${countryName} erreicht $${countryData.gdpMillionsUSD.toLocaleString('de-DE', { minimumFractionDigits: 2 })} Millionen USD (${countryData.year}), basierend auf Weltbank- und DatosMacro-Daten.`;
+          sourcesList = countryData.sources.map(s => ({
+            name: s.name.replace('Banco Mundial', 'Weltbank').replace('PIB', 'BIP'),
+            url: s.url
+          }));
+        } else if (locale === 'pt') {
+          countryName = countryData.namePt;
+          gdpPrefix = 'PIB de';
+          subtitleText = `Produto Interno Bruto nominal oficial de ${countryName} em tempo real`;
+          descText = `O Produto Interno Bruto (PIB nominal) de ${countryName} atinge $${countryData.gdpMillionsUSD.toLocaleString('pt-PT', { minimumFractionDigits: 2 })} milhões de dólares USD (${countryData.year}), com base no Banco Mundial e DatosMacro.`;
+          sourcesList = countryData.sources.map(s => ({
+            name: s.name.replace('Banco Mundial', 'Banco Mundial').replace('PIB', 'PIB'),
+            url: s.url
+          }));
+        }
+
+        return {
+          ...item,
+          title: locItem?.title || `${gdpPrefix} ${countryName}`,
+          subtitle: locItem?.subtitle || subtitleText,
+          description: locItem?.description || descText,
+          sourceName: locItem?.sourceName || item.sourceName,
+          sources: locItem?.sources || sourcesList,
+        };
+      }
+    }
+
+    // Dynamic localization for food-spend-* country counters
+    if (item.id.startsWith('food-spend-')) {
+      const countryCodeMatch = item.id.replace('food-spend-', '');
+      const countryData = COUNTRIES_GDP_DATA.find((c) => c.id === `gdp-${countryCodeMatch}`);
+      if (countryData) {
+        let countryName = countryData.nameEs;
+        let foodTitlePrefix = 'Gasto en Comida de 1 Persona en';
+        let descText = `Gasto medio anual en alimentación y cesta de la compra para una persona residente en ${countryName}, estimado en $${Math.round(item.annualSpendUSD / 12)} USD mensuales según el informe global de Nutrola.`;
+        let sourceTitle = `Nutrola — Informe Global de Gasto Mensual en Alimentación (${countryName})`;
+
+        if (locale === 'en') {
+          countryName = countryData.nameEn;
+          foodTitlePrefix = 'Food Spending per Person in';
+          descText = `Average annual expenditure on food and groceries for a resident in ${countryName}, estimated at $${Math.round(item.annualSpendUSD / 12)} USD monthly according to Nutrola global report.`;
+          sourceTitle = `Nutrola — Global Monthly Food Spending Report (${countryName})`;
+        } else if (locale === 'fr') {
+          countryName = countryData.nameFr;
+          foodTitlePrefix = 'Dépenses Alimentaires par Personne en';
+          descText = `Dépenses annuelles moyennes en alimentation pour un résident en ${countryName}, estimées à $${Math.round(item.annualSpendUSD / 12)} USD par mois selon le rapport global Nutrola.`;
+          sourceTitle = `Nutrola — Rapport Mondial sur les Dépenses Alimentaires Mensuelles (${countryName})`;
+        } else if (locale === 'de') {
+          countryName = countryData.nameDe;
+          foodTitlePrefix = 'Ausgaben für Lebensmittel pro Person in';
+          descText = `Durchschnittliche jährliche Ausgaben für Lebensmittel für eine Person in ${countryName}, geschätzt auf $${Math.round(item.annualSpendUSD / 12)} USD monatlich laut Nutrola-Bericht.`;
+          sourceTitle = `Nutrola — Globaler Bericht über monatliche Lebensmittelausgaben (${countryName})`;
+        } else if (locale === 'pt') {
+          countryName = countryData.namePt;
+          foodTitlePrefix = 'Gastos com Alimentação por Pessoa em';
+          descText = `Gastos médios anuais com alimentação para um residente em ${countryName}, estimados em $${Math.round(item.annualSpendUSD / 12)} USD mensais de acordo com o relatório global Nutrola.`;
+          sourceTitle = `Nutrola — Relatório Global de Gastos Mensais com Alimentação (${countryName})`;
+        }
+
+        return {
+          ...item,
+          title: locItem?.title || `${foodTitlePrefix} ${countryName}`,
+          description: locItem?.description || descText,
+          sources: [
+            {
+              name: sourceTitle,
+              url: 'https://nutrola.app/es/blog/how-much-does-average-person-spend-on-food-per-month',
+            },
+          ],
+        };
+      }
+    }
 
     return {
       ...item,
-      title: locItem.title || item.title,
-      subtitle: locItem.subtitle || item.subtitle,
-      description: locItem.description || item.description,
-      sourceName: locItem.sourceName || item.sourceName,
-      sources: locItem.sources || item.sources,
+      title: locItem?.title || item.title,
+      subtitle: locItem?.subtitle || item.subtitle,
+      description: locItem?.description || item.description,
+      sourceName: locItem?.sourceName || item.sourceName,
+      sources: locItem?.sources || item.sources,
     };
   });
 }

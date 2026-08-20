@@ -151,9 +151,61 @@ export const ptTranslations: Translations = {
     energy: { name: 'Energia, Petróleo e Eletricidade', description: 'Geração elétrica mundial e consumo de petróleo cru' },
     sports: { name: 'Esportes, Futebol & Competições', description: 'Mercado da bola, transferências de futebol e folha salarial dos clubes' },
     gambling: { name: 'Jogos de Azar e Loterias', description: 'Cassinos, apostas esportivas e loterias' },
+    'country-gdp': {
+      name: 'PIB por Países',
+      description: 'Produto Interno Bruto (PIB nominal) dos países em tempo real',
+    },
     corruption: { name: 'Corrupção e Paraísos Fiscais', description: 'Evasão fiscal e corrupção pública' },
   },
   items: {
+    'spain-cost-raising-child': {
+      title: 'Custo de Criar um Filho na Espanha (0–18 anos)',
+      subtitle: 'Entre €115.000 e €180.000 no total em média básica; cerca de €8.194 por ano por filho',
+      description:
+        'Não existe um valor único a nível mundial, pois o custo varia muito conforme o país. Na Espanha, criar um filho até aos 18 anos custa entre 115.000 e 180.000 euros em média (média: 147.500 €), o equivalente a cerca de 8.194 € por ano por filho (~8.932 USD). Este custo inclui alimentação, roupa, educação, saúde, lazer e transporte, excluindo habitação e estudos universitários.',
+      sourceName: 'Educo — Quanto custa criar um filho na Espanha?',
+      sources: [{ name: 'Educo — Quanto custa criar um filho na Espanha?', url: 'https://www.educo.org/blog/cuanto-cuesta-criar-a-un-hijo-o-hija-en-espana' }],
+    },
+    'global-online-food-delivery-market': {
+      title: 'Gastos Mundiais em Entrega de Comida ao Domicílio Online',
+      subtitle: 'As pessoas gastam mais de 320 mil milhões de dólares por ano em plataformas digitais de entrega de refeições',
+      description:
+        'A nível mundial, as pessoas gastam mais de 320 mil milhões de dólares por ano no mercado de entrega de refeições e take-away através de plataformas digitais como Uber Eats, Just Eat, Deliveroo, DoorDash ou Glovo. Este mercado cresceu exponencialmente desde a pandemia de 2020, impulsionado pelo boom do comércio móvel e pela expansão global das dark kitchens.',
+      sourceName: 'Fortune Business Insights — Mercado de Entrega de Refeições Online',
+      sources: [{ name: 'Fortune Business Insights — Relatório sobre o Mercado de Entrega de Refeições Online', url: 'https://www.fortunebusinessinsights.com/online-food-delivery-market-110672' }],
+    },
+    'global-cinema-box-office-revenue': {
+      title: 'Bilheteria Global do Cinema',
+      subtitle: 'A bilheteria cinematográfica mundial anual ronda os 29,6 mil milhões de euros (~32,264 mil M$ USD)',
+      description:
+        'A receita anual global de bilheteria cinematográfica ronda os 29,6 mil milhões de euros (~32,264 mil milhões de dólares), impulsionada principalmente pelo crescimento do mercado asiático. A Ásia lidera a recuperação pós-pandemia do setor cinematográfico mundial, enquanto os mercados norte-americano e europeu continuam sendo pilares fundamentais.',
+      sourceName: 'Spain Audiovisual Hub / Observatório Audiovisual Europeu',
+      sources: [{ name: 'Spain Audiovisual Hub — A Ásia impulsiona o crescimento da bilheteria mundial', url: 'https://spainaudiovisualhub.digital.gob.es/es/actualidad/observatorio-audiovisual-europeo--asia-impulsa-el-crecimiento-de' }],
+    },
+    'superbowl-advertising-revenue': {
+      title: 'Gastos Publicitários das Marcas no Super Bowl',
+      subtitle: 'As marcas pagaram mais de 414 milhões de dólares para se anunciarem no Super Bowl pelo segundo ano consecutivo',
+      description:
+        'As empresas desembolsaram mais de 414 milhões de dólares para colocar os seus anúncios durante o Super Bowl, superando os 400 milhões pelo segundo ano consecutivo. Um spot de 30 segundos pode custar até 8 milhões de dólares, tornando o Super Bowl na montra publicitária mais cara do planeta.',
+      sourceName: 'Palco23 / Mundo Deportivo — Gastos publicitários no Super Bowl',
+      sources: [{ name: 'Palco23 — O Super Bowl ultrapassa os 400 milhões de dólares em gastos publicitários', url: 'https://palco23.mundodeportivo.com/media/la-super-bowl-supera-los-400-millones-de-dolares-de-ingresos-publicitarios-por-segundo-ano' }],
+    },
+    'fifa-world-cup-2026-cost': {
+      title: 'Custo de Organização do Mundial de Futebol FIFA 2026',
+      subtitle: 'Gastos totais da FIFA para organizar e operar o primeiro Mundial com 48 equipas da história',
+      description:
+        'O custo de organização e operação do Mundial FIFA 2026 ascendeu a cerca de 2,4 mil milhões de dólares para a própria FIFA. O torneio realizou-se em 16 cidades dos Estados Unidos, Canadá e México com 48 seleções participantes pela primeira vez na história.',
+      sourceName: 'BBC Mundo — Mundial da FIFA 2026',
+      sources: [{ name: 'BBC Mundo — O custo de organização do Mundial FIFA 2026', url: 'https://www.bbc.com/mundo/articles/cy8d7p71p7po' }],
+    },
+    'fifa-world-cup-global-advertising-investment': {
+      title: 'Gastos das Marcas em Publicidade para o Mundial FIFA 2026',
+      subtitle: 'As empresas gastaram ~10,5 mil M$ por edição para se anunciarem durante o Mundial (ciclo 4 anos → ~2,625 mil M$/ano)',
+      description:
+        'O Mundial da FIFA não se realiza todos os anos, mas de quatro em quatro anos. O custo publicitário total assumido pelas marcas para o Mundial 2026 ascende a cerca de 10,5 mil milhões de dólares por edição (~2,625 mil milhões anualizados). As marcas pagaram para ocupar espaços na televisão, plataformas de streaming, estádios e redes sociais durante o torneio mais visto do mundo.',
+      sourceName: 'AdLatina — Custo publicitário das marcas para o Mundial FIFA 2026',
+      sources: [{ name: 'AdLatina — O investimento publicitário global estimado para o Mundial 2026 ronda os 10,5 mil milhões de dólares', url: 'https://www.adlatina.com/publicidad/la-inversin-publicitaria-global-estimada-para-el-mundial-2026-ronda-los-10.500-millones-de-dlares' }],
+    },
     'spain-equality-ministry-budget': {
       title: 'Orçamento do Ministério da Igualdade da Espanha',
       subtitle: 'Orçamento anual destinado a políticas de igualdade e prevenção de violência de gênero',
@@ -207,10 +259,25 @@ export const ptTranslations: Translations = {
       sourceName: 'SEPE, Ministério dos Direitos Sociais & Eurostat',
     },
     'la-velada-production-cost': {
-      title: 'Custo de Produção de La Velada del Año (Ibai)',
-      subtitle: 'Orçamento de produção técnica, aluguel de estádios, artistas e segurança do evento',
-      description: 'Custo de produção do maior evento de transmissão ao vivo em língua espanhola por Ibai Llanos.',
-      sourceName: 'KOI Productions & Forbes Spain Media',
+      title: 'Custo de Produção de La Velada del Año VI (Ibai)',
+      subtitle: 'Orçamento total de 10 milhões de euros para aluguel de estádios, artistas e produção técnica',
+      description:
+        'Custo total de organização do maior evento de streaming em língua espanhola (Santiago Bernabéu / Metropolitano), estimado em 10 milhões de euros (~$10,9M USD).',
+      sourceName: 'Diario ABC, Diario AS & Onda Cero',
+      sources: [
+        {
+          name: 'Diario ABC — La Velada del Año: o dinheiro que custa e ganha Ibai Llanos',
+          url: 'https://www.abc.es/gente/velada-ano-dinero-cuesta-gana-ibai-llanos-20260722013407-nt.html',
+        },
+        {
+          name: 'Diario AS (MeriStation) — O valor astronômico que custa a Ibai organizar La Velada del Año',
+          url: 'https://as.com/meristation/streamers/la-mareante-cifra-economica-que-le-cuesta-a-ibai-organizar-la-velada-del-ano-f202607-n/',
+        },
+        {
+          name: 'Onda Cero — Valores de produção e negócios de La Velada del Año de Ibai',
+          url: 'https://www.ondacero.es/noticias/sociedad/ganado-dinero-ibai-velada-ano-5-esto-dicen-calculos_2025072868876ffef4ec026a96bddf38.html',
+        },
+      ],
     },
     'individual-monthly-food-cost': {
       title: 'Gasto de uma Pessoa com Comida por Mês',
@@ -277,6 +344,20 @@ export const ptTranslations: Translations = {
       subtitle: 'Consumo global e americano em espetáculos pirotécnicos e comemorações',
       description: 'Gastos globais em pirotecnia. Apenas no 4 de Julho, os americanos gastam mais de 1,5 bilhão de dólares em fogos.',
       sourceName: 'American Pyrotechnics Association (APA)',
+    },
+    'global-military-spending': {
+      title: 'Gastos Militares Mundiais',
+      subtitle: 'Orçamento bélico global e despesas com defesa de todas as nações por ano',
+      description:
+        'Os gastos militares e bélicos globais atingem um recorde histórico de 2,887 trilhões de dólares (2.887 bilhões de USD) impulsionados por tensões geopolíticas segundo o SIPRI e a Deutsche Welle (DW).',
+      sourceName: 'Deutsche Welle (DW) — Novo recorde: gastos com armas crescem no mundo todo',
+    },
+    'global-narcotics-spending': {
+      title: 'Gastos Mundiais com Entorpecentes',
+      subtitle: 'Volume econômico anual estimado do tráfico ilícito de drogas no mundo',
+      description:
+        'Os gastos globais estimados com entorpecentes atingem 750 bilhões de dólares anuais, representando uma das maiores atividades da economia informal e subterrânea.',
+      sourceName: 'Ethic — Quanto pesa a atividade criminal na economia mundial?',
     },
     'uk-asylum-seekers-support-spending': {
       title: 'Gastos com Acolhimento de Refugiados no Reino Unido',
@@ -444,7 +525,7 @@ export const ptTranslations: Translations = {
       title: 'Gastos com Data Centers de IA e ChatGPT',
       subtitle: 'Investimento recorde em servidores GPU, resfriamento líquido e infraestrutura para IA',
       description: 'Gastos de capital (CapEx) dos gigantes de tecnologia (Microsoft, AWS, Google, Meta, OpenAI) em data centers para IA.',
-      sourceName: 'Dell’Oro Group & Synergy Research',
+      sourceName: 'Dell'Oro Group & Synergy Research',
     },
     'weight-loss-drugs-ozempic-spending': {
       title: 'Gastos com Remédios para Emagrecer (Ozempic e GLP-1)',
@@ -850,8 +931,8 @@ export const ptTranslations: Translations = {
     'italy-national-public-debt': {
       title: 'Dívida Pública Nacional da Itália (Debito Pubblico)',
       subtitle: 'Passivo soberano bruto em títulos do governo italiano (BTP e BOT) (~138% do PIB)',
-      description: 'Dívida bruta das administrações públicas da Itália registrada pela Banca d’Italia e Istat.',
-      sourceName: 'Banca d’Italia & Istat',
+      description: 'Dívida bruta das administrações públicas da Itália registrada pela Banca d'Italia e Istat.',
+      sourceName: 'Banca d'Italia & Istat',
     },
     'brazil-national-public-debt': {
       title: 'Dívida Pública Federal Total do Brasil (DPF)',

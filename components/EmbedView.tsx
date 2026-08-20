@@ -23,9 +23,19 @@ export const EmbedView: React.FC<EmbedViewProps> = ({
   const dict = getDictionary(locale);
   const items = getLocalizedSpendItems(locale);
 
+  const isGlobalTotal = id === 'global-total' || id === 'total' || id === 'global-public-expenditure-total';
+
   const item = useMemo(() => {
+    if (isGlobalTotal) {
+      return {
+        id: 'global-total',
+        title: dict.heroTicker.yearLabel,
+        annualSpendUSD: 118350170000000, // GLOBAL_ANNUAL_SPEND_USD (PIB Mundial Total)
+        sourceName: 'Trading Economics & Banco Mundial (PIB Mundial)',
+      };
+    }
     return items.find((s) => s.id === id);
-  }, [items, id]);
+  }, [items, id, isGlobalTotal, dict]);
 
   if (!item) {
     return (

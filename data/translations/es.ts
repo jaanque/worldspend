@@ -199,12 +199,94 @@ export const esTranslations: Translations = {
       name: 'Juegos de Azar y Loterías',
       description: 'Casinos físicos, apuestas deportivas y loterías de estado',
     },
+    'country-gdp': {
+      name: 'PIB por Países',
+      description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real',
+    },
     corruption: {
       name: 'Corrupción y Paraísos Fiscales',
       description: 'Evasión fiscal corporativa y cuentas offshore',
     },
   },
   items: {
+    'spain-cost-raising-child': {
+      title: 'Coste de Criar a un Hijo en España (0–18 años)',
+      subtitle: 'Entre 115.000 € y 180.000 € en total de media básica; unos 8.194 € al año por hijo',
+      description:
+        'No existe una cifra única a nivel mundial, ya que el costo cambia mucho según el país. En España, criar a un hijo hasta los 18 años cuesta entre 115.000 y 180.000 euros de media básica (media: 147.500 €), lo que equivale a unos 8.194 € al año por hijo (~8.932 USD). Este coste incluye alimentación, ropa, educación, sanidad, ocio y transporte, sin contar con vivienda ni estudios universitarios.',
+      sourceName: 'Educo — ¿Cuánto cuesta criar a un hijo en España?',
+      sources: [
+        {
+          name: 'Educo — ¿Cuánto cuesta criar a un hijo o hija en España?',
+          url: 'https://www.educo.org/blog/cuanto-cuesta-criar-a-un-hijo-o-hija-en-espana',
+        },
+      ],
+    },
+    'global-online-food-delivery-market': {
+      title: 'Gasto Mundial en Comida a Domicilio y Para Llevar Online',
+      subtitle: 'La gente gasta más de 320.000 millones de dólares al año en plataformas digitales de comida a domicilio',
+      description:
+        'A nivel mundial, la gente gasta más de 320.000 millones de dólares al año en el mercado de comida a domicilio y para llevar a través de plataformas digitales como Uber Eats, Just Eat, Deliveroo, DoorDash o Glovo. Este mercado ha crecido de forma exponencial desde la pandemia de 2020, impulsado por el auge del comercio móvil, los hábitos de consumo urbano y la expansión de los dark kitchens a escala global.',
+      sourceName: 'Fortune Business Insights — Online Food Delivery Market',
+      sources: [
+        {
+          name: 'Fortune Business Insights — Online Food Delivery Market Size & Growth Report',
+          url: 'https://www.fortunebusinessinsights.com/online-food-delivery-market-110672',
+        },
+      ],
+    },
+    'global-cinema-box-office-revenue': {
+      title: 'Recaudación Global de Taquilla de Cine',
+      subtitle: 'La taquilla cinematográfica mundial ronda los 29.600 millones de euros anuales (~32.264M$ USD)',
+      description:
+        'La recaudación específica de taquilla anual a nivel global ronda los 29.600 millones de euros (~32.264 millones de dólares), impulsada principalmente por el crecimiento del mercado asiático. Asia lidera la recuperación del sector cinematográfico mundial, mientras que el mercado norteamericano y europeo continúan siendo pilares fundamentales del negocio de la exhibición de cine.',
+      sourceName: 'Spain Audiovisual Hub / Observatorio Audiovisual Europeo',
+      sources: [
+        {
+          name: 'Spain Audiovisual Hub — Observatorio Audiovisual Europeo: Asia impulsa el crecimiento de la taquilla mundial',
+          url: 'https://spainaudiovisualhub.digital.gob.es/es/actualidad/observatorio-audiovisual-europeo--asia-impulsa-el-crecimiento-de',
+        },
+      ],
+    },
+    'superbowl-advertising-revenue': {
+      title: 'Gasto de Empresas en Publicidad en la Super Bowl',
+      subtitle: 'Las marcas pagaron más de 414 millones de dólares para anunciarse en la Super Bowl por segundo año consecutivo',
+      description:
+        'Las empresas desembolsaron más de 414 millones de dólares para colocar sus anuncios durante la Super Bowl, superando los 400 millones por segundo año consecutivo. Un spot de 30 segundos durante el partido puede costar hasta 8 millones de dólares, lo que convierte a la Super Bowl en el escaparate publicitario más caro del planeta. Marcas de sectores como automoción, alimentación, tecnología y entretenimiento compiten por captar la atención de más de 100 millones de espectadores simultáneos.',
+      sourceName: 'Palco23 / Mundo Deportivo — Gasto publicitario en la Super Bowl',
+      sources: [
+        {
+          name: 'Palco23 / Mundo Deportivo — La Super Bowl supera los 400 millones de dólares de inversión publicitaria por segundo año',
+          url: 'https://palco23.mundodeportivo.com/media/la-super-bowl-supera-los-400-millones-de-dolares-de-ingresos-publicitarios-por-segundo-ano',
+        },
+      ],
+    },
+    'fifa-world-cup-2026-cost': {
+      title: 'Coste de Organización del Mundial de Fútbol FIFA 2026',
+      subtitle: 'Gasto total de la FIFA para organizar y operar el primer Mundial de 48 equipos de la historia',
+      description:
+        'El costo de organización y operación del Mundial de la FIFA 2026 ascendió a unos 2.400 millones de dólares para la propia FIFA. El torneo se disputó en 16 ciudades de Estados Unidos, Canadá y México con 48 selecciones participantes por primera vez en la historia, siendo el evento más caro de la historia del fútbol mundial.',
+      sourceName: 'BBC Mundo — Mundial de la FIFA 2026',
+      sources: [
+        {
+          name: 'BBC Mundo — El coste de organización del Mundial FIFA 2026',
+          url: 'https://www.bbc.com/mundo/articles/cy8d7p71p7po',
+        },
+      ],
+    },
+    'fifa-world-cup-global-advertising-investment': {
+      title: 'Gasto de las Marcas en Publicidad para el Mundial FIFA 2026',
+      subtitle: 'Las empresas gastaron ~10.500M$ por edición en anunciarse durante el Mundial (ciclo 4 años → ~2.625M$/año)',
+      description:
+        'El Mundial de la FIFA no se celebra cada año, sino cada cuatro años. El coste publicitario total que las marcas y empresas asumieron para anunciarse durante el Mundial 2026 asciende a unos 10.500 millones de dólares por edición (~2.625 millones anualizados). Las marcas pagaron este dinero para ocupar espacios en televisión, plataformas de streaming, estadios y redes sociales durante el torneo más visto del planeta.',
+      sourceName: 'AdLatina — Coste publicitario de marcas en el Mundial FIFA 2026',
+      sources: [
+        {
+          name: 'AdLatina — La inversión publicitaria global estimada para el Mundial 2026 ronda los 10.500 millones de dólares',
+          url: 'https://www.adlatina.com/publicidad/la-inversin-publicitaria-global-estimada-para-el-mundial-2026-ronda-los-10.500-millones-de-dlares',
+        },
+      ],
+    },
     'spain-equality-ministry-budget': {
       title: 'Presupuesto del Ministerio de Igualdad de España',
       subtitle: 'Presupuesto general anual asignado a políticas de igualdad y prevención de violencia de género',
@@ -255,11 +337,254 @@ export const esTranslations: Translations = {
       sourceName: 'Servicio Público de Empleo Estatal (SEPE), Ministerio de Derechos Sociales & Eurostat',
     },
     'la-velada-production-cost': {
-      title: 'Coste de Producción de La Velada del Año (Ibai)',
-      subtitle: 'Presupuesto de producción técnica, alquiler de estadios, artistas y seguridad del evento',
+      title: 'Coste de Producción de La Velada del Año VI (Ibai)',
+      subtitle: 'Presupuesto total de 10 millones de euros para alquiler de estadios, artistas y producción técnica',
       description:
-        'Coste total de organización del mayor evento de streaming en habla hispana (Santiago Bernabéu / Metropolitano), incluyendo cachets musicales, infraestructura audiovisual y logística.',
-      sourceName: 'KOI Productions, Twitch & Forbes Spain Media Analysis',
+        'Coste total de organización del mayor evento de streaming en habla hispana (Santiago Bernabéu / Metropolitano), estimado en 10 millones de euros (~10,9 M$), incluyendo contratos musicales, infraestructura audiovisual y logística.',
+      sourceName: 'Diario ABC, Diario AS & Onda Cero',
+      sources: [
+        {
+          name: 'Diario ABC — La Velada del Año: el dinero que cuesta y gana Ibai Llanos',
+          url: 'https://www.abc.es/gente/velada-ano-dinero-cuesta-gana-ibai-llanos-20260722013407-nt.html',
+        },
+        {
+          name: 'Diario AS (MeriStation) — La mareante cifra económica que cuesta organizar La Velada del Año',
+          url: 'https://as.com/meristation/streamers/la-mareante-cifra-economica-que-le-cuesta-a-ibai-organizar-la-velada-del-ano-f202607-n/',
+        },
+        {
+          name: 'Onda Cero — La cifra de negocio y producción de La Velada del Año',
+          url: 'https://www.ondacero.es/noticias/sociedad/ganado-dinero-ibai-velada-ano-5-esto-dicen-calculos_2025072868876ffef4ec026a96bddf38.html',
+        },
+      ],
+    },
+    'netflix-annual-revenue': {
+      title: 'Ingresos Anuales de Netflix',
+      subtitle: 'Facturación global de 45.200 millones de dólares al año (~38.800M €) por suscripciones',
+      description:
+        'Netflix ingresa alrededor de 45.200 millones de dólares (~38.800 millones de euros) al año. Prácticamente la totalidad de esta cifra proviene de sus membresías de pago, ya que los ingresos alternativos por publicidad, aunque crecen, representan una porción menor del total según análisis de Xataka.',
+      sourceName: 'Xataka — Netflix y los costes de producción de contenido streaming',
+      sources: [
+        {
+          name: 'Xataka — Netflix gasta 17.000M$ en contenido e ingresa 45.200M$',
+          url: 'https://www.xataka.com/streaming/netflix-gasta-17-000-millones-producir-contenido-a-youtube-se-hacen-gratis-eso-youtube-esta-ganando-partida',
+        },
+      ],
+    },
+    'amazon-prime-subscription-revenue': {
+      title: 'Ingresos por Suscripciones de Amazon Prime',
+      subtitle: 'Facturación global de 49.620 millones de dólares anuales en servicios de suscripción (Prime, Video, Music)',
+      description:
+        'Amazon no desglosa públicamente de forma exacta cuánto dinero ingresa solo por Prime Video, ya que el servicio viene incluido dentro del paquete global de Amazon Prime. Sin embargo, el segmento total de servicios de suscripción de la compañía (que incluye Prime, música, libros y vídeo digital) ingresó 49.620 millones de dólares a nivel mundial según Marketplace Pulse.',
+      sourceName: 'Marketplace Pulse & Amazon SEC Filings',
+      sources: [
+        {
+          name: 'Marketplace Pulse — Amazon Subscription Services Sales',
+          url: 'https://www.marketplacepulse.com/stats/amazon-subscription-services-sales',
+        },
+        {
+          name: 'Amazon Prime — Página Oficial del Servicio',
+          url: 'https://www.amazon.es/prime',
+        },
+      ],
+    },
+    'disney-dtc-streaming-revenue': {
+      title: 'Ingresos de Disney por Streaming (DTC)',
+      subtitle: 'Facturación anual estimada entre 22.000M y 25.000M$ USD en Disney+, Hulu y ESPN+ ($23.500M USD de media)',
+      description:
+        'The Walt Disney Company ingresa cerca de 22.000 a 25.000 millones de dólares al año (media estimada de 23.500 millones de USD) a través de su división de Venta Directa al Consumidor (DTC), que agrupa principalmente las suscripciones de streaming de Disney+, Hulu y ESPN+, además de una porción menor por venta de publicidad en estas plataformas según The Motley Fool.',
+      sourceName: 'The Motley Fool — Disney Streaming Profit Analysis',
+      sources: [
+        {
+          name: 'The Motley Fool — How High Can Disney Streaming Profit Go?',
+          url: 'https://www.fool.com/investing/2026/03/29/how-high-can-disney-streaming-profit-go/',
+        },
+      ],
+    },
+    'warner-bros-discovery-max-revenue': {
+      title: 'Ingresos de Warner Bros. Discovery (HBO/Max)',
+      subtitle: 'Facturación anual estimada entre 10.000M$ y 11.000M$ USD en su división global de streaming DTC ($10.500M USD de media)',
+      description:
+        'Warner Bros. Discovery (propietaria de HBO/Max) ingresa alrededor de 10.000 a 11.000 millones de dólares al año (media estimada de 10.500 millones de USD) en su división global de streaming (DTC), donde la inmensa mayoría proviene de las cuotas de suscripción de los usuarios según datos reportados por Señal News.',
+      sourceName: 'Señal News — Warner Bros. Discovery Financial & Streaming Report',
+      sources: [
+        {
+          name: 'Señal News — Warner Bros. Discovery Ends 2025 Under Pressure Despite Streaming Gains',
+          url: 'https://senalnews.com/en/data/warner-bros-discovery-ends-2025-under-pressure-despite-streaming-gains',
+        },
+      ],
+    },
+    'twitch-annual-revenue': {
+      title: 'Ingresos Anuales de Twitch',
+      subtitle: 'Facturación global estimada entre 1.800M$ y 1.900M$ USD al año ($1.850M USD de media)',
+      description:
+        'Twitch ingresa aproximadamente entre 1.800 y 1.900 millones de dólares al año (media estimada de 1.850 millones de USD) a través de suscripciones de canal, bits/donaciones y ventas de anuncios publicitarios durante transmisiones en vivo según Business of Apps.',
+      sourceName: 'Business of Apps — Twitch Revenue & Usage Statistics',
+      sources: [
+        {
+          name: 'Business of Apps — Twitch Statistics (Revenue & Subscriptions)',
+          url: 'https://www.businessofapps.com/data/twitch-statistics/',
+        },
+      ],
+    },
+    'global-cocaine-opioids-spending': {
+      title: 'Mercado Mundial de Cocaína y Opiáceos',
+      subtitle: 'Venta minorista estimada de 245.000 millones de dólares anuales a nivel global',
+      description:
+        'El mercado ilegal global combinado de la cocaína y los opiáceos genera entre 220.000 y 270.000 millones de dólares anuales a nivel de venta minorista (media de 245.000 millones de USD), formando una parte crítica de los flujos financieros ilícitos mundiales mapeados por la Oficina de las Naciones Unidas contra la Droga y el Delito (UNODC).',
+      sourceName: 'UNODC & Análisis Internacional de Narcotráfico',
+      sources: [
+        {
+          name: 'UNODC — Informe sobre Flujos Financieros Ilícitos del Tráfico de Drogas',
+          url: 'https://www.unodc.org/unodc/frontpage/2023/December/illicit-financial-flows-related-to-cross-border-drug-trafficking-are-comparable-to-the-value-of-exports-of-licit-markets--unodc-report-shows.html',
+        },
+        {
+          name: 'Euribor — Las 10 drogas que más dinero mueven en el mundo',
+          url: 'https://www.euribor.com.es/2026/05/26/las-10-drogas-que-mas-dinero-mueven-en-el-mundo-el-negocio-ilicito-mas-rentable-del-planeta/',
+        },
+        {
+          name: 'El Mundo — Informe de Consumo y Tráfico Mundial de Sustancias',
+          url: 'https://www.elmundo.es/salud/2026/06/26/6a3e1ecffc6c83ca1d8b457a.html',
+        },
+      ],
+    },
+    'global-illicit-firearms-spending': {
+      title: 'Tráfico Ilegal de Armas de Fuego',
+      subtitle: 'Volumen económico estimado en 1.000 millones de dólares anuales a nivel mundial',
+      description:
+        'Según la Oficina de Naciones Unidas contra la Droga y el Delito (UNODC), el comercio ilegal de armas mueve unos 1.000 millones de dólares anuales. Con ellas, todas las partes enfrentadas libran sus guerras en África, Oriente Medio, América Latina y Asia.',
+      sourceName: 'UNODC & El Quinto',
+      sources: [
+        {
+          name: 'UNODC — Informe sobre el Comercio Ilegal y Tráfico de Armas de Fuego',
+          url: 'https://www.unodc.org/',
+        },
+        {
+          name: 'El Quinto — El negocio de armas y drogas ilícitas en el mundo',
+          url: 'https://elquinto.com.co/el-negocio-de-armas-y-drogas-ilicitas-en-el-mundo/',
+        },
+      ],
+    },
+    'global-cybercrime-losses': {
+      title: 'Pérdidas Mundiales por Ciberdelincuencia',
+      subtitle: 'Coste económico global del ciberdelito proyectado en 10,8 billones de dólares anuales',
+      description:
+        'Las pérdidas globales causadas por la ciberdelincuencia alcanzan los 10,8 billones de dólares a escala mundial en 2026, abarcando robo de datos, extorsión digital, fraude informático e interrupción operativa de empresas y gobiernos.',
+      sourceName: 'Cybersecurity Ventures — 500 Ransomware & Cybercrime Statistics for 2026',
+      sources: [
+        {
+          name: 'Cybersecurity Ventures — Reporte Oficial de Ciberdelincuencia 2026',
+          url: 'https://cybersecurityventures.com/500-ransomware-statistics-for-2026/',
+        },
+      ],
+    },
+    'global-ransomware-damages': {
+      title: 'Daños Causados por Ransomware',
+      subtitle: 'Coste económico global por secuestro de datos y chantaje digital de $74.000M al año',
+      description:
+        'Los daños específicos causados por los ataques de ransomware (secuestro informático de datos) superan los 74.000 millones de dólares anuales a escala mundial en 2026, incluyendo pagos de rescate, tiempos de inactividad e investigación forense.',
+      sourceName: 'Cybersecurity Ventures — 500 Ransomware Statistics for 2026',
+      sources: [
+        {
+          name: 'Cybersecurity Ventures — 500 Estadísticas de Ransomware para 2026',
+          url: 'https://cybersecurityventures.com/500-ransomware-statistics-for-2026/',
+        },
+      ],
+    },
+    'global-money-laundering-total': {
+      title: 'Blanqueo de Capitales Mundial',
+      subtitle: 'Volumen estimado entre 1,5 y 2,85 billones de dólares anuales (2,17 Billones de USD de media)',
+      description:
+        'Se calcula que cada año se blanquean en el mundo entre 715.000 millones y 2 billones de euros (entre 1,5 y 2,85 billones de dólares), lo que equivale aproximadamente al 2% y al 5% del Producto Interior Bruto (PIB) mundial según datos infográficos del Consejo Europeo.',
+      sourceName: 'Consejo de la Unión Europea — Lucha contra el blanqueo de capitales',
+      sources: [
+        {
+          name: 'Consejo Europeo — Infografía sobre la Lucha contra el Blanqueo de Capitales',
+          url: 'https://www.consilium.europa.eu/es/infographics/anti-money-laundering/',
+        },
+      ],
+    },
+    'global-black-market-economy': {
+      title: 'Mercado Negro y Economía Ilícita Global',
+      subtitle: 'Volumen económico promedio estimado entre 7 y 15 billones de dólares anuales (11,5 Billones de USD)',
+      description:
+        'El mercado negro y la economía ilícita global generan entre el 8% y el 15% del Producto Interior Bruto (PIB) mundial, según estimaciones del Fondo Monetario Internacional (FMI) e investigaciones sobre crimen organizado. Esto representa una media estimada de 11,5 billones de dólares anuales.',
+      sourceName: 'El País & Fondo Monetario Internacional (FMI)',
+      sources: [
+        {
+          name: 'El País — El colosal tamaño del mercado negro y la economía ilícita en el mundo (FMI)',
+          url: 'https://elpais.com/economia/2019/09/21/actualidad/1569062038_189861.html',
+        },
+      ],
+    },
+    'global-military-aircraft-market': {
+      title: 'Mercado Mundial de Aviación Militar',
+      subtitle: 'Valoración actual de 67.000M$ USD anuales en aviación militar (52.800M$ en cazas de combate)',
+      description:
+        'El mercado mundial de la aviación militar alcanza una valoración actual sobre los 67.000 millones de dólares anuales, destacando el segmento exclusivo de cazas y aviones de combate con 52.800 millones de dólares según el informe de mercado de Fortune Business Insights.',
+      sourceName: 'Fortune Business Insights — Informe del Mercado de Aviones Militares',
+      sources: [
+        {
+          name: 'Fortune Business Insights — Tamaño y Análisis del Mercado de Aviación Militar',
+          url: 'https://www.fortunebusinessinsights.com/es/military-aircraft-market-102771',
+        },
+      ],
+    },
+    'eu-defense-spending-total': {
+      title: 'Gasto en Defensa de la Unión Europea',
+      subtitle: 'Presupuesto militar consolidado de los Estados miembros estimado en 454.000 millones de euros en 2026',
+      description:
+        'En 2025, el gasto en defensa de los Estados miembros de la Unión Europea aumentó por undécimo año consecutivo, alcanzando los 418.000 millones de euros. En 2026 se calcula que alcanzará un récord de 454.000 millones de euros (~494.860 millones de dólares USD) según datos oficiales del Consejo Europeo.',
+      sourceName: 'Consejo de la Unión Europea — La defensa de la UE en cifras',
+      sources: [
+        {
+          name: 'Consejo Europeo — La defensa de la UE en cifras (Cifras clave)',
+          url: 'https://www.consilium.europa.eu/es/policies/defence-numbers/',
+        },
+      ],
+    },
+    'global-nuclear-weapons-spending': {
+      title: 'Gasto Mundial en Armas Nucleares',
+      subtitle: 'Récord histórico de 118.800 millones de dólares al año (~3.768 $ por segundo)',
+      description:
+        'El gasto mundial en el mantenimiento, desarrollo y modernización de arsenales nucleares alcanzó un récord histórico de 118.800 millones de dólares (unos 3.768 dólares por segundo) registrado por la Campaña Internacional para Abolir las Armas Nucleares (ICAN).',
+      sourceName: 'ICAN & JusPax — Gasto mundial en armas nucleares',
+      sources: [
+        {
+          name: 'ICAN — Informe de Gasto Mundial en Armas Nucleares y Modernización',
+          url: 'https://www.juspax-es.org/l/premeditado-gasto-mundial-en-armas-nucleares-en-2025/',
+        },
+      ],
+    },
+    'global-military-spending': {
+      title: 'Gasto Militar Mundial',
+      subtitle: 'Presupuesto armamentístico global y gasto en defensa de todos los países por año',
+      description:
+        'El gasto militar mundial alcanzó la cifra récord de 2,89 billones de dólares (2.887.000 millones de USD). Este incremento global del 2,9% refleja el undécimo año consecutivo de aumento en la inversión en defensa, impulsado principalmente por la escalada en Europa y Asia frente a los conflictos activos según datos de SIPRI y APDHA.',
+      sourceName: 'Deutsche Welle (DW), SIPRI & APDHA',
+      sources: [
+        {
+          name: 'Deutsche Welle (DW) — El gasto armamentístico crece en todo el mundo (SIPRI)',
+          url: 'https://www.dw.com/es/nuevo-récord-en-2025-el-gasto-armamentístico-crece-en-todo-el-mundo/a-76943170',
+        },
+        {
+          name: 'APDHA — El gasto militar mundial marca un nuevo récord histórico',
+          url: 'https://www.apdha.org/el-gasto-militar-mundial-marca-un-nuevo-record-historico-y-en-europa-espana-lidera-el-aumento/',
+        },
+      ],
+    },
+    'global-narcotics-spending': {
+      title: 'Gasto Mundial en Estupefacientes',
+      subtitle: 'Volumen económico estimado del tráfico ilegal de drogas a escala mundial por año',
+      description:
+        'Gasto global estimado en estupefacientes y sustancias ilícitas que alcanza los 750.000 millones de dólares anuales, representando una de las mayores actividades de la economía subterránea mundial según análisis sobre el peso de la actividad criminal.',
+      sourceName: 'Ethic — ¿Cuánto pesa la actividad criminal en la economía mundial?',
+    },
+    'spain-individual-monthly-food-cost': {
+      title: 'Gasto en Comida de 1 Persona en España',
+      subtitle: 'Presupuesto mensual medio estimado de 250 € para alimentación y cesta de la compra de un habitante',
+      description:
+        'Gasto promedio en alimentación y cesta de la compra para una persona residente que vive sola en España, estimado en 250 € al mes (3.000 € anuales) según datos de CaixaBank y análisis de consumo de Telecinco Noticias.',
+      sourceName: 'CaixaBank & Telecinco Noticias',
     },
     'individual-monthly-food-cost': {
       title: 'Gasto de una Persona en Comida al Mes',
@@ -408,13 +733,6 @@ export const esTranslations: Translations = {
         'Gasto total del planeta en atención médica y servicios de salud pública y privada, incluyendo infraestructuras hospitalarias, investigación médica, medicamentos recetados y aseguradoras (~10% del PIB mundial).',
       sourceName: 'Organización Mundial de la Salud (OMS / WHO) & Banco Mundial',
     },
-    'global-nuclear-weapons-spending': {
-      title: 'Gasto Mundial en Armamento Nuclear',
-      subtitle: 'Presupuesto de mantenimiento, modernización y desarrollo de arsenales atómicos en las 9 potencias nucleares',
-      description:
-        'Gasto anual consolidado de los 9 países con capacidad nuclear (Estados Unidos, China, Rusia, Reino Unido, Francia, India, Pakistán, Israel y Corea del Norte) en mantener y modernizar ojivas y misiles balísticos.',
-      sourceName: 'Campaña Internacional para la Abolición de las Armas Nucleares (ICAN) & SIPRI',
-    },
     'global-advertising-marketing-spending': {
       title: 'Gasto Mundial en Publicidad y Marketing',
       subtitle: 'Inversión global de empresas en publicidad digital, redes sociales, televisión y medios exteriores',
@@ -532,7 +850,7 @@ export const esTranslations: Translations = {
       subtitle: 'Inversión récord en clústeres de servidores GPU, refrigeración líquida y energía para modelos de IA como ChatGPT',
       description:
         'Gasto de capital (CapEx) global de hiperescaladores (Microsoft Azure, AWS, Google Cloud, Meta y OpenAI) dedicado exclusivamente a la construcción y equipamiento de centros de datos para entrenamiento e inferencia de Inteligencia Artificial como ChatGPT.',
-      sourceName: 'Dell’Oro Group Data Center CapEx & Synergy Research',
+      sourceName: 'Dell'Oro Group Data Center CapEx & Synergy Research',
     },
     'weight-loss-drugs-ozempic-spending': {
       title: 'Gasto en Medicamentos para Perder Peso (Ozempic y GLP-1)',
@@ -595,13 +913,13 @@ export const esTranslations: Translations = {
       subtitle: 'Sueldo en Al-Nassr, derechos de imagen y contratos publicitarios mundiales (Nike, Binance, marcas propias)',
       description:
         'Ingresos anuales totales de Cristiano Ronaldo, combinando su salario astronómico en el club saudí Al-Nassr (~200 M$) y más de 60 M$ en patrocinios comerciales globales (Nike, marcas de hoteles y fragancias CR7). Su patrimonio neto total estimado supera los 750 millones de dólares.',
-      sourceName: 'Forbes The World’s Highest-Paid Athletes & Bloomberg Billionaires Index',
+      sourceName: 'Forbes The World's Highest-Paid Athletes & Bloomberg Billionaires Index',
     },
     'lionel-messi-annual-earnings-wealth': {
       title: 'Ingresos Anuales y Fortuna de Lionel Messi',
       subtitle: 'Salario en Inter Miami, participación en suscripciones de Apple TV MLS y contratos con Adidas y marcas globales',
       description:
-        'Ganancias anuales globales de Lionel Messi que suman su ficha deportiva en el Inter Miami de la MLS, regalías por suscripciones de Apple TV MLS Season Pass y contratos multimillonarios de patrocinio con Adidas, Lay’s y socios comerciales. Su patrimonio neto total estimado ronda los 650 millones de dólares.',
+        'Ganancias anuales globales de Lionel Messi que suman su ficha deportiva en el Inter Miami de la MLS, regalías por suscripciones de Apple TV MLS Season Pass y contratos multimillonarios de patrocinio con Adidas, Lay's y socios comerciales. Su patrimonio neto total estimado ronda los 650 millones de dólares.',
       sourceName: 'Forbes & Sportico Highest-Paid Athletes',
     },
     'lamine-yamal-annual-earnings-wealth': {
@@ -993,8 +1311,8 @@ export const esTranslations: Translations = {
       title: 'Deuda Pública Nacional de Italia (Debito Pubblico)',
       subtitle: 'Saldo de deuda pública de la República Italiana emitida en títulos BTP y BOT (~138% del PIB)',
       description:
-        'Deuda bruta de las Administraciones Públicas italianas registrada por la Banca d’Italia y el Istat.',
-      sourceName: 'Banca d’Italia & Istat',
+        'Deuda bruta de las Administraciones Públicas italianas registrada por la Banca d'Italia y el Istat.',
+      sourceName: 'Banca d'Italia & Istat',
     },
     'brazil-national-public-debt': {
       title: 'Deuda Pública Federal Total de Brasil',

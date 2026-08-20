@@ -18,9 +18,9 @@ import { getLocalizedSpendItems, getLocalizedCategories, getDictionary } from '@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
-import { SpendTrendChart } from '@/components/SpendTrendChart';
+
 import { CounterCard } from '@/components/CounterCard';
-import { ArrowLeft, ShieldCheck, Globe, Layers, ChevronRight, Home, Share2, Check, Download, MessageCircle, Code, Info, X, Copy, ExternalLink, LineChart } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Globe, Layers, ChevronRight, Home, Share2, Check, Download, MessageCircle, Code, Info, X, Copy, ExternalLink } from 'lucide-react';
 import { GLOBAL_ANNUAL_SPEND_USD } from '@/hooks/useWorldSpendEngine';
 
 interface CounterDetailViewProps {
@@ -52,7 +52,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
   const [sessionSeconds, setSessionSeconds] = useState<number>(0);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [showEmbedBox, setShowEmbedBox] = useState<boolean>(false);
-  const [showChart, setShowChart] = useState<boolean>(false);
+
   const [embedCodeCopied, setEmbedCodeCopied] = useState<boolean>(false);
   const [origin, setOrigin] = useState<string>('https://worldspend.org');
 
@@ -337,21 +337,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
             )}
           </div>
 
-          {/* Toggle Show Chart Button (Next to Embed Widget) */}
-          {item.history && item.history.length > 0 && (
-            <button
-              onClick={() => setShowChart((prev) => !prev)}
-              className={`inline-flex items-center gap-1.5 text-xs font-bold border px-3.5 py-1.5 rounded-xs transition-colors cursor-pointer shadow-2xs ${
-                showChart
-                  ? 'bg-[#14324f] text-white border-[#14324f]'
-                  : 'bg-[#edf3f8] hover:bg-[#dce6f0] text-[#1c4b78] border-[#c8d6e5]'
-              }`}
-              title={showChart ? (dict.detailPage.hideChart || 'Ocultar Gráfico') : (dict.detailPage.showChart || 'Mostrar Gráfico')}
-            >
-              <LineChart className="w-3.5 h-3.5" />
-              <span>{showChart ? (dict.detailPage.hideChart || 'Ocultar Gráfico') : (dict.detailPage.showChart || 'Mostrar Gráfico')}</span>
-            </button>
-          )}
+
 
           {/* Native Share Button */}
           <button
@@ -373,18 +359,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
           </button>
         </div>
 
-        {/* Toggleable Historical Trend Chart (Renders when user clicks 'Mostrar Gráfico') */}
-        {showChart && item.history && item.history.length > 0 && (
-          <div className="mb-5 animate-in fade-in duration-200">
-            <SpendTrendChart
-              data={item.history}
-              activeCurrency={activeCurrency}
-              title={dict.detailPage.historicalChartTitle}
-              subtitle={dict.detailPage.historicalChartSubtitle}
-              locale={locale}
-            />
-          </div>
-        )}
+
 
         {/* Concise Institutional Context Callout (Información de la Estadística) */}
         <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-xs p-3.5 text-xs text-gray-700 mb-4 sm:mb-5 leading-relaxed shadow-2xs">
@@ -403,9 +378,6 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
             <span className="font-bold text-[#14324f]">
               {dict.detailPage.officialSource}
-            </span>
-            <span className="text-gray-700 font-medium">
-              {item.sourceName} ({item.sourceYear})
             </span>
           </div>
 

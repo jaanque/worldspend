@@ -79,11 +79,6 @@ export const CounterCard: React.FC<CounterCardProps> = ({
           <div className="text-xl sm:text-2xl font-black text-[#112d4a] tabular-numbers select-all tracking-tight leading-none">
             {formatCurrencyValue(currentSpend, activeCurrency, activeCurrency.code === 'BTC')}
           </div>
-
-          {/* Rate Per Second Badge placed closely next to the counter */}
-          <span className="text-[11px] sm:text-xs font-bold text-[#007700] bg-[#edf8ee] border border-[#c3e6c6] px-1.5 py-0.5 rounded-xs tabular-numbers shrink-0">
-            +{formatRatePerSecond(ratePerSecond, activeCurrency)}{dict.card.perSecondBadge}
-          </span>
         </div>
 
         {/* Action Buttons (Info & Embed) Aligned Far Right */}
