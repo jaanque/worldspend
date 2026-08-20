@@ -77,13 +77,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
+  // Pre-calculate localized items for each locale to prevent massive performance bottleneck (O(N^2) in nested loops)
+  const localesList: Locale[] = ['en', 'es', 'fr', 'de', 'pt'];
+  const cachedLocalizedItems = localesList.reduce((acc, loc) => {
+    acc[loc] = getLocalizedSpendItems(loc);
+    return acc;
+  }, {} as Record<Locale, ReturnType<typeof getLocalizedSpendItems>>);
+
   // Individual counter stat pages for all items and locales
   SPEND_ITEMS.forEach((item) => {
     const itemLanguages: Record<string, string> = {};
-    const localesList: Locale[] = ['en', 'es', 'fr', 'de', 'pt'];
     
     localesList.forEach((loc) => {
-      const locItems = getLocalizedSpendItems(loc);
+      const locItems = cachedLocalizedItems[loc];
       const locItem = locItems.find((s) => s.id === item.id);
       const slug = locItem?.slug || item.id;
       itemLanguages[loc] = loc === 'en'
