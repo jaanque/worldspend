@@ -148,6 +148,18 @@ export const frTranslations: Translations = {
     'country-gdp': { name: 'PIB par Pays', description: 'Produit Intérieur Brut (PIB nominal) des pays en temps réel' },
   },
   items: {
+    'global-tourism-industry-spending': {
+      title: "Dépenses du tourisme mondial",
+      subtitle: "Le tourisme mondial contribue à hauteur de 11,6 billions de dollars par an à l'économie globale",
+      description: "Le secteur mondial du voyage et du tourisme contribue pour environ 11,6 billions de dollars par an à l'économie mondiale, soit environ 10,3% du PIB mondial. Ce marché est un moteur économique clé pour l'emploi, le transit international et l'hôtellerie mondiale.",
+      sourceName: "WTTC (World Travel & Tourism Council)",
+      sources: [
+        {
+          name: "WTTC — Travel & Tourism Economic Impact (Europa Press)",
+          url: "https://www.europapress.es/economia/noticia-turismo-mundial-aporto-11-billones-euros-2025-103-economia-global-wttc-20260202110228.html",
+        }
+      ],
+    },
     'global-web-hosting-market': {
       title: "Marché de l'hébergement web",
       subtitle: "Le marché mondial des services d'hébergement web génère environ 178,76 milliards de dollars par an",

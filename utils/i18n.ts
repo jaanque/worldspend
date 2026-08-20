@@ -70,6 +70,7 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
     'fifa-world-cup-global-advertising-investment',
 
     // 4. Medios, Eventos y Estilismo (luxury)
+    'global-tourism-industry-spending',
     'netflix-annual-revenue',
     'amazon-prime-subscription-revenue',
     'disney-dtc-streaming-revenue',

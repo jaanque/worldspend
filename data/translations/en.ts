@@ -152,6 +152,18 @@ export const enTranslations: Translations = {
     'country-gdp': { name: 'GDP by Country', description: 'Gross Domestic Product (nominal GDP) of countries in real-time' },
   },
   items: {
+    'global-tourism-industry-spending': {
+      title: "Global Tourism Spending",
+      subtitle: "Global travel & tourism contributes 11.6 trillion dollars annually to the world economy",
+      description: "The global travel and tourism sector contributes approximately 11.6 trillion dollars (11.6 trillion USD) annually to the global economy, representing about 10.3% of global GDP. This market is a key economic driver for employment, international transit, and global hospitality.",
+      sourceName: "WTTC (World Travel & Tourism Council)",
+      sources: [
+        {
+          name: "WTTC — Travel & Tourism Economic Impact (Europa Press)",
+          url: "https://www.europapress.es/economia/noticia-turismo-mundial-aporto-11-billones-euros-2025-103-economia-global-wttc-20260202110228.html",
+        }
+      ],
+    },
     'global-web-hosting-market': {
       title: "Web Hosting Market",
       subtitle: "The global web hosting services market generates approximately 178.76 billion dollars annually",

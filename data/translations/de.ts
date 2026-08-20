@@ -148,6 +148,18 @@ export const deTranslations: Translations = {
     'country-gdp': { name: 'BIP nach Ländern', description: 'Bruttoinlandsprodukt (nominales BIP) der Länder in Echtzeit' },
   },
   items: {
+    'global-tourism-industry-spending': {
+      title: "Weltweite Tourismusausgaben",
+      subtitle: "Der weltweite Reise- und Tourismussektor trägt jährlich 11,6 Billionen Dollar zur Weltwirtschaft bei",
+      description: "Der weltweite Reise- und Tourismussektor trägt jährlich rund 11,6 Billionen US-Dollar zur Weltwirtschaft bei, was etwa 10,3% des weltweiten BIP entspricht. Dieser Markt ist ein wichtiger Wirtschaftsfaktor für Beschäftigung, internationalen Verkehr und das Gastgewerbe.",
+      sourceName: "WTTC (World Travel & Tourism Council)",
+      sources: [
+        {
+          name: "WTTC — Travel & Tourism Economic Impact (Europa Press)",
+          url: "https://www.europapress.es/economia/noticia-turismo-mundial-aporto-11-billones-euros-2025-103-economia-global-wttc-20260202110228.html",
+        }
+      ],
+    },
     'global-web-hosting-market': {
       title: "Webhosting-Markt",
       subtitle: "Der globale Markt für Webhosting-Dienste generiert jährlich rund 178,76 Milliarden Dollar",

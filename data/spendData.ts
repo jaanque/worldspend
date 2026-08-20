@@ -407,6 +407,28 @@ export const SPEND_ITEMS: SpendItem[] = [
     sourceYear: 2026,
     tags: ['monarquía', 'reino unido', 'familia real', 'presupuesto', 'gobierno'],
   },
+  // Gasto en turismo mundial (WTTC / Europa Press)
+  {
+    id: 'global-tourism-industry-spending',
+    categoryId: 'entertainment',
+    title: 'Gasto en turismo mundial',
+    subtitle: 'El turismo mundial aporta 11,6 billones de dólares anuales a la economía global',
+    annualSpendUSD: 11600000000000, // 11,6 billones de USD
+    growthRatePct: 4.2,
+    iconName: 'Compass',
+    accentColor: '#0284c7', // Sky Blue
+    description: 'El sector mundial de viajes y turismo aporta aproximadamente 11,6 billones de dólares (11.6 trillion USD) anuales a la economía global, lo que representa cerca del 10,3% del PIB mundial. Este mercado es una fuerza tractora clave para el empleo, el transporte y el desarrollo económico internacional.',
+    sourceName: 'WTTC (World Travel & Tourism Council)',
+    sourceUrl: 'https://www.europapress.es/economia/noticia-turismo-mundial-aporto-11-billones-euros-2025-103-economia-global-wttc-20260202110228.html',
+    sources: [
+      {
+        name: 'Europa Press — El turismo mundial aportó 11 billones de euros (WTTC)',
+        url: 'https://www.europapress.es/economia/noticia-turismo-mundial-aporto-11-billones-euros-2025-103-economia-global-wttc-20260202110228.html',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['turismo', 'viajes', 'leisure', 'pib mundial', 'economía', 'hoteles', 'transporte', 'aerolíneas'],
+  },
   // Gasto de jugadores en Fortnite
   {
     id: 'fortnite-player-spending',
