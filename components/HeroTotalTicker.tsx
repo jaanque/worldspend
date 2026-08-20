@@ -24,9 +24,7 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
 }) => {
   const dict = getDictionary(locale);
   const [showSources, setShowSources] = useState<boolean>(false);
-  const [showShare, setShowShare] = useState<boolean>(false);
   const [showEmbedBox, setShowEmbedBox] = useState<boolean>(false);
-  const [shareCopied, setShareCopied] = useState<boolean>(false);
   const [embedCopied, setEmbedCopied] = useState<boolean>(false);
 
   const timeframeLabels: Record<TimeframeMode, string> = {
@@ -54,23 +52,16 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
           text: shareText,
           url: shareUrl,
         });
-        return;
       } catch {
-        // Fallback to popup box if user cancels or share fails
+        // Ignored
       }
-    }
-    setShowShare((prev) => !prev);
-    if (showSources) setShowSources(false);
-    if (showEmbedBox) setShowEmbedBox(false);
-  };
-
-  const handleCopyShareLink = async () => {
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    } catch {
-      // Fallback
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        alert(dict.detailPage?.shareCopied || '¡Enlace copiado al portapapeles!');
+      } catch {
+        // Fallback
+      }
     }
   };
 
@@ -110,7 +101,6 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
             type="button"
             onClick={() => {
               setShowSources((prev) => !prev);
-              if (showShare) setShowShare(false);
               if (showEmbedBox) setShowEmbedBox(false);
             }}
             className={`p-1.5 rounded-full transition-colors cursor-pointer border ${
@@ -170,72 +160,16 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
           )}
         </div>
 
-        {/* Share Button & Popup */}
+        {/* Share Button */}
         <div className="relative inline-flex items-center">
           <button
             type="button"
             onClick={handleShareClick}
-            className={`p-1.5 rounded-full transition-colors cursor-pointer border ${
-              showShare
-                ? 'bg-[#14324f] text-white border-[#14324f]'
-                : 'bg-white text-[#1c4b78] hover:bg-[#edf3f8] border-[#c8d6e5] shadow-2xs'
-            }`}
+            className="p-1.5 rounded-full transition-colors cursor-pointer border bg-white text-[#1c4b78] hover:bg-[#edf3f8] border-[#c8d6e5] shadow-2xs"
             title="Compartir contador gigante"
           >
             <Share2 className="w-3.5 h-3.5" />
           </button>
-
-          {showShare && (
-            <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-0 top-full mt-1.5 z-50 w-[280px] sm:w-72 max-w-[calc(100vw-2rem)] p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] text-left">
-              <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
-                <span className="font-bold text-[#14324f] text-xs">
-                  Compartir Contador Gigante
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setShowShare(false)}
-                  className="text-gray-400 hover:text-gray-700 cursor-pointer"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-
-              <p className="text-[10px] text-gray-600 mb-2 leading-snug">
-                Copia el enlace directo para compartir este contador en vivo:
-              </p>
-
-              <div className="flex items-center gap-1.5 mb-2">
-                <input
-                  type="text"
-                  readOnly
-                  value={shareUrl}
-                  onClick={(e) => (e.target as HTMLInputElement).select()}
-                  className="w-full bg-[#f4f7fa] border border-[#a0b0c0] text-[10px] p-1.5 rounded-xs select-all focus:outline-none"
-                />
-                <button
-                  type="button"
-                  onClick={handleCopyShareLink}
-                  className={`px-2.5 py-1 text-xs font-bold rounded-xs cursor-pointer flex items-center gap-1 transition-colors shrink-0 ${
-                    shareCopied
-                      ? 'bg-[#007700] text-white'
-                      : 'bg-[#1c4b78] text-white hover:bg-[#143759]'
-                  }`}
-                >
-                  {shareCopied ? (
-                    <>
-                      <Check className="w-3 h-3" />
-                      <span>Copiado</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3 h-3" />
-                      <span>Copiar</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Embed Button & Popup */}
@@ -245,7 +179,6 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
             onClick={() => {
               setShowEmbedBox((prev) => !prev);
               if (showSources) setShowSources(false);
-              if (showShare) setShowShare(false);
             }}
             className={`p-1.5 rounded-full transition-colors cursor-pointer border ${
               showEmbedBox
