@@ -147,6 +147,191 @@ export const ptTranslations: Translations = {
     'country-gdp': { name: 'PIB por País', description: 'Produto Interno Bruto (PIB nominal) dos países em tempo real' },
   },
   items: {
+    'us-national-debt': {
+      title: "Dívida Nacional dos EUA",
+      subtitle: "A dívida pública acumulada dos EUA supera 39 trilhões de dólares",
+      description: "A dívida nacional acumulada dos Estados Unidos ultrapassa 39 trilhões de dólares (39,000,000,000,000 USD). Representa o total das obrigações financeiras pendentes do governo federal americano acumuladas na história.",
+      sourceName: "LA Times",
+      sources: [
+        {
+          name: "LA Times — Dívida nacional dos EUA supera 39 trilhões",
+          url: "https://www.latimes.com/espanol/eeuu/articulo/2026-03-27/la-deuda-nacional-de-eeuu-supera-los-39-billones-de-dolares",
+        }
+      ],
+    },
+    'spain-monarchy-spending': {
+      title: "Gastos com a Monarquia Espanhola",
+      subtitle: "O custo anual global estimado da Casa Real espanhola é de cerca de 105 milhões de euros",
+      description: "O custo anual global da Monarquia na Espanha é estimado em cerca de 105 milhões de euros, somando a dotação direta oficial de 8,43 milhões de euros com gastos de segurança e apoio militar de outros departamentos, equivalendo a 2,2 euros por cidadão.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Custo da monarquia espanhola",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'uk-monarchy-spending': {
+      title: "Gastos com a Monarquia Britânica",
+      subtitle: "O custo anual global estimado da Família Real britânica é de cerca de 166 milhões de euros",
+      description: "Os gastos totais com a monarquia do Reino Unido rondam os 166 milhões de euros anuais, incluindo a Subvenção Soberana (Sovereign Grant) e os custos de segurança cobertos pelo Estado. É um dos chefes de Estado mais caros da Europa.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Custo da monarquia britânica",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'fortnite-player-spending': {
+      title: "Gastos dos Jogadores no Fortnite",
+      subtitle: "Os jogadores de Fortnite gastam uma média de cerca de 16 milhões de dólares por dia",
+      description: "Os jogadores do famoso battle royale Fortnite gastam em média 16 milhões de dólares por dia mundialmente. Esse valor deve-se à compra de V-Bucks para adquirir cosméticos, danças e passes de batalha.",
+      sourceName: "Tekrevol",
+      sources: [
+        {
+          name: "Tekrevol — Receitas e estatísticas de uso do Fortnite",
+          url: "https://www.tekrevol.com/blogs/fortnite-revenue-usage-statistics/",
+        }
+      ],
+    },
+    'onlyfans-user-spending': {
+      title: "Gastos dos Usuários no OnlyFans",
+      subtitle: "Os usuários gastam cerca de 7,2 bilhões de dólares por ano no OnlyFans",
+      description: "O gasto global de usuários na plataforma de assinaturas OnlyFans atingiu aproximadamente 7,2 bilhões de dólares anuais. O crescimento deve-se ao modelo de assinatura direta e gorjetas aos criadores.",
+      sourceName: "El Vocero",
+      sources: [
+        {
+          name: "El Vocero — OnlyFans fatura 7,2 bilhões de USD",
+          url: "https://elvocero.com.ar/2025/12/18/onlyfans-facturo-usd-7-200-millones-en-2025-y-argentina-se-ubico-entre-los-20-paises-que-mas-gastaron/",
+        }
+      ],
+    },
+    'mrbeast-content-reinvestment': {
+      title: "Reinvestimento e Produção do MrBeast",
+      subtitle: "MrBeast reinveste quase todos os seus rendimentos (cerca de 400 milhões de dólares por ano)",
+      description: "Jimmy Donaldson (MrBeast) reinveste quase toda a receita da sua holding Beast Industries (cerca de 400 milhões de dólares anuais) na produção de vídeos de alta produção para o YouTube. A Beast Industries vale 5,2 bilhões de dólares.",
+      sourceName: "Plisio",
+      sources: [
+        {
+          name: "Plisio — Perfil e finanças do MrBeast",
+          url: "https://plisio.net/es/profiles/mrbeast",
+        }
+      ],
+    },
+    'eras-tour-ticket-spending': {
+      title: "Gastos com The Eras Tour (Taylor Swift)",
+      subtitle: "Os fãs gastaram mais de 2 bilhões de dólares em ingressos para a turnê da Taylor Swift",
+      description: "O gasto mundial em ingressos para \"The Eras Tour\" de Taylor Swift superou os 2 bilhões de dólares. Tornou-se a turnê de shows mais lucrativa da história, impulsionando a economia dos locais por onde passou.",
+      sourceName: "Billboard",
+      sources: [
+        {
+          name: "Billboard — The Eras Tour supera 2 bilhões",
+          url: "https://www.billboard.com/espanol/noticias/taylor-swift-eras-tour-supera-2000-millones-de-dolares-en-ventas-1235849106/",
+        },
+        {
+          name: "GQ — Ganhos de Taylor Swift com The Eras Tour",
+          url: "https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan",
+        },
+        {
+          name: "TN — O que Taylor Swift fez com o dinheiro",
+          url: "https://tn.com.ar/musica/noticias/2025/12/12/taylor-swift-blanqueo-que-hizo-con-la-millonaria-cifra-que-gano-con-the-eras-tour/",
+        }
+      ],
+    },
+    'jordan-brand-spending': {
+      title: "Gastos em produtos Jordan Brand (Nike)",
+      subtitle: "Os consumidores gastam mais de 7 bilhões de dólares por ano em produtos Jordan",
+      description: "As vendas mundiais de calçados e vestuário da marca Jordan Brand da Nike superam 7 bilhões de dólares por ano. Michael Jordan recebe cerca de 5% de royalties sobre esse faturamento graças a um acordo histórico.",
+      sourceName: "GQ",
+      sources: [
+        {
+          name: "GQ — Ganhos da Nike e Michael Jordan com a Jordan",
+          url: "https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan",
+        },
+        {
+          name: "NX Noticias — Royalties de Michael Jordan superam 300M",
+          url: "https://www.facebook.com/NXNoticias.oficial/posts/michael-jordan-regal%C3%ADas-con-nike-superan-los-300-millones-de-d%C3%B3lares-al-a%C3%B1ola-hi/122280916874074746/",
+        }
+      ],
+    },
+    'ferrari-f1-spending': {
+      title: "Gastos com a Scuderia Ferrari na F1",
+      subtitle: "A Ferrari gasta cerca de 185 milhões de dólares por ano sob o teto de gastos da F1",
+      description: "Os gastos da equipe Ferrari para suas operações na F1 são estimados em cerca de 185 milhões de dólares anuais sob o limite financeiro da FIA. Esse valor exclui os salários de pilotos e custo de motores.",
+      sourceName: "Revista Car",
+      sources: [
+        {
+          name: "Revista Car — Quanto custa manter uma equipe de F1",
+          url: "https://revistacar.es/cuanto-cuesta-tener-un-equipo-de-formula-1/",
+        }
+      ],
+    },
+    'un-annual-budget': {
+      title: "Gastos do orçamento ordinário da ONU",
+      subtitle: "O orçamento ordinário de funcionamento das Nações Unidas (ONU) é de 3,45 bilhões de dólares em 2026",
+      description: "O orçamento de funcionamento ordinário da Organização das Nações Unidas atinge 3,45 bilhões de dólares em 2026, financiando a secretaria, missões de paz e escritórios globais.",
+      sourceName: "ONU News",
+      sources: [
+        {
+          name: "ONU News — Orçamento ordinário da ONU para 2026",
+          url: "https://news.un.org/es/story/2025/12/1540968",
+        }
+      ],
+    },
+    'who-annual-budget': {
+      title: "Orçamento de programas da OMS",
+      subtitle: "O orçamento anual de programas de base da OMS é de 2,1 bilhões de dólares por ano",
+      description: "O orçamento básico de programas da Organização Mundial da Saúde (OMS) atinge 4,2 bilhões de dólares para o biênio 2026-2027 (média de 2,1 bilhões por ano), incluindo um aumento de 20% nas contribuições dos países.",
+      sourceName: "Organização Mundial da Saúde (OMS)",
+      sources: [
+        {
+          name: "OMS — Países membros aprovam orçamento e aumento 2026-2027",
+          url: "https://www.who.int/es/news/item/20-05-2025-in-historic-move--who-member-states-approve-20--funding-increase-and-2026-27-budget",
+        },
+        {
+          name: "OMS — Site oficial em espanhol",
+          url: "https://www.who.int/es",
+        }
+      ],
+    },
+    'global-pharmaceutical-spending': {
+      title: "Gastos farmacêuticos mundiais",
+      subtitle: "Os gastos mundiais com remédios e produtos de saúde superam 2 trilhões de dólares por ano",
+      description: "As despesas com medicamentos chegam a mais de 2 trilhões de dólares anuais no mundo, impulsionadas pelo envelhecimento demográfico e terapias inovadoras de alta especialidade.",
+      sourceName: "Intuition Labs",
+      sources: [
+        {
+          name: "Intuition Labs — Análise do mercado farmacêutico e tendências",
+          url: "https://intuitionlabs.ai/articles/pharmaceutical-market-analysis-trends",
+        }
+      ],
+    },
+    'global-obesity-economic-cost': {
+      title: "Custo econômico mundial da obesidade",
+      subtitle: "O impacto econômico global do excesso de peso é estimado em 2 trilhões de dólares anuais",
+      description: "O custo anual decorrente do sobrepeso e da obesidade atinge cerca de 2 trilhões de dólares (2,4% a 2,8% do PIB mundial), englobando custos hospitalares e perdas de produtividade laboral.",
+      sourceName: "Live-Med (World Obesity Atlas)",
+      sources: [
+        {
+          name: "Live-Med — Análise do World Obesity Atlas: Impacto da obesidade",
+          url: "https://live.med/es/blog/analisis-del-world-obesity-atlas-2023-impacto-economico-obesidad/",
+        }
+      ],
+    },
+    'global-depression-anxiety-cost': {
+      title: "Custo da depressão e da ansiedade",
+      subtitle: "A depressão e a ansiedade custam quase 1 trilhão de dólares anuais à economia global",
+      description: "O impacto econômico anual dos transtornos mentais como ansiedade e depressão atinge 1 trilhão de dólares na economia mundial, principalmente na perda de produtividade por faltas ao trabalho.",
+      sourceName: "Yahoo Notícias (OMS / Banco Mundial)",
+      sources: [
+        {
+          name: "Yahoo Notícias — Custo mundial da ansiedade e depressão",
+          url: "https://es-us.noticias.yahoo.com/costo-global-ansiedad-depresi%C3%B3n-supera-150118561.html",
+        }
+      ],
+    },
+
     'spain-cost-raising-child': {
       title: 'Custo de Criar um Filho na Espanha (0–18 anos)',
       subtitle: 'Entre €115.000 e €180.000 no total em média básica; cerca de €8.194 por ano por filho',

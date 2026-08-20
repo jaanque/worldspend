@@ -153,6 +153,191 @@ export const esTranslations: Translations = {
     'country-gdp': { name: 'PIB por Países', description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real' },
   },
   items: {
+    'us-national-debt': {
+      title: "Deuda nacional de Estados Unidos",
+      subtitle: "La deuda pública acumulada de EE.UU. supera los 39 billones de dólares",
+      description: "La deuda nacional acumulada de los Estados Unidos supera los 39 billones de dólares (39 trillion USD). Esta cifra representa el total de las obligaciones financieras de la administración pública federal estadounidense acumuladas a lo largo de su historia.",
+      sourceName: "LA Times",
+      sources: [
+        {
+          name: "LA Times — La deuda nacional de EE.UU. supera los 39 billones de dólares",
+          url: "https://www.latimes.com/espanol/eeuu/articulo/2026-03-27/la-deuda-nacional-de-eeuu-supera-los-39-billones-de-dolares",
+        }
+      ],
+    },
+    'spain-monarchy-spending': {
+      title: "Gasto en la Monarquía Española",
+      subtitle: "El coste global estimado de la Casa Real española asciende a unos 105 millones de euros al año",
+      description: "El coste global estimado de la Monarquía en España asciende a unos 105 millones de euros anuales al sumar la asignación directa oficial de 8,43 millones de euros con los gastos de personal militar, seguridad y soporte de otros ministerios del Estado, lo que equivale a unos 2,2 euros por ciudadano.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Coste de la monarquía española",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'uk-monarchy-spending': {
+      title: "Gasto en la Monarquía Británica",
+      subtitle: "El coste global estimado de la familia real británica ronda los 166 millones de euros al año",
+      description: "El gasto global de la monarquía del Reino Unido se estima en unos 166 millones de euros anuales, incluyendo la subvención soberana (Sovereign Grant) y los costes de seguridad financiados por el Estado. Es una de las jefaturas de estado más caras de Europa.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Coste de la monarquía británica",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'fortnite-player-spending': {
+      title: "Gasto de jugadores en Fortnite",
+      subtitle: "Los jugadores de Fortnite gastan un promedio de unos 16 millones de dólares al día",
+      description: "Los jugadores del popular battle royale Fortnite gastan un promedio aproximado de 16 millones de dólares al día a nivel global. Este gasto se realiza principalmente a través de la compra de su moneda virtual, los pavos (V-Bucks), para adquirir pases de batalla, skins de personajes, gestos y otros cosméticos dentro del juego.",
+      sourceName: "Tekrevol",
+      sources: [
+        {
+          name: "Tekrevol — Fortnite Revenue and Usage Statistics",
+          url: "https://www.tekrevol.com/blogs/fortnite-revenue-usage-statistics/",
+        }
+      ],
+    },
+    'onlyfans-user-spending': {
+      title: "Gasto de usuarios en OnlyFans",
+      subtitle: "Los usuarios gastan aproximadamente 7.200 millones de dólares anuales en OnlyFans",
+      description: "El gasto global de los usuarios en la plataforma de suscripción de creadores de contenido OnlyFans alcanzó aproximadamente los 7.200 millones de dólares anuales. La plataforma ha experimentado un crecimiento masivo impulsado por su modelo de suscripción directa y propinas.",
+      sourceName: "El Vocero",
+      sources: [
+        {
+          name: "El Vocero — OnlyFans facturó USD 7.200 millones",
+          url: "https://elvocero.com.ar/2025/12/18/onlyfans-facturo-usd-7-200-millones-en-2025-y-argentina-se-ubico-entre-los-20-paises-que-mas-gastaron/",
+        }
+      ],
+    },
+    'mrbeast-content-reinvestment': {
+      title: "Gasto en producción y reinversión de MrBeast",
+      subtitle: "MrBeast reinvierte casi la totalidad de sus ingresos (unos 400 millones de dólares anuales)",
+      description: "Jimmy Donaldson (MrBeast) reinvierte prácticamente la totalidad de los ingresos generados por su holding Beast Industries, estimados en unos 400 millones de dólares anuales, directamente en la producción de sus superproducciones de YouTube y nuevos proyectos empresariales. Beast Industries cuenta con una valoración corporativa estimada en unos 5.200 millones de dólares.",
+      sourceName: "Plisio",
+      sources: [
+        {
+          name: "Plisio — Perfil y finanzas de MrBeast",
+          url: "https://plisio.net/es/profiles/mrbeast",
+        }
+      ],
+    },
+    'eras-tour-ticket-spending': {
+      title: "Gasto en entradas de The Eras Tour (Taylor Swift)",
+      subtitle: "Los fans gastaron más de 2.000 millones de dólares en entradas para la gira de Taylor Swift",
+      description: "El gasto global de los fans en la venta de entradas para la gira \"The Eras Tour\" de Taylor Swift superó los 2.000 millones de dólares a lo largo de casi dos años de conciertos, convirtiéndose en la gira musical con mayor recaudación en la historia de la música. Este impacto financiero también impulsó significativamente las economías locales en cada ciudad que visitó.",
+      sourceName: "Billboard",
+      sources: [
+        {
+          name: "Billboard — The Eras Tour supera 2000 millones",
+          url: "https://www.billboard.com/espanol/noticias/taylor-swift-eras-tour-supera-2000-millones-de-dolares-en-ventas-1235849106/",
+        },
+        {
+          name: "GQ — Ganancias de Taylor Swift con The Eras Tour",
+          url: "https://www.revistagq.com/articulo/cuanto-ha-ganado-taylor-swift-con-el-eras-tour-despues-de-casi-dos-anos-de-gira",
+        },
+        {
+          name: "TN — Qué hizo Taylor Swift con lo ganado",
+          url: "https://tn.com.ar/musica/noticias/2025/12/12/taylor-swift-blanqueo-que-hizo-con-la-millonaria-cifra-que-gano-con-the-eras-tour/",
+        }
+      ],
+    },
+    'jordan-brand-spending': {
+      title: "Gasto en productos de Jordan Brand (Nike)",
+      subtitle: "Los consumidores gastan más de 7.000 millones de dólares anuales en productos de la marca Jordan",
+      description: "El gasto global de los consumidores en zapatillas, ropa y accesorios de la división Jordan Brand de Nike supera los 7.000 millones de dólares anuales. Michael Jordan recibe aproximadamente el 5% de estas ventas en concepto de regalías por su histórico acuerdo de patrocinio.",
+      sourceName: "GQ",
+      sources: [
+        {
+          name: "GQ — Cuánto gana Nike y Michael Jordan con Jordan Brand",
+          url: "https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan",
+        },
+        {
+          name: "NX Noticias — Regalías de Michael Jordan superan los 300 millones",
+          url: "https://www.facebook.com/NXNoticias.oficial/posts/michael-jordan-regal%C3%ADas-con-nike-superan-los-300-millones-de-d%C3%B3lares-al-a%C3%B1ola-hi/122280916874074746/",
+        }
+      ],
+    },
+    'ferrari-f1-spending': {
+      title: "Gasto de Ferrari en su equipo de Fórmula 1",
+      subtitle: "Ferrari gasta unos 185 millones de dólares al año para competir bajo el límite presupuestario de la F1",
+      description: "El gasto anual de la escudería Ferrari para operar su equipo de Fórmula 1 se estima en una media de 185 millones de dólares (dentro del rango de 170 a 200 millones de USD) bajo el límite presupuestario regulado por la FIA. Esta cifra financia el desarrollo de los coches, las pruebas y los salarios de operaciones del equipo, aunque excluye excepciones como los salarios de los pilotos y los motores.",
+      sourceName: "Revista Car",
+      sources: [
+        {
+          name: "Revista Car — Cuánto cuesta tener un equipo de Fórmula 1",
+          url: "https://revistacar.es/cuanto-cuesta-tener-un-equipo-de-formula-1/",
+        }
+      ],
+    },
+    'un-annual-budget': {
+      title: "Gasto del presupuesto ordinario de la ONU",
+      subtitle: "El presupuesto de la Organización de las Naciones Unidas (ONU) para 2026 es de 3.450 millones de dólares",
+      description: "El presupuesto ordinario aprobado para el funcionamiento de la Organización de las Naciones Unidas (ONU) durante el año 2026 asciende a 3.450 millones de dólares. Este presupuesto financia la secretaría general, misiones de paz, programas y oficinas de las Naciones Unidas en todo el mundo.",
+      sourceName: "Noticias ONU",
+      sources: [
+        {
+          name: "Noticias ONU — Presupuesto ordinario de la ONU para 2026",
+          url: "https://news.un.org/es/story/2025/12/1540968",
+        }
+      ],
+    },
+    'who-annual-budget': {
+      title: "Gasto del presupuesto básico de la OMS",
+      subtitle: "El presupuesto para programas básicos de la OMS es de 2.100 millones de dólares anuales",
+      description: "El presupuesto para programas básicos de la Organización Mundial de la Salud (OMS) aprobado para el bienio 2026-2027 asciende a 4.200 millones de dólares (lo que equivale a un promedio de 2.100 millones de dólares anuales). Este ciclo incluye un aumento histórico del 20% en las contribuciones básicas asignadas por los Estados Miembros para fortalecer la respuesta a emergencias sanitarias mundiales.",
+      sourceName: "Organización Mundial de la Salud (OMS)",
+      sources: [
+        {
+          name: "OMS — Estados Miembros aprueban aumento y presupuesto 2026-2027",
+          url: "https://www.who.int/es/news/item/20-05-2025-in-historic-move--who-member-states-approve-20--funding-increase-and-2026-27-budget",
+        },
+        {
+          name: "OMS — Sitio Web Oficial en Español",
+          url: "https://www.who.int/es",
+        }
+      ],
+    },
+    'global-pharmaceutical-spending': {
+      title: "Gasto farmacéutico mundial",
+      subtitle: "El gasto en medicamentos y productos farmacéuticos supera los 2 billones de dólares anuales en el mundo",
+      description: "El gasto farmacéutico mundial superó los 2 billones de dólares anuales, oscilando entre 1,7 y 2,3 billones según la segmentación por precios de factura o precios netos de mercado. Este sector está impulsado por el desarrollo de nuevos medicamentos de alta especialidad, el acceso global a tratamientos y el envejecimiento de la población.",
+      sourceName: "Intuition Labs",
+      sources: [
+        {
+          name: "Intuition Labs — Pharmaceutical Market Analysis & Trends",
+          url: "https://intuitionlabs.ai/articles/pharmaceutical-market-analysis-trends",
+        }
+      ],
+    },
+    'global-obesity-economic-cost': {
+      title: "Costo económico de la obesidad y sobrepeso",
+      subtitle: "El impacto económico mundial de la obesidad y el sobrepeso ronda los 2 billones de dólares anuales",
+      description: "El coste económico global derivado del sobrepeso y la obesidad se estima en unos 2 billones de dólares anuales, lo que representa entre el 2,4% y el 2,8% del PIB mundial. Este impacto incluye gastos médicos directos y pérdidas masivas de productividad por incapacidad laboral o muerte prematura. Las proyecciones estiman que superará los 4,3 billones anuales para 2035.",
+      sourceName: "Live-Med (World Obesity Atlas)",
+      sources: [
+        {
+          name: "Live-Med — Análisis del World Obesity Atlas: Impacto económico de la obesidad",
+          url: "https://live.med/es/blog/analisis-del-world-obesity-atlas-2023-impacto-economico-obesidad/",
+        }
+      ],
+    },
+    'global-depression-anxiety-cost': {
+      title: "Costo de la depresión y ansiedad",
+      subtitle: "La depresión y la ansiedad cuestan a la economía mundial alrededor de 1 billón de dólares anuales",
+      description: "El impacto económico global de los trastornos de depresión y ansiedad asciende a aproximadamente 1 billón de dólares anuales. Este coste proviene principalmente de la pérdida de productividad laboral por absentismo, presentismo y bajas médicas, afectando la salud mental de millones de personas a nivel mundial.",
+      sourceName: "Yahoo Noticias (OMS / Banco Mundial)",
+      sources: [
+        {
+          name: "Yahoo Noticias — El costo global de la ansiedad y depresión",
+          url: "https://es-us.noticias.yahoo.com/costo-global-ansiedad-depresi%C3%B3n-supera-150118561.html",
+        }
+      ],
+    },
+
     'spain-cost-raising-child': {
       title: 'Coste de Criar a un Hijo en España (0–18 años)',
       subtitle: 'Entre 115.000 € y 180.000 € en total de media básica; unos 8.194 € al año por hijo',

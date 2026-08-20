@@ -1,5 +1,6 @@
 import { CategoryInfo, CurrencyConfig, CurrencyCode, SpendItem } from '@/types/spend';
 import { COUNTRIES_GDP_DATA } from './countriesGdpData';
+import { COUNTRIES_DEBT_DATA } from './countriesDebtData';
 
 export const CURRENCIES: Record<CurrencyCode, CurrencyConfig> = {
   USD: {
@@ -115,6 +116,345 @@ export const CATEGORIES: CategoryInfo[] = [
 ];
 
 export const SPEND_ITEMS: SpendItem[] = [
+  // Deuda nacional de Estados Unidos
+  {
+    id: 'us-national-debt',
+    categoryId: 'government',
+    title: 'Deuda nacional de Estados Unidos',
+    subtitle: 'La deuda pública acumulada de EE.UU. supera los 39 billones de dólares',
+    annualSpendUSD: 39000000000000, // 39 billones (trillions en inglés) de USD
+    growthRatePct: 6,
+    iconName: 'Landmark',
+    accentColor: '#0a3161', // US Navy Blue
+    description: 'La deuda nacional acumulada de los Estados Unidos supera los 39 billones de dólares (39 trillion USD). Esta cifra representa el total de las obligaciones financieras pendientes del gobierno federal estadounidense acumuladas a lo largo de su historia fiscal.',
+    sourceName: 'LA Times',
+    sourceUrl: 'https://www.latimes.com/espanol/eeuu/articulo/2026-03-27/la-deuda-nacional-de-eeuu-supera-los-39-billones-de-dolares',
+    sources: [
+      {
+        name: 'LA Times — La deuda nacional de EE.UU. supera los 39 billones de dólares',
+        url: 'https://www.latimes.com/espanol/eeuu/articulo/2026-03-27/la-deuda-nacional-de-eeuu-supera-los-39-billones-de-dolares',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['eeuu', 'deuda nacional', 'gobierno', 'economia', 'presupuesto', 'usa'],
+  },
+  // Gasto en la Monarquía Española
+  {
+    id: 'spain-monarchy-spending',
+    categoryId: 'government',
+    title: 'Gasto en la Monarquía Española',
+    subtitle: 'El coste global estimado de la Casa Real española asciende a unos 105 millones de euros al año',
+    annualSpendUSD: 114130434, // 105M€ convertidos a USD (105M / 0.92)
+    growthRatePct: 2,
+    iconName: 'Landmark',
+    accentColor: '#ffb81c', // Spanish Gold
+    description: 'El coste global estimado de la Monarquía en España asciende a unos 105 millones de euros anuales al sumar la asignación directa oficial de 8,43 millones de euros con los gastos de personal militar, seguridad y soporte de otros ministerios del Estado, lo que equivale a unos 2,2 euros por ciudadano.',
+    sourceName: 'Diario en Positivo',
+    sourceUrl: 'https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html',
+    sources: [
+      {
+        name: 'Diario en Positivo — Coste de la monarquía española',
+        url: 'https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['monarquía', 'españa', 'casa real', 'presupuesto', 'gobierno'],
+  },
+
+  // 1. Gasto en el Ministerio de Igualdad de España
+  {
+    id: 'spain-equality-ministry-budget',
+    categoryId: 'government',
+    title: 'Gasto en el Ministerio de Igualdad de España',
+    subtitle: 'Presupuesto general anual asignado a políticas de igualdad y prevención de violencia de género',
+    annualSpendUSD: 552420000, // €511.5M convertido a USD a tipo ~1.08
+    growthRatePct: 3.2,
+    iconName: 'Landmark',
+    accentColor: '#8b5cf6',
+    description:
+      'Presupuesto anual del Ministerio de Igualdad de España fijado en 511,5 millones de euros, estructurado en 484 millones de euros gestionados directamente por los servicios centrales del ministerio y 27,5 millones de euros asignados a organismos autónomos dependientes.',
+    sourceName: 'Ministerio de Igualdad del Gobierno de España & Wikipedia',
+    sourceUrl: 'https://www.igualdad.gob.es/comunicacion/sala-de-prensa/la-ejecucion-presupuestaria-del-ministerio-de-igualdad-roza-el-96-en-2025-y-supera-la-del-ejercicio-anterior/',
+    sources: [
+      {
+        name: 'Ministerio de Igualdad — Nota de Prensa Oficial de Ejecución Presupuestaria',
+        url: 'https://www.igualdad.gob.es/comunicacion/sala-de-prensa/la-ejecucion-presupuestaria-del-ministerio-de-igualdad-roza-el-96-en-2025-y-supera-la-del-ejercicio-anterior/',
+      },
+      {
+        name: 'Wikipedia — Ministerio de Igualdad (España)',
+        url: 'https://es.wikipedia.org/wiki/Ministerio_de_Igualdad_(España)',
+      },
+    ],
+    sourceYear: 2025,
+    breakdown: [
+      { label: 'Servicios Centrales del Ministerio', percentage: 94.6, amountUSD: 522720000 },
+      { label: 'Organismos Autónomos Dependientes', percentage: 5.4, amountUSD: 29700000 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 180000000 },
+      { year: 2020, spendUSD: 205000000 },
+      { year: 2021, spendUSD: 450000000 },
+      { year: 2022, spendUSD: 525000000 },
+      { year: 2023, spendUSD: 550000000 },
+      { year: 2024, spendUSD: 552420000 },
+      { year: 2026, spendUSD: 570000000 },
+    ],
+    tags: ['ministerio de igualdad', 'pge', 'igualdad', 'gobierno españa', 'presupuestos'],
+  },
+  // Gasto en subvenciones y ayudas públicas en España (Libre Mercado)
+  {
+    id: 'spain-subsidies-public-grants-spending',
+    categoryId: 'government',
+    title: 'Gasto en Subvenciones y Ayudas en España',
+    subtitle: 'España destina unos 41.490 millones de euros anuales en subvenciones y ayudas públicas directas',
+    annualSpendUSD: 45097826087, // 41.490M € convertidos a USD (41.49B / 0.92)
+    growthRatePct: 5.2,
+    iconName: 'Landmark',
+    accentColor: '#3b82f6',
+    description:
+      'España destina alrededor de 41.490 millones de euros anuales en subvenciones y ayudas públicas directas distribuidas entre el gobierno central, las comunidades autónomas y las entidades locales. Esta cifra general engloba ayudas a familias, sectores productivos, empresas y entidades sociales, sin contar las grandes partidas de protección social como las pensiones contributivas o el desempleo.',
+    sourceName: 'Libre Mercado — El gasto en subvenciones y ayudas en España',
+    sourceUrl: 'https://www.libertaddigital.com/libremercado/2025-12-10/el-gasto-en-subvenciones-se-dispara-hasta-los-42-000-millones-y-equivale-a-2-100-euros-por-hogar-7330610/',
+    sources: [
+      {
+        name: 'Libre Mercado — El Gasto en Subvenciones y Ayudas Equivale a 2.100€ por Hogar',
+        url: 'https://www.libertaddigital.com/libremercado/2025-12-10/el-gasto-en-subvenciones-se-dispara-hasta-los-42-000-millones-y-equivale-a-2-100-euros-por-hogar-7330610/',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Ayudas Directas a Familias y Hogares', percentage: 40.0, amountUSD: 18039130435 },
+      { label: 'Subvenciones a Empresas y Sectores Productivos', percentage: 60.0, amountUSD: 27058695652 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 30000000000 },
+      { year: 2020, spendUSD: 38000000000 },
+      { year: 2022, spendUSD: 40000000000 },
+      { year: 2026, spendUSD: 45097826087 },
+    ],
+    tags: ['españa', 'subvenciones', 'ayudas publicas', 'gobierno españa', 'presupuesto', 'comunidades autonomas', 'hogares'],
+  },
+  // Inversión pública en exploración espacial (FasterCapital)
+  {
+    id: 'global-space-exploration-spending',
+    categoryId: 'government',
+    title: 'Gasto público en Exploración Espacial',
+    subtitle: 'La inversión pública en exploración espacial alcanza los 119.000 millones de euros anuales en el mundo',
+    annualSpendUSD: 129347826087, // 119.000M € convertidos a USD (119.0B / 0.92)
+    growthRatePct: 6.5,
+    iconName: 'Globe',
+    accentColor: '#38bdf8',
+    description:
+      'El presupuesto para la exploración espacial ha mostrado un crecimiento significativo en los últimos años. Se estima que los gobiernos de todo el mundo realizarán una inversión pública en el sector espacial de 119.000 millones de euros anuales, impulsando misiones lunares, satélites y tecnología de órbita.',
+    sourceName: 'FasterCapital — Desafío de costos de la exploración espacial',
+    sourceUrl: 'https://fastercapital.com/es/contenido/Desafio-de-costos--El-desafio-de-costos-de-la-exploracion-espacial.html',
+    sources: [
+      {
+        name: 'FasterCapital — El Desafío de Costos de la Exploración Espacial',
+        url: 'https://fastercapital.com/es/contenido/Desafio-de-costos--El-desafio-de-costos-de-la-exploracion-espacial.html',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Gobierno y Agencias Públicas de EE.UU. (NASA, etc.)', percentage: 45.0, amountUSD: 58206521739 },
+      { label: 'Otras Agencias Espaciales del Mundo (ESA, CNSA, ISRO, etc.)', percentage: 55.0, amountUSD: 71141304348 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 97826086956 },
+      { year: 2021, spendUSD: 114130434782 },
+      { year: 2026, spendUSD: 129347826087 },
+    ],
+    tags: ['espacio', 'nasa', 'esa', 'satelites', 'gasto publico', 'presupuesto', 'fastercapital', 'ciencia'],
+  },
+  // Gasto del presupuesto ordinario de la ONU
+  {
+    id: 'un-annual-budget',
+    categoryId: 'government',
+    title: 'Gasto del presupuesto ordinario de la ONU',
+    subtitle: 'El presupuesto de la Organización de las Naciones Unidas (ONU) para 2026 es de 3.450 millones de dólares',
+    annualSpendUSD: 3450000000, // 3.450 millones de USD anuales
+    growthRatePct: 2.0,
+    iconName: 'Globe',
+    accentColor: '#009edb', // UN Blue
+    description: 'El presupuesto ordinario aprobado para el funcionamiento de la Organización de las Naciones Unidas (ONU) durante el año 2026 asciende a 3.450 millones de dólares. Este presupuesto financia la secretaría general, misiones de paz, programas y oficinas de las Naciones Unidas en todo el mundo.',
+    sourceName: 'Noticias ONU',
+    sourceUrl: 'https://news.un.org/es/story/2025/12/1540968',
+    sources: [
+      {
+        name: 'Noticias ONU — Presupuesto ordinario de la ONU para 2026',
+        url: 'https://news.un.org/es/story/2025/12/1540968',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['onu', 'naciones unidas', 'presupuesto', 'global', 'gobierno', 'cooperacion'],
+  },
+  // Gasto en la Monarquía Británica
+  {
+    id: 'uk-monarchy-spending',
+    categoryId: 'government',
+    title: 'Gasto en la Monarquía Británica',
+    subtitle: 'El coste global estimado de la familia real británica ronda los 166 millones de euros al año',
+    annualSpendUSD: 180434782, // 166M€ convertidos a USD (166M / 0.92)
+    growthRatePct: 3.5,
+    iconName: 'Landmark',
+    accentColor: '#00247d', // Royal Blue
+    description: 'El gasto global de la monarquía del Reino Unido se estima en unos 166 millones de euros anuales, incluyendo la subvención soberana (Sovereign Grant) y los costes de seguridad financiados por el Estado. Es una de las jefaturas de estado más caras de Europa.',
+    sourceName: 'Diario en Positivo',
+    sourceUrl: 'https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html',
+    sources: [
+      {
+        name: 'Diario en Positivo — Coste de la monarquía británica',
+        url: 'https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['monarquía', 'reino unido', 'familia real', 'presupuesto', 'gobierno'],
+  },
+  // Gasto de jugadores en Fortnite
+  {
+    id: 'fortnite-player-spending',
+    categoryId: 'entertainment',
+    title: 'Gasto de jugadores en Fortnite',
+    subtitle: 'Los jugadores de Fortnite gastan un promedio de unos 16 millones de dólares al día',
+    annualSpendUSD: 5840000000, // 16M al día * 365 días = 5.840 millones de USD anuales
+    growthRatePct: 5,
+    iconName: 'Tv',
+    accentColor: '#31a4fb',
+    description: 'Los jugadores del popular battle royale Fortnite gastan un promedio aproximado de 16 millones de dólares al día a nivel global. Este gasto se realiza principalmente a través de la compra de su moneda virtual, los pavos (V-Bucks), para adquirir pases de batalla, skins de personajes, gestos y otros cosméticos dentro del juego.',
+    sourceName: 'Tekrevol',
+    sourceUrl: 'https://www.tekrevol.com/blogs/fortnite-revenue-usage-statistics/',
+    sources: [
+      {
+        name: 'Tekrevol — Fortnite Revenue and Usage Statistics',
+        url: 'https://www.tekrevol.com/blogs/fortnite-revenue-usage-statistics/',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['fortnite', 'videojuegos', 'microtransacciones', 'entretenimiento', 'epic games'],
+  },
+  // Gasto de usuarios en OnlyFans
+  {
+    id: 'onlyfans-user-spending',
+    categoryId: 'entertainment',
+    title: 'Gasto de usuarios en OnlyFans',
+    subtitle: 'Los usuarios gastan aproximadamente 7.200 millones de dólares anuales en OnlyFans',
+    annualSpendUSD: 7200000000, // 7.200 millones de USD anuales
+    growthRatePct: 15,
+    iconName: 'Tv',
+    accentColor: '#00aff0', // OnlyFans light blue
+    description: 'El gasto global de los usuarios en la plataforma de suscripción de creadores de contenido OnlyFans alcanzó aproximadamente los 7.200 millones de dólares anuales. La plataforma ha experimentado un crecimiento masivo impulsado por su modelo de suscripción directa y propinas.',
+    sourceName: 'El Vocero',
+    sourceUrl: 'https://elvocero.com.ar/2025/12/18/onlyfans-facturo-usd-7-200-millones-en-2025-y-argentina-se-ubico-entre-los-20-paises-que-mas-gastaron/',
+    sources: [
+      {
+        name: 'El Vocero — OnlyFans facturó USD 7.200 millones',
+        url: 'https://elvocero.com.ar/2025/12/18/onlyfans-facturo-usd-7-200-millones-en-2025-y-argentina-se-ubico-entre-los-20-paises-que-mas-gastaron/',
+      },
+    ],
+    sourceYear: 2025,
+    tags: ['onlyfans', 'suscripciones', 'entretenimiento', 'tecnologia', 'redes sociales'],
+  },
+  // Gasto en reinversión de MrBeast
+  {
+    id: 'mrbeast-content-reinvestment',
+    categoryId: 'entertainment',
+    title: 'Gasto en producción y reinversión de MrBeast',
+    subtitle: 'MrBeast reinvierte casi la totalidad de sus ingresos (unos 400 millones de dólares anuales)',
+    annualSpendUSD: 400000000, // 400 millones de USD anuales
+    growthRatePct: 10,
+    iconName: 'Tv',
+    accentColor: '#00e5ff', // MrBeast logo teal
+    description: 'Jimmy Donaldson (MrBeast) reinvierte prácticamente la totalidad de los ingresos generados por su holding Beast Industries, estimados en unos 400 millones de dólares anuales, directamente en la producción de sus superproducciones de YouTube y nuevos proyectos empresariales. Beast Industries cuenta con una valoración corporativa estimada en unos 5.200 millones de dólares.',
+    sourceName: 'Plisio',
+    sourceUrl: 'https://plisio.net/es/profiles/mrbeast',
+    sources: [
+      {
+        name: 'Plisio — Perfil y finanzas de MrBeast',
+        url: 'https://plisio.net/es/profiles/mrbeast',
+      },
+    ],
+    sourceYear: 2025,
+    tags: ['mrbeast', 'youtube', 'reinversion', 'entretenimiento', 'beast industries'],
+  },
+  // Gasto en entradas de The Eras Tour (Taylor Swift)
+  {
+    id: 'eras-tour-ticket-spending',
+    categoryId: 'entertainment',
+    title: 'Gasto en entradas de The Eras Tour (Taylor Swift)',
+    subtitle: 'Los fans gastaron más de 2.000 millones de dólares en entradas para la gira de Taylor Swift',
+    annualSpendUSD: 1000000000, // 2.000 millones de USD generados a lo largo de 2 años, anualizado a 1.000 millones de USD anuales
+    growthRatePct: 0,
+    iconName: 'Tv',
+    accentColor: '#e0aaff', // Eras Tour soft pastel purple
+    description: 'El gasto global de los fans en la venta de entradas para la gira "The Eras Tour" de Taylor Swift superó los 2.000 millones de dólares a lo largo de casi dos años de conciertos, convirtiéndose en la gira musical con mayor recaudación en la historia de la música. Este impacto financiero también impulsó significativamente las economías locales en cada ciudad que visitó.',
+    sourceName: 'Billboard',
+    sourceUrl: 'https://www.billboard.com/espanol/noticias/taylor-swift-eras-tour-supera-2000-millones-de-dolares-en-ventas-1235849106/',
+    sources: [
+      {
+        name: 'Billboard — The Eras Tour supera 2000 millones',
+        url: 'https://www.billboard.com/espanol/noticias/taylor-swift-eras-tour-supera-2000-millones-de-dolares-en-ventas-1235849106/',
+      },
+      {
+        name: 'GQ — Ganancias de Taylor Swift con The Eras Tour',
+        url: 'https://www.revistagq.com/articulo/cuanto-ha-ganado-taylor-swift-con-el-eras-tour-despues-de-casi-dos-anos-de-gira',
+      },
+      {
+        name: 'TN — Qué hizo Taylor Swift con lo ganado',
+        url: 'https://tn.com.ar/musica/noticias/2025/12/12/taylor-swift-blanqueo-que-hizo-con-la-millonaria-cifra-que-gano-con-the-eras-tour/',
+      },
+    ],
+    sourceYear: 2025,
+    tags: ['taylor swift', 'conciertos', 'musica', 'eras tour', 'entretenimiento'],
+  },
+  // Gasto en productos de Jordan Brand (Nike)
+  {
+    id: 'jordan-brand-spending',
+    categoryId: 'entertainment',
+    title: 'Gasto en productos de Jordan Brand (Nike)',
+    subtitle: 'Los consumidores gastan más de 7.000 millones de dólares anuales en productos de la marca Jordan',
+    annualSpendUSD: 7000000000, // 7.000 millones de USD anuales
+    growthRatePct: 8,
+    iconName: 'Tv',
+    accentColor: '#e60000', // Classic Jordan Red
+    description: 'El gasto global de los consumidores en zapatillas, ropa y accesorios de la división Jordan Brand de Nike supera los 7.000 millones de dólares anuales. Michael Jordan recibe aproximadamente el 5% de estas ventas en concepto de regalías por su histórico acuerdo de patrocinio.',
+    sourceName: 'GQ',
+    sourceUrl: 'https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan',
+    sources: [
+      {
+        name: 'GQ — Cuánto gana Nike y Michael Jordan con Jordan Brand',
+        url: 'https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan',
+      },
+      {
+        name: 'NX Noticias — Regalías de Michael Jordan superan los 300 millones',
+        url: 'https://www.facebook.com/NXNoticias.oficial/posts/michael-jordan-regal%C3%ADas-con-nike-superan-los-300-millones-de-d%C3%B3lares-al-a%C3%B1ola-hi/122280916874074746/',
+      },
+    ],
+    sourceYear: 2024,
+    tags: ['jordan', 'nike', 'zapatillas', 'moda', 'deportes', 'marcas', 'gasto'],
+  },
+  // Gasto de Ferrari en su equipo de Fórmula 1
+  {
+    id: 'ferrari-f1-spending',
+    categoryId: 'entertainment',
+    title: 'Gasto de Ferrari en su equipo de Fórmula 1',
+    subtitle: 'Ferrari gasta unos 185 millones de dólares al año para competir bajo el límite presupuestario de la F1',
+    annualSpendUSD: 185000000, // Media de 170-200 millones de USD anuales
+    growthRatePct: 0,
+    iconName: 'Tv',
+    accentColor: '#e00000', // Ferrari Red
+    description: 'El gasto anual de la escudería Ferrari para operar su equipo de Fórmula 1 se estima en una media de 185 millones de dólares (dentro del rango de 170 a 200 millones de USD) bajo el límite presupuestario regulado por la FIA. Esta cifra financia el desarrollo de los coches, las pruebas y los salarios de operaciones del equipo, aunque excluye excepciones como los salarios de los pilotos y los motores.',
+    sourceName: 'Revista Car',
+    sourceUrl: 'https://revistacar.es/cuanto-cuesta-tener-un-equipo-de-formula-1/',
+    sources: [
+      {
+        name: 'Revista Car — Cuánto cuesta tener un equipo de Fórmula 1',
+        url: 'https://revistacar.es/cuanto-cuesta-tener-un-equipo-de-formula-1/',
+      },
+    ],
+    sourceYear: 2024,
+    tags: ['ferrari', 'f1', 'formula 1', 'deportes', 'marcas', 'presupuesto', 'gasto'],
+  },
+
   // Ingresos Globales de Spotify
   {
     id: 'spotify-annual-revenue',
@@ -162,7 +502,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // Gasto en Cirugías Estéticas en el Mundo
   {
     id: 'global-cosmetic-surgery-spending',
-    categoryId: 'entertainment',
+    categoryId: 'health',
     title: 'Gasto en Cirugías Estéticas',
     subtitle: 'El costo total de las cirugías estéticas en el mundo se estima en 2.660 millones de euros anuales',
     annualSpendUSD: 2891304348, // €2.660 millones de euros convertidos a USD (2.66B / 0.92)
@@ -181,6 +521,98 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     sourceYear: 2025,
     tags: ['cirugía estética', 'belleza', 'cirugía plástica', 'estilismo', 'medihair', 'salud estética'],
+  },
+  // Gasto farmacéutico mundial (Intuition Labs)
+  {
+    id: 'global-pharmaceutical-spending',
+    categoryId: 'health',
+    title: 'Gasto farmacéutico mundial',
+    subtitle: 'El gasto en medicamentos y productos farmacéuticos supera los 2 billones de dólares anuales en el mundo',
+    annualSpendUSD: 2000000000000, // 2 billones (trillions en inglés) de USD
+    growthRatePct: 4.5,
+    iconName: 'Pill',
+    accentColor: '#10b981', // Emerald green
+    description: 'El gasto farmacéutico mundial superó los 2 billones de dólares anuales, oscilando entre 1,7 y 2,3 billones según la segmentación por precios de factura o precios netos de mercado. Este sector está impulsado por el desarrollo de nuevos medicamentos de alta especialidad, el acceso global a tratamientos y el envejecimiento de la población.',
+    sourceName: 'Intuition Labs',
+    sourceUrl: 'https://intuitionlabs.ai/articles/pharmaceutical-market-analysis-trends',
+    sources: [
+      {
+        name: 'Intuition Labs — Pharmaceutical Market Analysis & Trends',
+        url: 'https://intuitionlabs.ai/articles/pharmaceutical-market-analysis-trends',
+      },
+    ],
+    sourceYear: 2025,
+    tags: ['farmacéutica', 'medicamentos', 'salud', 'gasto global', 'farmacia', 'medicina'],
+  },
+  // Costo económico de la obesidad y sobrepeso (Live-Med)
+  {
+    id: 'global-obesity-economic-cost',
+    categoryId: 'health',
+    title: 'Costo económico de la obesidad y sobrepeso',
+    subtitle: 'El impacto económico mundial de la obesidad y el sobrepeso ronda los 2 billones de dólares anuales',
+    annualSpendUSD: 2000000000000, // 2 billones (trillions en inglés) de USD
+    growthRatePct: 6.8,
+    iconName: 'HeartPulse',
+    accentColor: '#ef4444', // Red
+    description: 'El coste económico global derivado del sobrepeso y la obesidad se estima en unos 2 billones de dólares anuales, lo que representa entre el 2,4% y el 2,8% del PIB mundial. Este impacto incluye gastos médicos directos y pérdidas masivas de productividad por incapacidad laboral o muerte prematura. Las proyecciones estiman que superará los 4,3 billones anuales para 2035.',
+    sourceName: 'Live-Med (World Obesity Atlas)',
+    sourceUrl: 'https://live.med/es/blog/analisis-del-world-obesity-atlas-2023-impacto-economico-obesidad/',
+    sources: [
+      {
+        name: 'Live-Med — Análisis del World Obesity Atlas: Impacto económico de la obesidad',
+        url: 'https://live.med/es/blog/analisis-del-world-obesity-atlas-2023-impacto-economico-obesidad/',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['obesidad', 'salud', 'costo medico', 'gasto global', 'pib', 'sobrepeso', 'productividad'],
+  },
+  // Costo de la depresión y ansiedad (Yahoo Noticias)
+  {
+    id: 'global-depression-anxiety-cost',
+    categoryId: 'health',
+    title: 'Costo de la depresión y ansiedad',
+    subtitle: 'La depresión y la ansiedad cuestan a la economía mundial alrededor de 1 billón de dólares anuales',
+    annualSpendUSD: 1000000000000, // 1 billón (trillion en inglés) de USD
+    growthRatePct: 3.5,
+    iconName: 'Brain',
+    accentColor: '#8b5cf6', // Purple
+    description: 'El impacto económico global de los trastornos de depresión y ansiedad asciende a aproximadamente 1 billón de dólares anuales. Este coste proviene principalmente de la pérdida de productividad laboral por absentismo, presentismo y bajas médicas, afectando la salud mental de millones de personas a nivel mundial.',
+    sourceName: 'Yahoo Noticias (OMS / Banco Mundial)',
+    sourceUrl: 'https://es-us.noticias.yahoo.com/costo-global-ansiedad-depresi%C3%B3n-supera-150118561.html',
+    sources: [
+      {
+        name: 'Yahoo Noticias — El costo global de la ansiedad y depresión',
+        url: 'https://es-us.noticias.yahoo.com/costo-global-ansiedad-depresi%C3%B3n-supera-150118561.html',
+      },
+    ],
+    sourceYear: 2025,
+    tags: ['depresión', 'ansiedad', 'salud mental', 'salud', 'gasto global', 'productividad', 'oms'],
+  },
+  // Gasto del presupuesto básico de la OMS
+  {
+    id: 'who-annual-budget',
+    categoryId: 'health',
+    title: 'Gasto del presupuesto básico de la OMS',
+    subtitle: 'El presupuesto para programas básicos de la OMS es de 2.100 millones de dólares anuales',
+    annualSpendUSD: 2100000000, // 2.100 millones de USD anualizados (4.200 millones para el bienio 2026-2027)
+    growthRatePct: 4.0,
+    iconName: 'HeartPulse',
+    accentColor: '#009ad9', // WHO Blue
+    description: 'El presupuesto para programas básicos de la Organización Mundial de la Salud (OMS) aprobado para el bienio 2026-2027 asciende a 4.200 millones de dólares (lo que equivale a un promedio de 2.100 millones de dólares anuales). Este ciclo incluye un aumento histórico del 20% en las contribuciones básicas asignadas por los Estados Miembros para fortalecer la respuesta a emergencias sanitarias mundiales.',
+    sourceName: 'Organización Mundial de la Salud (OMS)',
+    sourceUrl: 'https://www.who.int/es/news/item/20-05-2025-in-historic-move--who-member-states-approve-20--funding-increase-and-2026-27-budget',
+    sources: [
+      {
+        name: 'OMS — Estados Miembros aprueban aumento y presupuesto 2026-2027',
+        url: 'https://www.who.int/es/news/item/20-05-2025-in-historic-move--who-member-states-approve-20--funding-increase-and-2026-27-budget',
+      },
+      {
+        name: 'OMS — Sitio Web Oficial en Español',
+        url: 'https://www.who.int/es',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['oms', 'who', 'salud', 'presupuesto', 'global', 'salud publica'],
   },
   // Carga económica del tabaco (OMS)
   {
@@ -251,111 +683,6 @@ export const SPEND_ITEMS: SpendItem[] = [
       { year: 2026, spendUSD: 110585869565 },
     ],
     tags: ['españa', 'sanidad', 'gasto publico', 'salud', 'ministerio de sanidad', 'hospitales', 'presupuesto'],
-  },
-  // Inversión pública en exploración espacial (FasterCapital)
-  {
-    id: 'global-space-exploration-spending',
-    categoryId: 'government',
-    title: 'Gasto público en Exploración Espacial',
-    subtitle: 'La inversión pública en exploración espacial alcanza los 119.000 millones de euros anuales en el mundo',
-    annualSpendUSD: 129347826087, // 119.000M € convertidos a USD (119.0B / 0.92)
-    growthRatePct: 6.5,
-    iconName: 'Globe',
-    accentColor: '#38bdf8',
-    description:
-      'El presupuesto para la exploración espacial ha mostrado un crecimiento significativo en los últimos años. Se estima que los gobiernos de todo el mundo realizarán una inversión pública en el sector espacial de 119.000 millones de euros anuales, impulsando misiones lunares, satélites y tecnología de órbita.',
-    sourceName: 'FasterCapital — Desafío de costos de la exploración espacial',
-    sourceUrl: 'https://fastercapital.com/es/contenido/Desafio-de-costos--El-desafio-de-costos-de-la-exploracion-espacial.html',
-    sources: [
-      {
-        name: 'FasterCapital — El Desafío de Costos de la Exploración Espacial',
-        url: 'https://fastercapital.com/es/contenido/Desafio-de-costos--El-desafio-de-costos-de-la-exploracion-espacial.html',
-      },
-    ],
-    sourceYear: 2026,
-    breakdown: [
-      { label: 'Gobierno y Agencias Públicas de EE.UU. (NASA, etc.)', percentage: 45.0, amountUSD: 58206521739 },
-      { label: 'Otras Agencias Espaciales del Mundo (ESA, CNSA, ISRO, etc.)', percentage: 55.0, amountUSD: 71141304348 },
-    ],
-    history: [
-      { year: 2018, spendUSD: 97826086956 },
-      { year: 2021, spendUSD: 114130434782 },
-      { year: 2026, spendUSD: 129347826087 },
-    ],
-    tags: ['espacio', 'nasa', 'esa', 'satelites', 'gasto publico', 'presupuesto', 'fastercapital', 'ciencia'],
-  },
-  // Gasto en subvenciones y ayudas públicas en España (Libre Mercado)
-  {
-    id: 'spain-subsidies-public-grants-spending',
-    categoryId: 'government',
-    title: 'Gasto en Subvenciones y Ayudas en España',
-    subtitle: 'España destina unos 41.490 millones de euros anuales en subvenciones y ayudas públicas directas',
-    annualSpendUSD: 45097826087, // 41.490M € convertidos a USD (41.49B / 0.92)
-    growthRatePct: 5.2,
-    iconName: 'Landmark',
-    accentColor: '#3b82f6',
-    description:
-      'España destina alrededor de 41.490 millones de euros anuales en subvenciones y ayudas públicas directas distribuidas entre el gobierno central, las comunidades autónomas y las entidades locales. Esta cifra general engloba ayudas a familias, sectores productivos, empresas y entidades sociales, sin contar las grandes partidas de protección social como las pensiones contributivas o el desempleo.',
-    sourceName: 'Libre Mercado — El gasto en subvenciones y ayudas en España',
-    sourceUrl: 'https://www.libertaddigital.com/libremercado/2025-12-10/el-gasto-en-subvenciones-se-dispara-hasta-los-42-000-millones-y-equivale-a-2-100-euros-por-hogar-7330610/',
-    sources: [
-      {
-        name: 'Libre Mercado — El Gasto en Subvenciones y Ayudas Equivale a 2.100€ por Hogar',
-        url: 'https://www.libertaddigital.com/libremercado/2025-12-10/el-gasto-en-subvenciones-se-dispara-hasta-los-42-000-millones-y-equivale-a-2-100-euros-por-hogar-7330610/',
-      },
-    ],
-    sourceYear: 2026,
-    breakdown: [
-      { label: 'Ayudas Directas a Familias y Hogares', percentage: 40.0, amountUSD: 18039130435 },
-      { label: 'Subvenciones a Empresas y Sectores Productivos', percentage: 60.0, amountUSD: 27058695652 },
-    ],
-    history: [
-      { year: 2018, spendUSD: 30000000000 },
-      { year: 2020, spendUSD: 38000000000 },
-      { year: 2022, spendUSD: 40000000000 },
-      { year: 2026, spendUSD: 45097826087 },
-    ],
-    tags: ['españa', 'subvenciones', 'ayudas publicas', 'gobierno españa', 'presupuesto', 'comunidades autonomas', 'hogares'],
-  },
-  // 1. Gasto en el Ministerio de Igualdad de España
-  {
-    id: 'spain-equality-ministry-budget',
-    categoryId: 'government',
-    title: 'Gasto en el Ministerio de Igualdad de España',
-    subtitle: 'Presupuesto general anual asignado a políticas de igualdad y prevención de violencia de género',
-    annualSpendUSD: 552420000, // €511.5M convertido a USD a tipo ~1.08
-    growthRatePct: 3.2,
-    iconName: 'Landmark',
-    accentColor: '#8b5cf6',
-    description:
-      'Presupuesto anual del Ministerio de Igualdad de España fijado en 511,5 millones de euros, estructurado en 484 millones de euros gestionados directamente por los servicios centrales del ministerio y 27,5 millones de euros asignados a organismos autónomos dependientes.',
-    sourceName: 'Ministerio de Igualdad del Gobierno de España & Wikipedia',
-    sourceUrl: 'https://www.igualdad.gob.es/comunicacion/sala-de-prensa/la-ejecucion-presupuestaria-del-ministerio-de-igualdad-roza-el-96-en-2025-y-supera-la-del-ejercicio-anterior/',
-    sources: [
-      {
-        name: 'Ministerio de Igualdad — Nota de Prensa Oficial de Ejecución Presupuestaria',
-        url: 'https://www.igualdad.gob.es/comunicacion/sala-de-prensa/la-ejecucion-presupuestaria-del-ministerio-de-igualdad-roza-el-96-en-2025-y-supera-la-del-ejercicio-anterior/',
-      },
-      {
-        name: 'Wikipedia — Ministerio de Igualdad (España)',
-        url: 'https://es.wikipedia.org/wiki/Ministerio_de_Igualdad_(España)',
-      },
-    ],
-    sourceYear: 2025,
-    breakdown: [
-      { label: 'Servicios Centrales del Ministerio', percentage: 94.6, amountUSD: 522720000 },
-      { label: 'Organismos Autónomos Dependientes', percentage: 5.4, amountUSD: 29700000 },
-    ],
-    history: [
-      { year: 2018, spendUSD: 180000000 },
-      { year: 2020, spendUSD: 205000000 },
-      { year: 2021, spendUSD: 450000000 },
-      { year: 2022, spendUSD: 525000000 },
-      { year: 2023, spendUSD: 550000000 },
-      { year: 2024, spendUSD: 552420000 },
-      { year: 2026, spendUSD: 570000000 },
-    ],
-    tags: ['ministerio de igualdad', 'pge', 'igualdad', 'gobierno españa', 'presupuestos'],
   },
   // Gasto en bebidas alcohólicas (Statista)
   {
@@ -1469,6 +1796,31 @@ export const SPEND_ITEMS: SpendItem[] = [
         { year: 2025, spendUSD: annualUsd },
       ],
       tags: ['comida', 'alimentación', c.nameEs.toLowerCase(), 'supermercado', 'cesta de la compra'],
+    };
+  }),
+  // 5. Contadores de Deuda Pública por Países
+  ...COUNTRIES_DEBT_DATA.filter((c) => c.id !== 'debt-united-states').map((c): SpendItem => {
+    const annualUsd = c.debtUSD;
+    return {
+      id: c.id,
+      categoryId: 'government',
+      title: `Deuda pública de ${c.nameEs}`,
+      subtitle: `Deuda nacional acumulada de ${c.nameEs} en tiempo real`,
+      annualSpendUSD: annualUsd,
+      growthRatePct: 4.5,
+      iconName: 'Landmark',
+      accentColor: '#3b82f6',
+      description: `La deuda pública acumulada de ${c.nameEs} asciende a unos $${(annualUsd).toLocaleString('es-ES', { maximumFractionDigits: 0 })} dólares estadounidenses (${c.year}), representando las obligaciones financieras pendientes de la administración pública de ${c.nameEs}.`,
+      sourceName: 'DatosMacro (Expansión)',
+      sourceUrl: c.sources[0]?.url || 'https://datosmacro.expansion.com/deuda',
+      sources: c.sources,
+      sourceYear: c.year,
+      history: [
+        { year: c.year - 2, spendUSD: annualUsd * 0.90 },
+        { year: c.year - 1, spendUSD: annualUsd * 0.95 },
+        { year: c.year, spendUSD: annualUsd },
+      ],
+      tags: ['deuda', 'gobierno', c.nameEs.toLowerCase(), 'datosmacro', 'finanzas', 'presupuesto'],
     };
   }),
   // 4. Contadores de PIB por Países

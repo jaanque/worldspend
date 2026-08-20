@@ -147,6 +147,191 @@ export const frTranslations: Translations = {
     'country-gdp': { name: 'PIB par Pays', description: 'Produit Intérieur Brut (PIB nominal) des pays en temps réel' },
   },
   items: {
+    'us-national-debt': {
+      title: "Dette nationale des États-Unis",
+      subtitle: "La dette publique accumulée des États-Unis dépasse 39 000 milliards de dollars",
+      description: "La dette nationale accumulée des États-Unis dépasse 39 000 milliards de dollars (39 trillion USD). Ce chiffre représente le total des obligations financières de l'État fédéral américain accumulées au cours de son histoire budgétaire.",
+      sourceName: "LA Times",
+      sources: [
+        {
+          name: "LA Times — La dette nationale américaine dépasse 39 000 milliards",
+          url: "https://www.latimes.com/espanol/eeuu/articulo/2026-03-27/la-deuda-nacional-de-eeuu-supera-los-39-billones-de-dolares",
+        }
+      ],
+    },
+    'spain-monarchy-spending': {
+      title: "Dépenses de la monarchie espagnole",
+      subtitle: "Le coût global de la Maison Royale espagnole est estimé à environ 105 millions d'euros par an",
+      description: "Le coût annuel global de la monarchie en Espagne s'élève à environ 105 millions d'euros en combinant la dotation directe officielle de 8,43 millions d'euros avec les dépenses de sécurité, de personnel militaire et de soutien financées par d'autres ministères, soit environ 2,2 euros par citoyen.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Coût de la monarchie espagnole",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'uk-monarchy-spending': {
+      title: "Dépenses de la monarchie britannique",
+      subtitle: "Le coût global de la famille royale britannique est estimé à environ 166 millions d'euros par an",
+      description: "Les dépenses globales de la monarchie du Royaume-Uni sont estimées à environ 166 millions d'euros par an, y compris la subvention souveraine (Sovereign Grant) et les coûts de sécurité pris en charge par l'État. C'est l'un des chefs d'État les plus chers d'Europe.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Coût de la monarchie britannique",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'fortnite-player-spending': {
+      title: "Dépenses des joueurs sur Fortnite",
+      subtitle: "Les joueurs de Fortnite dépensent en moyenne 16 millions de dollars par jour",
+      description: "Les joueurs du célèbre jeu Fortnite dépensent en moyenne environ 16 millions de dollars par jour dans le monde. Ces dépenses sont principalement générées par l'achat de V-Bucks pour obtenir des passes de combat, des skins, des danses et d'autres cosmétiques.",
+      sourceName: "Tekrevol",
+      sources: [
+        {
+          name: "Tekrevol — Statistiques et revenus de Fortnite",
+          url: "https://www.tekrevol.com/blogs/fortnite-revenue-usage-statistics/",
+        }
+      ],
+    },
+    'onlyfans-user-spending': {
+      title: "Dépenses des utilisateurs sur OnlyFans",
+      subtitle: "Les utilisateurs dépensent environ 7,2 milliards de dollars par an sur OnlyFans",
+      description: "Les dépenses annuelles globales des utilisateurs sur OnlyFans s'élèvent à environ 7,2 milliards de dollars. La plateforme a connu une croissance massive grâce à ses abonnements directs et son système de pourboires.",
+      sourceName: "El Vocero",
+      sources: [
+        {
+          name: "El Vocero — OnlyFans a généré 7,2 milliards de dollars",
+          url: "https://elvocero.com.ar/2025/12/18/onlyfans-facturo-usd-7-200-millones-en-2025-y-argentina-se-ubico-entre-los-20-paises-que-mas-gastaron/",
+        }
+      ],
+    },
+    'mrbeast-content-reinvestment': {
+      title: "Réinvestissement et production de MrBeast",
+      subtitle: "MrBeast réinvestit presque la totalité de ses revenus (environ 400 millions de dollars par an)",
+      description: "Jimmy Donaldson (MrBeast) réinvestit la quasi-totalité des revenus de Beast Industries, estimés à 400 millions de dollars par an, directement dans la production de ses vidéos YouTube géantes et de ses nouveaux projets commerciaux. Beast Industries est valorisé à 5,2 milliards de dollars.",
+      sourceName: "Plisio",
+      sources: [
+        {
+          name: "Plisio — Profil et finances de MrBeast",
+          url: "https://plisio.net/es/profiles/mrbeast",
+        }
+      ],
+    },
+    'eras-tour-ticket-spending': {
+      title: "Dépenses pour The Eras Tour (Taylor Swift)",
+      subtitle: "Les fans ont dépensé plus de 2 milliards de dollars en billets pour la tournée de Taylor Swift",
+      description: "Les dépenses mondiales en billetterie pour \"The Eras Tour\" de Taylor Swift ont dépassé 2 milliards de dollars sur près de deux ans, devenant la tournée la plus rentable de l'histoire musicale. La tournée a également stimulé l'économie des villes hôtes.",
+      sourceName: "Billboard",
+      sources: [
+        {
+          name: "Billboard — The Eras Tour dépasse les 2 milliards",
+          url: "https://www.billboard.com/espanol/noticias/taylor-swift-eras-tour-supera-2000-millones-de-dolares-en-ventas-1235849106/",
+        },
+        {
+          name: "GQ — Revenus de Taylor Swift pour The Eras Tour",
+          url: "https://www.revistagq.com/articulo/cuanto-ha-ganado-taylor-swift-con-el-eras-tour-despues-de-casi-dos-anos-de-gira",
+        },
+        {
+          name: "TN — Ce qu'a fait Taylor Swift avec l'argent",
+          url: "https://tn.com.ar/musica/noticias/2025/12/12/taylor-swift-blanqueo-que-hizo-con-la-millonaria-cifra-que-gano-con-the-eras-tour/",
+        }
+      ],
+    },
+    'jordan-brand-spending': {
+      title: "Dépenses en produits Jordan Brand (Nike)",
+      subtitle: "Les consommateurs dépensent plus de 7 milliards de dollars par an en produits Jordan",
+      description: "Les ventes mondiales de chaussures et vêtements Jordan Brand (filiale de Nike) dépassent 7 milliards de dollars par an. Michael Jordan touche environ 5 % de royalties sur ces ventes grâce à son contrat historique.",
+      sourceName: "GQ",
+      sources: [
+        {
+          name: "GQ — Combien gagnent Nike et Michael Jordan avec Jordan",
+          url: "https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan",
+        },
+        {
+          name: "NX Noticias — Les redevances de Michael Jordan dépassent 300M",
+          url: "https://www.facebook.com/NXNoticias.oficial/posts/michael-jordan-regal%C3%ADas-con-nike-superan-los-300-millones-de-d%C3%B3lares-al-a%C3%B1ola-hi/122280916874074746/",
+        }
+      ],
+    },
+    'ferrari-f1-spending': {
+      title: "Budget de la Scuderia Ferrari en F1",
+      subtitle: "Ferrari dépense environ 185 millions de dollars par an sous le plafond budgétaire de la F1",
+      description: "Les dépenses de la Scuderia Ferrari pour faire fonctionner son équipe de F1 s'élèvent à environ 185 millions de dollars par an sous le plafond financier de la FIA. Ce montant exclut les moteurs et le salaire des pilotes.",
+      sourceName: "Revista Car",
+      sources: [
+        {
+          name: "Revista Car — Combien coûte une écurie de Formule 1",
+          url: "https://revistacar.es/cuanto-cuesta-tener-un-equipo-de-formula-1/",
+        }
+      ],
+    },
+    'un-annual-budget': {
+      title: "Dépenses du budget ordinaire de l'ONU",
+      subtitle: "Le budget de fonctionnement ordinaire des Nations Unies (ONU) est de 3,45 milliards de dollars en 2026",
+      description: "Le budget ordinaire approuvé pour les Nations Unies (ONU) en 2026 s'élève à 3,45 milliards de dollars. Ce budget finance le secrétariat, les missions de paix et les programmes dans le monde entier.",
+      sourceName: "ONU Info",
+      sources: [
+        {
+          name: "ONU Info — Budget ordinaire de l'ONU pour 2026",
+          url: "https://news.un.org/es/story/2025/12/1540968",
+        }
+      ],
+    },
+    'who-annual-budget': {
+      title: "Budget des programmes de l'OMS",
+      subtitle: "Le budget annuel des programmes de base de l'OMS est de 2,1 milliards de dollars par an",
+      description: "Le budget des programmes de base de l'OMS s'élève à 4,2 milliards de dollars pour le biennal 2026-2027 (soit 2,1 milliards par an en moyenne). Cela intègre une hausse de 20 % des cotisations des États membres.",
+      sourceName: "Organisation mondiale de la santé (OMS)",
+      sources: [
+        {
+          name: "OMS — Les pays membres approuvent le budget 2026-2027",
+          url: "https://www.who.int/es/news/item/20-05-2025-in-historic-move--who-member-states-approve-20--funding-increase-and-2026-27-budget",
+        },
+        {
+          name: "OMS — Site web en espagnol",
+          url: "https://www.who.int/es",
+        }
+      ],
+    },
+    'global-pharmaceutical-spending': {
+      title: "Dépenses pharmaceutiques mondiales",
+      subtitle: "Le marché mondial des médicaments et produits de santé dépasse 2 000 milliards de dollars par an",
+      description: "Les dépenses pharmaceutiques mondiales dépassent 2 000 milliards de dollars par an, portées par les thérapies innovantes de spécialité, l'accès aux soins et le vieillissement de la population mondiale.",
+      sourceName: "Intuition Labs",
+      sources: [
+        {
+          name: "Intuition Labs — Analyse du marché pharmaceutique et tendances",
+          url: "https://intuitionlabs.ai/articles/pharmaceutical-market-analysis-trends",
+        }
+      ],
+    },
+    'global-obesity-economic-cost': {
+      title: "Coût économique mondial de l'obésité",
+      subtitle: "L'impact économique annuel du surpoids et de l'obésité est estimé à 2 000 milliards de dollars",
+      description: "Le coût du surpoids et de l'obésité s'élève à environ 2 000 milliards de dollars par an, soit 2,4 % à 2,8 % du PIB mondial. Ce coût englobe les dépenses de santé et les pertes massives de productivité au travail.",
+      sourceName: "Live-Med (World Obesity Atlas)",
+      sources: [
+        {
+          name: "Live-Med — Analyse du World Obesity Atlas: Impact de l'obésité",
+          url: "https://live.med/es/blog/analisis-del-world-obesity-atlas-2023-impacto-economico-obesidad/",
+        }
+      ],
+    },
+    'global-depression-anxiety-cost': {
+      title: "Coût de la dépression et de l'anxiété",
+      subtitle: "La dépression et l'anxiété coûtent près de 1 000 milliards de dollars par an à l'économie mondiale",
+      description: "L'impact de l'anxiété et de la dépression est évalué à 1 000 milliards de dollars par an pour l'économie mondiale, principalement sous forme de perte de productivité liée à l'absentéisme et au présentéisme au travail.",
+      sourceName: "Yahoo Actualités (OMS / Banque Mondiale)",
+      sources: [
+        {
+          name: "Yahoo Actualités — Coût de l'anxiété et de la dépression",
+          url: "https://es-us.noticias.yahoo.com/costo-global-ansiedad-depresi%C3%B3n-supera-150118561.html",
+        }
+      ],
+    },
+
     'spain-cost-raising-child': {
       title: 'Coût d\'Élever un Enfant en Espagne (0–18 ans)',
       subtitle: 'Entre 115 000 € et 180 000 € au total en moyenne de base ; environ 8 194 € par an et par enfant',

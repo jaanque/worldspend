@@ -147,6 +147,191 @@ export const deTranslations: Translations = {
     'country-gdp': { name: 'BIP nach Ländern', description: 'Bruttoinlandsprodukt (nominales BIP) der Länder in Echtzeit' },
   },
   items: {
+    'us-national-debt': {
+      title: "Staatsverschuldung der USA",
+      subtitle: "Die US-Staatsverschuldung beläuft sich auf über 39 Billionen Dollar",
+      description: "Die aufgelaufenen Staatsschulden der USA übersteigen 39 Billionen Dollar (39 Trillion USD). Diese Zahl stellt die Gesamtheit aller offenen finanziellen Verbindlichkeiten der US-Bundesregierung dar.",
+      sourceName: "LA Times",
+      sources: [
+        {
+          name: "LA Times — US-Staatsverschuldung überschreitet 39 Billionen Dollar",
+          url: "https://www.latimes.com/espanol/eeuu/articulo/2026-03-27/la-deuda-nacional-de-eeuu-supera-los-39-billones-de-dolares",
+        }
+      ],
+    },
+    'spain-monarchy-spending': {
+      title: "Ausgaben der spanischen Monarchie",
+      subtitle: "Die geschätzten Gesamtkosten des spanischen Königshauses betragen ca. 105 Millionen Euro pro Jahr",
+      description: "Die geschätzten Gesamtkosten der spanischen Monarchie liegen bei rund 105 Millionen Euro jährlich. Dies ergibt sich aus dem offiziellen Budget von 8,43 Millionen Euro plus den Ausgaben für Sicherheit und Militärpersonal anderer Ministerien.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Kosten der spanischen Monarchie",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'uk-monarchy-spending': {
+      title: "Ausgaben der britischen Monarchie",
+      subtitle: "Die geschätzten Gesamtkosten der britischen Königsfamilie betragen ca. 166 Millionen Euro pro Jahr",
+      description: "Die jährlichen Gesamtkosten der britischen Monarchie betragen rund 166 Millionen Euro. Darin enthalten sind der Sovereign Grant und staatlich finanzierte Sicherheitskosten. Es ist eines der teuersten Staatsoberhäupter Europas.",
+      sourceName: "Diario en Positivo",
+      sources: [
+        {
+          name: "Diario en Positivo — Kosten der britischen Monarchie",
+          url: "https://www.diarioenpositivo.com/economia/estudio-calcula-que-monarquia-cuesta-105-millones-ano-jefaturas-estado-mas-baratas-europa/20260303181913075067.html",
+        }
+      ],
+    },
+    'fortnite-player-spending': {
+      title: "Ausgaben der Fortnite-Spieler",
+      subtitle: "Fortnite-Spieler geben durchschnittlich etwa 16 Millionen Dollar pro Tag aus",
+      description: "Spieler des beliebten Spiels Fortnite geben weltweit täglich rund 16 Millionen US-Dollar aus. Dies geschieht hauptsächlich durch den Kauf der virtuellen Währung V-Bucks für Skins, Battle Passes und Emotes.",
+      sourceName: "Tekrevol",
+      sources: [
+        {
+          name: "Tekrevol — Fortnite-Umsatz und Nutzungsstatistiken",
+          url: "https://www.tekrevol.com/blogs/fortnite-revenue-usage-statistics/",
+        }
+      ],
+    },
+    'onlyfans-user-spending': {
+      title: "Ausgaben der OnlyFans-Nutzer",
+      subtitle: "OnlyFans-Nutzer geben jährlich rund 7,2 Milliarden Dollar auf der Plattform aus",
+      description: "Die weltweiten Verbraucherausgaben auf OnlyFans beliefen sich auf etwa 7,2 Milliarden Dollar pro Jahr. Dies wird durch das Modell aus Direktabonnements und Trinkgeldern getrieben.",
+      sourceName: "El Vocero",
+      sources: [
+        {
+          name: "El Vocero — OnlyFans setzt 7,2 Milliarden Dollar um",
+          url: "https://elvocero.com.ar/2025/12/18/onlyfans-facturo-usd-7-200-millones-en-2025-y-argentina-se-ubico-entre-los-20-paises-que-mas-gastaron/",
+        }
+      ],
+    },
+    'mrbeast-content-reinvestment': {
+      title: "MrBeast-Reinvestitionen und Produktion",
+      subtitle: "MrBeast reinvestiert fast seine gesamten Einnahmen (ca. 400 Millionen Dollar jährlich)",
+      description: "Jimmy Donaldson (MrBeast) investiert nahezu alle Einnahmen seiner Holding Beast Industries (ca. 400 Millionen Dollar pro Jahr) direkt wieder in die Produktion neuer YouTube-Videos. Beast Industries wird auf 5,2 Milliarden Dollar geschätzt.",
+      sourceName: "Plisio",
+      sources: [
+        {
+          name: "Plisio — MrBeast-Profil und Finanzen",
+          url: "https://plisio.net/es/profiles/mrbeast",
+        }
+      ],
+    },
+    'eras-tour-ticket-spending': {
+      title: "Ausgaben für The Eras Tour (Taylor Swift)",
+      subtitle: "Fans gaben über 2 Milliarden Dollar für Tickets der Taylor-Swift-Tour aus",
+      description: "Die Gesamtausgaben der Fans für Eintrittskarten von Taylor Swifts \"The Eras Tour\" überschritten 2 Milliarden Dollar. Es ist die erfolgreichste Musiktournee der Geschichte. Sie kurbelte auch die Wirtschaft vor Ort an.",
+      sourceName: "Billboard",
+      sources: [
+        {
+          name: "Billboard — The Eras Tour bricht 2-Milliarden-Marke",
+          url: "https://www.billboard.com/espanol/noticias/taylor-swift-eras-tour-supera-2000-millones-de-dolares-en-ventas-1235849106/",
+        },
+        {
+          name: "GQ — Taylor Swifts Einnahmen aus der Eras Tour",
+          url: "https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan",
+        },
+        {
+          name: "TN — Was Taylor Swift mit den Einnahmen machte",
+          url: "https://tn.com.ar/musica/noticias/2025/12/12/taylor-swift-blanqueo-que-hizo-con-la-millonaria-cifra-que-gano-con-the-eras-tour/",
+        }
+      ],
+    },
+    'jordan-brand-spending': {
+      title: "Ausgaben für Jordan-Produkte (Nike)",
+      subtitle: "Konsumenten geben jährlich über 7 Milliarden Dollar für Jordan-Produkte aus",
+      description: "Der weltweite Umsatz mit Schuhen und Kleidung der Marke Jordan Brand von Nike beträgt jährlich mehr als 7 Milliarden Dollar. Michael Jordan erhält ca. 5 % Lizenzgebühren aus diesen Verkäufen.",
+      sourceName: "GQ",
+      sources: [
+        {
+          name: "GQ — Wie viel Nike und Jordan verdienen",
+          url: "https://www.revistagq.com/moda/articulo/cuanto-gana-nike-michael-jordan",
+        },
+        {
+          name: "NX Noticias — Lizenzgebühren von Michael Jordan über 300 Mio.",
+          url: "https://www.facebook.com/NXNoticias.oficial/posts/michael-jordan-regal%C3%ADas-con-nike-superan-los-300-millones-de-d%C3%B3lares-al-a%C3%B1ola-hi/122280916874074746/",
+        }
+      ],
+    },
+    'ferrari-f1-spending': {
+      title: "Ausgaben des Ferrari-Formel-1-Teams",
+      subtitle: "Ferrari gibt jährlich ca. 185 Millionen Dollar unter der F1-Budgetgrenze aus",
+      description: "Die Ausgaben von Ferrari zum Betrieb seines F1-Teams betragen rund 185 Millionen Dollar pro Jahr. Nicht inbegriffen sind Fahrergagen sowie Kosten für Motorenentwicklung.",
+      sourceName: "Revista Car",
+      sources: [
+        {
+          name: "Revista Car — Was kostet ein Formel-1-Team",
+          url: "https://revistacar.es/cuanto-cuesta-tener-un-equipo-de-formula-1/",
+        }
+      ],
+    },
+    'un-annual-budget': {
+      title: "Ausgaben des ordentlichen UN-Budgets",
+      subtitle: "Das ordentliche Jahresbudget der Vereinten Nationen (UN) liegt 2026 bei 3,45 Milliarden Dollar",
+      description: "Das ordentliche Jahresbudget für die Vereinten Nationen beträgt 3,45 Milliarden US-Dollar im Jahr 2026. Dieses finanzierte Sekretariate, Friedensmissionen und Programme weltweit.",
+      sourceName: "UN-Meldungen",
+      sources: [
+        {
+          name: "UN-Meldungen — Ordentliches UN-Jahresbudget 2026",
+          url: "https://news.un.org/es/story/2025/12/1540968",
+        }
+      ],
+    },
+    'who-annual-budget': {
+      title: "Programm-Budget der WHO",
+      subtitle: "Das Kernbudget der Weltgesundheitsorganisation (WHO) beträgt jährlich 2,1 Milliarden Dollar",
+      description: "Das Kernbudget für die Programme der Weltgesundheitsorganisation beläuft sich auf 4,2 Milliarden Dollar für den Zeitraum 2026-2027. Dies entspricht ca. 2,1 Milliarden Dollar pro Jahr und beinhaltet eine 20-prozentige Erhöhung der Mitgliedsbeiträge.",
+      sourceName: "Weltgesundheitsorganisation (WHO)",
+      sources: [
+        {
+          name: "WHO — Mitgliedstaaten verabschieden Erhöhung des Budgets",
+          url: "https://www.who.int/es/news/item/20-05-2025-in-historic-move--who-member-states-approve-20--funding-increase-and-2026-27-budget",
+        },
+        {
+          name: "WHO — Spanische offizielle Website",
+          url: "https://www.who.int/es",
+        }
+      ],
+    },
+    'global-pharmaceutical-spending': {
+      title: "Weltweite Pharma-Ausgaben",
+      subtitle: "Die weltweiten Ausgaben für Arzneimittel überschreiten 2 Billionen Dollar pro Jahr",
+      description: "Die weltweiten Ausgaben für Medikamente und Gesundheitsprodukte belaufen sich auf jährlich über 2 Billionen US-Dollar. Treiber sind vor allem neue Spezialtherapien und die demografische Alterung.",
+      sourceName: "Intuition Labs",
+      sources: [
+        {
+          name: "Intuition Labs — Analyse des Pharmamarktes und Trends",
+          url: "https://intuitionlabs.ai/articles/pharmaceutical-market-analysis-trends",
+        }
+      ],
+    },
+    'global-obesity-economic-cost': {
+      title: "Wirtschaftliche Kosten von Fettleibigkeit",
+      subtitle: "Die weltweiten wirtschaftlichen Kosten von Übergewicht betragen rund 2 Billionen Dollar jährlich",
+      description: "Die weltweiten Kosten von Adipositas belaufen sich auf ca. 2 Billionen US-Dollar pro Jahr (etwa 2,4 % bis 2,8 % des globalen BIP). Dies beinhaltet medizinische Kosten und verringerte Arbeitsproduktivität.",
+      sourceName: "Live-Med (World Obesity Atlas)",
+      sources: [
+        {
+          name: "Live-Med — Adipositas-Bericht: Globale Kostenanalyse",
+          url: "https://live.med/es/blog/analisis-del-world-obesity-atlas-2023-impacto-economico-obesidad/",
+        }
+      ],
+    },
+    'global-depression-anxiety-cost': {
+      title: "Kosten von Depressionen und Angstzuständen",
+      subtitle: "Depressionen und Angststörungen kosten die Weltwirtschaft jährlich rund 1 Billion Dollar",
+      description: "Die weltweiten wirtschaftlichen Folgen von Depressionen und Angstzuständen belaufen sich auf ca. 1 Billion US-Dollar pro Jahr. Dies liegt an Produktivitätsausfällen durch Krankheitstage am Arbeitsplatz.",
+      sourceName: "Yahoo Nachrichten (WHO / Weltbank)",
+      sources: [
+        {
+          name: "Yahoo Nachrichten — Globale Kosten von psychischen Störungen",
+          url: "https://es-us.noticias.yahoo.com/costo-global-ansiedad-depresi%C3%B3n-supera-150118561.html",
+        }
+      ],
+    },
+
     'spain-cost-raising-child': {
       title: 'Kosten für die Kindererziehung in Spanien (0–18 Jahre)',
       subtitle: 'Zwischen 115.000 € und 180.000 € Gesamtkosten im Durchschnitt; ca. 8.194 € pro Jahr und Kind',

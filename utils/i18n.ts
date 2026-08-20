@@ -2,6 +2,7 @@ import { Locale, Translations, SUPPORTED_LOCALES } from '@/types/i18n';
 import { SpendItem, CategoryInfo } from '@/types/spend';
 import { SPEND_ITEMS, CATEGORIES } from '@/data/spendData';
 import { COUNTRIES_GDP_DATA } from '@/data/countriesGdpData';
+import { COUNTRIES_DEBT_DATA } from '@/data/countriesDebtData';
 import { enTranslations } from '@/data/translations/en';
 import { esTranslations } from '@/data/translations/es';
 import { frTranslations } from '@/data/translations/fr';
@@ -58,7 +59,6 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
     // 4. Medios, Eventos y Estilismo (luxury)
     'netflix-annual-revenue',
     'amazon-prime-subscription-revenue',
-    'global-cosmetic-surgery-spending',
     'disney-dtc-streaming-revenue',
     'global-cinema-box-office-revenue',
     'la-velada-production-cost',
@@ -73,16 +73,25 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
     'spain-cost-raising-child',
 
     // 6. Gobierno y Presupuestos Públicos (government)
-    'global-space-exploration-spending',
-    'spain-subsidies-public-grants-spending',
+    'us-national-debt',
+    'spain-monarchy-spending',
     'spain-equality-ministry-budget',
+    'spain-subsidies-public-grants-spending',
+    'global-space-exploration-spending',
+    'un-annual-budget',
+    'uk-monarchy-spending',
 
     // 7. Salud y Sanidad Pública (health)
+    'global-pharmaceutical-spending',
+    'global-obesity-economic-cost',
     'economic-burden-of-tobacco',
+    'global-depression-anxiety-cost',
     'spain-public-healthcare-spending',
+    'global-cosmetic-surgery-spending',
+    'who-annual-budget',
   ];
 
-  const catOrder = ['illicit', 'military', 'sports', 'luxury', 'food', 'government', 'health', 'country-gdp'];
+  const catOrder = ['entertainment', 'government', 'health', 'food', 'illicit', 'military', 'country-gdp'];
 
   const localized = SPEND_ITEMS.map((item) => {
     const locItem = dict.items[item.id];
@@ -142,7 +151,46 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
           subtitle: locItem?.subtitle || subtitleText,
           description: locItem?.description || descText,
           sourceName: locItem?.sourceName || item.sourceName,
-          sources: locItem?.sources || sourcesList,
+        };
+      }
+    }
+
+    // Dynamic localization for country public debt counters
+    if (item.id.startsWith('debt-')) {
+      const countryData = COUNTRIES_DEBT_DATA.find((c) => c.id === item.id);
+      if (countryData) {
+        let countryName = countryData.nameEs;
+        let debtTitlePrefix = 'Deuda pública de';
+        let subtitleText = `Deuda nacional acumulada de ${countryName} en tiempo real`;
+        let descText = `La deuda pública acumulada de ${countryName} asciende a unos $${countryData.debtUSD.toLocaleString('es-ES', { maximumFractionDigits: 0 })} dólares estadounidenses (${countryData.year}), representando las obligaciones financieras pendientes de la administración pública de ${countryName}.`;
+
+        if (locale === 'en') {
+          countryName = countryData.nameEn;
+          debtTitlePrefix = 'Public Debt of';
+          subtitleText = `Official accumulated national public debt of ${countryName} in real time`;
+          descText = `The accumulated public debt of ${countryName} reaches approximately $${countryData.debtUSD.toLocaleString('en-US', { maximumFractionDigits: 0 })} USD (${countryData.year}), representing the outstanding financial obligations of the government of ${countryName}.`;
+        } else if (locale === 'fr') {
+          countryName = countryData.nameFr;
+          debtTitlePrefix = 'Dette publique de';
+          subtitleText = `Dette nationale accumulée de ${countryName} en temps réel`;
+          descText = `La dette publique accumulée de ${countryName} s'élève à environ $${countryData.debtUSD.toLocaleString('fr-FR', { maximumFractionDigits: 0 })} USD (${countryData.year}), représentant les obligations financières de l'État de ${countryName}.`;
+        } else if (locale === 'de') {
+          countryName = countryData.nameDe;
+          debtTitlePrefix = 'Staatsverschuldung von';
+          subtitleText = `Akkumulierte Staatsverschuldung von ${countryName} in Echtzeit`;
+          descText = `Die Staatsverschuldung von ${countryName} beläuft sich auf rund $${countryData.debtUSD.toLocaleString('de-DE', { maximumFractionDigits: 0 })} USD (${countryData.year}), was den ausstehenden finanziellen Verpflichtungen des Staates von ${countryName} entspricht.`;
+        } else if (locale === 'pt') {
+          countryName = countryData.namePt;
+          debtTitlePrefix = 'Dívida pública de';
+          subtitleText = `Dívida pública acumulada de ${countryName} em tempo real`;
+          descText = `A dívida pública acumulada de ${countryName} atinge aproximadamente $${countryData.debtUSD.toLocaleString('pt-PT', { maximumFractionDigits: 0 })} dólares USD (${countryData.year}), representando as obrigações financeiras do governo de ${countryName}.`;
+        }
+
+        return {
+          ...item,
+          title: locItem?.title || `${debtTitlePrefix} ${countryName}`,
+          subtitle: locItem?.subtitle || subtitleText,
+          description: locItem?.description || descText,
         };
       }
     }
