@@ -123,7 +123,8 @@ export const Header: React.FC<HeaderProps> = ({
   );
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname === homeHref) {
+    // Only intercept if we are on the exact home page without query params
+    if (pathname === homeHref && typeof window !== 'undefined' && !window.location.search) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -146,7 +147,7 @@ export const Header: React.FC<HeaderProps> = ({
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#245280] to-[#16385c] border-b border-[#0d233a] text-white shadow-md">
         {/* Row 1: Logo & Preferences Selectors */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+        <div className="max-w-4xl mx-auto px-3 sm:px-8 py-2 flex items-center justify-between gap-4">
           {/* Left Side: Brand Logo */}
           <Link
             href={homeHref}
@@ -207,10 +208,10 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Row 2: Secondary Navigation Menu (Transfermarkt Style UX) */}
-        <div className="bg-[#122e4d] border-t border-[#1e4670] py-1.5 px-3">
-          <div className="max-w-4xl mx-auto flex items-center justify-between gap-4 px-1 sm:px-6">
+        <div className="bg-[#122e4d] border-t border-[#1e4670] py-1.5 px-0">
+          <div className="max-w-4xl mx-auto flex items-center justify-between gap-4 px-3 sm:px-8">
             {/* Scrollable category list */}
-            <nav className="flex-1 overflow-x-auto scrollbar-none flex items-center justify-start md:justify-center gap-5 sm:gap-4 xl:gap-5 text-[10px] xl:text-[11px] font-black uppercase tracking-wider whitespace-nowrap pb-1 sm:pb-0">
+            <nav className="flex-1 overflow-x-auto scrollbar-none flex items-center justify-start gap-5 sm:gap-4 xl:gap-5 text-[10px] xl:text-[11px] font-black uppercase tracking-wider whitespace-nowrap pb-1 sm:pb-0">
               {/* Home */}
               <Link
                 href={homeHref}
@@ -283,6 +284,7 @@ export const Header: React.FC<HeaderProps> = ({
           </Link>
           <button
             type="button"
+            aria-label={locale === 'es' ? 'Cerrar menú' : 'Close menu'}
             onClick={() => setIsMenuOpen(false)}
             className="text-white hover:text-blue-200 p-1 cursor-pointer focus:outline-none rounded-xs hover:bg-[#245280]/50"
           >
@@ -341,8 +343,9 @@ export const Header: React.FC<HeaderProps> = ({
             
             {/* Timeframe Select */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-[10px] text-gray-400 font-semibold">{locale === 'es' ? 'Período' : 'Timeframe'}</label>
+              <label htmlFor="mobile-timeframe" className="text-[10px] text-gray-400 font-semibold">{locale === 'es' ? 'Período' : 'Timeframe'}</label>
               <select
+                id="mobile-timeframe"
                 value={timeframe}
                 onChange={(e) => {
                   setTimeframe(e.target.value as TimeframeMode);
@@ -360,8 +363,9 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* Currency Select */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-[10px] text-gray-400 font-semibold">{locale === 'es' ? 'Moneda' : 'Currency'}</label>
+              <label htmlFor="mobile-currency" className="text-[10px] text-gray-400 font-semibold">{locale === 'es' ? 'Moneda' : 'Currency'}</label>
               <select
+                id="mobile-currency"
                 value={currencyCode}
                 onChange={(e) => {
                   setCurrencyCode(e.target.value as CurrencyCode);
@@ -379,8 +383,9 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* Language Select */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-[10px] text-gray-400 font-semibold">{locale === 'es' ? 'Idioma' : 'Language'}</label>
+              <label htmlFor="mobile-language" className="text-[10px] text-gray-400 font-semibold">{locale === 'es' ? 'Idioma' : 'Language'}</label>
               <select
+                id="mobile-language"
                 value={locale}
                 onChange={(e) => {
                   handleLanguageChange(e.target.value as Locale);
