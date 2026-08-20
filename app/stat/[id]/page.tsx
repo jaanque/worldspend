@@ -21,6 +21,18 @@ export async function generateMetadata({ params }: StatPageProps): Promise<Metad
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      url: `https://worldspend.org/stat/${item.id}`,
+      siteName: 'WorldSpend.org',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary',
+      title: seo.title,
+      description: seo.description,
+    },
     alternates: {
       canonical: `https://worldspend.org/stat/${item.id}`,
       languages: {
