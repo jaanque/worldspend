@@ -141,6 +141,7 @@ export const enTranslations: Translations = {
     citationText: 'Cite as: WorldSpend Global Expenditure Index (2026). Available at https://worldspend.org',
   },
     categories: {
+    tech: { name: 'Technology & Crypto', description: 'Artificial intelligence, cloud computing, servers, and cryptocurrencies' },
     all: { name: 'All Expenditures', description: 'Complete real-time global financial overview' },
     entertainment: { name: 'Entertainment & Brands', description: 'Sports, streaming, video games, and global brands' },
     government: { name: 'Government & Public Sector', description: 'Public budgets, aid, space exploration, and ministries' },
@@ -151,6 +152,54 @@ export const enTranslations: Translations = {
     'country-gdp': { name: 'GDP by Country', description: 'Gross Domestic Product (nominal GDP) of countries in real-time' },
   },
   items: {
+    'global-web-hosting-market': {
+      title: "Web Hosting Market",
+      subtitle: "The global web hosting services market generates approximately 178.76 billion dollars annually",
+      description: "Global spending on web hosting services, including shared, dedicated, VPS, and cloud hosting, reaches approximately 178.76 billion dollars annually. This market is the bedrock supporting the entire ecosystem of websites and applications on the Internet.",
+      sourceName: "Fortune Business Insights",
+      sources: [
+        {
+          name: "Fortune Business Insights — Web Hosting Services Market Size, Share & COVID-19 Impact Analysis",
+          url: "https://www.fortunebusinessinsights.com/es/industry-reports/web-hosting-services-market-100863",
+        }
+      ],
+    },
+    'apple-annual-revenue': {
+      title: "Apple Revenue",
+      subtitle: "Apple's estimated annual revenue reaches 437.6 billion dollars, based on its latest record quarter",
+      description: "Apple's estimated annual revenue amounts to approximately 437.6 billion dollars, projected from the record quarter closed in June 2026 with 109.4 billion dollars. This record-breaking financial performance was primarily driven by a 22% growth in global iPhone sales.",
+      sourceName: "Infobae",
+      sources: [
+        {
+          name: "Infobae — Apple bate récord de ingresos en su último trimestre",
+          url: "https://www.infobae.com/estados-unidos/2026/08/02/apple-bate-record-de-ingresos-antes-de-la-salida-de-tim-cook/",
+        }
+      ],
+    },
+    'global-ai-spending': {
+      title: "Global AI Spending",
+      subtitle: "Corporate spending on artificial intelligence worldwide will exceed 2.5 trillion dollars annually",
+      description: "Global spending on artificial intelligence (AI) technology, infrastructure, and services will exceed 2.5 trillion dollars. This unprecedented growth is driven by the enterprise adoption of generative AI, construction of hyper-scale data centers, and corporate process automation.",
+      sourceName: "RTVE News",
+      sources: [
+        {
+          name: "RTVE — Gasto récord en Inteligencia Artificial",
+          url: "https://www.rtve.es/noticias/20260702/inteligencia-artificial-cuesta-mas-personal-marca-record-gasto-empresas/17084006.shtml",
+        }
+      ],
+    },
+    'crypto-mining-electricity-cost': {
+      title: "Crypto Mining Electricity Cost",
+      subtitle: "Global electricity spending for cryptocurrency mining ranges between 10 and 15 billion dollars per year",
+      description: "The cost of electricity consumed globally for cryptocurrency mining (primarily Bitcoin) is estimated at 10 to 15 billion dollars annually. This represents a significant portion of global power consumption, driven by the continuous operation of powerful specialized server farms (ASICs).",
+      sourceName: "Digiconomist (Bitcoin Energy Consumption)",
+      sources: [
+        {
+          name: "Digiconomist — Bitcoin Energy Consumption Index",
+          url: "https://digiconomist.net/bitcoin-energy-consumption/",
+        }
+      ],
+    },
     'julian-alvarez-market-value': {
       title: "Julián Álvarez Market Value",
       subtitle: "The estimated market valuation of player Julián Álvarez is 100 million euros",

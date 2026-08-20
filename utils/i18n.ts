@@ -102,9 +102,15 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
     'spain-public-healthcare-spending',
     'global-cosmetic-surgery-spending',
     'who-annual-budget',
+
+    // 8. Tecnología y Cripto (tech)
+    'global-ai-spending',
+    'apple-annual-revenue',
+    'global-web-hosting-market',
+    'crypto-mining-electricity-cost',
   ];
 
-  const catOrder = ['entertainment', 'government', 'health', 'food', 'illicit', 'military', 'country-gdp'];
+  const catOrder = ['entertainment', 'government', 'health', 'food', 'tech', 'illicit', 'military', 'country-gdp'];
 
   const localized = SPEND_ITEMS.map((item) => {
     const locItem = dict.items[item.id];

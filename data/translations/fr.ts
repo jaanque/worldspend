@@ -137,6 +137,7 @@ export const frTranslations: Translations = {
     citationText: 'Citer comme : WorldSpend Analytics (2026). Indicateurs des Dépenses Mondiales en Direct. Disponible sur https://worldspend.org',
   },
     categories: {
+    tech: { name: 'Technologie & Crypto', description: 'Intelligence artificielle, cloud computing, serveurs et crypto-monnaies' },
     all: { name: 'Toutes les Dépenses', description: 'Aperçu financier mondial complet en temps réel' },
     entertainment: { name: 'Divertissement et Marques', description: 'Sports, streaming, jeux vidéo et grandes marques mondiales' },
     government: { name: 'Gouvernement et Secteur Public', description: 'Budgets publics, aides, exploration spatiale et ministères' },
@@ -147,6 +148,54 @@ export const frTranslations: Translations = {
     'country-gdp': { name: 'PIB par Pays', description: 'Produit Intérieur Brut (PIB nominal) des pays en temps réel' },
   },
   items: {
+    'global-web-hosting-market': {
+      title: "Marché de l'hébergement web",
+      subtitle: "Le marché mondial des services d'hébergement web génère environ 178,76 milliards de dollars par an",
+      description: "Les dépenses mondiales en services d'hébergement web, y compris l'hébergement mutualisé, dédié, VPS et cloud, s'élèvent à environ 178,76 milliards de dollars par an. Ce marché est le socle sur lequel repose tout l'écosystème des sites web et applications sur Internet.",
+      sourceName: "Fortune Business Insights",
+      sources: [
+        {
+          name: "Fortune Business Insights — Web Hosting Services Market Size, Share & COVID-19 Impact Analysis",
+          url: "https://www.fortunebusinessinsights.com/es/industry-reports/web-hosting-services-market-100863",
+        }
+      ],
+    },
+    'apple-annual-revenue': {
+      title: "Revenus d'Apple",
+      subtitle: "Les revenus annuels estimés d'Apple atteignent 437,6 milliards de dollars, basés sur son dernier trimestre record",
+      description: "Les revenus annuels estimés d'Apple s'élèvent à environ 437,6 milliards de dollars, projetés à partir du trimestre record clos en juin 2026 avec 109,4 milliards de dollars. Cette performance financière record a été principalement tirée par une croissance de 22% des ventes mondiales d'iPhone.",
+      sourceName: "Infobae",
+      sources: [
+        {
+          name: "Infobae — Apple bate récord de ingresos en su último trimestre",
+          url: "https://www.infobae.com/estados-unidos/2026/08/02/apple-bate-record-de-ingresos-antes-de-la-salida-de-tim-cook/",
+        }
+      ],
+    },
+    'global-ai-spending': {
+      title: "Dépenses mondiales en Intelligence Artificielle",
+      subtitle: "Les dépenses des entreprises en intelligence artificielle dans le monde dépasseront 2,5 billions de dollars par an",
+      description: "Les dépenses mondiales en technologies, infrastructures et services d'Intelligence Artificielle (IA) dépasseront 2,5 billions de dollars. Cette croissance sans précédent est portée par l'adoption de l'IA générative par les entreprises, la construction de méga-centres de données et l'automatisation des processus.",
+      sourceName: "RTVE Actualités",
+      sources: [
+        {
+          name: "RTVE — Gasto récord en Inteligencia Artificial",
+          url: "https://www.rtve.es/noticias/20260702/inteligencia-artificial-cuesta-mas-personal-marca-record-gasto-empresas/17084006.shtml",
+        }
+      ],
+    },
+    'crypto-mining-electricity-cost': {
+      title: "Coût électrique du minage de crypto",
+      subtitle: "Les dépenses mondiales en électricité pour le minage de crypto-monnaies oscillent entre 10 et 15 milliards de dollars par an",
+      description: "Le coût de l'électricité consommée dans le monde pour le minage de crypto-monnaies (principalement le Bitcoin) est estimé entre 10 et 15 milliards de dollars par an. Cela représente une part importante de la consommation d'électricité mondiale, en raison du fonctionnement continu de fermes de serveurs spécialisées (ASICs).",
+      sourceName: "Digiconomist (Bitcoin Energy Consumption)",
+      sources: [
+        {
+          name: "Digiconomist — Bitcoin Energy Consumption Index",
+          url: "https://digiconomist.net/bitcoin-energy-consumption/",
+        }
+      ],
+    },
     'julian-alvarez-market-value': {
       title: "Valeur marchande de Julián Álvarez",
       subtitle: "La valeur marchande estimée du joueur Julián Álvarez est de 100 millions d'euros",

@@ -21,6 +21,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
     government: 'Gobierno',
     health: 'Salud',
     'country-gdp': 'PIB',
+    tech: 'Tecnología',
   },
   en: {
     illicit: 'Black Market',
@@ -30,6 +31,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
     government: 'Government',
     health: 'Health',
     'country-gdp': 'GDP',
+    tech: 'Tech',
   },
   fr: {
     illicit: 'Marché Noir',
@@ -39,6 +41,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
     government: 'Gouvernement',
     health: 'Santé',
     'country-gdp': 'PIB',
+    tech: 'Tech',
   },
   de: {
     illicit: 'Schwarzmarkt',
@@ -48,6 +51,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
     government: 'Staat',
     health: 'Gesundheit',
     'country-gdp': 'BIP',
+    tech: 'Tech',
   },
   pt: {
     illicit: 'Mercado Negro',
@@ -57,6 +61,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
     government: 'Governo',
     health: 'Saúde',
     'country-gdp': 'PIB',
+    tech: 'Tecnologia',
   }
 };
 

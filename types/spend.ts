@@ -18,7 +18,8 @@ export type CategoryId =
   | 'food'
   | 'illicit'
   | 'military'
-  | 'country-gdp';
+  | 'country-gdp'
+  | 'tech';
 
 export interface CategoryInfo {
   id: CategoryId;

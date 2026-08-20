@@ -113,6 +113,15 @@ export const CATEGORIES: CategoryInfo[] = [
     badgeBorder: 'rgba(16, 185, 129, 0.3)',
     description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real',
   },
+  {
+    id: 'tech',
+    name: 'Tecnología y Cripto',
+    iconName: 'Cpu',
+    color: '#06b6d4',
+    badgeBg: 'rgba(6, 182, 212, 0.12)',
+    badgeBorder: 'rgba(6, 182, 212, 0.3)',
+    description: 'Inteligencia artificial, computación en la nube, servidores y criptomonedas',
+  },
 ];
 
 export const SPEND_ITEMS: SpendItem[] = [
@@ -137,6 +146,94 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     sourceYear: 2026,
     tags: ['eeuu', 'deuda nacional', 'gobierno', 'economia', 'presupuesto', 'usa'],
+  },
+  // Ingresos de Apple (Infobae)
+  {
+    id: 'apple-annual-revenue',
+    categoryId: 'tech',
+    title: 'Ingresos de Apple',
+    subtitle: 'Los ingresos anuales estimados de Apple alcanzan los 437.600 millones de dólares, basados en su último trimestre récord',
+    annualSpendUSD: 437600000000, // $437.600 millones de USD ($437,6B USD)
+    growthRatePct: 5.5,
+    iconName: 'Smartphone',
+    accentColor: '#a3a3a3', // Apple Silver
+    description: 'Los ingresos anuales estimados de Apple ascienden a aproximadamente 437.600 millones de dólares, proyectados a partir del trimestre récord cerrado en junio de 2026 con 109.400 millones de dólares. Este rendimiento financiero récord estuvo impulsado principalmente por un crecimiento del 22% en las ventas globales de iPhone.',
+    sourceName: 'Infobae',
+    sourceUrl: 'https://www.infobae.com/estados-unidos/2026/08/02/apple-bate-record-de-ingresos-antes-de-la-salida-de-tim-cook/',
+    sources: [
+      {
+        name: 'Infobae — Apple bate récord de ingresos en su último trimestre',
+        url: 'https://www.infobae.com/estados-unidos/2026/08/02/apple-bate-record-de-ingresos-antes-de-la-salida-de-tim-cook/',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['apple', 'ingresos', 'iphone', 'tecnología', 'ventas', 'empresas', 'hardware', 'finanzas'],
+  },
+  // Gasto global en Inteligencia Artificial (RTVE)
+  {
+    id: 'global-ai-spending',
+    categoryId: 'tech',
+    title: 'Gasto global en Inteligencia Artificial',
+    subtitle: 'El gasto de las empresas en inteligencia artificial a nivel mundial superará los 2,5 billones de dólares anuales',
+    annualSpendUSD: 2500000000000, // 2,5 billones (trillions en inglés) de USD
+    growthRatePct: 25.0,
+    iconName: 'Cpu',
+    accentColor: '#06b6d4', // Cyan
+    description: 'El gasto mundial en tecnología, infraestructura y servicios de Inteligencia Artificial (IA) superará los 2,5 billones de dólares. Este incremento sin precedentes está impulsado por la adopción de la IA generativa por parte de las empresas, la construcción de mega centros de datos y la automatización de procesos corporativos.',
+    sourceName: 'RTVE Noticias',
+    sourceUrl: 'https://www.rtve.es/noticias/20260702/inteligencia-artificial-cuesta-mas-personal-marca-record-gasto-empresas/17084006.shtml',
+    sources: [
+      {
+        name: 'RTVE — Gasto récord en Inteligencia Artificial',
+        url: 'https://www.rtve.es/noticias/20260702/inteligencia-artificial-cuesta-mas-personal-marca-record-gasto-empresas/17084006.shtml',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['inteligencia artificial', 'ia', 'tecnología', 'gasto global', 'empresas', 'datos', 'servidores'],
+  },
+  // Mercado global de hosting web (Fortune Business Insights)
+  {
+    id: 'global-web-hosting-market',
+    categoryId: 'tech',
+    title: 'Mercado de alojamiento web (Hosting)',
+    subtitle: 'El mercado global de servicios de alojamiento web genera unos 178.760 millones de dólares anuales',
+    annualSpendUSD: 178760000000, // 178.760 millones de USD ($178,76B USD)
+    growthRatePct: 15.0,
+    iconName: 'Server',
+    accentColor: '#0ea5e9', // Sky Blue
+    description: 'El gasto global en servicios de alojamiento web (hosting), que incluye servidores compartidos, dedicados, VPS y hosting en la nube (cloud hosting), asciende a aproximadamente 178.760 millones de dólares anuales. Este mercado es la base sobre la que se apoya todo el ecosistema de sitios web y aplicaciones en Internet.',
+    sourceName: 'Fortune Business Insights',
+    sourceUrl: 'https://www.fortunebusinessinsights.com/es/industry-reports/web-hosting-services-market-100863',
+    sources: [
+      {
+        name: 'Fortune Business Insights — Web Hosting Services Market',
+        url: 'https://www.fortunebusinessinsights.com/es/industry-reports/web-hosting-services-market-100863',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['alojamiento web', 'hosting', 'servidores', 'tecnología', 'nube', 'cloud', 'internet'],
+  },
+  // Gasto eléctrico en minería de criptomonedas (Digiconomist)
+  {
+    id: 'crypto-mining-electricity-cost',
+    categoryId: 'tech',
+    title: 'Gasto eléctrico en minería cripto',
+    subtitle: 'El costo de la electricidad consumida a nivel mundial por la minería de criptomonedas supera los 12.500 millones de dólares al año',
+    annualSpendUSD: 12500000000, // 12.500 millones de USD ($12,5B USD)
+    growthRatePct: 6.5,
+    iconName: 'Coins',
+    accentColor: '#f59e0b', // Bitcoin Gold
+    description: 'El costo de la electricidad consumida a nivel mundial para la minería de criptomonedas (principalmente Bitcoin) se estima entre 10.000 y 15.000 millones de dólares anuales. Esto representa una porción considerable del consumo eléctrico global, impulsado por el funcionamiento continuo de potentes granjas de servidores especializados (ASICs).',
+    sourceName: 'Digiconomist (Bitcoin Energy Consumption)',
+    sourceUrl: 'https://digiconomist.net/bitcoin-energy-consumption/',
+    sources: [
+      {
+        name: 'Digiconomist — Bitcoin Energy Consumption Index',
+        url: 'https://digiconomist.net/bitcoin-energy-consumption/',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['criptomonedas', 'electricidad', 'energía', 'bitcoin', 'minería', 'servidores', 'tecnología', 'gasto eléctrico'],
   },
   // Gasto en la Monarquía Española
   {
