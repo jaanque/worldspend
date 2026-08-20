@@ -21,6 +21,18 @@ export function getDictionary(locale: Locale = 'en'): Translations {
   return dictionaries[locale] || dictionaries.en;
 }
 
+export function slugify(text: string): string {
+  return text
+    .toString()
+    .toLowerCase()
+    .normalize('NFD') // splits accents into base characters
+    .replace(/[\u0300-\u036f]/g, '') // removes accents
+    .replace(/[^a-z0-9\s-]/g, '') // removes non-alphanumeric except spaces/hyphens
+    .trim()
+    .replace(/\s+/g, '-') // replaces spaces with single hyphen
+    .replace(/-+/g, '-'); // replaces duplicate hyphens
+}
+
 export function isValidLocale(locale: string): locale is Locale {
   return locale in SUPPORTED_LOCALES;
 }
@@ -242,13 +254,15 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
       }
     }
 
+    const title = locItem?.title || item.title;
     return {
       ...item,
-      title: locItem?.title || item.title,
+      title,
       subtitle: locItem?.subtitle || item.subtitle,
       description: locItem?.description || item.description,
       sourceName: locItem?.sourceName || item.sourceName,
       sources: locItem?.sources || item.sources,
+      slug: slugify(title),
     };
   });
 
@@ -355,13 +369,16 @@ export function generateDetailSEO(item: SpendItem, locale: Locale) {
  */
 export function getLocalizedPath(targetLocale: Locale, currentPathname: string): string {
   let cleanPath = currentPathname;
+  let currentLocale: Locale = 'en';
   for (const loc of Object.keys(SUPPORTED_LOCALES)) {
     if (cleanPath === `/${loc}`) {
       cleanPath = '/';
+      currentLocale = loc as Locale;
       break;
     }
     if (cleanPath.startsWith(`/${loc}/`)) {
       cleanPath = cleanPath.substring(loc.length + 1);
+      currentLocale = loc as Locale;
       break;
     }
   }
@@ -370,9 +387,99 @@ export function getLocalizedPath(targetLocale: Locale, currentPathname: string):
     cleanPath = '/';
   }
 
+  // Handle static page slug translations
+  const staticPagesList = ['calculator', 'cookies', 'privacy', 'terms', 'legal'];
+  for (const page of staticPagesList) {
+    const currentLangSlug = getLocalizedPageSlug(page, currentLocale);
+    if (cleanPath === `/${currentLangSlug}` || cleanPath === `/${currentLangSlug}/`) {
+      const targetSlug = getLocalizedPageSlug(page, targetLocale);
+      return targetLocale === 'en' ? `/${targetSlug}` : `/${targetLocale}/${targetSlug}`;
+    }
+  }
+
+  // Handle stat slug translations
+  if (cleanPath.startsWith('/stat/')) {
+    const currentSlug = cleanPath.substring('/stat/'.length);
+    const currentItems = getLocalizedSpendItems(currentLocale);
+    const item = currentItems.find((s) => s.slug === currentSlug || s.id === currentSlug);
+    if (item) {
+      const targetItems = getLocalizedSpendItems(targetLocale);
+      const targetItem = targetItems.find((s) => s.id === item.id);
+      if (targetItem) {
+        const targetSlug = targetItem.slug || item.id;
+        return targetLocale === 'en' ? `/stat/${targetSlug}` : `/${targetLocale}/stat/${targetSlug}`;
+      }
+    }
+  }
+
+  // Handle embed slug translations
+  if (cleanPath.startsWith('/embed/')) {
+    const currentSlug = cleanPath.substring('/embed/'.length).split('?')[0];
+    const query = cleanPath.includes('?') ? cleanPath.substring(cleanPath.indexOf('?')) : '';
+    const currentItems = getLocalizedSpendItems(currentLocale);
+    const item = currentItems.find((s) => s.slug === currentSlug || s.id === currentSlug);
+    if (item) {
+      const targetItems = getLocalizedSpendItems(targetLocale);
+      const targetItem = targetItems.find((s) => s.id === item.id);
+      if (targetItem) {
+        const targetSlug = targetItem.slug || item.id;
+        return targetLocale === 'en' ? `/embed/${targetSlug}${query}` : `/${targetLocale}/embed/${targetSlug}${query}`;
+      }
+    }
+  }
+
   if (targetLocale === 'en') {
     return cleanPath;
   }
 
   return cleanPath === '/' ? `/${targetLocale}` : `/${targetLocale}${cleanPath}`;
+}
+
+export const STATIC_PAGES_SLUGS: Record<Locale, Record<string, string>> = {
+  en: {
+    calculator: 'calculator',
+    cookies: 'cookies',
+    privacy: 'privacy',
+    terms: 'terms',
+    legal: 'legal',
+  },
+  es: {
+    calculadora: 'calculator',
+    cookies: 'cookies',
+    privacidad: 'privacy',
+    condiciones: 'terms',
+    legal: 'legal',
+  },
+  fr: {
+    calculatrice: 'calculator',
+    cookies: 'cookies',
+    confidentialite: 'privacy',
+    conditions: 'terms',
+    mentions: 'legal',
+  },
+  de: {
+    rechner: 'calculator',
+    cookies: 'cookies',
+    datenschutz: 'privacy',
+    bedingungen: 'terms',
+    impressum: 'legal',
+  },
+  pt: {
+    calculadora: 'calculator',
+    cookies: 'cookies',
+    privacidade: 'privacy',
+    termos: 'terms',
+    legal: 'legal',
+  },
+};
+
+export function getLocalizedPageSlug(page: string, locale: Locale): string {
+  const dictionary = STATIC_PAGES_SLUGS[locale] || STATIC_PAGES_SLUGS.en;
+  const entry = Object.entries(dictionary).find(([key, val]) => val === page);
+  return entry ? entry[0] : page;
+}
+
+export function getTechnicalPageFromSlug(slug: string, locale: Locale): string | undefined {
+  const dictionary = STATIC_PAGES_SLUGS[locale] || STATIC_PAGES_SLUGS.en;
+  return dictionary[slug];
 }

@@ -53,7 +53,8 @@ export const CounterCard: React.FC<CounterCardProps> = ({
 
   const handleCardClick = () => {
     if (!showEmbedBox) {
-      const targetPath = locale === 'en' ? `/stat/${item.id}` : `/${locale}/stat/${item.id}`;
+      const slug = item.slug || item.id;
+      const targetPath = locale === 'en' ? `/stat/${slug}` : `/${locale}/stat/${slug}`;
       router.push(targetPath);
     }
   };

@@ -55,6 +55,46 @@ export function middleware(request: NextRequest) {
     (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
   );
 
+  // Localized static page slug handling (calculator, cookies, privacy, terms, legal)
+  let locale: 'en' | NonEnglishLocale = 'en';
+  let cleanPath = pathname;
+  const matchedLocale = SUPPORTED_LOCALES.find(
+    (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
+  );
+  if (matchedLocale) {
+    locale = matchedLocale;
+    cleanPath = pathname.substring(matchedLocale.length + 1);
+  }
+  if (cleanPath === '') cleanPath = '/';
+
+  const requestedSlug = cleanPath.startsWith('/') ? cleanPath.substring(1) : cleanPath;
+  const staticSlugs: Record<string, Record<string, string>> = {
+    en: { calculator: 'calculator', cookies: 'cookies', privacy: 'privacy', terms: 'terms', legal: 'legal' },
+    es: { calculadora: 'calculator', cookies: 'cookies', privacidad: 'privacy', condiciones: 'terms', legal: 'legal' },
+    fr: { calculatrice: 'calculator', cookies: 'cookies', confidentialite: 'privacy', conditions: 'terms', mentions: 'legal' },
+    de: { rechner: 'calculator', cookies: 'cookies', datenschutz: 'privacy', bedingungen: 'terms', impressum: 'legal' },
+    pt: { calculadora: 'calculator', cookies: 'cookies', privacidade: 'privacy', termos: 'terms', legal: 'legal' },
+  };
+
+  const dictionary = staticSlugs[locale] || staticSlugs.en;
+  
+  // 1. If requesting a localized slug, rewrite it internally to the technical page
+  const technicalPage = dictionary[requestedSlug];
+  if (technicalPage) {
+    const targetUrl = new URL(locale === 'en' ? `/${technicalPage}` : `/${locale}/${technicalPage}`, request.url);
+    targetUrl.search = request.nextUrl.search;
+    return NextResponse.rewrite(targetUrl);
+  }
+
+  // 2. If requesting a raw technical page directly, redirect them to the localized slug
+  const reversedEntry = Object.entries(dictionary).find(([key, val]) => val === requestedSlug);
+  if (reversedEntry) {
+    const localizedSlug = reversedEntry[0];
+    const targetUrl = new URL(locale === 'en' ? `/${localizedSlug}` : `/${locale}/${localizedSlug}`, request.url);
+    targetUrl.search = request.nextUrl.search;
+    return NextResponse.redirect(targetUrl);
+  }
+
   // If user is already on a localized route, save/update their preferred locale cookie
   if (pathnameHasLocale) {
     const currentLocale = pathname.split('/')[1];

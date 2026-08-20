@@ -92,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({
               {popularItems.map((item) => (
                 <li key={item.id} className="truncate">
                   <Link
-                    href={getHref(`/stat/${item.id}`)}
+                    href={getHref(`/stat/${item.slug || item.id}`)}
                     className="hover:text-[#1c4b78] hover:underline"
                     title={item.title}
                   >

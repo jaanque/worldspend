@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import { getLocalizedSpendItems } from '@/utils/i18n';
 
 interface CounterRedirectProps {
   params: Promise<{ id: string }>;
@@ -6,5 +7,8 @@ interface CounterRedirectProps {
 
 export default async function CounterRedirectPage({ params }: CounterRedirectProps) {
   const resolvedParams = await params;
-  redirect(`/stat/${resolvedParams.id}`);
+  const items = getLocalizedSpendItems('en');
+  const item = items.find(s => s.id === resolvedParams.id);
+  const slug = item?.slug || resolvedParams.id;
+  redirect(`/stat/${slug}`);
 }

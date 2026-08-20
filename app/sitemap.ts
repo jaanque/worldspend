@@ -1,8 +1,10 @@
 import { MetadataRoute } from 'next';
 import { SPEND_ITEMS } from '@/data/spendData';
+import { getLocalizedSpendItems, getLocalizedPageSlug } from '@/utils/i18n';
+import { Locale } from '@/types/i18n';
 
 const BASE_URL = 'https://worldspend.org';
-const LOCALES = ['es', 'fr', 'de', 'pt'];
+const LOCALES: Locale[] = ['es', 'fr', 'de', 'pt'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [];
@@ -39,19 +41,59 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
+  // Static Pages (Calculator, Cookies, Privacy, Terms, Legal)
+  const staticPages = ['calculator', 'cookies', 'privacy', 'terms', 'legal'];
+  staticPages.forEach((page) => {
+    const pageLanguages = {
+      'en': `${BASE_URL}/${getLocalizedPageSlug(page, 'en')}`,
+      'es': `${BASE_URL}/es/${getLocalizedPageSlug(page, 'es')}`,
+      'fr': `${BASE_URL}/fr/${getLocalizedPageSlug(page, 'fr')}`,
+      'de': `${BASE_URL}/de/${getLocalizedPageSlug(page, 'de')}`,
+      'pt': `${BASE_URL}/pt/${getLocalizedPageSlug(page, 'pt')}`,
+    };
+
+    // English static page
+    routes.push({
+      url: pageLanguages['en'],
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+      alternates: {
+        languages: pageLanguages,
+      },
+    });
+
+    // Localized static pages
+    LOCALES.forEach((locale) => {
+      routes.push({
+        url: pageLanguages[locale],
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.6,
+        alternates: {
+          languages: pageLanguages,
+        },
+      });
+    });
+  });
+
   // Individual counter stat pages for all items and locales
   SPEND_ITEMS.forEach((item) => {
-    const itemLanguages = {
-      'en': `${BASE_URL}/stat/${item.id}`,
-      'es': `${BASE_URL}/es/stat/${item.id}`,
-      'fr': `${BASE_URL}/fr/stat/${item.id}`,
-      'de': `${BASE_URL}/de/stat/${item.id}`,
-      'pt': `${BASE_URL}/pt/stat/${item.id}`,
-    };
+    const itemLanguages: Record<string, string> = {};
+    const localesList: Locale[] = ['en', 'es', 'fr', 'de', 'pt'];
+    
+    localesList.forEach((loc) => {
+      const locItems = getLocalizedSpendItems(loc);
+      const locItem = locItems.find((s) => s.id === item.id);
+      const slug = locItem?.slug || item.id;
+      itemLanguages[loc] = loc === 'en'
+        ? `${BASE_URL}/stat/${slug}`
+        : `${BASE_URL}/${loc}/stat/${slug}`;
+    });
 
     // English detail page
     routes.push({
-      url: `${BASE_URL}/stat/${item.id}`,
+      url: itemLanguages['en'],
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
@@ -63,7 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Localized detail pages
     LOCALES.forEach((locale) => {
       routes.push({
-        url: `${BASE_URL}/${locale}/stat/${item.id}`,
+        url: itemLanguages[locale],
         lastModified: new Date(),
         changeFrequency: 'daily',
         priority: 0.8,

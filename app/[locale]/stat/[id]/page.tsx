@@ -17,11 +17,27 @@ export async function generateMetadata({ params }: LocalizedStatPageProps): Prom
 
   const locale = resolvedParams.locale as Locale;
   const items = getLocalizedSpendItems(locale);
-  const item = items.find((s) => s.id === resolvedParams.id);
+  const item = items.find((s) => s.slug === resolvedParams.id || s.id === resolvedParams.id);
 
   if (!item) return {};
 
   const seo = generateDetailSEO(item, locale);
+
+  const canonicalSlug = item.slug || item.id;
+  const canonicalUrl = `https://worldspend.org/${locale}/stat/${canonicalSlug}`;
+
+  const langAlternates: Record<string, string> = {};
+  const locales: Locale[] = ['en', 'es', 'fr', 'de', 'pt'];
+  locales.forEach((loc) => {
+    const targetItems = getLocalizedSpendItems(loc);
+    const targetItem = targetItems.find((s) => s.id === item.id);
+    if (targetItem) {
+      const targetSlug = targetItem.slug || item.id;
+      langAlternates[loc] = loc === 'en'
+        ? `https://worldspend.org/stat/${targetSlug}`
+        : `https://worldspend.org/${loc}/stat/${targetSlug}`;
+    }
+  });
 
   return {
     title: seo.title,
@@ -30,7 +46,7 @@ export async function generateMetadata({ params }: LocalizedStatPageProps): Prom
     openGraph: {
       title: seo.title,
       description: seo.description,
-      url: `https://worldspend.org/${locale}/stat/${item.id}`,
+      url: canonicalUrl,
       siteName: 'WorldSpend.org',
       type: 'article',
     },
@@ -40,14 +56,10 @@ export async function generateMetadata({ params }: LocalizedStatPageProps): Prom
       description: seo.description,
     },
     alternates: {
-      canonical: `https://worldspend.org/${locale}/stat/${item.id}`,
+      canonical: canonicalUrl,
       languages: {
-        'en': `https://worldspend.org/stat/${item.id}`,
-        'es': `https://worldspend.org/es/stat/${item.id}`,
-        'fr': `https://worldspend.org/fr/stat/${item.id}`,
-        'de': `https://worldspend.org/de/stat/${item.id}`,
-        'pt': `https://worldspend.org/pt/stat/${item.id}`,
-        'x-default': `https://worldspend.org/stat/${item.id}`,
+        ...langAlternates,
+        'x-default': langAlternates['en'],
       },
     },
   };
@@ -62,18 +74,20 @@ export default function LocalizedStatPage({ params }: LocalizedStatPageProps) {
 
   const locale = resolvedParams.locale as Locale;
   const items = getLocalizedSpendItems(locale);
-  const item = items.find((s) => s.id === resolvedParams.id);
+  const item = items.find((s) => s.slug === resolvedParams.id || s.id === resolvedParams.id);
 
   if (!item) {
     return notFound();
   }
+
+  const canonicalSlug = item.slug || item.id;
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     'name': item.title,
     'description': item.description,
-    'url': `https://worldspend.org/${locale}/stat/${item.id}`,
+    'url': `https://worldspend.org/${locale}/stat/${canonicalSlug}`,
     'creator': {
       '@type': 'Organization',
       'name': 'WorldSpend.org',
@@ -92,7 +106,7 @@ export default function LocalizedStatPage({ params }: LocalizedStatPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CounterDetailView id={resolvedParams.id} locale={resolvedParams.locale as Locale} />
+      <CounterDetailView id={item.id} locale={resolvedParams.locale as Locale} />
     </Suspense>
   );
 }

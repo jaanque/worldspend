@@ -58,6 +58,7 @@ export interface SpendItem {
   }[];
   countryCode?: string; // e.g. 'ES', 'US', 'GLOBAL', etc.
   countryName?: string; // e.g. 'España', 'Estados Unidos', 'Mundial'
+  slug?: string; // Localized URL friendly slug
   curiosities?: string[];
   impactFact?: string;
   tags: string[];
