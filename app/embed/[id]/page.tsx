@@ -1,5 +1,13 @@
 import { use } from 'react';
 import { EmbedView } from '@/components/EmbedView';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 interface EmbedPageProps {
   params: Promise<{ id: string }>;

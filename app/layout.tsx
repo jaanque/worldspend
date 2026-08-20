@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { CookieBanner } from '@/components/CookieBanner';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://worldspend.org'),
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#edf1f5] text-[#222222] min-h-screen antialiased">
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

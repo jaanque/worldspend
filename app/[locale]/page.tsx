@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { isValidLocale, getDictionary } from '@/utils/i18n';
 import { HomeView } from '@/components/HomeView';
@@ -43,5 +43,9 @@ export default function LocalizedHomePage({ params }: LocalizedHomePageProps) {
     return notFound();
   }
 
-  return <HomeView locale={resolvedParams.locale as Locale} />;
+  return (
+    <Suspense fallback={null}>
+      <HomeView locale={resolvedParams.locale as Locale} />
+    </Suspense>
+  );
 }

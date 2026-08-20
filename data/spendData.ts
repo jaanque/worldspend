@@ -50,24 +50,6 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Complete real-time global financial overview',
   },
   {
-    id: 'country-gdp',
-    name: 'PIB por Países',
-    iconName: 'Globe2',
-    color: '#10b981',
-    badgeBg: 'rgba(16, 185, 129, 0.12)',
-    badgeBorder: 'rgba(16, 185, 129, 0.3)',
-    description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real',
-  },
-  {
-    id: 'food',
-    name: 'Alimentación y Consumo',
-    iconName: 'ShoppingBag',
-    color: '#10b981',
-    badgeBg: 'rgba(16, 185, 129, 0.12)',
-    badgeBorder: 'rgba(16, 185, 129, 0.3)',
-    description: 'Cesta de la compra, alimentación de los hogares y consumo alimenticio',
-  },
-  {
     id: 'illicit',
     name: 'Actividad Criminal y Narcotráfico',
     iconName: 'ShieldAlert',
@@ -86,6 +68,15 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Presupuestos de defensa mundiales, armamento y fuerzas armadas',
   },
   {
+    id: 'sports',
+    name: 'Deportes y Grandes Eventos',
+    iconName: 'Trophy',
+    color: '#f97316',
+    badgeBg: 'rgba(249, 115, 22, 0.12)',
+    badgeBorder: 'rgba(249, 115, 22, 0.3)',
+    description: 'Organización de grandes eventos deportivos mundiales, Juegos Olímpicos y competiciones internacionales',
+  },
+  {
     id: 'luxury',
     name: 'Medios, Eventos y Entretenimiento',
     iconName: 'Tv',
@@ -93,6 +84,15 @@ export const CATEGORIES: CategoryInfo[] = [
     badgeBg: 'rgba(139, 92, 246, 0.12)',
     badgeBorder: 'rgba(139, 92, 246, 0.3)',
     description: 'Megaproducciones de streaming, espectáculos en vivo y grandes eventos de entretenimiento',
+  },
+  {
+    id: 'food',
+    name: 'Alimentación y Consumo',
+    iconName: 'ShoppingBag',
+    color: '#10b981',
+    badgeBg: 'rgba(16, 185, 129, 0.12)',
+    badgeBorder: 'rgba(16, 185, 129, 0.3)',
+    description: 'Cesta de la compra, alimentación de los hogares y consumo alimenticio',
   },
   {
     id: 'government',
@@ -104,17 +104,184 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Public ministries, pensions, welfare benefits, and state administration',
   },
   {
-    id: 'sports',
-    name: 'Deportes y Grandes Eventos',
-    iconName: 'Trophy',
-    color: '#f97316',
-    badgeBg: 'rgba(249, 115, 22, 0.12)',
-    badgeBorder: 'rgba(249, 115, 22, 0.3)',
-    description: 'Organización de grandes eventos deportivos mundiales, Juegos Olímpicos y competiciones internacionales',
+    id: 'health',
+    name: 'Salud y Sanidad Pública',
+    iconName: 'HeartPulse',
+    color: '#ef4444',
+    badgeBg: 'rgba(239, 68, 68, 0.12)',
+    badgeBorder: 'rgba(239, 68, 68, 0.3)',
+    description: 'Sistemas sanitarios, medicamentos y salud pública',
+  },
+  {
+    id: 'country-gdp',
+    name: 'PIB por Países',
+    iconName: 'Globe2',
+    color: '#10b981',
+    badgeBg: 'rgba(16, 185, 129, 0.12)',
+    badgeBorder: 'rgba(16, 185, 129, 0.3)',
+    description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real',
   },
 ];
 
 export const SPEND_ITEMS: SpendItem[] = [
+  // Gasto en Cirugías Estéticas en el Mundo
+  {
+    id: 'global-cosmetic-surgery-spending',
+    categoryId: 'luxury',
+    title: 'Gasto en Cirugías Estéticas',
+    subtitle: 'El costo total de las cirugías estéticas en el mundo se estima en 2.660 millones de euros anuales',
+    annualSpendUSD: 2891304348, // €2.660 millones de euros convertidos a USD (2.66B / 0.92)
+    growthRatePct: 5.5,
+    iconName: 'Sparkles',
+    accentColor: '#ec4899',
+    description:
+      'El costo total de las cirugías estéticas en el mundo se estima en 2.660 millones de euros. Este gasto incluye una amplia gama de procedimientos, desde el aumento de pecho y la liposucción hasta inyecciones faciales de toxina botulínica y ácido hialurónico. La creciente demanda de estos tratamientos se debe a la influencia de las redes sociales y el culto a la imagen.',
+    sourceName: 'MediHair — Estadísticas de cirugía plástica y estética 2025',
+    sourceUrl: 'https://medihair.com/es/estadisticas-de-cirugia-plastica-y-estetica/',
+    sources: [
+      {
+        name: 'Estadísticas de cirugía plástica y estética 2025',
+        url: 'https://medihair.com/es/estadisticas-de-cirugia-plastica-y-estetica/',
+      },
+    ],
+    sourceYear: 2025,
+    tags: ['cirugía estética', 'belleza', 'cirugía plástica', 'estilismo', 'medihair', 'salud estética'],
+  },
+  // Carga económica del tabaco (OMS)
+  {
+    id: 'economic-burden-of-tobacco',
+    categoryId: 'health',
+    title: 'La carga económica del tabaco',
+    subtitle: 'El costo económico y médico del tabaco es de 1,8 billones de dólares anuales en el mundo',
+    annualSpendUSD: 1800000000000, // $1.8 Trillones USD (1.8 Trillion)
+    growthRatePct: 2.5,
+    iconName: 'HeartPulse',
+    accentColor: '#b91c1c',
+    description:
+      'La carga económica del tabaco es devastadora, con un costo global de 1,8 billones de dólares al año. Este costo incluye gastos médicos, enfermedades relacionadas y efectos del humo de segunda mano, aunque al sumar la pérdida de productividad, el costo se duplica. La industria del tabaco, que genera ingresos de aproximadamente 92 mil millones de dólares, enfrenta un grave rezago en la implementación de impuestos al tabaco, lo que limita su capacidad para prevenir y reducir el consumo.',
+    sourceName: 'Organización Mundial de la Salud (OMS) — Informe de Tendencias del Tabaco',
+    sourceUrl: 'https://www.who.int/es/news/item/06-10-2025-who-tobacco-trends-report-1-in-5-adults-still-addicted-to-tobacco',
+    sources: [
+      {
+        name: 'OMS — Informe sobre las Tendencias del Consumo de Tabaco',
+        url: 'https://www.who.int/es/news/item/06-10-2025-who-tobacco-trends-report-1-in-5-adults-still-addicted-to-tobacco',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Gastos Médicos y Humo de Segunda Mano', percentage: 50.0, amountUSD: 900000000000 },
+      { label: 'Pérdida de Productividad Laboral', percentage: 50.0, amountUSD: 900000000000 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 1400000000000 },
+      { year: 2021, spendUSD: 1600000000000 },
+      { year: 2025, spendUSD: 1750000000000 },
+      { year: 2026, spendUSD: 1800000000000 },
+    ],
+    tags: ['tabaco', 'oms', 'salud publica', 'tabaquismo', 'enfermedades', 'coste medico', 'cigarrillos'],
+  },
+  // Gasto sanitario público en España (Ministerio de Sanidad)
+  {
+    id: 'spain-public-healthcare-spending',
+    categoryId: 'health',
+    title: 'Gasto Sanitario Público en España',
+    subtitle: 'El gasto sanitario público en España alcanza los 101.739 millones de euros anuales (~2.084€ por habitante)',
+    annualSpendUSD: 110585869565, // 101.739M € convertidos a USD (101.739B / 0.92)
+    growthRatePct: 4.8,
+    iconName: 'HeartPulse',
+    accentColor: '#3b82f6',
+    description:
+      'El gasto sanitario público en España alcanzó los 101.739 millones de euros, lo que representa un 6,4% del PIB y un gasto medio de 2.084 euros por habitante, según la Estadística de Gasto Sanitario Público del Ministerio de Sanidad.',
+    sourceName: 'Ministerio de Sanidad — Estadística de Gasto Sanitario Público',
+    sourceUrl: 'https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/paginas/2026/130526-gasto-sanitario-publico-2024.aspx',
+    sources: [
+      {
+        name: 'La Moncloa — El Gasto Sanitario Público en España',
+        url: 'https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/sanidad14/paginas/2026/130526-gasto-sanitario-publico-2024.aspx',
+      },
+      {
+        name: 'EpData — Datos de Presupuesto de Sanidad por Comunidades Autónomas',
+        url: 'https://www.epdata.es/datos/gasto-sanitario-espana-presupuesto-sanidad-comunidades-autonomas/686',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Servicios de Salud de las CCAA', percentage: 92.5, amountUSD: 102291929347 },
+      { label: 'Administración Central y Seguridad Social', percentage: 7.5, amountUSD: 8293940218 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 85000000000 },
+      { year: 2020, spendUSD: 95400000000 },
+      { year: 2022, spendUSD: 104200000000 },
+      { year: 2026, spendUSD: 110585869565 },
+    ],
+    tags: ['españa', 'sanidad', 'gasto publico', 'salud', 'ministerio de sanidad', 'hospitales', 'presupuesto'],
+  },
+  // Inversión pública en exploración espacial (FasterCapital)
+  {
+    id: 'global-space-exploration-spending',
+    categoryId: 'government',
+    title: 'Inversión Pública en Exploración Espacial',
+    subtitle: 'La inversión pública en exploración espacial alcanza los 119.000 millones de euros anuales en el mundo',
+    annualSpendUSD: 129347826087, // 119.000M € convertidos a USD (119.0B / 0.92)
+    growthRatePct: 6.5,
+    iconName: 'Globe',
+    accentColor: '#38bdf8',
+    description:
+      'El presupuesto para la exploración espacial ha mostrado un crecimiento significativo en los últimos años. Se estima que los gobiernos de todo el mundo realizarán una inversión pública en el sector espacial de 119.000 millones de euros anuales, impulsando misiones lunares, satélites y tecnología de órbita.',
+    sourceName: 'FasterCapital — Desafío de costos de la exploración espacial',
+    sourceUrl: 'https://fastercapital.com/es/contenido/Desafio-de-costos--El-desafio-de-costos-de-la-exploracion-espacial.html',
+    sources: [
+      {
+        name: 'FasterCapital — El Desafío de Costos de la Exploración Espacial',
+        url: 'https://fastercapital.com/es/contenido/Desafio-de-costos--El-desafio-de-costos-de-la-exploracion-espacial.html',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Gobierno y Agencias Públicas de EE.UU. (NASA, etc.)', percentage: 45.0, amountUSD: 58206521739 },
+      { label: 'Otras Agencias Espaciales del Mundo (ESA, CNSA, ISRO, etc.)', percentage: 55.0, amountUSD: 71141304348 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 97826086956 },
+      { year: 2021, spendUSD: 114130434782 },
+      { year: 2026, spendUSD: 129347826087 },
+    ],
+    tags: ['espacio', 'nasa', 'esa', 'satelites', 'gasto publico', 'presupuesto', 'fastercapital', 'ciencia'],
+  },
+  // Gasto en subvenciones y ayudas públicas en España (Libre Mercado)
+  {
+    id: 'spain-subsidies-public-grants-spending',
+    categoryId: 'government',
+    title: 'Gasto en Subvenciones y Ayudas en España',
+    subtitle: 'España destina unos 41.490 millones de euros anuales en subvenciones y ayudas públicas directas',
+    annualSpendUSD: 45097826087, // 41.490M € convertidos a USD (41.49B / 0.92)
+    growthRatePct: 5.2,
+    iconName: 'Landmark',
+    accentColor: '#3b82f6',
+    description:
+      'España destina alrededor de 41.490 millones de euros anuales en subvenciones y ayudas públicas directas distribuidas entre el gobierno central, las comunidades autónomas y las entidades locales. Esta cifra general engloba ayudas a familias, sectores productivos, empresas y entidades sociales, sin contar las grandes partidas de protección social como las pensiones contributivas o el desempleo.',
+    sourceName: 'Libre Mercado — El gasto en subvenciones y ayudas en España',
+    sourceUrl: 'https://www.libertaddigital.com/libremercado/2025-12-10/el-gasto-en-subvenciones-se-dispara-hasta-los-42-000-millones-y-equivale-a-2-100-euros-por-hogar-7330610/',
+    sources: [
+      {
+        name: 'Libre Mercado — El Gasto en Subvenciones y Ayudas Equivale a 2.100€ por Hogar',
+        url: 'https://www.libertaddigital.com/libremercado/2025-12-10/el-gasto-en-subvenciones-se-dispara-hasta-los-42-000-millones-y-equivale-a-2-100-euros-por-hogar-7330610/',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Ayudas Directas a Familias y Hogares', percentage: 40.0, amountUSD: 18039130435 },
+      { label: 'Subvenciones a Empresas y Sectores Productivos', percentage: 60.0, amountUSD: 27058695652 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 30000000000 },
+      { year: 2020, spendUSD: 38000000000 },
+      { year: 2022, spendUSD: 40000000000 },
+      { year: 2026, spendUSD: 45097826087 },
+    ],
+    tags: ['españa', 'subvenciones', 'ayudas publicas', 'gobierno españa', 'presupuesto', 'comunidades autonomas', 'hogares'],
+  },
   // 1. Gasto en el Ministerio de Igualdad de España
   {
     id: 'spain-equality-ministry-budget',
@@ -154,6 +321,40 @@ export const SPEND_ITEMS: SpendItem[] = [
       { year: 2026, spendUSD: 570000000 },
     ],
     tags: ['ministerio de igualdad', 'pge', 'igualdad', 'gobierno españa', 'presupuestos'],
+  },
+  // Gasto en bebidas alcohólicas (Statista)
+  {
+    id: 'global-alcohol-spending',
+    categoryId: 'food',
+    title: 'Gasto en Bebidas Alcohólicas',
+    subtitle: 'El gasto anual en bebidas alcohólicas se sitúa en torno a los 1,94 billones de dólares en el mundo',
+    annualSpendUSD: 1945000000000, // $1.945 Trillones USD (1.945 Trillion)
+    growthRatePct: 3.5,
+    iconName: 'ShoppingBag',
+    accentColor: '#d97706',
+    description:
+      'El gasto en bebidas alcohólicas alcanza una cifra anual de entre 1,89 billones y 2 billones de dólares. Esta cifra abarca tanto las compras de los consumidores en tiendas y supermercados como el consumo en bares y restaurantes a nivel global, según datos del informe de Statista Market Forecast.',
+    sourceName: 'Statista Market Forecast — Alcoholic Drinks Worldwide',
+    sourceUrl: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide',
+    sources: [
+      {
+        name: 'Statista — Mercado y Gasto Mundial de Bebidas Alcohólicas',
+        url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Cerveza', percentage: 45.0, amountUSD: 875250000000 },
+      { label: 'Espirituosas', percentage: 35.0, amountUSD: 680750000000 },
+      { label: 'Vino y Sidra', percentage: 20.0, amountUSD: 389000000000 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 1650000000000 },
+      { year: 2021, spendUSD: 1780000000000 },
+      { year: 2024, spendUSD: 1890000000000 },
+      { year: 2026, spendUSD: 1945000000000 },
+    ],
+    tags: ['alcohol', 'bebidas', 'alimentacion', 'cerveza', 'vino', 'restaurantes', 'statista', 'consumo'],
   },
   // 2b. Coste de criar a un hijo en España hasta los 18 años (Educo)
   {
@@ -261,6 +462,136 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['comida', 'supermercado', 'caixabank', 'españa', 'cesta de la compra', 'gasto mensual'],
   },
+  // Gasto en tráfico ilegal de arte (UNESCO/ONU)
+  {
+    id: 'global-art-trafficking-spending',
+    categoryId: 'illicit',
+    title: 'Gasto en Tráfico Ilegal de Arte',
+    subtitle: 'El tráfico ilícito de bienes culturales y obras de arte mueve casi 10.000 millones de dólares anuales',
+    annualSpendUSD: 10000000000, // $10.000 Millones USD (10 Billion)
+    growthRatePct: 4.1,
+    iconName: 'ShieldAlert',
+    accentColor: '#ef4444',
+    description:
+      'El tráfico ilícito de obras de arte, antigüedades y patrimonio arqueológico representa una industria criminal de casi 10.000 millones de dólares anuales. Financiando en muchos casos a redes terroristas y al crimen organizado trasnacional, constituye una de las mayores amenazas contra la identidad de los pueblos según revelan la UNESCO y la ONU.',
+    sourceName: 'UNESCO & ONU — Tráfico ilícito de bienes culturales',
+    sourceUrl: 'https://coronavirus.onu.org.mx/traficantes-de-arte-traficantes-de-almas',
+    sources: [
+      {
+        name: 'UNESCO & ONU — Traficantes de arte, traficantes de almas',
+        url: 'https://coronavirus.onu.org.mx/traficantes-de-arte-traficantes-de-almas',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Tráfico de Bienes de Zonas de Conflicto', percentage: 40.0, amountUSD: 4000000000 },
+      { label: 'Robos a Museos y Colecciones Privadas', percentage: 35.0, amountUSD: 3500000000 },
+      { label: 'Excavaciones Clandestinas y Expoliación', percentage: 25.0, amountUSD: 2500000000 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 8000000000 },
+      { year: 2022, spendUSD: 9000000000 },
+      { year: 2026, spendUSD: 10000000000 },
+    ],
+    tags: ['arte', 'tráfico de arte', 'bienes culturales', 'mercado negro', 'unesco', 'onu', 'antiguedades'],
+  },
+  // Gasto en tráfico ilegal de órganos (Wikipedia)
+  {
+    id: 'global-organ-trafficking-spending',
+    categoryId: 'illicit',
+    title: 'Gasto en Tráfico Ilegal de Órganos',
+    subtitle: 'El tráfico ilegal de órganos genera entre 600 y 1.200 millones de dólares anuales a nivel mundial',
+    annualSpendUSD: 1200000000, // $1.200 Millones USD (1.2 Billion)
+    growthRatePct: 4.8,
+    iconName: 'ShieldAlert',
+    accentColor: '#ef4444',
+    description:
+      'El tráfico ilegal de órganos genera ganancias y transacciones anuales estimadas entre 600 millones y 1.200 millones de dólares a nivel global. Esta actividad clandestina se nutre principalmente de la explotación de donantes en situación de pobreza extrema y del llamado turismo de trasplantes, según datos consolidados de Wikipedia.',
+    sourceName: 'Wikipedia — Tráfico de órganos',
+    sourceUrl: 'https://es.wikipedia.org/wiki/Tr%C3%A1fico_de_%C3%B3rganos',
+    sources: [
+      {
+        name: 'Wikipedia — Tráfico de Órganos y Turismo de Trasplantes',
+        url: 'https://es.wikipedia.org/wiki/Tr%C3%A1fico_de_%C3%B3rganos',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Demanda de Riñones', percentage: 65.0, amountUSD: 780000000 },
+      { label: 'Hígado, Corazón y Otros Órganos', percentage: 35.0, amountUSD: 420000000 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 950000000 },
+      { year: 2022, spendUSD: 1080000000 },
+      { year: 2026, spendUSD: 1200000000 },
+    ],
+    tags: ['órganos', 'tráfico de órganos', 'mercado negro', 'salud', 'transplantes', 'crimen organizado', 'wikipedia'],
+  },
+  // Gasto en tráfico ilegal de animales (Euribor)
+  {
+    id: 'global-wildlife-trafficking-spending',
+    categoryId: 'illicit',
+    title: 'Gasto en Tráfico Ilegal de Animales',
+    subtitle: 'El tráfico ilegal de animales silvestres y exóticos mueve más de 20.000 millones de dólares anuales',
+    annualSpendUSD: 20000000000, // $20.000 Millones USD (20 Billion)
+    growthRatePct: 4.5,
+    iconName: 'ShieldAlert',
+    accentColor: '#ef4444',
+    description:
+      'El tráfico ilegal de animales silvestres y especies exóticas genera transacciones anuales de más de 20.000 millones de dólares a nivel global, constituyendo uno de los negocios criminales más lucrativos del mundo junto al tráfico de drogas y armas, según datos del informe de Euribor.',
+    sourceName: 'Euribor — El negocio negro del tráfico de animales exóticos',
+    sourceUrl: 'https://www.euribor.com.es/2026/05/12/el-negocio-negro-del-trafico-de-animales-exoticos-cuanto-mueve-esta-industria-ilegal/',
+    sources: [
+      {
+        name: 'Euribor — El Negocio Criminal del Tráfico de Especies Exóticas',
+        url: 'https://www.euribor.com.es/2026/05/12/el-negocio-negro-del-trafico-de-animales-exoticos-cuanto-mueve-esta-industria-ilegal/',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Demanda en Asia-Pacífico', percentage: 55.0, amountUSD: 11000000000 },
+      { label: 'América del Norte y Europa', percentage: 30.0, amountUSD: 6000000000 },
+      { label: 'Resto del Mundo', percentage: 15.0, amountUSD: 3000000000 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 15000000000 },
+      { year: 2021, spendUSD: 17500000000 },
+      { year: 2026, spendUSD: 20000000000 },
+    ],
+    tags: ['animales', 'tráfico de animales', 'mercado negro', 'crimen ambiental', 'especies exoticas', 'euribor'],
+  },
+  // Gasto en productos falsificados (Merca2.0)
+  {
+    id: 'global-counterfeit-goods-spending',
+    categoryId: 'illicit',
+    title: 'Gasto en Productos Falsificados',
+    subtitle: 'El gasto global en productos falsificados supera los 412.000 millones de euros anuales',
+    annualSpendUSD: 447826086957, // 412.000M € convertidos a USD (412.0B / 0.92)
+    growthRatePct: 4.2,
+    iconName: 'ShieldAlert',
+    accentColor: '#ef4444',
+    description:
+      'El comercio global de falsificaciones se estima en más de 412.000 millones de euros, lo que representa un 2,5% del total del comercio en todo el planeta. En la Unión Europea, las importaciones de productos falsificados alcanzaron los 119.000 millones de euros.',
+    sourceName: 'Merca2.0 — La economía global de las falsificaciones',
+    sourceUrl: 'https://www.merca20.com/la-economia-global-de-las-falsificaciones-cuanto-dinero-y-empleos-se-pierden-cada-ano/',
+    sources: [
+      {
+        name: 'Merca2.0 — La economía global de las falsificaciones',
+        url: 'https://www.merca20.com/la-economia-global-de-las-falsificaciones-cuanto-dinero-y-empleos-se-pierden-cada-ano/',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Importaciones de Falsificaciones en la UE', percentage: 29.0, amountUSD: 129869565217 },
+      { label: 'Resto del Mundo', percentage: 71.0, amountUSD: 317956521740 },
+    ],
+    history: [
+      { year: 2018, spendUSD: 380434782608 },
+      { year: 2022, spendUSD: 413043478261 },
+      { year: 2026, spendUSD: 447826086957 },
+    ],
+    tags: ['falsificaciones', 'mercado negro', 'contrabando', 'comercio global', 'marcas', 'copias', 'merca20'],
+  },
   // 3. Gasto Global en Estupefacientes y Narcotráfico (Ethic.es)
   {
     id: 'global-narcotics-spending',
@@ -299,14 +630,14 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'global-cocaine-opioids-spending',
     categoryId: 'illicit',
-    title: 'Mercado Mundial de Cocaína y Opiáceos',
-    subtitle: 'Venta minorista estimada de 245.000 millones de dólares anuales a nivel global',
+    title: 'Gasto en Cocaína y Opiáceos',
+    subtitle: 'Gasto minorista estimado de 245.000 millones de dólares anuales a nivel global',
     annualSpendUSD: 245000000000, // Media entre 220.000M y 270.000M USD = $245.000.000.000 USD
     growthRatePct: 4.2,
     iconName: 'ShieldAlert',
     accentColor: '#dc2626',
     description:
-      'El mercado ilegal global combinado de la cocaína y los opiáceos genera entre 220.000 y 270.000 millones de dólares anuales a nivel de venta minorista (media de 245.000 millones de USD), formando una parte crítica de los flujos financieros ilícitos mundiales mapeados por la Oficina de las Naciones Unidas contra la Droga y el Delito (UNODC).',
+      'El gasto ilegal global combinado en cocaína y opiáceos se estima entre 220.000 y 270.000 millones de dólares anuales a nivel de consumo minorista (media de 245.000 millones de USD), formando una parte crítica de los flujos de consumo ilícitos mundiales mapeados por la Oficina de las Naciones Unidas contra la Droga y el Delito (UNODC).',
     sourceName: 'UNODC & Análisis Internacional de Narcotráfico',
     sourceUrl: 'https://www.unodc.org/',
     sources: [
@@ -336,18 +667,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['cocaina', 'opiaceos', 'unodc', 'drogas', 'narcotrafico', 'venta minorista'],
   },
-  // 3d. Tráfico Ilegal de Armas de Fuego (UNODC)
+  // 3d. Gasto en Tráfico Ilegal de Armas de Fuego (UNODC)
   {
     id: 'global-illicit-firearms-spending',
     categoryId: 'illicit',
-    title: 'Tráfico Ilegal de Armas de Fuego',
-    subtitle: 'Volumen económico estimado en 1.000 millones de dólares anuales a nivel mundial',
+    title: 'Gasto en Gasto en Tráfico Ilegal de Armas de Fuego',
+    subtitle: 'Gasto estimado en 1.000 millones de dólares anuales a nivel mundial',
     annualSpendUSD: 1000000000, // $1.000 Millones USD (1 Mil Millones)
     growthRatePct: 4.0,
     iconName: 'ShieldAlert',
     accentColor: '#dc2626',
     description:
-      'Según la Oficina de Naciones Unidas contra la Droga y el Delito (UNODC), el comercio ilegal de armas mueve unos 1.000 millones de dólares anuales. Con ellas, todas las partes enfrentadas libran sus guerras en África, Oriente Medio, América Latina y Asia.',
+      'Según la Oficina de Naciones Unidas contra la Droga y el Delito (UNODC), los compradores gastan unos 1.000 millones de dólares anuales en el comercio ilegal de armas. Con ellas, todas las partes enfrentadas libran sus guerras en África, Oriente Medio, América Latina y Asia.',
     sourceName: 'UNODC & El Quinto',
     sourceUrl: 'https://elquinto.com.co/el-negocio-de-armas-y-drogas-ilicitas-en-el-mundo/',
     sources: [
@@ -618,18 +949,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['defensa ue', 'union europea', 'consejo europeo', 'eda', 'gasto militar ue', 'armamento'],
   },
-  // 4d. Mercado de Aviación Militar y Aviones de Caza (Fortune Business Insights)
+  // 4d. Gasto Mundial en Aviación Militar y Aviones de Caza (Fortune Business Insights)
   {
     id: 'global-military-aircraft-market',
     categoryId: 'military',
-    title: 'Mercado Mundial de Aviación Militar',
-    subtitle: 'Valoración actual de 67.000M$ USD anuales en aviación militar (52.800M$ en cazas de combate)',
+    title: 'Gasto en Aviación Militar',
+    subtitle: 'Gasto anual de 67.000M$ USD en aviación militar (52.800M$ en cazas de combate)',
     annualSpendUSD: 67000000000, // $67.000 Millones USD (67 Billion)
     growthRatePct: 5.2,
     iconName: 'Shield',
     accentColor: '#f59e0b',
     description:
-      'El mercado mundial de la aviación militar alcanza una valoración actual sobre los 67.000 millones de dólares anuales, destacando el segmento exclusivo de cazas y aviones de combate con 52.800 millones de dólares según el informe de mercado de Fortune Business Insights.',
+      'El gasto mundial en aviación militar alcanza una cifra de 67.000 millones de dólares anuales, destacando el segmento de gasto exclusivo en cazas y aviones de combate con 52.800 millones de dólares según el informe de mercado de Fortune Business Insights.',
     sourceName: 'Fortune Business Insights — Informe del Mercado de Aviones Militares',
     sourceUrl: 'https://www.fortunebusinessinsights.com/es/military-aircraft-market-102771',
     sources: [
@@ -650,6 +981,37 @@ export const SPEND_ITEMS: SpendItem[] = [
       { year: 2026, spendUSD: 67000000000 },
     ],
     tags: ['cazas', 'aviones militares', 'aviacion militar', 'defensa', 'fortune business insights', 'f-35'],
+  },
+  // Valor de mercado de Lamine Yamal (Transfermarkt)
+  {
+    id: 'lamine-yamal-market-value',
+    categoryId: 'sports',
+    title: 'Valor de Mercado de Lamine Yamal',
+    subtitle: 'La valoración estimada de la ficha del jugador Lamine Yamal se sitúa en los 220 millones de euros',
+    annualSpendUSD: 239130435, // 220.000.000 € convertidos a USD (220M / 0.92)
+    growthRatePct: 15.0, // Alta proyección de crecimiento de valor
+    iconName: 'Trophy',
+    accentColor: '#3b82f6',
+    description:
+      'El valor de mercado de Lamine Yamal se sitúa en los 220 millones de euros, consolidándose como uno de los futbolistas más valiosos y con mayor proyección financiera del mundo según los datos del perfil oficial y valoración de Transfermarkt.',
+    sourceName: 'Transfermarkt — Perfil de Lamine Yamal',
+    sourceUrl: 'https://www.transfermarkt.es/lamine-yamal/profil/spieler/937958',
+    sources: [
+      {
+        name: 'Transfermarkt — Perfil de Lamine Yamal (Ficha de Jugador)',
+        url: 'https://www.transfermarkt.es/lamine-yamal/profil/spieler/937958',
+      },
+    ],
+    sourceYear: 2026,
+    breakdown: [
+      { label: 'Valor de Mercado del Jugador', percentage: 100.0, amountUSD: 239130435 },
+    ],
+    history: [
+      { year: 2023, spendUSD: 54347826 },
+      { year: 2024, spendUSD: 163043478 },
+      { year: 2026, spendUSD: 239130435 },
+    ],
+    tags: ['fútbol', 'lamine yamal', 'barça', 'transfermarkt', 'valor de mercado', 'deportes'],
   },
   // 6. Coste de organización del Mundial FIFA 2026 (FIFA)
   {
@@ -727,18 +1089,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['ibai', 'la velada del año', 'twitch', 'streaming', 'eventos', 'produccion'],
   },
-  // 5b. Ingresos Anuales de Netflix (Xataka / Netflix Investor Relations)
+  // 5b. Gasto de Usuarios en Suscripciones de Netflix (Xataka / Netflix Investor Relations)
   {
     id: 'netflix-annual-revenue',
     categoryId: 'luxury',
-    title: 'Ingresos Anuales de Netflix',
-    subtitle: 'Facturación global de 45.200 millones de dólares al año (~38.800M €) por suscripciones',
+    title: 'Gasto de Usuarios en Suscripciones de Netflix',
+    subtitle: 'Gasto global de 45.200 millones de dólares al año (~38.800M €) en suscripciones',
     annualSpendUSD: 45200000000, // $45.200 Millones USD (45.2 Billion)
     growthRatePct: 14.5,
     iconName: 'Tv',
     accentColor: '#e50914',
     description:
-      'Netflix ingresa alrededor de 45.200 millones de dólares (~38.800 millones de euros) al año. Prácticamente la totalidad de esta cifra proviene de sus membresías de pago, ya que los ingresos alternativos por publicidad, aunque crecen, representan una porción menor del total según análisis de Xataka.',
+      'Los usuarios de Netflix gastan alrededor de 45.200 millones de dólares (~38.800 millones de euros) al año en sus suscripciones. Prácticamente la totalidad de esta cifra proviene de sus cuotas de membresías de pago, ya que el gasto en planes alternativos con publicidad, aunque crece, representa una porción menor del total según análisis de Xataka.',
     sourceName: 'Xataka — Netflix y los costes de producción de contenido streaming',
     sourceUrl: 'https://www.xataka.com/streaming/netflix-gasta-17-000-millones-producir-contenido-a-youtube-se-hacen-gratis-eso-youtube-esta-ganando-partida',
     sources: [
@@ -760,18 +1122,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['netflix', 'streaming', 'xataka', 'suscripciones', 'entretenimiento', 'cine'],
   },
-  // 5c. Ingresos por Servicios de Suscripción de Amazon Prime (Marketplace Pulse)
+  // 5c. Gasto en Suscripciones de Amazon Prime (Marketplace Pulse)
   {
     id: 'amazon-prime-subscription-revenue',
     categoryId: 'luxury',
-    title: 'Ingresos por Suscripciones de Amazon Prime',
-    subtitle: 'Facturación global de 49.620 millones de dólares anuales en servicios de suscripción (Prime, Video, Music)',
+    title: 'Gasto en Suscripciones de Amazon Prime',
+    subtitle: 'Gasto global de 49.620 millones de dólares anuales en servicios de suscripción (Prime, Video, Music)',
     annualSpendUSD: 49620000000, // $49.620 Millones USD (49.62 Billion)
     growthRatePct: 11.8,
     iconName: 'Tv',
     accentColor: '#ff9900',
     description:
-      'Amazon no desglosa públicamente de forma exacta cuánto dinero ingresa solo por Prime Video, ya que el servicio viene incluido dentro del paquete global de Amazon Prime. Sin embargo, el segmento total de servicios de suscripción de la compañía (que incluye Prime, música, libros y vídeo digital) ingresó 49.620 millones de dólares a nivel mundial según Marketplace Pulse.',
+      'Amazon no desglosa públicamente de forma exacta cuánto gastan los usuarios solo por Prime Video, ya que el servicio viene incluido dentro del paquete global de Amazon Prime. Sin embargo, el gasto total de los usuarios en servicios de suscripción de la compañía (que incluye Prime, música, libros y vídeo digital) ascendió a 49.620 millones de dólares a nivel mundial según Marketplace Pulse.',
     sourceName: 'Marketplace Pulse & Amazon SEC Filings',
     sourceUrl: 'https://www.marketplacepulse.com/stats/amazon-subscription-services-sales',
     sources: [
@@ -797,18 +1159,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['amazon', 'prime', 'prime video', 'suscripciones', 'marketplace pulse', 'streaming'],
   },
-  // 5d. Ingresos de Disney por Streaming y DTC (Motley Fool / Disney SEC Filings)
+  // 5d. Gasto de Usuarios en Disney Streaming (DTC) (Motley Fool / Disney SEC Filings)
   {
     id: 'disney-dtc-streaming-revenue',
     categoryId: 'luxury',
-    title: 'Ingresos de Disney por Streaming (DTC)',
-    subtitle: 'Facturación anual estimada entre 22.000M y 25.000M$ USD en Disney+, Hulu y ESPN+ ($23.500M USD de media)',
+    title: 'Gasto de Usuarios en Disney Streaming (DTC)',
+    subtitle: 'Gasto anual estimado entre 22.000M y 25.000M$ USD en Disney+, Hulu y ESPN+ ($23.500M USD de media)',
     annualSpendUSD: 23500000000, // Media entre 22.000M$ y 25.000M$ = $23.500 Millones USD (23.5 Billion)
     growthRatePct: 12.4,
     iconName: 'Tv',
     accentColor: '#006e99',
     description:
-      'The Walt Disney Company ingresa cerca de 22.000 a 25.000 millones de dólares al año (media estimada de 23.500 millones de USD) a través de su división de Venta Directa al Consumidor (DTC), que agrupa principalmente las suscripciones de streaming de Disney+, Hulu y ESPN+, además de una porción menor por venta de publicidad en estas plataformas según The Motley Fool.',
+      'Los usuarios de The Walt Disney Company gastan cerca de 22.000 a 25.000 millones de dólares al año (media estimada de 23.500 millones de USD) en su división de Venta Directa al Consumidor (DTC), que agrupa principalmente las suscripciones de streaming de Disney+, Hulu y ESPN+, además de una porción menor en compras dentro de estas plataformas según The Motley Fool.',
     sourceName: 'The Motley Fool — Disney Streaming Profit Analysis',
     sourceUrl: 'https://www.fool.com/investing/2026/03/29/how-high-can-disney-streaming-profit-go/',
     sources: [
@@ -830,18 +1192,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['disney', 'disney+', 'hulu', 'espn+', 'motley fool', 'streaming', 'dtc'],
   },
-  // 5e. Ingresos de Warner Bros. Discovery por Max y Streaming (Señal News)
+  // 5e. Gasto de Usuarios en Max (HBO) (Señal News)
   {
     id: 'warner-bros-discovery-max-revenue',
     categoryId: 'luxury',
-    title: 'Ingresos de Warner Bros. Discovery (HBO/Max)',
-    subtitle: 'Facturación anual estimada entre 10.000M$ y 11.000M$ USD en su división global de streaming DTC ($10.500M USD de media)',
+    title: 'Gasto de Usuarios en Max (HBO)',
+    subtitle: 'Gasto anual estimado entre 10.000M$ y 11.000M$ USD en su división global de streaming DTC ($10.500M USD de media)',
     annualSpendUSD: 10500000000, // Media entre 10.000M$ y 11.000M$ = $10.500 Millones USD (10.5 Billion)
     growthRatePct: 9.8,
     iconName: 'Tv',
     accentColor: '#002855',
     description:
-      'Warner Bros. Discovery (propietaria de HBO/Max) ingresa alrededor de 10.000 a 11.000 millones de dólares al año (media estimada de 10.500 millones de USD) en su división global de streaming (DTC), donde la inmensa mayoría proviene de las cuotas de suscripción de los usuarios según datos reportados por Señal News.',
+      'Los abonados de Warner Bros. Discovery (propietaria de HBO/Max) gastan alrededor de 10.000 a 11.000 millones de dólares al año (media estimada de 10.500 millones de USD) en su división global de streaming (DTC), donde la inmensa mayoría proviene de las cuotas de suscripción de los usuarios según datos reportados por Señal News.',
     sourceName: 'Señal News — Warner Bros. Discovery Financial & Streaming Report',
     sourceUrl: 'https://senalnews.com/en/data/warner-bros-discovery-ends-2025-under-pressure-despite-streaming-gains',
     sources: [
@@ -863,18 +1225,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['warner bros', 'hbo', 'max', 'discovery', 'senal news', 'streaming', 'dtc'],
   },
-  // 5f. Ingresos Anuales de Twitch (Business of Apps)
+  // 5f. Gasto de Usuarios en Twitch (Business of Apps)
   {
     id: 'twitch-annual-revenue',
     categoryId: 'luxury',
-    title: 'Ingresos Anuales de Twitch',
-    subtitle: 'Facturación global estimada entre 1.800M$ y 1.900M$ USD al año ($1.850M USD de media)',
+    title: 'Gasto de Usuarios en Twitch',
+    subtitle: 'Gasto global estimado entre 1.800M$ y 1.900M$ USD al año ($1.850M USD de media)',
     annualSpendUSD: 1850000000, // Media entre 1.800M$ y 1.900M$ = $1.850 Millones USD (1.85 Billion)
     growthRatePct: 8.5,
     iconName: 'Tv',
     accentColor: '#9146ff',
     description:
-      'Twitch ingresa aproximadamente entre 1.800 y 1.900 millones de dólares al año (media estimada de 1.850 millones de USD) a través de suscripciones de canal, bits/donaciones y ventas de anuncios publicitarios durante transmisiones en vivo según Business of Apps.',
+      'Los usuarios y patrocinadores en Twitch gastan aproximadamente entre 1.800 y 1.900 millones de dólares al año (media estimada de 1.850 millones de USD) a través de suscripciones de canal, bits/donaciones y campañas publicitarias durante transmisiones en vivo según Business of Apps.',
     sourceName: 'Business of Apps — Twitch Revenue & Usage Statistics',
     sourceUrl: 'https://www.businessofapps.com/data/twitch-statistics/',
     sources: [
@@ -896,18 +1258,18 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['twitch', 'amazon', 'streaming', 'business of apps', 'subscripciones', 'bits', 'directos'],
   },
-  // 5g. Recaudación Global de Taquilla de Cine (Observatorio Audiovisual Europeo / Spain Audiovisual Hub)
+  // 5g. Gasto Global en Entradas de Cine (Observatorio Audiovisual Europeo / Spain Audiovisual Hub)
   {
     id: 'global-cinema-box-office-revenue',
     categoryId: 'luxury',
-    title: 'Recaudación Global de Taquilla de Cine',
-    subtitle: 'La taquilla cinematográfica mundial ronda los 29.600 millones de euros anuales (~32.264M$ USD)',
+    title: 'Gasto Global en Entradas de Cine',
+    subtitle: 'El gasto en taquilla cinematográfica mundial ronda los 29.600 millones de euros anuales (~32.264M$ USD)',
     annualSpendUSD: 32264000000, // 29.600M€ × 1,09 ≈ $32.264M USD
     growthRatePct: 6.2,
     iconName: 'Tv',
     accentColor: '#c026d3',
     description:
-      'La recaudación específica de taquilla anual a nivel global ronda los 29.600 millones de euros (~32.264 millones de dólares), impulsada principalmente por el crecimiento del mercado asiático. Asia lidera la recuperación del sector cinematográfico mundial tras la pandemia, mientras que el mercado norteamericano y europeo continúan siendo pilares fundamentales del negocio de la exhibición de cine según el Observatorio Audiovisual Europeo.',
+      'El gasto específico de los espectadores en taquilla anual a nivel global ronda los 29.600 millones de euros (~32.264 millones de dólares), impulsado principalmente por el crecimiento del mercado asiático. Asia lidera la asistencia y el consumo en el sector cinematográfico mundial tras la pandemia, mientras que el mercado norteamericano y europeo continúan siendo pilares fundamentales del consumo en salas de cine según el Observatorio Audiovisual Europeo.',
     sourceName: 'Spain Audiovisual Hub / Observatorio Audiovisual Europeo',
     sourceUrl: 'https://spainaudiovisualhub.digital.gob.es/es/actualidad/observatorio-audiovisual-europeo--asia-impulsa-el-crecimiento-de',
     sources: [

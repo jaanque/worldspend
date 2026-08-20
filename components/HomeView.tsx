@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { CategoryId } from '@/types/spend';
 import { Locale } from '@/types/i18n';
 import { useWorldSpendEngine } from '@/hooks/useWorldSpendEngine';
@@ -12,7 +12,8 @@ import { FiltersAndTabs } from '@/components/FiltersAndTabs';
 import { CounterCard } from '@/components/CounterCard';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
-import { ChevronDown, ChevronRight, ChevronsUpDown } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronsUpDown, ChevronUp } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface HomeViewProps {
   locale?: Locale;
@@ -40,9 +41,40 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
   const dict = getDictionary(locale);
   const categories = getLocalizedCategories(locale);
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [selectedCategory, setSelectedCategory] = useState<CategoryId>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [collapsedCategories, setCollapsedCategories] = useState<Record<string, boolean>>({});
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
+
+  // Sync category state with URL search param
+  useEffect(() => {
+    if (searchParams) {
+      const cat = searchParams.get('cat') as CategoryId;
+      if (cat && categories.some(c => c.id === cat)) {
+        setSelectedCategory(cat);
+      } else if (cat === 'all' || !cat) {
+        setSelectedCategory('all');
+      }
+    }
+  }, [searchParams, categories]);
+
+  const handleCategoryChange = (catId: CategoryId) => {
+    setSelectedCategory(catId);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (catId === 'all') {
+        params.delete('cat');
+      } else {
+        params.set('cat', catId);
+      }
+      const newQuery = params.toString();
+      const targetPath = `${window.location.pathname}${newQuery ? `?${newQuery}` : ''}`;
+      router.replace(targetPath, { scroll: false });
+    }
+  };
 
   // Item counts per category
   const categoryItemCounts = useMemo(() => {
@@ -146,7 +178,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
         {/* Category Tabs and Search */}
         <FiltersAndTabs
           selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
+          setSelectedCategory={handleCategoryChange}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           categoryItemCounts={categoryItemCounts}
@@ -178,6 +210,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
 
             {groupedCategories.map(({ category, items }) => {
               const isCollapsed = !!collapsedCategories[category.id];
+              const isExpanded = !!expandedCategories[category.id];
+              const hasMoreThan10 = items.length > 10;
+              const displayedItems = hasMoreThan10 && !isExpanded ? items.slice(0, 10) : items;
+
+              const getShowMoreLabels = (count: number) => {
+                switch(locale) {
+                  case 'es': return { more: `Ver más (${count} más)`, less: 'Ver menos' };
+                  case 'fr': return { more: `Voir plus (${count} de plus)`, less: 'Voir moins' };
+                  case 'de': return { more: `Mehr anzeigen (${count} weitere)`, less: 'Weniger anzeigen' };
+                  case 'pt': return { more: `Ver mais (${count} mais)`, less: 'Ver menos' };
+                  default: return { more: `Show more (${count} more)`, less: 'Show less' };
+                }
+              };
+
+              const labels = getShowMoreLabels(items.length - 10);
 
               return (
                 <section key={category.id} className="space-y-2">
@@ -205,7 +252,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
                     <div className="accordion-inner pt-2 pb-1">
                       {/* Grid of Counter Cards */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {items.map((item) => (
+                        {displayedItems.map((item) => (
                           <CounterCard
                             key={item.id}
                             item={item}
@@ -217,6 +264,29 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
                           />
                         ))}
                       </div>
+
+                      {/* Show More / Show Less Button */}
+                      {hasMoreThan10 && (
+                        <div className="flex justify-center mt-3">
+                          <button
+                            type="button"
+                            onClick={() => setExpandedCategories(prev => ({ ...prev, [category.id]: !isExpanded }))}
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#1c4b78] hover:text-[#14324f] hover:underline bg-[#e8eef5] px-3 py-1.5 rounded-xs transition-colors cursor-pointer"
+                          >
+                            {isExpanded ? (
+                              <>
+                                <ChevronUp className="w-3.5 h-3.5" />
+                                <span>{labels.less}</span>
+                              </>
+                            ) : (
+                              <>
+                                <ChevronDown className="w-3.5 h-3.5" />
+                                <span>{labels.more}</span>
+                              </>
+                            )}
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </section>

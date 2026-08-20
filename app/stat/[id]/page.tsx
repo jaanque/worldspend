@@ -37,8 +37,37 @@ export async function generateMetadata({ params }: StatPageProps): Promise<Metad
 
 export default function StatPage({ params }: StatPageProps) {
   const resolvedParams = use(params);
+  const items = getLocalizedSpendItems('en');
+  const item = items.find((s) => s.id === resolvedParams.id);
+
+  if (!item) {
+    return notFound();
+  }
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    'name': item.title,
+    'description': item.description,
+    'url': `https://worldspend.org/stat/${item.id}`,
+    'creator': {
+      '@type': 'Organization',
+      'name': 'WorldSpend.org',
+      'url': 'https://worldspend.org',
+    },
+    'sourceOrganization': {
+      '@type': 'Organization',
+      'name': item.sourceName,
+    },
+    'temporalCoverage': `${item.sourceYear}-01-01/${item.sourceYear}-12-31`,
+  };
+
   return (
     <Suspense fallback={<div className="min-h-screen bg-[#edf1f5]" />}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <CounterDetailView id={resolvedParams.id} locale="en" />
     </Suspense>
   );

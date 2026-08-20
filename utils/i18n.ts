@@ -30,7 +30,61 @@ export function isValidLocale(locale: string): locale is Locale {
 export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
   const dict = getDictionary(locale);
 
-  return SPEND_ITEMS.map((item) => {
+  const PREFERRED_ORDER = [
+    // 1. Actividad Criminal y Mercado Negro (illicit)
+    'global-black-market-economy',
+    'global-counterfeit-goods-spending',
+    'global-narcotics-spending',
+    'global-cocaine-opioids-spending',
+    'global-cybercrime-losses',
+    'global-money-laundering-total',
+    'global-ransomware-damages',
+    'global-art-trafficking-spending',
+    'global-organ-trafficking-spending',
+    'global-wildlife-trafficking-spending',
+    'global-illicit-firearms-spending',
+
+    // 2. Gasto Militar y Defensa (military)
+    'global-military-spending',
+    'global-nuclear-weapons-spending',
+    'eu-defense-spending-total',
+    'global-military-aircraft-market',
+
+    // 3. Deportes y Competiciones (sports)
+    'lamine-yamal-market-value',
+    'fifa-world-cup-2026-cost',
+    'fifa-world-cup-global-advertising-investment',
+
+    // 4. Medios, Eventos y Estilismo (luxury)
+    'netflix-annual-revenue',
+    'amazon-prime-subscription-revenue',
+    'global-cosmetic-surgery-spending',
+    'disney-dtc-streaming-revenue',
+    'global-cinema-box-office-revenue',
+    'la-velada-production-cost',
+    'warner-bros-discovery-max-revenue',
+    'twitch-annual-revenue',
+    'superbowl-advertising-revenue',
+
+    // 5. Alimentación y Cesta de la Compra (food)
+    'global-alcohol-spending',
+    'global-online-food-delivery-market',
+    'spain-individual-monthly-food-cost',
+    'spain-cost-raising-child',
+
+    // 6. Gobierno y Presupuestos Públicos (government)
+    'global-space-exploration-spending',
+    'spain-subsidies-public-grants-spending',
+    'spain-equality-ministry-budget',
+
+    // 7. Salud y Sanidad Pública (health)
+    'economic-burden-of-tobacco',
+    'spain-public-healthcare-spending',
+  ];
+
+  const catOrder = ['illicit', 'military', 'sports', 'luxury', 'food', 'government', 'health', 'country-gdp'];
+
+  const localized = SPEND_ITEMS.map((item) => {
     const locItem = dict.items[item.id];
     
     // Dynamic localization for country GDP counters
@@ -121,7 +175,7 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
         } else if (locale === 'pt') {
           countryName = countryData.namePt;
           foodTitlePrefix = 'Gastos com Alimentação por Pessoa em';
-          descText = `Gastos médios anuais com alimentação para um residente em ${countryName}, estimados em $${Math.round(item.annualSpendUSD / 12)} USD mensais de acordo com o relatório global Nutrola.`;
+          descText = `Gastos médios anuais com alimentação para um residente en ${countryName}, estimados em $${Math.round(item.annualSpendUSD / 12)} USD mensais de acordo com o relatório global Nutrola.`;
           sourceTitle = `Nutrola — Relatório Global de Gastos Mensais com Alimentação (${countryName})`;
         }
 
@@ -147,6 +201,25 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
       sourceName: locItem?.sourceName || item.sourceName,
       sources: locItem?.sources || item.sources,
     };
+  });
+
+  return localized.sort((a, b) => {
+    const catIdxA = catOrder.indexOf(a.categoryId);
+    const catIdxB = catOrder.indexOf(b.categoryId);
+    if (catIdxA !== catIdxB) {
+      return catIdxA - catIdxB;
+    }
+
+    const idxA = PREFERRED_ORDER.indexOf(a.id);
+    const idxB = PREFERRED_ORDER.indexOf(b.id);
+
+    if (idxA !== -1 && idxB !== -1) {
+      return idxA - idxB;
+    }
+    if (idxA !== -1) return -1;
+    if (idxB !== -1) return 1;
+
+    return b.annualSpendUSD - a.annualSpendUSD;
   });
 }
 
@@ -180,11 +253,11 @@ export function generateDetailSEO(item: SpendItem, locale: Locale) {
 
   const fullDescription = `${desc}. Live 60 FPS macroeconomic statistics tracking verified with official data from ${item.sourceName} (${item.sourceYear}).`;
 
-  let title = `Real-Time ${topic} Statistics 2026 | WorldSpend`;
-  if (locale === 'es') title = `Estadísticas en Tiempo Real de ${topic} 2026 | WorldSpend`;
-  if (locale === 'fr') title = `Statistiques en Direct de ${topic} 2026 | WorldSpend`;
-  if (locale === 'de') title = `Echtzeit-Statistiken für ${topic} 2026 | WorldSpend`;
-  if (locale === 'pt') title = `Estatísticas de ${topic} em Tempo Real 2026 | WorldSpend`;
+  let title = `How much money is spent on ${topic} annually? - WorldSpend`;
+  if (locale === 'es') title = `¿Cuánto dinero se gasta en ${topic} al año? - WorldSpend`;
+  if (locale === 'fr') title = `Combien d'argent est dépensé en ${topic} par an? - WorldSpend`;
+  if (locale === 'de') title = `Wie viel Geld wird jährlich für ${topic} ausgegeben? - WorldSpend`;
+  if (locale === 'pt') title = `Quanto dinheiro é gasto em ${topic} por ano? - WorldSpend`;
 
   const canonicalPath = locale === 'en' ? `/stat/${item.id}` : `/${locale}/stat/${item.id}`;
   const baseUrl = 'https://worldspend.org';

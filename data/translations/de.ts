@@ -390,10 +390,11 @@ export const deTranslations: Translations = {
       sourceName: 'UK Department for Work and Pensions (DWP)',
     },
     'global-space-exploration-spending': {
-      title: 'Weltweite Ausgaben für Weltraumforschung & Missionen',
-      subtitle: 'Budgets der Raumfahrtagenturen (NASA, ESA, CNSA) und privater Raumfahrt',
-      description: 'Jährliche weltweite Investitionen in Mondmissionen (Artemis), Weltraumteleskope und kommerzielle Raketenstarts.',
-      sourceName: 'Euroconsult Space Economy Report & NASA',
+      title: 'Öffentliche Investitionen in die Raumfahrt',
+      subtitle: 'Die weltweiten öffentlichen Investitionen in die Weltraumforschung belaufen sich auf jährlich 119 Milliarden Euro',
+      description:
+        'Das weltweite Budget für die Weltraumforschung ist in den letzten Jahren erheblich gestiegen. Es wird geschätzt, dass die Regierungen weltweit jährlich 119 Milliarden Euro öffentlich in den Raumfahrtsektor investieren, was Mondmissionen, Satelliten und Orbit-Technologien vorantreibt.',
+      sourceName: 'FasterCapital — Kostenherausforderung der Weltraumforschung',
     },
     'mega-sporting-events-organization-cost': {
       title: 'Organisationskosten von Mega-Sportevents (WM und Olympia)',
@@ -1142,6 +1143,160 @@ export const deTranslations: Translations = {
       subtitle: 'Jährliches Einkaufsvolumen von US-Kunden mit Kreditkarten (Visa, Mastercard, Amex, Discover)',
       description: 'Gesamtes Transaktions- und Einkaufsvolumen mit US-Kreditkarten laut Federal Reserve Board (G.19).',
       sourceName: 'Federal Reserve Board & Nilson Report',
+    },
+    'global-cosmetic-surgery-spending': {
+      title: 'Ausgaben für Schönheitsoperationen',
+      subtitle: 'Die Gesamtkosten für Schönheitsoperationen weltweit werden auf jährlich 2,66 Milliarden Euro geschätzt',
+      description:
+        'Die Gesamtkosten für ästhetische Chirurgie weltweit werden auf 2,66 Milliarden Euro geschätzt. Diese Ausgaben umfassen ein breites Spektrum an Eingriffen, von Brustvergrößerung und Fettabsaugung bis hin zu Gesichtsinjektionen mit Botulinumtoxin und Hyaluronsäure. Die steigende Nachfrage nach diesen Behandlungen ist auf den Einfluss sozialer Medien und den Kult um das eigene Erscheinungsbild zurückzuführen.',
+      sourceName: 'MediHair — Statistiken zu plastischer und ästhetischer Chirurgie 2025',
+    },
+    'economic-burden-of-tobacco': {
+      title: 'Wirtschaftliche Belastung durch Tabak',
+      subtitle: 'Die wirtschaftlichen und gesundheitlichen Kosten von Tabak belaufen sich weltweit auf 1,8 Billionen USD jährlich',
+      description:
+        'Die wirtschaftliche Belastung durch Tabak ist verheerend und verursacht weltweit Kosten von 1,8 Billionen US-Dollar pro Jahr. Diese Kosten beinhalten medizinische Ausgaben, tabakbedingte Krankheiten und die Auswirkungen von Passivrauch, wobei sich die Kosten bei Berücksichtigung von Produktivitätsverlusten verdoppeln. Die Tabakindustrie, die einen Umsatz von rund 92 Milliarden Dollar erzielt, hinkt bei der Einführung von Tabaksteuern hinterher, was die Eindämmung des Konsums einschränkt.',
+      sourceName: 'Weltgesundheitsorganisation (WHO) — Tabak-Trendbericht',
+    },
+    'spain-public-healthcare-spending': {
+      title: 'Öffentliche Gesundheitsausgaben in Spanien',
+      subtitle: 'Die öffentlichen Gesundheitsausgaben in Spanien belaufen sich auf 101,739 Milliarden Euro jährlich (~2.084 € pro Einwohner)',
+      description:
+        'Die öffentlichen Gesundheitsausgaben in Spanien erreichten 101,739 Milliarden Euro, was 6,4 % des BIP und durchschnittliche Ausgaben von 2.084 Euro pro Einwohner entspricht, so die Statistik der öffentlichen Gesundheitsausgaben des Gesundheitsministeriums.',
+      sourceName: 'Gesundheitsministerium — Statistik der öffentlichen Gesundheitsausgaben',
+    },
+    'spain-subsidies-public-grants-spending': {
+      title: 'Öffentliche Subventionen und Hilfen in Spanien',
+      subtitle: 'Spanien stellt jährlich rund 41,49 Milliarden Euro für direkte öffentliche Subventionen und Beihilfen bereit',
+      description:
+        'Spanien stellt jährlich rund 41,49 Milliarden Euro für direkte öffentliche Subventionen und Beihilfen bereit, die auf die Zentralregierung, autonome Gemeinschaften und lokale Körperschaften verteilt werden. Diese Zahl umfasst Hilfen für Familien, produktive Sektoren, Unternehmen und soziale Einrichtungen, ohne große Sozialausgaben wie Renten oder Arbeitslosengeld.',
+      sourceName: 'Libre Mercado — Subventionsausgaben in Spanien',
+    },
+    'global-alcohol-spending': {
+      title: 'Ausgaben für alkoholische Getränke',
+      subtitle: 'Die jährlichen Ausgaben für alkoholische Getränke liegen weltweit bei rund 1,94 Billionen USD',
+      description:
+        'Die weltweiten Verbraucherausgaben für alkoholische Getränke belaufen sich auf jährlich 1,89 bis 2 Billionen US-Dollar. Diese Zahl umfasst sowohl den Verkauf im Einzelhandel und in Supermärkten als auch den Konsum in Bars und Restaurants weltweit, basierend auf dem Statista Market Forecast-Bericht.',
+      sourceName: 'Statista Market Forecast — Alkoholische Getränke weltweit',
+    },
+    'spain-individual-monthly-food-cost': {
+      title: 'Monatliche Lebensmittelausgaben pro Person in Spanien',
+      subtitle: 'Eine Person gibt in Spanien durchschnittlich 250 € bis 300 € pro Monat für Lebensmittel aus',
+      description: 'Durchschnittliche Ausgaben für Lebensmittel und Einkäufe für einen Single-Haushalt in Spanien, die sich auf etwa 270 € pro Monat (3.240 € pro Jahr) belaufen.',
+      sourceName: 'CaixaBank Research — Konsumausgaben der Haushalte in Spanien',
+    },
+    'global-cocaine-opioids-spending': {
+      title: 'Verbraucherausgaben für Kokain und Opioide',
+      subtitle: 'Konsumenten geben jährlich über 245 Milliarden Dollar für Kokain und Opiate aus',
+      description: 'Weltweite Verbraucherausgaben auf dem illegalen Markt für Kokain und synthetische Opioide, die laut UNODC den lukrativsten Teil des globalen Drogenhandels ausmachen.',
+      sourceName: 'Büro der Vereinten Nationen für Drogen- und Kriminalitätsbekämpfung (UNODC)',
+    },
+    'global-illicit-firearms-spending': {
+      title: 'Ausgaben für illegalen Schusswaffenhandel',
+      subtitle: 'Der Schwarzmarkt für Schusswaffen beläuft sich auf rund 1 Milliarde Dollar jährlich',
+      description: 'Weltweite Ausgaben von Käufern auf dem Schwarzmarkt für illegale Handfeuerwaffen und Munition, die laut UNODC und Small Arms Survey Konflikte und organisierte Kriminalität finanzieren.',
+      sourceName: 'UNODC-Bericht über Waffenhandel & Small Arms Survey',
+    },
+    'global-cybercrime-losses': {
+      title: 'Kosten und Schäden durch Cyberkriminalität',
+      subtitle: 'Die Verluste durch Cyberangriffe, Datendiebstahl und Betrug belaufen sich auf 10,8 Billionen USD jährlich',
+      description: 'Weltweite Schäden und Kosten durch Cyberangriffe, Lösegelderpressungen, Datenraub und Systemwiederherstellung für Unternehmen und Verbraucher.',
+      sourceName: 'Cybersecurity Ventures & Berichte zur Cyberkriminalität',
+    },
+    'global-ransomware-damages': {
+      title: 'Kosten durch Ransomware-Angriffe',
+      subtitle: 'Unternehmen und Opfer zahlen jährlich über 74 Milliarden Dollar für Lösegelder und Systemwiederherstellung',
+      description: 'Gesamtschäden durch Ransomware, einschließlich gezahlter Lösegelder in Kryptowährungen und Ausfallkosten der betroffenen Infrastrukturen.',
+      sourceName: 'Chainalysis & Cybersecurity Ventures',
+    },
+    'global-money-laundering-total': {
+      title: 'Kosten und Volumen der Geldwäsche',
+      subtitle: 'Das jährlich gewaschene Geldvolumen beläuft sich auf schätzungsweise 2,17 Billionen Dollar',
+      description: 'Volumen krimineller Gelder, die in den legalen Wirtschaftskreislauf eingeschleust werden, was etwa 2 bis 5 % des weltweiten BIP ausmacht.',
+      sourceName: 'Büro der Vereinten Nationen für Drogen- und Kriminalitätsbekämpfung (UNODC)',
+    },
+    'global-black-market-economy': {
+      title: 'Informelle Schattenwirtschaft und Schwarzmarkt',
+      subtitle: 'Die Schattenwirtschaft und Schwarzmarkttransaktionen belaufen sich auf jährlich 11,5 Billionen USD',
+      description: 'Gesamtwert der nicht erfassten Schattenwirtschaft, einschließlich Schwarzarbeit, Produktpiraterie und illegaler Schwarzmarktgeschäfte.',
+      sourceName: 'Schattenwirtschaftsstudien der Weltbank',
+    },
+    'eu-defense-spending-total': {
+      title: 'Gemeinsame Verteidigungsausgaben der Europäischen Union',
+      subtitle: 'Die EU-Mitgliedstaaten geben gemeinsam jährlich 494 Milliarden Euro für Verteidigung aus',
+      description: 'Verteidigungsausgaben aller 27 EU-Mitgliedstaaten, getrieben durch Rüstungsmodernisierung und die Erfüllung von NATO-Zielen.',
+      sourceName: 'Europäische Verteidigungsagentur (EDA) & NATO-Berichte',
+    },
+    'global-military-aircraft-market': {
+      title: 'Ausgaben für Militärflugzeuge und Kampfjets',
+      subtitle: 'Regierungen geben jährlich 67 Milliarden Dollar für Militärluftfahrt und deren Instandhaltung aus',
+      description: 'Weltweite staatliche Ausgaben für den Kauf und die Wartung von Jagdflugzeugen, Militärtransportern und Kampfhubschraubern.',
+      sourceName: 'Statista & Reports and Data Aerospace',
+    },
+    'netflix-annual-revenue': {
+      title: 'Verbraucherausgaben für Netflix',
+      subtitle: 'Abonnenten zahlen jährlich über 45,2 Milliarden Dollar für Netflix-Mitgliedschaften',
+      description: 'Gesamtausgaben aller weltweiten Abonnenten für den Zugriff auf den Netflix-Streamingkatalog laut dem offiziellen Geschäftsbericht.',
+      sourceName: 'Netflix Aktionärsbrief (Jahresfinanzbericht)',
+    },
+    'amazon-prime-subscription-revenue': {
+      title: 'Verbraucherausgaben für Amazon Prime',
+      subtitle: 'Mitglieder zahlen jährlich rund 49,6 Milliarden Dollar für Amazon Prime-Abonnements',
+      description: 'Gesamte jährliche Mitgliedsbeiträge, die weltweit von Amazon Prime-Kunden für schnellen Versand und Prime Video gezahlt werden.',
+      sourceName: 'Amazon Geschäftsbericht (Form 10-K SEC)',
+    },
+    'disney-dtc-streaming-revenue': {
+      title: 'Verbraucherausgaben für Disney Streaming (DTC)',
+      subtitle: 'Kunden geben jährlich rund 23,5 Milliarden Dollar für Disney+, Hulu und ESPN+ aus',
+      description: 'Gesamte Abonnementsgebühren, die weltweit für die Streamingdienste der Walt Disney Company (Disney+, Hulu und ESPN+) ausgegeben werden.',
+      sourceName: 'The Walt Disney Company — Jahresfinanzberichte',
+    },
+    'warner-bros-discovery-max-revenue': {
+      title: 'Verbraucherausgaben für Max (HBO)',
+      subtitle: 'Abonnenten zahlen jährlich 10,5 Milliarden Dollar für Streaming-Abonnements auf Max',
+      description: 'Ausgaben der Abonnenten für den Streamingdienst Max von Warner Bros. Discovery (Eigentümer von HBO/Max) in deren globaler DTC-Sparte.',
+      sourceName: 'Señal News — Warner Bros. Discovery Finanzbericht',
+    },
+    'twitch-annual-revenue': {
+      title: 'Verbraucherausgaben für Twitch',
+      subtitle: 'Zuschauer geben jährlich rund 1,85 Milliarden Dollar für Abonnements und Spenden aus',
+      description: 'Ausgaben der Zuschauer auf Twitch für Kanal-Abonnements, Bits (Spenden) und Geschenkabonnements laut Business of Apps.',
+      sourceName: 'Business of Apps — Twitch Umsatzstatistiken',
+    },
+    'global-counterfeit-goods-spending': {
+      title: 'Ausgaben für gefälschte Produkte',
+      subtitle: 'Die weltweiten Ausgaben für gefälschte Produkte übersteigen jährlich 412 Milliarden Euro',
+      description:
+        'Der weltweite Handel mit Plagiaten wird auf über 412 Milliarden Euro geschätzt, was 2,5 % des gesamten Welthandels entspricht. In der Europäischen Union erreichten die Importe gefälschter Produkte 119 Milliarden Euro.',
+      sourceName: 'Merca2.0 — Die globale Wirtschaft der Fälschungen',
+    },
+    'global-wildlife-trafficking-spending': {
+      title: 'Ausgaben für illegalen Tierhandel',
+      subtitle: 'Der illegale Handel mit Wildtieren bewegt weltweit über 20 Milliarden Dollar jährlich',
+      description:
+        'Der illegale Handel mit Wildtieren und exotischen Arten generiert weltweit jährliche Umsätze von über 20 Milliarden US-Dollar. Er stellt laut Euribor neben dem Drogen- und Waffenhandel eines der lukrativsten kriminellen Geschäfte der Welt dar.',
+      sourceName: 'Euribor — Das dunkle Geschäft mit dem illegalen Handel exotischer Tiere',
+    },
+    'global-organ-trafficking-spending': {
+      title: 'Ausgaben für illegalen Organhandel',
+      subtitle: 'Der illegale Organhandel generiert weltweit jährlich zwischen 600 Millionen und 1,2 Milliarden Dollar',
+      description:
+        'Der illegale Organhandel generiert weltweit jährliche Einnahmen und Umsätze von geschätzten 600 Millionen bis 1,2 Milliarden US-Dollar. Diese klandestine Aktivität wird laut Wikipedia vor allem durch die Ausbeutung extrem armer Spender und den sogenannten Transplantationstourismus genährt.',
+      sourceName: 'Wikipedia — Organhandel',
+    },
+    'global-art-trafficking-spending': {
+      title: 'Ausgaben für illegalen Kunsthandel',
+      subtitle: 'Der illegale Handel mit Kulturgütern und Kunstwerken bewegt jährlich fast 10 Milliarden US-Dollar',
+      description:
+        'Der illegale Handel mit Kunstwerken, Antiquitäten und archäologischem Erbe stellt eine kriminelle Industrie von fast 10 Milliarden US-Dollar jährlich dar. Er finanziert oft terroristische Netzwerke und die transnationale organisierte Kriminalität und bedroht laut UNESCO und UN die kulturelle Identität von Völkern.',
+      sourceName: 'UNESCO & UN — Illegaler Handel mit Kulturgütern',
+    },
+    'lamine-yamal-market-value': {
+      title: 'Marktwert von Lamine Yamal',
+      subtitle: 'Der geschätzte Transferwert von Lamine Yamal liegt bei 220 Millionen Euro',
+      description:
+        'Der Marktwert von Lamine Yamal beläuft sich auf 220 Millionen Euro. Damit etabliert er sich laut den Daten des offiziellen Profils von Transfermarkt als einer der wertvollsten Fußballer der Welt.',
+      sourceName: 'Transfermarkt — Lamine Yamal Profil',
     },
   },
 };

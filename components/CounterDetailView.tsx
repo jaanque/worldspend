@@ -216,7 +216,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
 
         {/* Section Header Strip */}
         <div className="authority-section-header px-3 py-1.5 flex items-center justify-between text-xs font-bold mb-3 sm:mb-4 rounded-xs">
-          <span>{category.name.toUpperCase()} — {dict.detailPage.statisticalIndicator}</span>
+          <span>{category.name.toUpperCase()}</span>
         </div>
 
         {/* Title & Description */}
@@ -228,6 +228,8 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
             {item.subtitle}
           </p>
         </div>
+
+
 
         {/* Grand Real-Time Master Ticker (Responsive scale) */}
         <div className="bg-[#f4f8fc] border border-[#d2dce6] rounded-xs p-4 sm:p-6 text-center mb-4 sm:mb-5 shadow-2xs overflow-hidden">
@@ -358,8 +360,6 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
             )}
           </button>
         </div>
-
-
 
         {/* Concise Institutional Context Callout (Información de la Estadística) */}
         <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-xs p-3.5 text-xs text-gray-700 mb-4 sm:mb-5 leading-relaxed shadow-2xs">

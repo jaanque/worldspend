@@ -390,10 +390,11 @@ export const ptTranslations: Translations = {
       sourceName: 'UK Department for Work and Pensions (DWP)',
     },
     'global-space-exploration-spending': {
-      title: 'Gastos Mundiais com Exploração Espacial e Missões',
-      subtitle: 'Orçamentos das agências espaciais (NASA, ESA, CNSA) e voos comerciais',
-      description: 'Investimento anual global em missões à Lua (Artemis), telescópios espaciais e lançamentos de foguetes.',
-      sourceName: 'Euroconsult Space Economy Report & NASA',
+      title: 'Investimento Público em Exploração Espacial',
+      subtitle: 'O investimento público global em exploração espacial atinge 119 mil milhões de euros anuais',
+      description:
+        'O orçamento global para a exploração espacial tem mostrado um crescimento significativo nos últimos anos. Estima-se que os governos de todo o mundo realizem um investimento público global no setor espacial de 119 mil milhões de euros por ano, impulsionando missões lunares, satélites e tecnologia de órbita.',
+      sourceName: 'FasterCapital — Desafio de custos da exploração espacial',
     },
     'mega-sporting-events-organization-cost': {
       title: 'Custo de Organização de Megaeventos Esportivos (Copa do Mundo e Olimpíadas)',
@@ -525,7 +526,7 @@ export const ptTranslations: Translations = {
       title: 'Gastos com Data Centers de IA e ChatGPT',
       subtitle: 'Investimento recorde em servidores GPU, resfriamento líquido e infraestrutura para IA',
       description: 'Gastos de capital (CapEx) dos gigantes de tecnologia (Microsoft, AWS, Google, Meta, OpenAI) em data centers para IA.',
-      sourceName: 'Dell'Oro Group & Synergy Research',
+      sourceName: 'Dell\'Oro Group & Synergy Research',
     },
     'weight-loss-drugs-ozempic-spending': {
       title: 'Gastos com Remédios para Emagrecer (Ozempic e GLP-1)',
@@ -931,8 +932,8 @@ export const ptTranslations: Translations = {
     'italy-national-public-debt': {
       title: 'Dívida Pública Nacional da Itália (Debito Pubblico)',
       subtitle: 'Passivo soberano bruto em títulos do governo italiano (BTP e BOT) (~138% do PIB)',
-      description: 'Dívida bruta das administrações públicas da Itália registrada pela Banca d'Italia e Istat.',
-      sourceName: 'Banca d'Italia & Istat',
+      description: 'Dívida bruta das administrações públicas da Itália registrada pela Banca d\'Italia e Istat.',
+      sourceName: 'Banca d\'Italia & Istat',
     },
     'brazil-national-public-debt': {
       title: 'Dívida Pública Federal Total do Brasil (DPF)',
@@ -1137,6 +1138,160 @@ export const ptTranslations: Translations = {
       subtitle: 'Volume anual de compras e transações com cartão de crédito de consumidores americanos (Visa, Mastercard, Amex)',
       description: 'Volume bruto de compras com cartão de crédito nos EUA acompanhado pelo Federal Reserve Board (G.19).',
       sourceName: 'Federal Reserve Board & Nilson Report',
+    },
+    'global-cosmetic-surgery-spending': {
+      title: 'Gastos em Cirurgia Estética',
+      subtitle: 'O custo total das cirurgias estéticas no mundo é estimado em 2.660 milhões de euros por ano',
+      description:
+        'O custo total das cirurgias estéticas no mundo é estimado em 2.660 milhões de euros. Esse gasto inclui uma ampla gama de procedimentos, desde o aumento de mama e a lipoaspiração até injeções faciais de toxina botulínica e ácido hialurônico. A crescente demanda por esses tratamentos deve-se à influência das redes sociais e ao culto da imagem.',
+      sourceName: 'MediHair — Estatísticas de cirurgia plástica e estética 2025',
+    },
+    'economic-burden-of-tobacco': {
+      title: 'O fardo económico do tabaco',
+      subtitle: 'O custo económico e médico do tabaco é de 1,8 biliões de dólares anuais no mundo',
+      description:
+        'O fardo económico do tabaco é devastador, com um custo global de 1,8 biliões de dólares por ano. Este custo inclui despesas médicas, doenças relacionadas e efeitos do fumo passivo, embora, ao somar a perda de produtividade, o custo duplique. A indústria do tabaco, que gera receitas de aproximadamente 92 mil milhões de dólares, enfrenta um grave atraso na aplicação de impostos sobre o tabaco, o que limita a sua capacidade de prevenir e reduzir o consumo.',
+      sourceName: 'Organização Mundial da Saúde (OMS) — Relatório de Tendências do Tabaco',
+    },
+    'spain-public-healthcare-spending': {
+      title: 'Despesa Pública com Saúde na Espanha',
+      subtitle: 'A despesa pública com saúde na Espanha atinge 101.739 milhões de euros anuais (~2.084€ por habitante)',
+      description:
+        'A despesa pública com saúde na Espanha atingiu 101.739 milhões de euros, representando 6,4% do PIB e uma despesa média de 2.084 euros por habitante, segundo a Estatística de Despesa Pública com Saúde do Ministério da Saúde.',
+      sourceName: 'Ministério da Saúde — Estatística de Despesa Pública com Saúde',
+    },
+    'spain-subsidies-public-grants-spending': {
+      title: 'Subsídios e Ajudas Públicas na Espanha',
+      subtitle: 'A Espanha destina cerca de 41.490 milhões de euros anuais em subsídios e ajudas públicas diretas',
+      description:
+        'A Espanha destina cerca de 41.490 milhões de euros anuais em subsídios e ajudas públicas diretas distribuídas entre o governo central, as comunidades autónomas e as entidades locais. Este valor engloba apoios a famílias, setores produtivos, empresas e entidades sociais, excluindo grandes parcelas de proteção social como pensões contributivas ou desemprego.',
+      sourceName: 'Libre Mercado — Gastos com subsídios e apoios na Espanha',
+    },
+    'global-alcohol-spending': {
+      title: 'Gastos com Bebidas Alcoólicas',
+      subtitle: 'Os gastos anuais com bebidas alcoólicas situam-se em torno dos 1,94 biliões de dólares no mundo',
+      description:
+        'Os gastos de consumo em bebidas alcoólicas atingem entre 1,89 biliões e 2 biliões de dólares por ano no mundo. Este valor engloba tanto as vendas no retalho em lojas e supermercados como o consumo em bares e restaurantes globalmente, de acordo com o relatório Statista Market Forecast.',
+      sourceName: 'Statista Market Forecast — Bebidas Alcoólicas no Mundo',
+    },
+    'spain-individual-monthly-food-cost': {
+      title: 'Gasto Mensual em Alimentação por Pessoa na Espanha',
+      subtitle: 'Uma pessoa gasta em média entre 250 € e 300 € por mês em alimentação na Espanha',
+      description: 'Despesas médias com alimentação e cesta de compras para uma pessoa residente na Espanha, estimadas em cerca de 270 € mensais (3.240 € por ano).',
+      sourceName: 'CaixaBank Research — Despesas de consumo das famílias na Espanha',
+    },
+    'global-cocaine-opioids-spending': {
+      title: 'Gastos de Consumidores em Cocaína e Opioides',
+      subtitle: 'Os utilizadores gastam mais de 245 mil milhões de dólares por ano em cocaína e opiáceos',
+      description: 'Despesas globais dos consumidores no mercado ilícito de cocaína e opioides sintéticos, representando a maior fatia do tráfico de drogas segundo o UNODC.',
+      sourceName: 'Escritório das Nações Unidas sobre Drogas e Crime (UNODC)',
+    },
+    'global-illicit-firearms-spending': {
+      title: 'Gastos com Tráfico Ilegal de Armas de Fogo',
+      subtitle: 'O mercado negro de armas de fogo movimenta cerca de 1 mil milhão de dólares por ano',
+      description: 'Despesas globais de compradores no mercado negro de armas de fogo e munições ilícitas, alimentando conflitos e o crime organizado.',
+      sourceName: 'Relatório do UNODC sobre Tráfico de Armas & Small Arms Survey',
+    },
+    'global-cybercrime-losses': {
+      title: 'Custo e Danos do Cibercrime',
+      subtitle: 'As perdas decorrentes de ciberataques, roubo de dados e fraudes atingem 10,8 biliões de dólares por ano',
+      description: 'Despesas globais em resgates, restauro de sistemas e perdas diretas de empresas e cidadãos com atividades cibercriminosas.',
+      sourceName: 'Cybersecurity Ventures & Relatórios Anuais de Cibercrime',
+    },
+    'global-ransomware-damages': {
+      title: 'Custo de Ataques de Ransomware',
+      subtitle: 'Empresas e utilizadores gastam mais de 74 mil milhões de dólares anuais em resgates e reparações',
+      description: 'Custos totais suportados por vítimas de ransomware, incluindo os resgates pagos em criptomoedas e o custo da paragem de atividade.',
+      sourceName: 'Chainalysis & Cybersecurity Ventures',
+    },
+    'global-money-laundering-total': {
+      title: 'Custo e Volume de Branqueamento de Capitais',
+      subtitle: 'O volume de dinheiro branqueado anualmente é estimado em 2,17 biliões de dólares',
+      description: 'Montante de fundos obtidos de forma ilícita integrados na economia formal, representando entre 2% a 5% do PIB mundial.',
+      sourceName: 'Escritório das Nações Unidas sobre Drogas e Crime (UNODC)',
+    },
+    'global-black-market-economy': {
+      title: 'Economia Informal do Mercado Negro',
+      subtitle: 'As transações no mercado negro e economia paralela atingem 11,5 biliões de dólares por ano',
+      description: 'Valor total estimado da economia paralela não declarada, incluindo contrabando, contrafação, trabalho não declarado e negócios ilícitos.',
+      sourceName: 'Estudos sobre a economia informal do Banco Mundial',
+    },
+    'eu-defense-spending-total': {
+      title: 'Despesas Militares Conjuntas da União Europeia',
+      subtitle: 'Os estados-membros da União Europeia gastam em conjunto 494 mil milhões de euros anuais em defesa',
+      description: 'Gastos de defesa acumulados das 27 nações da UE, impulsionados pela modernização militar e metas da NATO.',
+      sourceName: 'Agência Europeia de Defesa (AED) & Relatórios da NATO',
+    },
+    'global-military-aircraft-market': {
+      title: 'Gastos com Aviação Militar e Caças',
+      subtitle: 'Os governos gastam 67 mil milhões de dólares anuais na aquisição e manutenção de aeronaves militares',
+      description: 'Orçamento global despendido por forças aéreas para aquisição de jatos de combate, aviões de carga e helicópteros táticos.',
+      sourceName: 'Statista & Reports and Data Aerospace',
+    },
+    'netflix-annual-revenue': {
+      title: 'Gastos de Utilizadores na Netflix',
+      subtitle: 'Os subscritores gastam mais de 45,2 mil milhões de dólares por ano em mensalidades da Netflix',
+      description: 'Gastos globais dos subscritores para aceder ao catálogo de streaming de vídeo da Netflix, representando o volume direto da empresa.',
+      sourceName: 'Carta aos Acionistas da Netflix (Relatório Financeiro Anual)',
+    },
+    'amazon-prime-subscription-revenue': {
+      title: 'Gastos de Utilizadores no Amazon Prime',
+      subtitle: 'Os utilizadores gastam cerca de 49,6 mil milhões de dólares anuais em assinaturas Prime',
+      description: 'Montante anual pago pelos membros do serviço Amazon Prime para entregas grátis e acesso ao Prime Video, segundo os relatórios de contas da empresa.',
+      sourceName: 'Relatório Anual da Amazon (Form 10-K SEC)',
+    },
+    'disney-dtc-streaming-revenue': {
+      title: 'Gastos de Utilizadores em Streaming da Disney (DTC)',
+      subtitle: 'Os utilizadores gastam cerca de 23,5 mil milhões de dólares anuais no Disney+, Hulu e ESPN+',
+      description: 'Gastos diretos dos consumidores nos serviços de streaming direto ao consumidor (DTC) da Walt Disney Company, incluindo Disney+, Hulu e ESPN+.',
+      sourceName: 'The Walt Disney Company — Relatório Financeiro de Contas',
+    },
+    'warner-bros-discovery-max-revenue': {
+      title: 'Gastos de Utilizadores na Max (HBO)',
+      subtitle: 'Os assinantes gastam 10,5 mil milhões de dólares anuais em subscrições de streaming na Max',
+      description: 'Gasto anual de subscritores para acesso à plataforma de streaming Max da Warner Bros. Discovery (proprietária da HBO), de acordo com os dados da Señal News.',
+      sourceName: 'Señal News — Relatório Financeiro da Warner Bros. Discovery',
+    },
+    'twitch-annual-revenue': {
+      title: 'Gastos de Utilizadores na Twitch',
+      subtitle: 'Os utilizadores gastam cerca de 1,85 mil milhões de dólares anuais em assinaturas e doações',
+      description: 'Gastos globais dos espetadores na Twitch através de subscrições de canais, bits (doações) e subscrições oferecidas.',
+      sourceName: 'Business of Apps — Estatísticas de Receita da Twitch',
+    },
+    'global-counterfeit-goods-spending': {
+      title: 'Gastos com Produtos Falsificados',
+      subtitle: 'O gasto global com produtos falsificados supera os 412.000 milhões de euros anuais',
+      description:
+        'O comércio global de contrafação é estimado em mais de 412.000 milhões de euros, o que representa 2,5% do comércio mundial total. Na União Europeia, as importações de produtos contrafeitos atingiram 119.000 milhões de euros.',
+      sourceName: 'Merca2.0 — A economia global das falsificações',
+    },
+    'global-wildlife-trafficking-spending': {
+      title: 'Gastos com Tráfico Ilegal de Animais',
+      subtitle: 'O tráfico ilegal de animais selvagens e exóticos movimenta mais de 20 mil milhões de dólares anuais',
+      description:
+        'O tráfico ilegal de animais selvagens e espécies exóticas gera transações anuais de mais de 20 mil milhões de dólares a nível global, constituindo um dos negócios criminosos mais lucrativos do mundo, a par do tráfico de droga e armas, segundo o relatório da Euribor.',
+      sourceName: 'Euribor — O negócio negro do tráfico de animais exóticos',
+    },
+    'global-organ-trafficking-spending': {
+      title: 'Gastos com Tráfico Ilegal de Órgãos',
+      subtitle: 'O tráfico ilegal de órgãos gera entre 600 e 1.200 milhões de dólares anuais a nível mundial',
+      description:
+        'O tráfico ilegal de órgãos gera lucros e transações anuais estimados entre 600 milhões e 1,2 mil milhões de dólares a nível global. Esta atividade clandestina alimenta-se da exploração de dadores em situação de pobreza extrema e do chamado turismo de transplantes, segundo a Wikipédia.',
+      sourceName: 'Wikipédia — Tráfico de órgãos',
+    },
+    'global-art-trafficking-spending': {
+      title: 'Gastos com Tráfico Ilegal de Arte',
+      subtitle: 'O tráfico ilícito de bens culturais e obras de arte movimenta quase 10 mil milhões de dólares anuais',
+      description:
+        'O comércio ilícito de obras de arte, antiguidades e património arqueológico representa uma indústria criminosa de quase 10 mil milhões de dólares anuais. Financiando frequentemente redes terroristas e o crime organizado transnacional, constitui uma das maiores ameaças contra la identidade dos povos, segundo a UNESCO e a ONU.',
+      sourceName: 'UNESCO & ONU — Tráfico ilícito de bens culturais',
+    },
+    'lamine-yamal-market-value': {
+      title: 'Valor de Mercado de Lamine Yamal',
+      subtitle: 'A valorização estimada do passe do jogador Lamine Yamal situa-se nos 220 milhões de euros',
+      description:
+        'O valor de mercado de Lamine Yamal fixa-se nos 220 milhões de euros, consolidando-o como um dos futebolistas mais valiosos e com maior projeção financeira do mundo, segundo os dados de perfil da Transfermarkt.',
+      sourceName: 'Transfermarkt — Perfil de Lamine Yamal',
     },
   },
 };

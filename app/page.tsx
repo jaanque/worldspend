@@ -1,5 +1,10 @@
 import { HomeView } from '@/components/HomeView';
+import { Suspense } from 'react';
 
 export default function HomePage() {
-  return <HomeView locale="en" />;
+  return (
+    <Suspense fallback={null}>
+      <HomeView locale="en" />
+    </Suspense>
+  );
 }

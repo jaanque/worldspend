@@ -107,7 +107,27 @@ export const Footer: React.FC<FooterProps> = ({
               </span>
             </Link>
             <span className="hidden sm:inline text-gray-400">•</span>
-            <span>© {new Date().getFullYear()} {dict.footer.copyrightNotice || 'WorldSpend Análisis Financiero Global'}</span>
+            <span>© {new Date().getFullYear()} {dict.footer.copyrightNotice || 'WorldSpend'}</span>
+            <span className="text-gray-400">•</span>
+            <Link href={getHref('/legal')} className="hover:text-[#1c4b78] hover:underline shrink-0">
+              {locale === 'es' ? 'Aviso Legal' : locale === 'fr' ? 'Mentions Légales' : locale === 'de' ? 'Impressum' : locale === 'pt' ? 'Aviso Legal' : 'Legal Notice'}
+            </Link>
+            <span className="text-gray-400">•</span>
+            <Link href={getHref('/privacy')} className="hover:text-[#1c4b78] hover:underline shrink-0">
+              {locale === 'es' ? 'Privacidad' : locale === 'fr' ? 'Confidentialité' : locale === 'de' ? 'Datenschutz' : locale === 'pt' ? 'Privacidade' : 'Privacy'}
+            </Link>
+            <span className="text-gray-400">•</span>
+            <Link href={getHref('/terms')} className="hover:text-[#1c4b78] hover:underline shrink-0">
+              {locale === 'es' ? 'Términos' : locale === 'fr' ? 'Conditions' : locale === 'de' ? 'AGB' : locale === 'pt' ? 'Termos' : 'Terms'}
+            </Link>
+            <span className="text-gray-400">•</span>
+            <Link href={getHref('/cookies')} className="hover:text-[#1c4b78] hover:underline shrink-0">
+              Cookies
+            </Link>
+            <span className="text-gray-400">•</span>
+            <Link href="/sitemap.xml" className="hover:text-[#1c4b78] hover:underline shrink-0" target="_blank" rel="noopener noreferrer">
+              Sitemap
+            </Link>
           </div>
 
           {/* Footer Selectors */}
