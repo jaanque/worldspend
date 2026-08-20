@@ -12,21 +12,13 @@ export type TimeframeMode = 'year' | 'today' | 'session' | 'second' | 'custom';
 
 export type CategoryId =
   | 'all'
-  | 'health'
-  | 'illicit'
-  | 'science'
-  | 'advertising'
-  | 'food'
-  | 'military'
-  | 'tech'
-  | 'energy'
-  | 'luxury'
-  | 'gambling'
-  | 'corruption'
-  | 'society'
+  | 'entertainment'
   | 'government'
-  | 'country-gdp'
-  | 'sports';
+  | 'health'
+  | 'food'
+  | 'illicit'
+  | 'military'
+  | 'country-gdp';
 
 export interface CategoryInfo {
   id: CategoryId;

@@ -16,8 +16,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
   es: {
     illicit: 'Mercado Negro',
     military: 'Militar',
-    sports: 'Deportes',
-    luxury: 'Estilismo',
+    entertainment: 'Entretenimiento',
     food: 'Alimentación',
     government: 'Gobierno',
     health: 'Salud',
@@ -26,8 +25,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
   en: {
     illicit: 'Black Market',
     military: 'Military',
-    sports: 'Sports',
-    luxury: 'Style & Media',
+    entertainment: 'Entertainment',
     food: 'Food',
     government: 'Government',
     health: 'Health',
@@ -36,8 +34,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
   fr: {
     illicit: 'Marché Noir',
     military: 'Militaire',
-    sports: 'Sports',
-    luxury: 'Style',
+    entertainment: 'Divertissement',
     food: 'Alimentation',
     government: 'Gouvernement',
     health: 'Santé',
@@ -46,8 +43,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
   de: {
     illicit: 'Schwarzmarkt',
     military: 'Militär',
-    sports: 'Sport',
-    luxury: 'Lifestyle',
+    entertainment: 'Unterhaltung',
     food: 'Lebensmittel',
     government: 'Staat',
     health: 'Gesundheit',
@@ -56,8 +52,7 @@ const categoryShortNames: Record<string, Record<string, string>> = {
   pt: {
     illicit: 'Mercado Negro',
     military: 'Militar',
-    sports: 'Desportos',
-    luxury: 'Estilo',
+    entertainment: 'Entretenimento',
     food: 'Alimentação',
     government: 'Governo',
     health: 'Saúde',

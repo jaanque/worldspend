@@ -142,71 +142,15 @@ export const esTranslations: Translations = {
       'Las cifras de gasto en tiempo real mostradas en WorldSpend.org son aproximaciones algorítmicas continuas basadas en estadísticas y balances oficiales anuales. Los datos se actualizan continuamente con fines educativos, divulgativos y de análisis comparativo.',
     citationText: 'Cómo citar: WorldSpend Analytics. (2026). Indicadores Mundiales de Gasto en Tiempo Real. Disponible en https://worldspend.org',
   },
-  categories: {
-    all: {
-      name: 'Todos los Gastos',
-      description: 'Panorama financiero global completo en tiempo real',
-    },
-    government: {
-      name: 'Gobierno y Presupuestos Públicos',
-      description: 'Ministerios públicos, pensiones, subsidios y administración del Estado',
-    },
-    society: {
-      name: 'Familia, Sociedad y Estilo de Vida',
-      description: 'Crianza de hijos, bodas, productos para bebés y eventos vitales',
-    },
-    food: {
-      name: 'Alimentación y Cesta de la Compra',
-      description: 'Gasto mensual en comida, alimentación familiar y supermercados',
-    },
-    luxury: {
-      name: 'Medios, Eventos y Estilismo',
-      description: 'Megaproducciones de streaming, estilismo público y entretenimiento',
-    },
-    health: {
-      name: 'Sanidad y Salud Pública',
-      description: 'Sistemas sanitarios mundiales, productos farmacéuticos y tratamientos',
-    },
-    illicit: {
-      name: 'Sustancias Ilegales y Mercado Negro',
-      description: 'Tráfico internacional de estupefacientes y contrabando',
-    },
-    science: {
-      name: 'Investigación Científica y Espacio',
-      description: 'Inversión en I+D global y exploración espacial',
-    },
-    advertising: {
-      name: 'Publicidad y Marketing',
-      description: 'Anuncios digitales, medios tradicionales y patrocinios',
-    },
-    military: {
-      name: 'Gasto Militar y Defensa',
-      description: 'Presupuestos de defensa mundiales y armamento',
-    },
-    tech: {
-      name: 'Tecnología, IA y Cómputo',
-      description: 'Centros de datos de IA e infraestructura en la nube',
-    },
-    energy: {
-      name: 'Energía, Petróleo y Electricidad',
-      description: 'Generación eléctrica mundial, consumo de crudo y redes de energía',
-    },
-    sports: {
-      name: 'Deportes, Fútbol y Competiciones',
-      description: 'Mercado de fichajes de fútbol, masas salariales de clubes y grandes torneos',
-    },
-    gambling: {
-      name: 'Juegos de Azar y Loterías',
-      description: 'Casinos físicos, apuestas deportivas y loterías de estado',
-    },
-    'country-gdp': {
-      name: 'PIB por Países',
-      description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real',
-    },
-    corruption: {
-      name: 'Corrupción y Paraísos Fiscales',
-      description: 'Evasión fiscal corporativa y cuentas offshore',
-    },
+    categories: {
+    all: { name: 'Todos los Gastos', description: 'Panorama financiero global completo en tiempo real' },
+    entertainment: { name: 'Entretenimiento y Marcas', description: 'Deportes, streaming, videojuegos y grandes marcas globales' },
+    government: { name: 'Gobierno y Sector Público', description: 'Presupuestos públicos, ayudas, exploración espacial y ministerios' },
+    health: { name: 'Salud y Bienestar', description: 'Sanidad pública, salud, tabaco y procedimientos médicos' },
+    food: { name: 'Alimentación y Coste de Vida', description: 'Gasto en comida, coste de la vida y consumo cotidiano' },
+    illicit: { name: 'Mercado Negro e Ilícito', description: 'Economía criminal, ciberdelincuencia, drogas y tráfico' },
+    military: { name: 'Defensa y Armamento', description: 'Gasto militar global, armamento, ejércitos y programas de defensa' },
+    'country-gdp': { name: 'PIB por Países', description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real' },
   },
   items: {
     'spain-cost-raising-child': {

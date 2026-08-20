@@ -50,67 +50,58 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Complete real-time global financial overview',
   },
   {
-    id: 'illicit',
-    name: 'Actividad Criminal y Narcotráfico',
-    iconName: 'ShieldAlert',
-    color: '#ef4444',
-    badgeBg: 'rgba(239, 68, 68, 0.12)',
-    badgeBorder: 'rgba(239, 68, 68, 0.3)',
-    description: 'Tráfico internacional de estupefacientes, contrabando y economía ilícita',
-  },
-  {
-    id: 'military',
-    name: 'Gasto Militar y Defensa',
-    iconName: 'Shield',
-    color: '#f59e0b',
-    badgeBg: 'rgba(245, 158, 11, 0.12)',
-    badgeBorder: 'rgba(245, 158, 11, 0.3)',
-    description: 'Presupuestos de defensa mundiales, armamento y fuerzas armadas',
-  },
-  {
-    id: 'sports',
-    name: 'Deportes y Grandes Eventos',
-    iconName: 'Trophy',
-    color: '#f97316',
-    badgeBg: 'rgba(249, 115, 22, 0.12)',
-    badgeBorder: 'rgba(249, 115, 22, 0.3)',
-    description: 'Organización de grandes eventos deportivos mundiales, Juegos Olímpicos y competiciones internacionales',
-  },
-  {
-    id: 'luxury',
-    name: 'Medios, Eventos y Entretenimiento',
-    iconName: 'Tv',
+    id: 'entertainment',
+    name: 'Entretenimiento y Marcas',
+    iconName: 'MonitorPlay',
     color: '#8b5cf6',
     badgeBg: 'rgba(139, 92, 246, 0.12)',
     badgeBorder: 'rgba(139, 92, 246, 0.3)',
-    description: 'Megaproducciones de streaming, espectáculos en vivo y grandes eventos de entretenimiento',
-  },
-  {
-    id: 'food',
-    name: 'Alimentación y Consumo',
-    iconName: 'ShoppingBag',
-    color: '#10b981',
-    badgeBg: 'rgba(16, 185, 129, 0.12)',
-    badgeBorder: 'rgba(16, 185, 129, 0.3)',
-    description: 'Cesta de la compra, alimentación de los hogares y consumo alimenticio',
+    description: 'Deportes, streaming, videojuegos y grandes marcas globales',
   },
   {
     id: 'government',
-    name: 'Government & Public Budget',
+    name: 'Gobierno y Sector Público',
     iconName: 'Landmark',
     color: '#3b82f6',
     badgeBg: 'rgba(59, 130, 246, 0.12)',
     badgeBorder: 'rgba(59, 130, 246, 0.3)',
-    description: 'Public ministries, pensions, welfare benefits, and state administration',
+    description: 'Presupuestos públicos, ayudas, exploración espacial y ministerios',
   },
   {
     id: 'health',
-    name: 'Salud y Sanidad Pública',
+    name: 'Salud y Bienestar',
     iconName: 'HeartPulse',
     color: '#ef4444',
     badgeBg: 'rgba(239, 68, 68, 0.12)',
     badgeBorder: 'rgba(239, 68, 68, 0.3)',
-    description: 'Sistemas sanitarios, medicamentos y salud pública',
+    description: 'Sanidad pública, salud, tabaco y procedimientos médicos',
+  },
+  {
+    id: 'food',
+    name: 'Alimentación y Coste de Vida',
+    iconName: 'ShoppingBag',
+    color: '#10b981',
+    badgeBg: 'rgba(16, 185, 129, 0.12)',
+    badgeBorder: 'rgba(16, 185, 129, 0.3)',
+    description: 'Gasto en comida, coste de la vida y consumo cotidiano',
+  },
+  {
+    id: 'illicit',
+    name: 'Mercado Negro e Ilícito',
+    iconName: 'ShieldAlert',
+    color: '#ef4444',
+    badgeBg: 'rgba(239, 68, 68, 0.12)',
+    badgeBorder: 'rgba(239, 68, 68, 0.3)',
+    description: 'Economía criminal, ciberdelincuencia, drogas y tráfico',
+  },
+  {
+    id: 'military',
+    name: 'Defensa y Armamento',
+    iconName: 'Shield',
+    color: '#f59e0b',
+    badgeBg: 'rgba(245, 158, 11, 0.12)',
+    badgeBorder: 'rgba(245, 158, 11, 0.3)',
+    description: 'Gasto militar global, armamento, ejércitos y programas de defensa',
   },
   {
     id: 'country-gdp',
@@ -124,10 +115,54 @@ export const CATEGORIES: CategoryInfo[] = [
 ];
 
 export const SPEND_ITEMS: SpendItem[] = [
+  // Ingresos Globales de Spotify
+  {
+    id: 'spotify-annual-revenue',
+    categoryId: 'entertainment',
+    title: 'Gasto de usuarios en Spotify',
+    subtitle: 'Spotify genera alrededor de 17.000 millones de euros en ingresos anuales',
+    annualSpendUSD: 18478260870, // 17.000 millones de euros convertidos a USD (17B / 0.92)
+    growthRatePct: 15,
+    iconName: 'Music',
+    accentColor: '#1db954',
+    description: 'La plataforma de streaming de música Spotify genera unos ingresos totales de aproximadamente 17.000 millones de euros anuales a nivel global. Esta cifra millonaria proviene principalmente de sus suscripciones Premium y, en menor medida, de la publicidad en su nivel gratuito.',
+    sourceName: 'CompaniesMarketCap',
+    sourceUrl: 'https://companiesmarketcap.com/eur/spotify/revenue/',
+    sources: [
+      {
+        name: 'CompaniesMarketCap — Spotify Revenue',
+        url: 'https://companiesmarketcap.com/eur/spotify/revenue/',
+      },
+    ],
+    sourceYear: 2024,
+    tags: ['spotify', 'musica', 'streaming', 'entretenimiento', 'ingresos'],
+  },
+  // Presupuesto de GTA VI
+  {
+    id: 'gta-6-budget',
+    categoryId: 'entertainment',
+    title: 'Gasto en desarrollo de GTA VI',
+    subtitle: 'El costo estimado de desarrollo y marketing de Grand Theft Auto VI',
+    annualSpendUSD: 1000000000,
+    growthRatePct: 0,
+    iconName: 'Tv',
+    accentColor: '#8b5cf6',
+    description: 'El presupuesto estimado para el desarrollo de Grand Theft Auto VI (GTA 6) supera los 1.000 millones de dólares, convirtiéndolo en uno de los productos de entretenimiento más caros de la historia. El CEO de Take-Two Interactive lo definió como "caro".',
+    sourceName: 'Vandal',
+    sourceUrl: 'https://vandal.elespanol.com/noticia/1350789570/mas-de-1000-millones-de-dolares-estiman-el-presupuesto-de-gta-6-que-el-ceo-de-taketwo-define-como-caro/',
+    sources: [
+      {
+        name: 'Vandal — Más de 1.000 millones de dólares estiman el presupuesto de GTA 6',
+        url: 'https://vandal.elespanol.com/noticia/1350789570/mas-de-1000-millones-de-dolares-estiman-el-presupuesto-de-gta-6-que-el-ceo-de-taketwo-define-como-caro/',
+      },
+    ],
+    sourceYear: 2024,
+    tags: ['gta', 'videojuegos', 'entretenimiento', 'rockstar', 'take-two', 'presupuesto'],
+  },
   // Gasto en Cirugías Estéticas en el Mundo
   {
     id: 'global-cosmetic-surgery-spending',
-    categoryId: 'luxury',
+    categoryId: 'entertainment',
     title: 'Gasto en Cirugías Estéticas',
     subtitle: 'El costo total de las cirugías estéticas en el mundo se estima en 2.660 millones de euros anuales',
     annualSpendUSD: 2891304348, // €2.660 millones de euros convertidos a USD (2.66B / 0.92)
@@ -151,7 +186,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'economic-burden-of-tobacco',
     categoryId: 'health',
-    title: 'La carga económica del tabaco',
+    title: 'Gasto y costo médico del tabaco',
     subtitle: 'El costo económico y médico del tabaco es de 1,8 billones de dólares anuales en el mundo',
     annualSpendUSD: 1800000000000, // $1.8 Trillones USD (1.8 Trillion)
     growthRatePct: 2.5,
@@ -221,7 +256,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'global-space-exploration-spending',
     categoryId: 'government',
-    title: 'Inversión Pública en Exploración Espacial',
+    title: 'Gasto público en Exploración Espacial',
     subtitle: 'La inversión pública en exploración espacial alcanza los 119.000 millones de euros anuales en el mundo',
     annualSpendUSD: 129347826087, // 119.000M € convertidos a USD (119.0B / 0.92)
     growthRatePct: 6.5,
@@ -360,7 +395,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'spain-cost-raising-child',
     categoryId: 'food',
-    title: 'Coste de Criar a un Hijo en España (0–18 años)',
+    title: 'Gasto de criar a un hijo en España (0–18 años)',
     subtitle: 'Entre 115.000 € y 180.000 € en total de media básica; unos 8.194 € al año por hijo',
     annualSpendUSD: 8932, // Media 147.500 € / 18 años = 8.194 €/año × 1.09 ≈ $8.932 USD/año
     growthRatePct: 3.0,
@@ -709,7 +744,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'global-cybercrime-losses',
     categoryId: 'illicit',
-    title: 'Pérdidas Mundiales por Ciberdelincuencia',
+    title: 'Costo de las pérdidas por Ciberdelincuencia',
     subtitle: 'Coste económico global del ciberdelito proyectado en 10,8 billones de dólares anuales',
     annualSpendUSD: 10800000000000, // $10,8 Billones USD (10.8 Trillion)
     growthRatePct: 15.0,
@@ -743,7 +778,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'global-ransomware-damages',
     categoryId: 'illicit',
-    title: 'Daños Causados por Ransomware',
+    title: 'Costo de daños por Ransomware',
     subtitle: 'Coste económico global por secuestro de datos y chantaje digital de $74.000M al año',
     annualSpendUSD: 74000000000, // $74.000 Millones USD (74 Billion)
     growthRatePct: 18.2,
@@ -777,7 +812,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'global-money-laundering-total',
     categoryId: 'illicit',
-    title: 'Blanqueo de Capitales Mundial',
+    title: 'Dinero gastado en Blanqueo de Capitales',
     subtitle: 'Volumen estimado entre 1,5 y 2,85 billones de dólares anuales (2,17 Billones de USD de media)',
     annualSpendUSD: 2175000000000, // Media entre 1,5 y 2,85 billones USD = $2,175 Billones USD ($2.175 Trillion)
     growthRatePct: 4.1,
@@ -811,7 +846,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   {
     id: 'global-black-market-economy',
     categoryId: 'illicit',
-    title: 'Mercado Negro y Economía Ilícita Global',
+    title: 'Gasto en Economía Ilícita Global',
     subtitle: 'Volumen económico promedio estimado entre 7 y 15 billones de dólares anuales (11,5 Billones de USD)',
     annualSpendUSD: 11500000000000, // Media entre 7 y 15 billones USD = 11.5 Billones USD ($11,5 Trillion)
     growthRatePct: 4.5,
@@ -985,8 +1020,8 @@ export const SPEND_ITEMS: SpendItem[] = [
   // Valor de mercado de Lamine Yamal (Transfermarkt)
   {
     id: 'lamine-yamal-market-value',
-    categoryId: 'sports',
-    title: 'Valor de Mercado de Lamine Yamal',
+    categoryId: 'entertainment',
+    title: 'Costo del traspaso de Lamine Yamal',
     subtitle: 'La valoración estimada de la ficha del jugador Lamine Yamal se sitúa en los 220 millones de euros',
     annualSpendUSD: 239130435, // 220.000.000 € convertidos a USD (220M / 0.92)
     growthRatePct: 15.0, // Alta proyección de crecimiento de valor
@@ -1016,8 +1051,8 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 6. Coste de organización del Mundial FIFA 2026 (FIFA)
   {
     id: 'fifa-world-cup-2026-cost',
-    categoryId: 'sports',
-    title: 'Coste de Organización del Mundial de Fútbol FIFA 2026',
+    categoryId: 'entertainment',
+    title: 'Gasto de Organización del Mundial de Fútbol FIFA 2026',
     subtitle: 'Gasto total de la FIFA para organizar y operar el primer Mundial de 48 equipos de la historia',
     annualSpendUSD: 2400000000, // $2.400 Millones USD (2,4 Billion)
     growthRatePct: 0,
@@ -1049,8 +1084,8 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5. Coste de Producción de La Velada del Año de Ibai Llanos (€10M / ~$10.9M USD)
   {
     id: 'la-velada-production-cost',
-    categoryId: 'luxury',
-    title: 'Coste de Producción de La Velada del Año VI (Ibai)',
+    categoryId: 'entertainment',
+    title: 'Gasto de Producción de La Velada del Año VI (Ibai)',
     subtitle: 'Presupuesto total de 10 millones de euros para alquiler de estadios, artistas, seguridad y producción técnica',
     annualSpendUSD: 10900000, // 10.000.000 € a tipo ~1.09 = $10.900.000 USD
     growthRatePct: 15.0,
@@ -1092,7 +1127,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5b. Gasto de Usuarios en Suscripciones de Netflix (Xataka / Netflix Investor Relations)
   {
     id: 'netflix-annual-revenue',
-    categoryId: 'luxury',
+    categoryId: 'entertainment',
     title: 'Gasto de Usuarios en Suscripciones de Netflix',
     subtitle: 'Gasto global de 45.200 millones de dólares al año (~38.800M €) en suscripciones',
     annualSpendUSD: 45200000000, // $45.200 Millones USD (45.2 Billion)
@@ -1125,7 +1160,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5c. Gasto en Suscripciones de Amazon Prime (Marketplace Pulse)
   {
     id: 'amazon-prime-subscription-revenue',
-    categoryId: 'luxury',
+    categoryId: 'entertainment',
     title: 'Gasto en Suscripciones de Amazon Prime',
     subtitle: 'Gasto global de 49.620 millones de dólares anuales en servicios de suscripción (Prime, Video, Music)',
     annualSpendUSD: 49620000000, // $49.620 Millones USD (49.62 Billion)
@@ -1162,7 +1197,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5d. Gasto de Usuarios en Disney Streaming (DTC) (Motley Fool / Disney SEC Filings)
   {
     id: 'disney-dtc-streaming-revenue',
-    categoryId: 'luxury',
+    categoryId: 'entertainment',
     title: 'Gasto de Usuarios en Disney Streaming (DTC)',
     subtitle: 'Gasto anual estimado entre 22.000M y 25.000M$ USD en Disney+, Hulu y ESPN+ ($23.500M USD de media)',
     annualSpendUSD: 23500000000, // Media entre 22.000M$ y 25.000M$ = $23.500 Millones USD (23.5 Billion)
@@ -1195,7 +1230,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5e. Gasto de Usuarios en Max (HBO) (Señal News)
   {
     id: 'warner-bros-discovery-max-revenue',
-    categoryId: 'luxury',
+    categoryId: 'entertainment',
     title: 'Gasto de Usuarios en Max (HBO)',
     subtitle: 'Gasto anual estimado entre 10.000M$ y 11.000M$ USD en su división global de streaming DTC ($10.500M USD de media)',
     annualSpendUSD: 10500000000, // Media entre 10.000M$ y 11.000M$ = $10.500 Millones USD (10.5 Billion)
@@ -1228,7 +1263,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5f. Gasto de Usuarios en Twitch (Business of Apps)
   {
     id: 'twitch-annual-revenue',
-    categoryId: 'luxury',
+    categoryId: 'entertainment',
     title: 'Gasto de Usuarios en Twitch',
     subtitle: 'Gasto global estimado entre 1.800M$ y 1.900M$ USD al año ($1.850M USD de media)',
     annualSpendUSD: 1850000000, // Media entre 1.800M$ y 1.900M$ = $1.850 Millones USD (1.85 Billion)
@@ -1261,7 +1296,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5g. Gasto Global en Entradas de Cine (Observatorio Audiovisual Europeo / Spain Audiovisual Hub)
   {
     id: 'global-cinema-box-office-revenue',
-    categoryId: 'luxury',
+    categoryId: 'entertainment',
     title: 'Gasto Global en Entradas de Cine',
     subtitle: 'El gasto en taquilla cinematográfica mundial ronda los 29.600 millones de euros anuales (~32.264M$ USD)',
     annualSpendUSD: 32264000000, // 29.600M€ × 1,09 ≈ $32.264M USD
@@ -1295,7 +1330,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5h. Lo que las Empresas Gastaron en Publicidad en la Super Bowl (Palco23 / Mundo Deportivo)
   {
     id: 'superbowl-advertising-revenue',
-    categoryId: 'sports',
+    categoryId: 'entertainment',
     title: 'Gasto de Empresas en Publicidad en la Super Bowl',
     subtitle: 'Las marcas pagaron más de 414 millones de dólares para anunciarse en la Super Bowl por segundo año consecutivo',
     annualSpendUSD: 414000000, // $414 Millones USD (414 Million)
@@ -1328,7 +1363,7 @@ export const SPEND_ITEMS: SpendItem[] = [
   // 5i. Gasto de las Marcas en Publicidad para el Mundial FIFA 2026 (AdLatina)
   {
     id: 'fifa-world-cup-global-advertising-investment',
-    categoryId: 'sports',
+    categoryId: 'entertainment',
     title: 'Gasto de las Marcas en Publicidad para el Mundial FIFA 2026',
     subtitle: 'Las empresas gastaron ~10.500M$ por edición en anunciarse durante el Mundial (ciclo 4 años → ~2.625M$/año)',
     annualSpendUSD: 2625000000, // $10.500M USD / 4 años = $2.625M USD/año anualizado

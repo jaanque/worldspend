@@ -140,71 +140,15 @@ export const enTranslations: Translations = {
       'All real-time statistical figures presented on WorldSpend.org are algorithmic approximations based on official annual baselines and reported historical growth trajectories. Data is updated continuously for informational, research, and benchmarking purposes.',
     citationText: 'Cite as: WorldSpend Global Expenditure Index (2026). Available at https://worldspend.org',
   },
-  categories: {
-    all: {
-      name: 'All Expenditures',
-      description: 'Complete real-time global financial overview',
-    },
-    government: {
-      name: 'Government & Public Budget',
-      description: 'Public ministries, pensions, welfare benefits, and state administration',
-    },
-    society: {
-      name: 'Family, Society & Lifestyle',
-      description: 'Child-rearing, weddings, baby care, and lifestyle milestones',
-    },
-    food: {
-      name: 'Food & Household Groceries',
-      description: 'Monthly grocery spending, family alimentation, and supermarket costs',
-    },
-    luxury: {
-      name: 'Media, Events & Aesthetics',
-      description: 'Streaming mega-productions, public styling, and entertainment events',
-    },
-    health: {
-      name: 'Healthcare & Public Health',
-      description: 'Global healthcare systems, pharmaceuticals, medical treatments, and public health',
-    },
-    illicit: {
-      name: 'Illicit Substances & Black Market',
-      description: 'International narcotics trade, money laundering, and illicit smuggling',
-    },
-    science: {
-      name: 'Scientific Research & Space',
-      description: 'Global R&D investments, space exploration programs, and cancer research',
-    },
-    advertising: {
-      name: 'Advertising & Marketing',
-      description: 'Digital ads, traditional media, and influencer sponsorships',
-    },
-    military: {
-      name: 'Military & Defense',
-      description: 'Worldwide defense budgets, weapons procurement, and nuclear arsenals',
-    },
-    tech: {
-      name: 'Technology, AI & Computing',
-      description: 'AI data centers, cloud computing infrastructure, and cybercrime damages',
-    },
-    energy: {
-      name: 'Energy, Oil & Electricity',
-      description: 'Global electricity generation, crude oil consumption, and power grids',
-    },
-    sports: {
-      name: 'Sports, Football & Tournaments',
-      description: 'Football transfer windows, club payrolls, player salaries, and international championships',
-    },
-    gambling: {
-      name: 'Gambling & Lotteries',
-      description: 'Physical casinos, online sports betting, and national state lotteries',
-    },
-    'country-gdp': {
-      name: 'GDP by Countries',
-      description: 'Gross Domestic Product (nominal GDP) of countries in real time',
-    },
-    corruption: {
-      name: 'Corruption & Tax Havens',
-      description: 'Corporate tax avoidance, offshore accounts, and public sector bribery',
-    },
+    categories: {
+    all: { name: 'All Expenditures', description: 'Complete real-time global financial overview' },
+    entertainment: { name: 'Entertainment & Brands', description: 'Sports, streaming, video games, and global brands' },
+    government: { name: 'Government & Public Sector', description: 'Public budgets, aid, space exploration, and ministries' },
+    health: { name: 'Health & Wellness', description: 'Public health, tobacco, and medical procedures' },
+    food: { name: 'Food & Cost of Living', description: 'Food expenditure, cost of living, and daily consumption' },
+    illicit: { name: 'Black Market & Illicit', description: 'Criminal economy, cybercrime, drugs, and trafficking' },
+    military: { name: 'Defense & Military', description: 'Global military spending, weaponry, armies, and defense programs' },
+    'country-gdp': { name: 'GDP by Country', description: 'Gross Domestic Product (nominal GDP) of countries in real-time' },
   },
   items: {
     'spain-cost-raising-child': {
