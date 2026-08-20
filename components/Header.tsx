@@ -210,12 +210,12 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="bg-[#122e4d] border-t border-[#1e4670] py-1.5 px-3">
           <div className="max-w-4xl mx-auto flex items-center justify-between gap-4 px-1 sm:px-6">
             {/* Scrollable category list */}
-            <nav className="flex-1 overflow-x-auto scrollbar-none flex items-center justify-start md:justify-center gap-4 xl:gap-5 text-[10px] xl:text-[11px] font-black uppercase tracking-wider whitespace-nowrap">
+            <nav className="flex-1 overflow-x-auto scrollbar-none flex items-center justify-start md:justify-center gap-5 sm:gap-4 xl:gap-5 text-[10px] xl:text-[11px] font-black uppercase tracking-wider whitespace-nowrap pb-1 sm:pb-0">
               {/* Home */}
               <Link
                 href={homeHref}
                 onClick={handleLogoClick}
-                className="text-white hover:text-blue-200 transition-colors duration-150 no-underline hover:underline decoration-2 underline-offset-4 shrink-0"
+                className="text-white hover:text-blue-200 transition-colors duration-150 no-underline hover:underline decoration-2 underline-offset-4 shrink-0 py-1"
               >
                 {locale === 'es' ? 'Inicio' : locale === 'fr' ? 'Accueil' : locale === 'de' ? 'Start' : locale === 'pt' ? 'Início' : 'Home'}
               </Link>
@@ -227,7 +227,7 @@ export const Header: React.FC<HeaderProps> = ({
                   <Link
                     key={cat.id}
                     href={href}
-                    className="text-blue-100 hover:text-white transition-colors duration-150 no-underline hover:underline decoration-2 underline-offset-4 shrink-0"
+                    className="text-blue-100 hover:text-white transition-colors duration-150 no-underline hover:underline decoration-2 underline-offset-4 shrink-0 py-1"
                   >
                     {name}
                   </Link>
@@ -236,7 +236,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="text-blue-300/40 shrink-0 select-none">|</span>
               <Link
                 href={calculatorHref}
-                className="text-white hover:text-blue-200 transition-colors duration-150 no-underline hover:underline decoration-2 underline-offset-4 shrink-0 font-bold"
+                className="text-white hover:text-blue-200 transition-colors duration-150 no-underline hover:underline decoration-2 underline-offset-4 shrink-0 font-bold py-1 pr-2"
               >
                 {calculatorLabel}
               </Link>

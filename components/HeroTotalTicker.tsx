@@ -86,8 +86,24 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
 
   return (
     <div className="relative bg-[#f4f8fc] border border-[#d2dce6] rounded-xs p-3.5 sm:p-5 md:p-6 text-center mt-1 mb-4 sm:mb-6 shadow-2xs">
-      {/* Corner Collapsible Action Buttons: Info, Share & Embed */}
-      <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5">
+      {/* Title */}
+      <div className="text-[10px] sm:text-xs md:text-xs font-bold uppercase tracking-wider text-[#1c4b78] mb-1 px-1 opacity-90">
+        {timeframeLabels[timeframe]}
+      </div>
+
+      {/* Number */}
+      <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#112d4a] tabular-numbers py-0.5 select-all tracking-tight leading-none break-all sm:break-normal">
+        {formatCurrencyValue(totalWorldSpend, activeCurrency, activeCurrency.code === 'BTC')}
+      </div>
+
+      {/* Rate */}
+      <div className="text-xs font-bold text-[#007700] mt-1.5 flex items-center justify-center gap-1.5">
+        <span>+{formatCurrencyValue(totalRatePerSecond, activeCurrency)}</span>
+        <span className="text-gray-500 font-normal">{dict.heroTicker.perSecondSuffix}</span>
+      </div>
+
+      {/* Action Buttons: Info, Share & Embed */}
+      <div className="flex justify-center items-center z-20 mt-4 gap-2">
         {/* Info Button & Modal */}
         <div className="relative inline-flex items-center">
           <button
@@ -108,7 +124,7 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
           </button>
 
           {showSources && (
-            <div className="absolute right-0 top-full mt-1.5 z-50 w-64 sm:w-72 p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] text-left">
+            <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-0 top-full mt-1.5 z-50 w-[280px] sm:w-72 max-w-[calc(100vw-2rem)] p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] text-left">
               <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
                 <span className="font-bold text-[#14324f] text-xs">
                   {timeframeLabels[timeframe]}
@@ -170,7 +186,7 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
           </button>
 
           {showShare && (
-            <div className="absolute right-0 top-full mt-1.5 z-50 w-64 sm:w-72 p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] text-left">
+            <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-0 top-full mt-1.5 z-50 w-[280px] sm:w-72 max-w-[calc(100vw-2rem)] p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] text-left">
               <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
                 <span className="font-bold text-[#14324f] text-xs">
                   Compartir Contador Gigante
@@ -242,7 +258,7 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
           </button>
 
           {showEmbedBox && (
-            <div className="absolute right-0 top-full mt-1.5 z-50 w-[280px] sm:w-80 p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] text-left">
+            <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-0 top-full mt-1.5 z-50 w-[300px] sm:w-80 max-w-[calc(100vw-2rem)] p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] text-left">
               <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
                 <span className="font-bold text-[#14324f] text-xs">
                   {dict.card.embedTitle}
@@ -306,18 +322,7 @@ export const HeroTotalTicker: React.FC<HeroTotalTickerProps> = ({
         </div>
       </div>
 
-      <div className="text-[10px] sm:text-xs md:text-xs font-bold uppercase tracking-wider text-[#1c4b78] mb-1 px-1 opacity-90">
-        {timeframeLabels[timeframe]}
-      </div>
 
-      <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#112d4a] tabular-numbers py-0.5 select-all tracking-tight leading-none break-all sm:break-normal">
-        {formatCurrencyValue(totalWorldSpend, activeCurrency, activeCurrency.code === 'BTC')}
-      </div>
-
-      <div className="text-xs font-bold text-[#007700] mt-1.5 flex items-center justify-center gap-1.5">
-        <span>+{formatCurrencyValue(totalRatePerSecond, activeCurrency)}</span>
-        <span className="text-gray-500 font-normal">{dict.heroTicker.perSecondSuffix}</span>
-      </div>
     </div>
   );
 };

@@ -251,7 +251,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
                   <div className={`accordion-wrapper ${isCollapsed ? 'collapsed' : ''}`}>
                     <div className="accordion-inner pt-2 pb-1">
                       {/* Grid of Counter Cards */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                         {displayedItems.map((item) => (
                           <CounterCard
                             key={item.id}
@@ -311,7 +311,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {filteredItems.map((item) => (
                   <CounterCard
                     key={item.id}

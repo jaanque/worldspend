@@ -109,7 +109,7 @@ export const CounterCard: React.FC<CounterCardProps> = ({
             {showTooltip && (
               <div
                 onClick={(e) => e.stopPropagation()}
-                className="absolute right-0 bottom-full mb-2 z-50 w-64 sm:w-72 p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] cursor-default text-left"
+                className="absolute right-[-8px] sm:right-0 bottom-full mb-2 z-50 w-[280px] sm:w-72 max-w-[calc(100vw-2rem)] p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-xl border-2 border-[#1c4b78] cursor-default text-left"
               >
                 <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
                   <span className="font-bold text-[#14324f] text-xs">
@@ -177,7 +177,7 @@ export const CounterCard: React.FC<CounterCardProps> = ({
             {showEmbedBox && (
               <div
                 onClick={(e) => e.stopPropagation()}
-                className="absolute right-0 bottom-full mb-2 z-50 w-[280px] sm:w-80 p-2.5 bg-white text-gray-800 text-[11px] rounded-xs shadow-2xl border-2 border-[#1c4b78] cursor-default text-left"
+                className="absolute right-[-8px] sm:right-0 bottom-full mb-2 z-50 w-[300px] sm:w-80 max-w-[calc(100vw-2rem)] p-2.5 bg-white text-gray-800 text-[11px] rounded-xs shadow-2xl border-2 border-[#1c4b78] cursor-default text-left"
               >
                 <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
                   <span className="font-bold text-[#14324f] text-xs">
