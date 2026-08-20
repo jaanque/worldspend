@@ -73,7 +73,7 @@ export const deTranslations: Translations = {
   },
   searchAndFilter: {
     filterSectionTitle: 'Suche & Kategoriefilter',
-    searchPlaceholder: 'Über 147 Live-Zähler, Institutionen oder Themen filtern (z.B. Schulden, Verteidigung, TikTok, Benzin, Gehalt)...',
+        searchPlaceholder: 'Indikatoren nach Themen, Ländern oder Quellen suchen (z.B. Schulden, Deutschland, Netflix)...',
     showingCounters: (count: number) => `${count} Live-Indikatoren angezeigt`,
     indicatorsCount: (count: number) => `${count} Indikatoren`,
     categoriesCount: (count: number) => `${count} Kategorien`,
@@ -147,6 +147,18 @@ export const deTranslations: Translations = {
     'country-gdp': { name: 'BIP nach Ländern', description: 'Bruttoinlandsprodukt (nominales BIP) der Länder in Echtzeit' },
   },
   items: {
+    'julian-alvarez-market-value': {
+      title: "Marktwert von Julián Álvarez",
+      subtitle: "Der geschätzte Marktwert von Julián Álvarez liegt bei 100 Millionen Euro",
+      description: "Der aktuelle Marktwert von Julián Álvarez (Stürmer von Atlético Madrid und der argentinischen Nationalmannschaft) beläuft sich auf 100 Millionen Euro. Damit gehört er laut Transfermarkt-Daten zur absoluten Weltspitze.",
+      sourceName: "Transfermarkt — Julián-Álvarez-Profil",
+      sources: [
+        {
+          name: "Transfermarkt — Profil von Julián Álvarez (Marktwertverlauf)",
+          url: "https://www.transfermarkt.es/julian-alvarez/marktwertverlauf/spieler/576024",
+        }
+      ],
+    },
     'us-national-debt': {
       title: "Staatsverschuldung der USA",
       subtitle: "Die US-Staatsverschuldung beläuft sich auf über 39 Billionen Dollar",

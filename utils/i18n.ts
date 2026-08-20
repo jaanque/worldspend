@@ -53,6 +53,7 @@ export function getLocalizedSpendItems(locale: Locale = 'en'): SpendItem[] {
 
     // 3. Deportes y Competiciones (sports)
     'lamine-yamal-market-value',
+    'julian-alvarez-market-value',
     'fifa-world-cup-2026-cost',
     'fifa-world-cup-global-advertising-investment',
 

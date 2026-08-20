@@ -73,7 +73,7 @@ export const frTranslations: Translations = {
   },
   searchAndFilter: {
     filterSectionTitle: 'Recherche et Filtres par Catégorie',
-    searchPlaceholder: 'Filtrer plus de 147 compteurs, institutions ou thèmes (ex. dette, défense, tiktok, essence, salaire)...',
+        searchPlaceholder: 'Rechercher des indicateurs par thèmes, pays ou sources (ex. dette, France, Netflix)...',
     showingCounters: (count: number) => `Affichage de ${count} indicateurs en direct`,
     indicatorsCount: (count: number) => `${count} indicateurs`,
     categoriesCount: (count: number) => `${count} catégories`,
@@ -147,6 +147,18 @@ export const frTranslations: Translations = {
     'country-gdp': { name: 'PIB par Pays', description: 'Produit Intérieur Brut (PIB nominal) des pays en temps réel' },
   },
   items: {
+    'julian-alvarez-market-value': {
+      title: "Valeur marchande de Julián Álvarez",
+      subtitle: "La valeur marchande estimée du joueur Julián Álvarez est de 100 millions d'euros",
+      description: "La valeur marchande actuelle de Julián Álvarez (attaquant de l'Atlético de Madrid et de l'équipe nationale argentine) s'élève à 100 millions d'euros, le consolidant comme l'un des joueurs de football d'élite mondial selon les données de Transfermarkt.",
+      sourceName: "Transfermarkt — Profil de Julián Álvarez",
+      sources: [
+        {
+          name: "Transfermarkt — Profil de Julián Álvarez (Historique de valeur marchande)",
+          url: "https://www.transfermarkt.es/julian-alvarez/marktwertverlauf/spieler/576024",
+        }
+      ],
+    },
     'us-national-debt': {
       title: "Dette nationale des États-Unis",
       subtitle: "La dette publique accumulée des États-Unis dépasse 39 000 milliards de dollars",

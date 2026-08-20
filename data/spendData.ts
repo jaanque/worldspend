@@ -1375,6 +1375,29 @@ export const SPEND_ITEMS: SpendItem[] = [
     ],
     tags: ['fútbol', 'lamine yamal', 'barça', 'transfermarkt', 'valor de mercado', 'deportes'],
   },
+  // Valor de mercado de Julián Álvarez (Transfermarkt)
+  {
+    id: 'julian-alvarez-market-value',
+    categoryId: 'entertainment',
+    title: 'Valor de mercado de Julián Álvarez',
+    subtitle: 'La valoración estimada de mercado del jugador Julián Álvarez se sitúa en los 100 millones de euros',
+    annualSpendUSD: 108695652, // 100.000.000 € convertidos a USD (100M / 0.92)
+    growthRatePct: 5.0,
+    iconName: 'Trophy',
+    accentColor: '#3b82f6',
+    description:
+      'El valor de mercado actual de Julián Álvarez (delantero del Atlético de Madrid y de la selección argentina) es de 100 millones de euros, consolidándose como uno de los futbolistas de élite a nivel mundial según los datos históricos de Transfermarkt.',
+    sourceName: 'Transfermarkt — Perfil de Julián Álvarez',
+    sourceUrl: 'https://www.transfermarkt.es/julian-alvarez/marktwertverlauf/spieler/576024',
+    sources: [
+      {
+        name: 'Transfermarkt — Perfil de Julián Álvarez (Historial de Valor de Mercado)',
+        url: 'https://www.transfermarkt.es/julian-alvarez/marktwertverlauf/spieler/576024',
+      },
+    ],
+    sourceYear: 2026,
+    tags: ['fútbol', 'julián álvarez', 'valor de mercado', 'fichajes', 'transfermarkt', 'atlético de madrid', 'deportes'],
+  },
   // 6. Coste de organización del Mundial FIFA 2026 (FIFA)
   {
     id: 'fifa-world-cup-2026-cost',

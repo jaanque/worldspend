@@ -27,6 +27,19 @@ export const FiltersAndTabs: React.FC<FiltersAndTabsProps> = ({
   const dict = getDictionary(locale);
   const categories = getLocalizedCategories(locale);
 
+  const [localQuery, setLocalQuery] = React.useState(searchQuery);
+
+  React.useEffect(() => {
+    setLocalQuery(searchQuery);
+  }, [searchQuery]);
+
+  React.useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchQuery(localQuery);
+    }, 200);
+    return () => clearTimeout(handler);
+  }, [localQuery, setSearchQuery]);
+
   const hasActiveFilter = selectedCategory !== 'all' || searchQuery.trim() !== '';
 
   return (
@@ -38,14 +51,17 @@ export const FiltersAndTabs: React.FC<FiltersAndTabsProps> = ({
           <Search className="w-4 h-4 text-gray-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={localQuery}
+            onChange={(e) => setLocalQuery(e.target.value)}
             placeholder={dict.searchAndFilter.searchPlaceholder}
             className="w-full bg-white border border-[#cbd5e1] rounded-xs pl-8 pr-8 py-1.5 text-xs text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#16385c] shadow-2xs"
           />
-          {searchQuery && (
+          {localQuery && (
             <button
-              onClick={() => setSearchQuery('')}
+              onClick={() => {
+                setLocalQuery('');
+                setSearchQuery('');
+              }}
               className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 cursor-pointer"
               title="Borrar búsqueda"
             >

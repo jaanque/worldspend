@@ -75,7 +75,7 @@ export const esTranslations: Translations = {
   },
   searchAndFilter: {
     filterSectionTitle: 'Buscador y Filtros por Categoría',
-    searchPlaceholder: 'Filtrar más de 147 contadores, fuentes o temas (ej. deuda, defensa, tiktok, gasolina, sueldo)...',
+        searchPlaceholder: 'Buscar indicadores por temas, países o fuentes (ej. deuda, España, Netflix)...',
     showingCounters: (count: number) => `Mostrando ${count} contadores en vivo`,
     indicatorsCount: (count: number) => `${count} indicadores`,
     categoriesCount: (count: number) => `${count} categorías`,
@@ -153,6 +153,18 @@ export const esTranslations: Translations = {
     'country-gdp': { name: 'PIB por Países', description: 'Producto Interior Bruto (PIB nominal) de los países en tiempo real' },
   },
   items: {
+    'julian-alvarez-market-value': {
+      title: "Valor de mercado de Julián Álvarez",
+      subtitle: "La valoración estimada de mercado del jugador Julián Álvarez se sitúa en los 100 millones de euros",
+      description: "El valor de mercado actual de Julián Álvarez (delantero del Atlético de Madrid y de la selección argentina) es de 100 millones de euros, consolidándose como uno de los futbolistas de élite a nivel mundial según los datos históricos de Transfermarkt.",
+      sourceName: "Transfermarkt — Perfil de Julián Álvarez",
+      sources: [
+        {
+          name: "Transfermarkt — Perfil de Julián Álvarez (Historial de Valor de Mercado)",
+          url: "https://www.transfermarkt.es/julian-alvarez/marktwertverlauf/spieler/576024",
+        }
+      ],
+    },
     'us-national-debt': {
       title: "Deuda nacional de Estados Unidos",
       subtitle: "La deuda pública acumulada de EE.UU. supera los 39 billones de dólares",

@@ -73,7 +73,7 @@ export const enTranslations: Translations = {
   },
   searchAndFilter: {
     filterSectionTitle: 'Search & Category Filters',
-    searchPlaceholder: 'Filter 147+ live counters, institutions, keywords (e.g. debt, defense, tiktok, oil, wages)...',
+        searchPlaceholder: 'Search indicators by topics, countries, or sources (e.g. debt, United States, Netflix)...',
     showingCounters: (count: number) => `Showing ${count} live indicators`,
     indicatorsCount: (count: number) => `${count} indicators`,
     categoriesCount: (count: number) => `${count} categories`,
@@ -151,6 +151,18 @@ export const enTranslations: Translations = {
     'country-gdp': { name: 'GDP by Country', description: 'Gross Domestic Product (nominal GDP) of countries in real-time' },
   },
   items: {
+    'julian-alvarez-market-value': {
+      title: "Julián Álvarez Market Value",
+      subtitle: "The estimated market valuation of player Julián Álvarez is 100 million euros",
+      description: "The current market value of Julián Álvarez (Atlético de Madrid and Argentina national team forward) stands at 100 million euros, consolidating him as one of the elite football players globally according to historical Transfermarkt data.",
+      sourceName: "Transfermarkt — Julián Álvarez profile",
+      sources: [
+        {
+          name: "Transfermarkt — Julián Álvarez Profile (Market Value History)",
+          url: "https://www.transfermarkt.es/julian-alvarez/marktwertverlauf/spieler/576024",
+        }
+      ],
+    },
     'us-national-debt': {
       title: "US National Debt",
       subtitle: "The accumulated public debt of the US exceeds 39 trillion dollars",

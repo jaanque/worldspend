@@ -14,6 +14,8 @@ import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
 import { ChevronDown, ChevronRight, ChevronsUpDown, ChevronUp } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { COUNTRIES_GDP_DATA } from '@/data/countriesGdpData';
+import { COUNTRIES_DEBT_DATA } from '@/data/countriesDebtData';
 
 interface HomeViewProps {
   locale?: Locale;
@@ -95,32 +97,65 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
-      list = list.filter(
-        (item) =>
+      
+      // Map category ID to its localized name
+      const categoryNamesMap: Record<string, string> = {};
+      categories.forEach((cat) => {
+        categoryNamesMap[cat.id] = cat.name.toLowerCase();
+      });
+
+      list = list.filter((item) => {
+        // 1. Search in Category Names
+        const catName = categoryNamesMap[item.categoryId] || '';
+        if (catName.includes(q)) return true;
+
+        // 2. Search in basic item content
+        if (
           item.title.toLowerCase().includes(q) ||
           item.subtitle.toLowerCase().includes(q) ||
           item.description.toLowerCase().includes(q) ||
           item.tags.some((tag) => tag.toLowerCase().includes(q))
-      );
+        ) {
+          return true;
+        }
+
+        // 3. Search in all country name translations (for GDP, debt, food spending per country)
+        let countryNames: string[] = [];
+        if (item.categoryId === 'country-gdp') {
+          const cData = COUNTRIES_GDP_DATA.find((c) => c.id === item.id);
+          if (cData) {
+            countryNames = [cData.nameEs, cData.nameEn, cData.nameFr, cData.nameDe, cData.namePt];
+          }
+        } else if (item.id.startsWith('debt-')) {
+          const cData = COUNTRIES_DEBT_DATA.find((c) => c.id === item.id);
+          if (cData) {
+            countryNames = [cData.nameEs, cData.nameEn, cData.nameFr, cData.nameDe, cData.namePt];
+          }
+        } else if (item.id.startsWith('food-spend-')) {
+          const code = item.id.replace('food-spend-', '');
+          const cData = COUNTRIES_GDP_DATA.find((c) => c.id === `gdp-${code}`);
+          if (cData) {
+            countryNames = [cData.nameEs, cData.nameEn, cData.nameFr, cData.nameDe, cData.namePt];
+          }
+        }
+
+        return countryNames.some((name) => name.toLowerCase().includes(q));
+      });
     }
 
     return list;
-  }, [spendItems, selectedCategory, searchQuery]);
+  }, [spendItems, selectedCategory, searchQuery, categories]);
 
   // Grouped by category for default overview
   const groupedCategories = useMemo(() => {
-    if (selectedCategory !== 'all' || searchQuery.trim() !== '') {
-      return null;
-    }
-
     return categories
-      .filter((c) => c.id !== 'all')
+      .filter((c) => c.id !== 'all' && (selectedCategory === 'all' || c.id === selectedCategory))
       .map((cat) => ({
         category: cat,
-        items: spendItems.filter((item) => item.categoryId === cat.id),
+        items: filteredItems.filter((item) => item.categoryId === cat.id),
       }))
       .filter((group) => group.items.length > 0);
-  }, [selectedCategory, searchQuery, categories, spendItems]);
+  }, [selectedCategory, filteredItems, categories]);
 
   const toggleCategory = (categoryId: string) => {
     setCollapsedCategories((prev) => ({
@@ -165,6 +200,24 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
 
       {/* Centered Authority Container */}
       <main className="flex-1 w-full max-w-4xl mx-auto bg-white border-x border-[#cdd5de] px-3 sm:px-8 py-4 sm:py-6 shadow-xs my-0 sm:my-3">
+        {/* Site Explanation Header */}
+        <div className="text-center mt-2 mb-6">
+          <h1 className="text-2xl sm:text-3.5xl font-black text-[#112d4a] tracking-tight leading-tight mb-2">
+            {locale === 'es' ? '¿Cuánto dinero se está gastando ahora mismo en el mundo?' :
+             locale === 'en' ? 'How much money is the world spending right now?' :
+             locale === 'fr' ? 'Combien d\'argent le monde dépense-t-il en ce moment?' :
+             locale === 'de' ? 'Wie viel Geld gibt die Welt gerade aus?' :
+             'Quanto dinheiro o mundo está gastando agora?'}
+          </h1>
+          <p className="text-xs sm:text-sm text-gray-500 max-w-2xl mx-auto leading-normal">
+            {locale === 'es' ? 'Observa en tiempo real los flujos financieros globales. Desde presupuestos públicos y deudas nacionales de cada país, hasta sanidad, alimentación, gasto militar y entretenimiento visualizado segundo a segundo.' :
+             locale === 'en' ? 'Watch global financial flows in real time. From public budgets and national debts of each country, to healthcare, food, military spending, and entertainment visualized second by second.' :
+             locale === 'fr' ? 'Observez les flux financiers mondiaux en temps réel. Des budgets publics et des dettes nationales de chaque pays à la santé, l\'alimentation, les dépenses militaires et le divertissement visualisés seconde par seconde.' :
+             locale === 'de' ? 'Verfolgen Sie globale Finanzströme in Echtzeit. Von öffentlichen Haushalten und Staatsschulden der einzelnen Länder bis hin zu Gesundheit, Ernährung, Militärausgaben und Unterhaltung, sekündlich visualisiert.' :
+             'Assista aos fluxos financeiros globais em tempo real. De orçamentos públicos e dívidas nacionais de cada país, a saúde, alimentação, gastos militares e entretenimento visualizados segundo a segundo.'}
+          </p>
+        </div>
+
         {/* Main Hero Real-Time World Ticker */}
         <HeroTotalTicker
           totalWorldSpend={totalWorldSpend}
@@ -187,7 +240,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
         />
 
         {/* Categorized Content */}
-        {groupedCategories ? (
+        {groupedCategories && groupedCategories.length > 0 ? (
           <div className="space-y-6 my-6">
             {/* Collapse/Expand All Toolbar */}
             <div className="flex items-center justify-between pb-1 border-b border-[#cbd5e1] text-xs">
@@ -294,37 +347,19 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
             })}
           </div>
         ) : (
-          <div className="my-6">
-            {filteredItems.length === 0 ? (
-              <div className="text-center py-8 border border-[#c8d1db] bg-[#f9fafc] rounded-xs">
-                <p className="text-xs text-gray-600">
-                  {dict.searchAndFilter.noResultsFound(searchQuery)}
-                </p>
-                <button
-                  onClick={() => {
-                    setSearchQuery('');
-                    setSelectedCategory('all');
-                  }}
-                  className="mt-2.5 px-3 py-1 bg-[#1c4b78] text-white text-xs font-bold rounded-xs cursor-pointer"
-                >
-                  {dict.searchAndFilter.viewAllButton}
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-                {filteredItems.map((item) => (
-                  <CounterCard
-                    key={item.id}
-                    item={item}
-                    currentSpend={getItemCurrentSpend(item.annualSpendUSD)}
-                    ratePerSecond={getItemRatePerSecond(item.annualSpendUSD)}
-                    activeCurrency={activeCurrency}
-                    timeframe={timeframe}
-                    locale={locale}
-                  />
-                ))}
-              </div>
-            )}
+          <div className="my-6 text-center py-8 border border-[#c8d1db] bg-[#f9fafc] rounded-xs">
+            <p className="text-xs text-gray-600">
+              {dict.searchAndFilter.noResultsFound(searchQuery)}
+            </p>
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                setSelectedCategory('all');
+              }}
+              className="mt-2.5 px-3 py-1 bg-[#1c4b78] text-white text-xs font-bold rounded-xs cursor-pointer"
+            >
+              {dict.searchAndFilter.viewAllButton}
+            </button>
           </div>
         )}
       </main>
