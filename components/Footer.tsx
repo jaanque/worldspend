@@ -25,6 +25,11 @@ export const Footer: React.FC<FooterProps> = ({
   const dict = getDictionary(locale);
   const items = getLocalizedSpendItems(locale);
 
+  // Build a list of the first 2 items per category for the popular section
+  const popularItems = CATEGORIES.filter(c => c.id !== 'all').flatMap(cat =>
+    items.filter(item => item.categoryId === cat.id).slice(0, 2)
+  );
+
   const handleLanguageChange = (newLocale: Locale) => {
     if (typeof document !== 'undefined') {
       document.cookie = `worldspend_locale=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
@@ -60,6 +65,21 @@ export const Footer: React.FC<FooterProps> = ({
                   </li>
                 );
               })}
+              <li className="pt-1 border-t border-[#cbd5e1] mt-1">
+                <Link
+                  href={getHref('/calculator')}
+                  className="hover:text-[#1c4b78] hover:underline font-bold text-[#1c4b78]"
+                >
+                  <span className="text-[#6688aa] mr-1.5">⌗</span>
+                  <span>
+                    {locale === 'es' ? 'Calculadora de Gasto' :
+                     locale === 'fr' ? 'Calculatrice' :
+                     locale === 'de' ? 'Ausgabenrechner' :
+                     locale === 'pt' ? 'Calculadora de Gastos' :
+                     'Spend Calculator'}
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -69,7 +89,7 @@ export const Footer: React.FC<FooterProps> = ({
               {dict.footer.trendingTitle || 'CONTADORES POPULARES'}
             </div>
             <ul className="space-y-1 text-gray-700">
-              {items.slice(0, 5).map((item) => (
+              {popularItems.map((item) => (
                 <li key={item.id} className="truncate">
                   <Link
                     href={getHref(`/stat/${item.id}`)}
