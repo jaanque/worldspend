@@ -20,7 +20,7 @@ import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
 
 import { CounterCard } from '@/components/CounterCard';
-import { ArrowLeft, ShieldCheck, Globe, Layers, ChevronRight, Home, Share2, Check, Download, MessageCircle, Code, Info, X, Copy, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Globe, Layers, ChevronRight, Home, Share2, Check, Download, MessageCircle, Code, Info, X, Copy, ExternalLink, TrendingUp } from 'lucide-react';
 import { GLOBAL_ANNUAL_SPEND_USD } from '@/hooks/useWorldSpendEngine';
 
 interface CounterDetailViewProps {
@@ -194,7 +194,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
         <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-1.5 text-xs text-gray-600 mb-3 bg-[#edf3f8] border border-[#c8d6e5] px-3 py-2 rounded-xs shadow-2xs">
           <Link
             href={backHref}
-            className="inline-flex items-center gap-1 font-bold text-[#1c4b78] hover:underline bg-white border border-[#b8c9dc] px-2 py-0.5 rounded-xs shadow-2xs text-[#14324f]"
+            className="inline-flex items-center gap-1 font-bold text-[#1c4b78] hover:underline bg-white border border-[#b8c9dc] px-2 py-0.5 rounded-xs shadow-2xs"
             title={backLabel}
           >
             <ArrowLeft className="w-3.5 h-3.5 text-[#1c4b78]" />
@@ -209,7 +209,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
 
           <ChevronRight className="w-3 h-3 text-gray-400 shrink-0" />
 
-          <span className="font-bold text-[#14324f] truncate max-w-[200px] sm:max-w-none">
+          <span className="font-bold text-[#14324f] truncate max-w-50 sm:max-w-none">
             {item.title}
           </span>
         </nav>
@@ -276,7 +276,7 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
 
             {/* Embed Modal Box (Positioned smoothly below the button) */}
             {showEmbedBox && (
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-[290px] sm:w-80 p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-2xl border-2 border-[#1c4b78]">
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-72.5 sm:w-80 p-3 bg-white text-gray-800 text-[11px] rounded-xs shadow-2xl border-2 border-[#1c4b78]">
                 <div className="flex items-center justify-between gap-1 mb-1.5 pb-1 border-b border-gray-200">
                   <span className="font-bold text-[#14324f] text-xs">
                     {dict.card.embedTitle}
@@ -361,15 +361,61 @@ export const CounterDetailView: React.FC<CounterDetailViewProps> = ({
           </button>
         </div>
 
-        {/* Concise Institutional Context Callout (Información de la Estadística) */}
-        <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-xs p-3.5 text-xs text-gray-700 mb-4 sm:mb-5 leading-relaxed shadow-2xs">
-          <div className="font-bold text-[#14324f] mb-1.5 border-b border-[#e2e8f0] pb-1 flex items-center gap-1.5">
-            <Info className="w-4 h-4 text-[#1c4b78]" />
-            <span>{dict.detailPage.statisticalOverview}</span>
+        {/* Rich Statistical Summary Area (Información de la Estadística) */}
+        <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-xs p-4 sm:p-5 text-xs text-gray-700 mb-4 sm:mb-5 leading-relaxed shadow-2xs">
+          <div className="font-bold text-[#14324f] text-sm mb-3 border-b border-[#e2e8f0] pb-2 flex items-center gap-1.5">
+            <TrendingUp className="w-4 h-4 text-[#1c4b78]" />
+            <span>{locale === 'es' ? 'Análisis Estadístico y Proyección de Gasto' : 'Statistical Analysis & Spending Projections'}</span>
           </div>
-          <p className="text-gray-600">
+          
+          <p className="text-gray-600 mb-4 text-xs leading-normal">
             {item.description}
           </p>
+
+          <h3 className="font-bold text-[#14324f] text-xs mb-2">
+            {locale === 'es' ? 'Proyección de gasto estimado en base a tasas actuales:' : 'Estimated spending projection based on current rates:'}
+          </h3>
+
+          {/* Grid of Projections */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-4">
+            <div className="bg-white border border-[#e2e8f0] p-2 rounded-xs shadow-3xs">
+              <span className="text-[10px] text-gray-400 font-semibold block">{locale === 'es' ? 'Por Segundo' : 'Per Second'}</span>
+              <strong className="text-sm font-black text-[#112d4a] tabular-numbers block mt-0.5">
+                {formatCurrencyValue(ratePerSecond, activeCurrency, activeCurrency.code === 'BTC')}
+              </strong>
+            </div>
+            <div className="bg-white border border-[#e2e8f0] p-2 rounded-xs shadow-3xs">
+              <span className="text-[10px] text-gray-400 font-semibold block">{locale === 'es' ? 'Por Minuto' : 'Per Minute'}</span>
+              <strong className="text-sm font-black text-[#112d4a] tabular-numbers block mt-0.5">
+                {formatCurrencyValue(ratePerSecond * 60, activeCurrency, activeCurrency.code === 'BTC')}
+              </strong>
+            </div>
+            <div className="bg-white border border-[#e2e8f0] p-2 rounded-xs shadow-3xs">
+              <span className="text-[10px] text-gray-400 font-semibold block">{locale === 'es' ? 'Por Hora' : 'Per Hour'}</span>
+              <strong className="text-sm font-black text-[#112d4a] tabular-numbers block mt-0.5">
+                {formatCurrencyValue(ratePerSecond * 3600, activeCurrency, activeCurrency.code === 'BTC')}
+              </strong>
+            </div>
+            <div className="bg-white border border-[#e2e8f0] p-2 rounded-xs shadow-3xs">
+              <span className="text-[10px] text-gray-400 font-semibold block">{locale === 'es' ? 'Por Día' : 'Per Day'}</span>
+              <strong className="text-sm font-black text-[#112d4a] tabular-numbers block mt-0.5">
+                {formatCurrencyValue(ratePerSecond * 86400, activeCurrency, activeCurrency.code === 'BTC')}
+              </strong>
+            </div>
+            <div className="bg-white border border-[#e2e8f0] p-2 rounded-xs shadow-3xs">
+              <span className="text-[10px] text-gray-400 font-semibold block">{locale === 'es' ? 'Por Mes' : 'Per Month'}</span>
+              <strong className="text-sm font-black text-[#112d4a] tabular-numbers block mt-0.5">
+                {formatCurrencyValue(ratePerSecond * (31557600 / 12), activeCurrency, activeCurrency.code === 'BTC')}
+              </strong>
+            </div>
+            <div className="bg-white border border-[#e2e8f0] p-2 rounded-xs shadow-3xs">
+              <span className="text-[10px] text-gray-400 font-semibold block">{locale === 'es' ? 'Por Año' : 'Per Year'}</span>
+              <strong className="text-sm font-black text-emerald-700 tabular-numbers block mt-0.5">
+                {formatCurrencyValue(ratePerSecond * 31557600, activeCurrency, activeCurrency.code === 'BTC')}
+              </strong>
+            </div>
+          </div>
+
         </div>
 
         {/* Simple Infographic Official Sources Card */}
