@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from 'react';
 import { Locale } from '@/types/i18n';
 import { CurrencyConfig } from '@/types/spend';
-import { Calculator } from 'lucide-react';
 
 interface PersonalSpendCalculatorProps {
   totalRatePerSecond: number;
@@ -50,7 +49,7 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
     const num = parseFloat(amount);
     if (isNaN(num) || num <= 0 || totalRatePerSecond <= 0) return 0;
     return (num / activeCurrency.rateToUSD) / totalRatePerSecond;
-  }, [amount, frequency, totalRatePerSecond, activeCurrency]);
+  }, [amount, totalRatePerSecond, activeCurrency]);
 
   const i18n: Record<string, Record<string, string>> = {
     es: {
@@ -110,7 +109,7 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
       subtitle: 'Insira uma quantia para ver quanto tempo o mundo demora a gastá-la.',
       amountLabel: 'Quantia',
       frequencyLabel: 'Frequência',
-      unitLabel: 'Mostrar resultado em',
+      unitLabel: 'Mostrar resultado en',
       day: 'Dia', month: 'Mês', year: 'Ano',
       resultPrefix: 'O mundo gasta essa quantia em',
       auto: 'Auto',
@@ -139,31 +138,26 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
     ...TIME_UNITS.map(u => ({ id: u.id as TimeUnit | 'auto', label: t[u.id] })),
   ];
 
-  const selectClasses = 'w-full text-sm font-bold bg-white text-[#14324f] border border-[#b0c0d0] rounded-xs px-3 py-3 focus:outline-none focus:ring-2 focus:ring-[#245280] cursor-pointer shadow-2xs transition-shadow';
+  const selectClasses = 'w-full text-sm font-semibold bg-white text-[#14324f] border border-[#cbd5e1] rounded-xs px-3.5 py-2.5 focus:outline-none focus:border-[#1c4b78] cursor-pointer shadow-3xs hover:bg-[#f8fafc] transition-colors';
 
   return (
     <div className="w-full">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-full bg-[#e2edf8] flex items-center justify-center shrink-0">
-          <Calculator className="w-5 h-5 text-[#1c4b78]" />
-        </div>
-        <div>
-          <h2 className="text-base sm:text-lg font-black text-[#14324f] leading-tight">{t.title}</h2>
-          <p className="text-xs text-gray-500 mt-0.5">{t.subtitle}</p>
-        </div>
+      {/* Description */}
+      <div className="mb-6">
+        <h2 className="text-base sm:text-lg font-black text-[#14324f] leading-tight">{t.title}</h2>
+        <p className="text-xs text-gray-500 mt-0.5">{t.subtitle}</p>
       </div>
 
-      <div className="border-t border-[#e2edf8] mt-4 pt-6 space-y-6">
+      <div className="space-y-6">
         {/* Amount + Frequency row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Amount */}
-          <div className="flex flex-col gap-2">
-            <label className="text-[11px] font-bold text-[#445566] uppercase tracking-wider">
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">
               {t.amountLabel}
             </label>
-            <div className="flex items-center bg-white border border-[#b0c0d0] rounded-xs shadow-2xs focus-within:ring-2 focus-within:ring-[#245280] transition-shadow overflow-hidden">
-              <span className="px-3 py-3 text-sm font-black text-[#245280] bg-[#edf1f5] border-r border-[#b0c0d0] select-none shrink-0">
+            <div className="flex items-center bg-white border border-[#cbd5e1] rounded-xs shadow-3xs focus-within:border-[#1c4b78] transition-colors overflow-hidden">
+              <span className="px-3.5 py-2.5 text-sm font-black text-[#1c4b78] bg-[#f8fafc] border-r border-[#cbd5e1] select-none shrink-0">
                 {activeCurrency.symbol}
               </span>
               <input
@@ -172,7 +166,7 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
                 step="any"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="flex-1 px-3 py-3 text-sm font-bold text-[#14324f] bg-transparent focus:outline-none min-w-0 tabular-nums"
+                className="flex-1 px-3.5 py-2.5 text-sm font-bold text-[#14324f] bg-transparent focus:outline-none min-w-0 tabular-nums"
                 aria-label={t.amountLabel}
                 placeholder="100"
               />
@@ -180,8 +174,8 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
           </div>
 
           {/* Frequency */}
-          <div className="flex flex-col gap-2">
-            <label className="text-[11px] font-bold text-[#445566] uppercase tracking-wider">
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">
               {t.frequencyLabel}
             </label>
             <select
@@ -198,8 +192,8 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
         </div>
 
         {/* Unit selector */}
-        <div className="flex flex-col gap-2">
-          <label className="text-[11px] font-bold text-[#445566] uppercase tracking-wider">
+        <div className="flex flex-col gap-1.5">
+          <label className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">
             {t.unitLabel}
           </label>
           <div className="flex flex-wrap gap-1.5">
@@ -208,10 +202,10 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
                 key={u.id}
                 type="button"
                 onClick={() => setSelectedUnit(u.id)}
-                className={`text-[11px] font-bold px-3 py-1.5 rounded-xs border transition-all cursor-pointer focus:outline-none ${
+                className={`text-[10px] font-bold px-3 py-1.5 rounded-xs border transition-all cursor-pointer focus:outline-none ${
                   selectedUnit === u.id
-                    ? 'bg-[#245280] text-white border-[#1c3f60] shadow-sm'
-                    : 'bg-white text-[#14324f] border-[#b0c0d0] hover:bg-[#e2edf8] hover:border-[#245280]'
+                    ? 'bg-[#1c4b78] text-white border-[#1c4b78] shadow-sm'
+                    : 'bg-white text-[#14324f] border-[#cbd5e1] hover:bg-[#f8fafc] hover:border-[#1c4b78]'
                 }`}
               >
                 {u.label}
@@ -222,19 +216,19 @@ export const PersonalSpendCalculator: React.FC<PersonalSpendCalculatorProps> = (
 
         {/* Result */}
         {resultSeconds > 0 ? (
-          <div className="bg-gradient-to-br from-[#e2edf8] to-[#dce8f5] border border-[#b8cde4] rounded-xs p-5 text-center">
-            <p className="text-xs text-[#445566] font-semibold mb-2">{t.resultPrefix}</p>
+          <div className="bg-[#f8fafc] border-2 border-[#cbd5e1] rounded-xs p-6 text-center shadow-3xs">
+            <p className="text-[10px] text-[#64748b] font-bold uppercase tracking-widest mb-1.5">{t.resultPrefix}</p>
             <div className="flex items-baseline justify-center gap-2 flex-wrap">
-              <span className="text-4xl sm:text-5xl font-black text-[#0a5c0a] tabular-nums leading-none tracking-tight">
+              <span className="text-4xl sm:text-5xl font-black text-[#007700] tabular-nums leading-none tracking-tight">
                 {formatDisplayValue(displayValue)}
               </span>
-              <span className="text-sm font-bold text-[#1c4b78]">
-                {t[activeUnit]?.toLowerCase()}
+              <span className="text-sm font-black text-[#1c4b78] uppercase tracking-wider">
+                {t[activeUnit]}
               </span>
             </div>
           </div>
         ) : (
-          <div className="bg-[#f0f5fa] border border-[#dde6f0] rounded-xs p-5 text-center text-gray-400 text-sm font-semibold">
+          <div className="bg-[#f8fafc] border border-dashed border-[#cbd5e1] rounded-xs p-6 text-center text-gray-400 text-sm font-semibold shadow-3xs">
             —
           </div>
         )}

@@ -2,6 +2,7 @@ import { use, Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { isValidLocale, getDictionary } from '@/utils/i18n';
 import { HomeView } from '@/components/HomeView';
+import { HomeViewSkeleton } from '@/components/Skeleton';
 import { Metadata } from 'next';
 import { Locale } from '@/types/i18n';
 
@@ -44,7 +45,7 @@ export default function LocalizedHomePage({ params }: LocalizedHomePageProps) {
   }
 
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<HomeViewSkeleton />}>
       <HomeView locale={resolvedParams.locale as Locale} />
     </Suspense>
   );

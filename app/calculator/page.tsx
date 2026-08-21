@@ -1,4 +1,6 @@
 import { CalculatorView } from '@/components/CalculatorView';
+import { CalculatorViewSkeleton } from '@/components/Skeleton';
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -34,9 +36,9 @@ const jsonLd = {
 
 export default function CalculatorPage() {
   return (
-    <>
+    <Suspense fallback={<CalculatorViewSkeleton />}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <CalculatorView locale="en" />
-    </>
+    </Suspense>
   );
 }

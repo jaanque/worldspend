@@ -6,7 +6,6 @@ import { useWorldSpendEngine } from '@/hooks/useWorldSpendEngine';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { PersonalSpendCalculator } from '@/components/PersonalSpendCalculator';
-import { Calculator } from 'lucide-react';
 
 interface CalculatorViewProps {
   locale?: Locale;
@@ -43,11 +42,8 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({ locale = 'en' })
       />
 
       <main className="flex-1 w-full max-w-4xl mx-auto bg-white border-x border-[#cdd5de] px-3 sm:px-8 py-4 sm:py-6 shadow-xs my-0 sm:my-3">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#e2edf8]">
-          <div className="w-9 h-9 rounded-full bg-[#e2edf8] flex items-center justify-center shrink-0">
-            <Calculator className="w-4 h-4 text-[#1c4b78]" />
-          </div>
-          <h1 className="text-lg sm:text-xl font-black text-[#14324f]">{getPageTitle()}</h1>
+        <div className="mb-6 pb-4 border-b border-[#e2edf8]">
+          <h1 className="text-lg sm:text-2xl font-black text-[#14324f]">{getPageTitle()}</h1>
         </div>
 
         <PersonalSpendCalculator

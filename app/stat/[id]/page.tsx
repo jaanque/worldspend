@@ -1,6 +1,7 @@
 import { use, Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { CounterDetailView } from '@/components/CounterDetailView';
+import { CounterDetailViewSkeleton } from '@/components/Skeleton';
 import { getLocalizedSpendItems, generateDetailSEO } from '@/utils/i18n';
 import { Metadata } from 'next';
 
@@ -89,7 +90,7 @@ export default function StatPage({ params }: StatPageProps) {
   };
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#edf1f5]" />}>
+    <Suspense fallback={<CounterDetailViewSkeleton />}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

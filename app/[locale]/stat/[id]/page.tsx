@@ -2,6 +2,7 @@ import { use, Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { isValidLocale, getLocalizedSpendItems, generateDetailSEO } from '@/utils/i18n';
 import { CounterDetailView } from '@/components/CounterDetailView';
+import { CounterDetailViewSkeleton } from '@/components/Skeleton';
 import { Metadata } from 'next';
 import { Locale } from '@/types/i18n';
 
@@ -101,7 +102,7 @@ export default function LocalizedStatPage({ params }: LocalizedStatPageProps) {
   };
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#edf1f5]" />}>
+    <Suspense fallback={<CounterDetailViewSkeleton />}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

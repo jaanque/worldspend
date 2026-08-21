@@ -1,7 +1,8 @@
-import { use } from 'react';
+import { use, Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { isValidLocale } from '@/utils/i18n';
 import { CalculatorView } from '@/components/CalculatorView';
+import { CalculatorViewSkeleton } from '@/components/Skeleton';
 import { Locale } from '@/types/i18n';
 
 interface LocalizedCalculatorPageProps {
@@ -15,5 +16,9 @@ export default function LocalizedCalculatorPage({ params }: LocalizedCalculatorP
     return notFound();
   }
 
-  return <CalculatorView locale={resolvedParams.locale as Locale} />;
+  return (
+    <Suspense fallback={<CalculatorViewSkeleton />}>
+      <CalculatorView locale={resolvedParams.locale as Locale} />
+    </Suspense>
+  );
 }
