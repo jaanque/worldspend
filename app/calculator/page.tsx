@@ -20,6 +20,17 @@ export const metadata: Metadata = {
     title: 'Personal Spend Calculator | WorldSpend.org',
     description: 'How fast does the world spend what you earn? Compare your spending to global statistics in real time.',
   },
+  alternates: {
+    canonical: 'https://worldspend.org/calculator',
+    languages: {
+      'en': 'https://worldspend.org/calculator',
+      'es': 'https://worldspend.org/es/calculadora',
+      'fr': 'https://worldspend.org/fr/calculatrice',
+      'de': 'https://worldspend.org/de/rechner',
+      'pt': 'https://worldspend.org/pt/calculadora',
+      'x-default': 'https://worldspend.org/calculator',
+    },
+  },
 };
 
 const jsonLd = {
