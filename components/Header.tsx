@@ -5,12 +5,10 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { CurrencyCode, TimeframeMode } from '@/types/spend';
 import { Locale, SUPPORTED_LOCALES } from '@/types/i18n';
-import { CURRENCIES, CATEGORIES } from '@/data/spendData';
+import { CURRENCIES } from '@/data/spendData';
 import { getDictionary, getLocalizedPath, getLocalizedCategories } from '@/utils/i18n';
-import { Globe, Scale, Menu, X, Clock } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 
-import { formatElapsedTime, calculateCurrentSpend, formatCurrencyValue } from '@/utils/formatters';
-import { GLOBAL_ANNUAL_SPEND_USD } from '@/hooks/useWorldSpendEngine';
 
 const categoryShortNames: Record<string, Record<string, string>> = {
   es: {
@@ -83,18 +81,11 @@ export const Header: React.FC<HeaderProps> = ({
   setTimeframe,
   currencyCode,
   setCurrencyCode,
-  customStartDate = '2026-01-01',
-  setCustomStartDate,
-  customEndDate = '2026-12-31',
-  setCustomEndDate,
-  sessionSeconds = 0,
   locale = 'en',
 }) => {
   const pathname = usePathname() || '/';
   const router = useRouter();
   const dict = getDictionary(locale);
-
-  const isCompareActive = pathname.includes('/compare');
 
   const timeframes: { id: TimeframeMode; label: string }[] = [
     { id: 'year', label: dict.header.timeframes.year },
@@ -112,15 +103,6 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   const homeHref = locale === 'en' ? '/' : `/${locale}`;
-  const compareHref = locale === 'en' ? '/compare' : `/${locale}/compare`;
-
-  const activeCurrency = CURRENCIES[currencyCode] || CURRENCIES.USD;
-  const sessionSpendCurrency = calculateCurrentSpend(
-    GLOBAL_ANNUAL_SPEND_USD,
-    'session',
-    sessionSeconds,
-    activeCurrency.code
-  );
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Only intercept if we are on the exact home page without query params
@@ -139,13 +121,10 @@ export const Header: React.FC<HeaderProps> = ({
     locale === 'fr' ? 'Calculatrice' :
     locale === 'de' ? 'Rechner' :
     locale === 'pt' ? 'Calculadora' : 'Calculator';
-  // Short label for the compact horizontal nav bar
-  const calculatorShortLabel =
-    locale === 'de' ? 'Rechner' : locale === 'fr' ? 'Calcul.' : 'Calc.';
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#245280] to-[#16385c] border-b border-[#0d233a] text-white shadow-md">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-linear-to-b from-[#245280] to-[#16385c] border-b border-[#0d233a] text-white shadow-md">
         {/* Row 1: Logo & Preferences Selectors */}
         <div className="max-w-4xl mx-auto px-3 sm:px-8 py-2 flex items-center justify-between gap-4">
           {/* Left Side: Brand Logo */}
@@ -221,7 +200,7 @@ export const Header: React.FC<HeaderProps> = ({
                 {locale === 'es' ? 'Inicio' : locale === 'fr' ? 'Accueil' : locale === 'de' ? 'Start' : locale === 'pt' ? 'Início' : 'Home'}
               </Link>
               <span className="text-blue-300/30 shrink-0 select-none">|</span>
-              {categories.filter(cat => cat.id !== 'health').map((cat) => {
+              {categories.filter(cat => cat.id !== 'health' && cat.id !== 'tech').map((cat) => {
                 const href = `${homeHref}?cat=${cat.id}`;
                 const name = categoryShortNames[locale]?.[cat.id] || cat.name;
                 return (
@@ -266,12 +245,12 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Sidebar Drawer Panel */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-[290px] max-w-full bg-[#11273f] border-l border-[#0d233a] text-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-72.5 max-w-full bg-[#11273f] border-l border-[#0d233a] text-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Drawer Header */}
-        <div className="flex items-center justify-between p-4 border-b border-[#0d233a] bg-gradient-to-b from-[#245280] to-[#16385c]">
+        <div className="flex items-center justify-between p-4 border-b border-[#0d233a] bg-linear-to-b from-[#245280] to-[#16385c]">
           <Link
             href={homeHref}
             onClick={() => setIsMenuOpen(false)}
@@ -405,7 +384,7 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Spacer to preserve document layout under fixed header */}
-      <div className="h-[84px] w-full shrink-0" />
+      <div className="h-21 w-full shrink-0" />
     </>
   );
 };

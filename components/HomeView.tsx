@@ -1,18 +1,17 @@
 'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { CategoryId } from '@/types/spend';
 import { Locale } from '@/types/i18n';
 import { useWorldSpendEngine } from '@/hooks/useWorldSpendEngine';
 import { getLocalizedCategories, getDictionary } from '@/utils/i18n';
 import { Header } from '@/components/Header';
 import { HeroTotalTicker } from '@/components/HeroTotalTicker';
-import { SessionImpactBanner } from '@/components/SessionImpactBanner';
 import { FiltersAndTabs } from '@/components/FiltersAndTabs';
 import { CounterCard } from '@/components/CounterCard';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
-import { ChevronDown, ChevronRight, ChevronsUpDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronsUpDown, ChevronUp } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { COUNTRIES_GDP_DATA } from '@/data/countriesGdpData';
 import { COUNTRIES_DEBT_DATA } from '@/data/countriesDebtData';
@@ -41,30 +40,25 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
   } = useWorldSpendEngine(locale);
 
   const dict = getDictionary(locale);
-  const categories = getLocalizedCategories(locale);
+  const categories = useMemo(() => getLocalizedCategories(locale), [locale]);
 
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [selectedCategory, setSelectedCategory] = useState<CategoryId>('all');
+  const selectedCategory = useMemo(() => {
+    if (!searchParams) return 'all';
+    const cat = searchParams.get('cat') as CategoryId;
+    if (cat && categories.some((c) => c.id === cat)) {
+      return cat;
+    }
+    return 'all';
+  }, [searchParams, categories]);
+
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [collapsedCategories, setCollapsedCategories] = useState<Record<string, boolean>>({});
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
 
-  // Sync category state with URL search param
-  useEffect(() => {
-    if (searchParams) {
-      const cat = searchParams.get('cat') as CategoryId;
-      if (cat && categories.some(c => c.id === cat)) {
-        setSelectedCategory(cat);
-      } else if (cat === 'all' || !cat) {
-        setSelectedCategory('all');
-      }
-    }
-  }, [searchParams, categories]);
-
   const handleCategoryChange = (catId: CategoryId) => {
-    setSelectedCategory(catId);
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       if (catId === 'all') {
@@ -354,7 +348,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ locale = 'en' }) => {
             <button
               onClick={() => {
                 setSearchQuery('');
-                setSelectedCategory('all');
+                handleCategoryChange('all');
               }}
               className="mt-2.5 px-3 py-1 bg-[#1c4b78] text-white text-xs font-bold rounded-xs cursor-pointer"
             >
